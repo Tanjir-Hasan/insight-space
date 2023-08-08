@@ -12,7 +12,7 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center pt-20">
-      <div className="w-full md:w-[50%]">
+      <div className="w-full md:w-1/2">
         <div className="w-3/4  mx-auto shadow-lg shadow-cyan-500/50 rounded-md p-5 ">
           {/* signup form  */}
           {/* signup form  */}
@@ -89,25 +89,25 @@ const Signup = () => {
           </div>
           {/* social login  */}
           {/* social login  */}
-          <div className="w-full text-center my-4">
+          <div className="flex justify-center gap-5 py-5">
             <button
               onClick="{handleGoogleSignIn}"
-              className="btn mr-3"
+              className="btn"
             >
-              <FaGoogle className="text-2xl"></FaGoogle> <span className="text-2xl ml-3"> </span>
+              <FaGoogle className="text-2xl"></FaGoogle> <span className="text-2xl"> </span>
             </button>
 
             <button
               onClick="{handleGoogleSignIn}"
               className="btn"
             >
-              <FaGithub className="text-2xl"></FaGithub> <span className="text-2xl ml-3"> </span>
+              <FaGithub className="text-2xl"></FaGithub> <span className="text-2xl"> </span>
             </button>
           </div>
         </div>
       </div>
 
-      <div className="w-full md:w-[50%] mt-5 md:mt-0">
+      <div className="w-full md:w-1/2 mt-5 md:mt-0">
         <img src="./login.jpg" alt="" />
       </div>
     </div>
