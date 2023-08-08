@@ -9,7 +9,16 @@ const Login = () => {
     } = useForm();
 
     const onSubmit = (data) => console.log(data);
+    
+// google sign in
+    const handleGoogleSignIn = () => {
+        console.log("click on sign in with Google");
+    }
 
+    // github sign in
+    const handleGithubSignIn = () => {
+        console.log("click on sign in with Github");
+    }
     return (
         <>
             <div className="flex flex-col md:flex-row justify-center items-center pt-5 box-border">
@@ -67,14 +76,14 @@ const Login = () => {
                         {/* social login  */}
                         <div className="flex justify-center gap-5 py-5">
                             <button
-                                onClick="{handleGoogleSignIn}"
+                                onClick={handleGithubSignIn}
                                 className="btn"
                             >
                                 <FaGoogle className="text-2xl"></FaGoogle> <span className="text-2xl"> </span>
                             </button>
 
                             <button
-                                onClick="{handleGoogleSignIn}"
+                                onClick={handleGoogleSignIn}
                                 className="btn"
                             >
                                 <FaGithub className="text-2xl"></FaGithub> <span className="text-2xl"> </span>
