@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import "./Signup.css";
+// import "./Signup.css";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 const Signup = () => {
   const {
@@ -13,7 +13,7 @@ const Signup = () => {
   return (
     <div>
       <h2 className="text-center text-3xl font-semibold underline">Registration Now</h2>
-      <div className="flex flex-col md:flex-row justify-center items-center pt-5 md:pt-10">
+      <div className="flex flex-col md:flex-row justify-center items-center pt-5">
         <div className="w-full md:w-1/2">
           <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-cyan-500/50 rounded-md p-5 ">
             {/* signup form  */}
@@ -21,11 +21,12 @@ const Signup = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* name */}
               {/* name */}
-              <div className="mb-1">
+              <div className="mb-1 box-border">
                 <label htmlFor="name" className="text-sm block">
                   Name
                 </label>
                 <input
+                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
                   type="text"
                   id="name"
                   {...register("name")}
@@ -40,6 +41,7 @@ const Signup = () => {
                   Email
                 </label>
                 <input
+                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
                   type="text"
                   id="email"
                   {...register("email")}
@@ -54,6 +56,7 @@ const Signup = () => {
                   Password
                 </label>
                 <input
+                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
                   type="password"
                   id="password"
                   {...register("password")}
@@ -68,6 +71,7 @@ const Signup = () => {
                   Confirm Password
                 </label>
                 <input
+                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
                   type="password"
                   id="confirm_password"
                   {...register("confirm_password")}
@@ -81,7 +85,7 @@ const Signup = () => {
               <div className="mt-4">
                 <input
                   type="submit"
-                  className="btn bg-cyan-400 rounded-md mt-2 ml-5 px-3 py-2 block mb-1 w-9/12 cursor-pointer"
+                  className="btn bg-cyan-400 rounded-md mt-2 px-3 py-2 block mb-1 w-9/12 mx-auto cursor-pointer"
                   value="Sign Up"
                 />
               </div>

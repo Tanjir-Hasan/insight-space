@@ -5,7 +5,7 @@
     box-shadow: 0px 0px rebeccapurple;
 } */
 
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="password"],input[type="email"]{
     /* border: 2px solid rgb(235, 235, 231); */
     border-bottom: 2px solid rgb(235, 235, 231);
     border-radius: 5px;

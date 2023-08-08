@@ -1,9 +1,93 @@
-
+import { useForm } from "react-hook-form";
+import "./Login.css";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = (data) => console.log(data);
+
     return (
-        <div>
-            <h1>this is login</h1>
-        </div>
+        <>
+            <div className="flex flex-col md:flex-row justify-center items-center pt-5 box-border">
+                <div className="w-full md:w-1/2">
+                    <h2 className="text-center text-3xl font-semibold ">Login</h2>
+                    <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-cyan-500/50 rounded-md p-5">
+                        {/* signup form  */}
+                        {/* signup form  */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            {/* name */}
+                            {/* name */}
+                            <div className="mb-1 box-border">
+                                <label htmlFor="name" className="text-sm block">
+                                    Name
+                                </label>
+                                <input
+                                    className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
+                                    type="text"
+                                    id="name"
+                                    {...register("name")}
+                                    placeholder="Enter your name"
+                                />
+                            </div>
+
+                            {/* email */}
+                            {/* email */}
+                            <div className="mb-1">
+                                <label htmlFor="email" className="text-sm block">
+                                    Email
+                                </label>
+                                <input
+                                    className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
+                                    type="text"
+                                    id="email"
+                                    {...register("email")}
+                                    placeholder="Enter your email"
+                                />
+                            </div>
+                            {/* <input {...register("exampleRequired", { required: true })} /> */}
+                            {errors.exampleRequired && <span>This field is required</span>}
+                            {/* submit button */}
+                            {/* submit button */}
+                            <div className="mt-4">
+                                <input
+                                    type="submit"
+                                    className="btn bg-cyan-400 rounded-md mt-2 px-3 py-2 block mb-1 w-9/12 mx-auto cursor-pointer"
+                                    value="Log in"
+                                />
+                            </div>
+                        </form>
+                        <div className="w-[90%] mx-auto">
+                            <h1 className="signup_line">or continue with</h1>
+                        </div>
+                        {/* social login  */}
+                        {/* social login  */}
+                        <div className="flex justify-center gap-5 py-5">
+                            <button
+                                onClick="{handleGoogleSignIn}"
+                                className="btn"
+                            >
+                                <FaGoogle className="text-2xl"></FaGoogle> <span className="text-2xl"> </span>
+                            </button>
+
+                            <button
+                                onClick="{handleGoogleSignIn}"
+                                className="btn"
+                            >
+                                <FaGithub className="text-2xl"></FaGithub> <span className="text-2xl"> </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-full md:w-1/2 mt-5 md:mt-0">
+                    <img src="./login.jpg" alt="" />
+                </div>
+            </div>
+        </>
     );
 };
 
