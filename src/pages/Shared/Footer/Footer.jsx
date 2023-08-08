@@ -1,8 +1,8 @@
 
 const Footer = () => {
     return (
-        <div>
-            <h1>this is footer</h1>
+        <div className="mt-10">
+            <h1 className="font-[Oswald]">this is footer</h1>
         </div>
     );
 };
