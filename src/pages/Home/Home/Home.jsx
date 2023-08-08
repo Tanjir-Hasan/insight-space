@@ -7,8 +7,7 @@ const Home = () => {
             <Banner></Banner>
             <ChoiceUs></ChoiceUs>
             {/* another compo */}
-        </>
-    );
+        </> )
 };
 
 export default Home;

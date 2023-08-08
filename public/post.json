@@ -1,0 +1,57 @@
+[
+    {
+      "_id": 1,
+      "postText": "Do you have idea about TypeScript and how can i ready this effectively ?",
+      "postImg": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo.png",
+      "userName": "John Due",
+      "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+      "reacts": {
+        "likes": 102,
+        "hearts": 20,
+        "claps": 15
+      },
+      "comments": [
+        {
+          "userId": 2,
+          "userName": "NatureExplorer",
+          "postImg": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+          "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+          "commentText": "Wow, the view must have been breathtaking!",
+          "timestamp": "2023-08-08T10:30:00"
+        },
+        {
+          "userId": 3,
+          "userName": "OutdoorEnthusiast",
+          "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+          "commentText": "I wish I could have joined you. Next time for sure!",
+          "timestamp": "2023-08-08T11:15:00"
+        }
+      ]
+    },
+    {
+      "_id": 2,
+      "postText": "Hold on just a minute there! If you’re creatively curious enough, you might have noticed something a little ambiguous in that sentence. If I’m in the process of jumping, does that mean that\n\nI’m caught mid-jump in the air, in the process of one single jump right now, or that\nI am currently in the process of jumping multiple times?Standard dialects of English don’t distinguish between these two, which makes asking this seem more like an obscure point of semantics.Hold on just a minute there! If you’re creatively curious enough, you might have noticed something a little ambiguous in that sentence. If I’m in the process of jumping, does that mean that\n\nI’m caught mid-jump in the air, in the process of one single jump right now, or that\nI am currently in the process of jumping multiple times?Standard dialects of English don’t distinguish between these two, which makes asking this seem more like an obscure point of semantics",
+      "userName": "Chris Hemsworth ",
+      "postImg": "https://images.pexels.com/photos/757889/pexels-photo-757889.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+      "reacts": {
+        "likes": 75,
+        "hearts": 10,
+        "claps": 5
+      },
+      "comments": []
+    },
+    {
+      "_id": 3,
+      "postText": "Cooked a delicious meal from scratch.",
+      "userName": "HomeChef",
+      "userPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+      "reacts": {
+        "likes": 50,
+        "hearts": 8,
+        "claps": 12
+      },
+      "comments": []
+    }
+  ]
+  
