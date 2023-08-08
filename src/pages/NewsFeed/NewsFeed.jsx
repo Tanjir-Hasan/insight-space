@@ -10,7 +10,7 @@ const NewsFeed = () => {
             .then(res => res.json())
             .then(data => setUser(data[0]))
     }, [])
-    
+
     const onSubmit = data => {
         console.log(data);
     }
@@ -24,7 +24,7 @@ const NewsFeed = () => {
                 {/* Post start*/}
                 <div className="border border-spacing-4 lg:col-span-2">
                     <div>
-                        <div className="flex space-x-2 mx-4">
+                        <div className="flex space-x-2 mx-4 bg-white">
                             <img src={user?.photoUrl} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                             <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="w-full" placeholder="Post Your Questions" />
                         </div>
@@ -49,9 +49,9 @@ const NewsFeed = () => {
                             <div>
                                 <p className="text-lg font-bold pt-2">{user?.name}</p>
                                 <select id="select" name="select" className="w-full border rounded-md focus:ring focus:ring-blue-300">
-                                    <option value="option1"><small>Friends</small></option>
-                                    <option value="option2"><small>Public</small></option>
-                                    <option value="option3"><small>Only me</small></option>
+                                    <option value="option1">Friends</option>
+                                    <option value="option2">Public</option>
+                                    <option value="option3">Only me</option>
                                 </select>
                             </div>
                         </div>
