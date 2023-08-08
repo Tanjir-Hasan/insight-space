@@ -6,7 +6,7 @@ const Home = () => {
         <>
             <Banner></Banner>
             <ChoiceUs></ChoiceUs>
-            {/* another */}
+            {/* another compo */}
         </>
     );
 };

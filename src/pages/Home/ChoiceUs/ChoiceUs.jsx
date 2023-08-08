@@ -18,7 +18,7 @@ const ChoiceUs = () => {
 
                         {/* <!-- banner middle card --> */}
                         <div className=" z-10 absolute top-52 md:-left-10 w-3/4">
-                            <div className=" relative bg-orange-300 h-60 rounded-lg text-black flex px-5 items-center ">
+                            <div className=" relative bg-[#022b3a] h-60 rounded-lg text-black flex px-5 items-center ">
                                 {/* <div className="absolute -top-5 -left-5">
                         <img src={BG3}></img>
                     </div> */}
