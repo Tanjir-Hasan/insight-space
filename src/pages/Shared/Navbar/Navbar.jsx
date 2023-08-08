@@ -22,8 +22,8 @@ const Navbar = () => {
                     {/* logo section */}
                     <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
                         {/* <BookOpenIcon className='w-7 h-7 text-blue-600'/> */}
-                        <img className='w-7 h-7 rounded-full' src="https://i.ibb.co/khF9t11/Screenshot-5-removebg-preview.png" alt="" />
-                        <span className='text-white'>SiteName</span>
+                        <img className='w-7 h-7  rounded-full' src="https://e7.pngegg.com/pngimages/659/864/png-clipart-logo-book-cartoon-books-cartoon-character-supplies-thumbnail.png" alt="" />
+                        <span className='text-white'>Insight Space</span>
                     </div>
                     {/* Menu icon */}
                     <div onClick={() => setOpen(!open)} className='absolute right-8 top-3 cursor-pointer md:hidden w-7 h-7'>
