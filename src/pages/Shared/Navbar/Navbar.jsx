@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     let Links = [
         { id: 1, name: "Home", link: "/" },
-        { id: 2, name: "NewsFeed",  link: "/" },
+        { id: 2, name: "NewsFeed", link: "/" },
         { id: 3, name: "Blogs", link: "/" },
         { id: 4, name: "Contact", link: "/" },
 
@@ -50,16 +50,11 @@ const Navbar = () => {
                             <div onClick={() => setUserOpen(!userOpen)} className='  cursor-pointer  w-7 h-7'>
                                 {
                                     userOpen ?
-<<<<<<< HEAD
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-=======
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-6 h-6 text-white">
-                                            <path strokeLinecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
->>>>>>> 86f97405a45b9b713f687a31803e2ff3a3f4b18d
                                         </svg>
                                         :
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                         </svg>
                                 }
