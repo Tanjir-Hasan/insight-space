@@ -3,13 +3,12 @@ import './footer.css'
 
 const Footer = () => {
     return (
-<<<<<<< HEAD
        <div className=" bg-slate-900 text-white px-5 py-5 mt-96 ">
          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5  text-xs lg:justify-items-center list-none">
            
             <div className="text-slate-300">
                 <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr />
+                <hr className="border-slate-600 md:w-12/12 w-4/12" />
                <div className="mt-2 leading-5">
                <Link><li className="footer-hover footer-effect">Terms & Conditions</li></Link>
                 <Link><li className="footer-hover footer-effect">Privacy policy</li></Link>
@@ -20,7 +19,7 @@ const Footer = () => {
 
             <div className="text-slate-300">
                 <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr />
+                <hr className="border-slate-600 md:w-12/12 w-4/12"/>
                 <div className="mt-2 leading-5">
                 <Link><li className="footer-hover footer-effect">Terms & Conditions</li></Link>
                 <Link><li className="footer-hover footer-effect">Privacy policy</li></Link>
@@ -31,7 +30,7 @@ const Footer = () => {
 
             <div className="text-slate-300">
                 <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr />
+                <hr className="border-slate-600 md:w-12/12 w-4/12"/>
                 <div className="mt-2 leading-5">
                 <Link><li className="footer-hover footer-effect">About Us</li></Link>
                 <Link><li className="footer-hover footer-effect">Contact Us</li></Link>
@@ -42,7 +41,7 @@ const Footer = () => {
 
             <div className="text-slate-300">
                 <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr />
+                <hr className="border-slate-600 md:w-12/12 w-4/12"/>
                 <div className="mt-2 leading-5">
                 <Link><li className="footer-hover footer-effect">Terms & Conditions</li></Link>
                 <Link><li className="footer-hover footer-effect">Privacy policy</li></Link>
@@ -50,10 +49,6 @@ const Footer = () => {
                 <li></li>
                 </div>               
             </div>
-=======
-        <div className="mt-10">
-            <h1 className="font-[Oswald]">this is footer</h1>
->>>>>>> 059f2345ff171c87b397d8f591c87e9fd2069b45
         </div>
 
         <hr className="mt-3 border-gray-600" />
