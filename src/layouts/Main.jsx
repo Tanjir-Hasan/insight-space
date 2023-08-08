@@ -3,15 +3,13 @@ import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
 
 const Main = () => {
- 
-
     return (
         <>
-        
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className="pt-24">
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
-            
         </>
     );
 };

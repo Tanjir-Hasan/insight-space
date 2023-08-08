@@ -1,9 +1,9 @@
-import BG from "../../../assets/images/hubi-s-tavern-SiOJXlWeWc0-unsplash.jpg"
-import BG2 from "../../../assets/images/person-drawing-symbols-coming-out-light-bulb-top-book.jpg"
-import BG3 from "../../../assets/images/symbols-come-out-bulb-top-book.jpg"
-import BG4 from "../../../assets/images/1000_F_217703694_foCDRR9LyVt6ZamiOhdseztBhCDItPbO.jpg"
+import Banner from "../Banner/Banner";
+import ChoiceUs from "../ChoiceUs/ChoiceUs";
+
 const Home = () => {
     return (
+<<<<<<< HEAD
         <div className="Insight-space justify-center items-center mx-auto">
             <div className="grid md:grid-cols-2 gap-4 bg-white w-11/12 mx-auto rounded-lg text-black px-16">
                 <div className="flex items-center justify-center">
@@ -62,6 +62,13 @@ const Home = () => {
 
             </div>
         </div>
+=======
+        <>
+            <Banner></Banner>
+            <ChoiceUs></ChoiceUs>
+            {/* another compo */}
+        </>
+>>>>>>> ee3e63a8fa508d9d61afa9a207a303f0a99bcde4
     );
 };
 
