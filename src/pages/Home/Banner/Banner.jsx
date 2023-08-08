@@ -1,5 +1,5 @@
 
-const Bannner = () => {
+const Banner = () => {
     return (
         <div>
             <h1>this is banner</h1>            
@@ -7,4 +7,4 @@ const Bannner = () => {
     );
 };
 
-export default Bannner;
+export default Banner;
