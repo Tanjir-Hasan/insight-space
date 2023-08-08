@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 .dark {
-    background-color: #161a1d;
+    background-color: #0b132b;
     color: #fff;
 }
 
 .active {
-    @apply text-blue-700 mr-4 underline underline-offset-8;
+    @apply text-[#84a98c] underline underline-offset-8;
 }
 
 .default {
-    @apply text-black mr-4 no-underline;
+    @apply no-underline;
 }

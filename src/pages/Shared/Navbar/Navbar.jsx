@@ -108,7 +108,6 @@
 // export default Navbar;
 
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { BiMenuAltRight, BiMenu } from 'react-icons/bi';
 import { BsSun } from 'react-icons/bs';
 import { MdDarkMode } from 'react-icons/md';
@@ -127,13 +126,12 @@ const Navbar = () => {
     };
 
     return (
-        <div className={`py-6 ${theme === 'dark' ? 'dark' : 'w-full h-full bg-gradient-to-br from-teal-500 via-teal-300 to-blue-100'}`}>
+        // f6fff8 
+        // edede9
+        <div className={`font-[Poppins] py-2 pr-1 ${theme === 'dark' ? 'dark' : 'bg-[#fffcf2]'}`}>
             <div className='flex justify-between items-center'>
 
-                <div>
-                    <img src="" alt="" />
-                    <h3>InSight space</h3>
-                </div>
+                <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="" className='h-16' />
 
                 {/* <div className='hidden sm:block'>
                     <div className='flex items-center'>
@@ -152,18 +150,18 @@ const Navbar = () => {
                     <div>
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen === true ? (
-                                <BiMenuAltRight className='h-8 w-6 text-blue-700' />
+                                <BiMenuAltRight className='h-8 w-6 text-[#84a98c]' />
                             ) : (
-                                <BiMenu className='h-8 w-6 text-blue-500' />
+                                <BiMenu className='h-8 w-6 text-[#84a98c]' />
                             )}
                         </span>
 
                         {isOpen === true && (
-                            <div className='flex flex-row justify-between absolute md:top-7 top-16 md:right-28 right-5 md:w-[250px] w-[350px] duration-1000'>
+                            <div className='flex flex-row justify-between bg-[#0b132b] md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-28 right-5 md:w-[250px] w-[350px] duration-1000'>
                                 <ActiveLink to="/">Home</ActiveLink>
-                                <Link to="/news-feed" className='absolute bottom-1 left-0 w-full h-0.5 bg-[#720026] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700'>News Feed</Link>
-                                <Link to="/blog-feed">Blog</Link>
-                                <Link to="/login">Login</Link>
+                                <ActiveLink to="/news-feed">News Feed</ActiveLink>
+                                <ActiveLink to="/blog-feed">Blog</ActiveLink>
+                                <ActiveLink to="/login">Login</ActiveLink>
                             </div>
                         )}
                     </div>
