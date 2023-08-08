@@ -50,8 +50,13 @@ const Navbar = () => {
                             <div onClick={() => setUserOpen(!userOpen)} className='  cursor-pointer  w-7 h-7'>
                                 {
                                     userOpen ?
+<<<<<<< HEAD
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+=======
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                                            <path strokeLinecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+>>>>>>> 86f97405a45b9b713f687a31803e2ff3a3f4b18d
                                         </svg>
                                         :
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 white">
@@ -87,7 +92,7 @@ const Navbar = () => {
                                 opens ? <XMarkIcon className='text-white' /> : <Bars3BottomRightIcon className='text-white' />
                             }
                         </div>
-                        <ul className={` items-center text-white rounded-b-lg py-4   gap-3   absolute  bg-slate-900    transition-all duration-500 ease-in ${opens ? 'top-14' : 'top-[-490px]'}`}>
+                        <ul className={` items-center text-white rounded-b-lg py-4   gap-3   absolute  bg-slate-900    transition-all duration-1000 ease-in ${opens ? 'top-14' : 'top-[-490px]'}`}>
                             <div className='mr-5 grid grid-cols-1 px-10 z-10 text-xs leading-8    ' >
                                 <Link to=''> Name</Link>
                                 <Link to=''> Edit Profile</Link>
