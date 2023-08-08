@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2023: true , node: true },
   rules: {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
   },
   extends: [
     'eslint:recommended',
