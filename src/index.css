@@ -6,3 +6,11 @@
     background-color: #161a1d;
     color: #fff;
 }
+
+.active {
+    @apply text-blue-700 mr-4 underline underline-offset-8;
+}
+
+.default {
+    @apply text-black mr-4 no-underline;
+}

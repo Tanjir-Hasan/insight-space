@@ -108,24 +108,19 @@
 // export default Navbar;
 
 import { useContext, useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { BiMenuAltRight, BiMenu } from 'react-icons/bi';
 import { BsSun } from 'react-icons/bs';
 import { MdDarkMode } from 'react-icons/md';
+// import { BsSearch } from 'react-icons/bs';
 import { ThemeContext } from '../../../providers/ThemeProvider';
+import ActiveLink from '../../../components/ActiveLink';
 
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
     const { theme, toggleTheme } = useContext(ThemeContext);
-
-    const [showSearchField, setShowSearchField] = useState(false);
-
-    const toggleSearchField = () => {
-        setShowSearchField(!showSearchField);
-    };
 
     const handleThemeToggle = () => {
         toggleTheme();
@@ -139,25 +134,23 @@ const Navbar = () => {
                     <img src="" alt="" />
                     <h3>InSight space</h3>
                 </div>
- 
-                <div >
-                    {!showSearchField ? (
-                        <button onClick={toggleSearchField}>
-                            <BsSearch />
-                        </button>
-                    ) : (
+
+                {/* <div className='hidden sm:block'>
+                    <div className='flex items-center'>
+                        <BsSearch />
+
                         <input
                             type="text"
                             placeholder="Search..."
-                            onBlur={() => setShowSearchField(false)}
                         />
-                    )}
-                </div>
+
+                    </div>
+                </div> */}
 
                 <div className='flex items-center gap-3'>
 
                     <div>
-                        <span className='' onClick={() => setIsOpen(!isOpen)}>
+                        <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen === true ? (
                                 <BiMenuAltRight className='h-8 w-6 text-blue-700' />
                             ) : (
@@ -166,9 +159,9 @@ const Navbar = () => {
                         </span>
 
                         {isOpen === true && (
-                            <div className='flex flex-row justify-between text-left bg-slate-200 absolute md:top-1 top-10 md:right-28 right-4 md:w-[250px] w-[350px] duration-1000'>
-                                <Link to="/">Home</Link>
-                                <Link to="/news-feed">News Feed</Link>
+                            <div className='flex flex-row justify-between absolute md:top-7 top-16 md:right-28 right-5 md:w-[250px] w-[350px] duration-1000'>
+                                <ActiveLink to="/">Home</ActiveLink>
+                                <Link to="/news-feed" className='absolute bottom-1 left-0 w-full h-0.5 bg-[#720026] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700'>News Feed</Link>
                                 <Link to="/blog-feed">Blog</Link>
                                 <Link to="/login">Login</Link>
                             </div>
