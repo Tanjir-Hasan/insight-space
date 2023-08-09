@@ -9,10 +9,12 @@ const Home = () => {
         <>
             <Banner></Banner>
             <ChoiceUs></ChoiceUs>
-            {/* another compo */}
+
+          {/* another compo */}
             <TopPosts></TopPosts>
           
           
+
         </> )
 };
 

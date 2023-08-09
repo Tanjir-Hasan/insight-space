@@ -11,7 +11,6 @@ const NewsForm = ({ user }) => {
     const [userDetails] = useUser();
     const { register, handleSubmit } = useForm();
     const ref = useRef();
-
     // post form submit function 
     const onSubmit = data => {
         const status = ref.current.value;
@@ -19,7 +18,7 @@ const NewsForm = ({ user }) => {
         const react = [];
         const comment = [];
         const { category, text } = data;
-        const newPost = { status, date, category, text, userEmail: user.email, react, comment , userPhoto :userDetails.photoURL , userName: userDetails.displayName }
+        const newPost = { status, date, category, text, userEmail: user.email, react, comment , userPhoto:userDetails?.photoURL , userName: userDetails?.displayName }
         axios.post('https://insight-space-server.vercel.app/posts', newPost)
             .then(data => {
                 if (data) {

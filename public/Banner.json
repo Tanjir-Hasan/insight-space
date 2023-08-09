@@ -1,0 +1,39 @@
+[
+    {
+        "_id": "01",
+        "Bg_Image": "https://i.ibb.co/BKfr6yJ/cathryn-lavery-f-MD-Cru6-OTk-unsplash.jpg",
+        "title": "ExploraLearn: Your Gateway to Curiosity",
+        "description": "Discover a world of knowledge at ExploraLearn! Delve into captivating articles, insightful videos, and interactive tutorials."
+    },
+    {
+        "_id": "02",
+        "Bg_Image": "https://i.ibb.co/cFLrVSt/stephane-bernard-Ozz3tk1-Jz4-I-unsplash-1.jpg",
+        "title": "ExploraLearn: Your Gateway to Curiosity",
+        "description": "Discover a world of knowledge at ExploraLearn! Delve into captivating articles, insightful videos, and interactive tutorials."
+    },
+    {
+        "_id": "03",
+        "Bg_Image": "https://i.ibb.co/C8r82vn/tengyart-au-EPah-Zj-T40-unsplash-1.jpg",
+        "title": "ExploraLearn: Your Gateway to Curiosity",
+        "description": "Discover a world of knowledge at ExploraLearn! Delve into captivating articles, insightful videos, and interactive tutorials."
+    },
+    {
+        "_id": "04",
+        "Bg_Image": "https://i.ibb.co/92LqQNH/growtika-9-Wnjx-T1-NCo-Y-unsplash.jpg",
+        "title": "ExploraLearn: Your Gateway to Curiosity",
+        "description": "Discover a world of knowledge at ExploraLearn! Delve into captivating articles, insightful videos, and interactive tutorials."
+    },
+    {
+        "_id": "05",
+        "Bg_Image": "https://i.ibb.co/LdTw6RN/growtika-58-K6-WZiwd0g-unsplash-1.jpg",
+        "title": "ExploraLearn: Your Gateway to Curiosity",
+        "description": "Discover a world of knowledge at ExploraLearn! Delve into captivating articles, insightful videos, and interactive tutorials."
+    },
+    {
+        "_id": "06",
+        "Bg_Image": "https://i.ibb.co/0Ck9CQv/jan-kahanek-g3-O5-Zt-Rk2-E4-unsplash.jpg",
+        "title": "ExploraLearn: Your Gateway to Curiosity",
+        "description": "Discover a world of knowledge at ExploraLearn! Delve into captivating articles, insightful videos, and interactive tutorials."
+    }
+   
+]

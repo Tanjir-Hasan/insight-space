@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */ //
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { FaBookmark, FaComment, FaHeart, FaHistory } from 'react-icons/fa';
 import { fetchPosts } from "../../../StateManagment/Posts/postSlice";
 import { useDispatch, useSelector } from "react-redux";
 import useUser from "../../../Hooks/useUser";
 import axios from "axios";
+import Swal from "sweetalert2";
+import moment from "moment";
 
 
 const DisplayNewsFeed = () => {
-    const [react, setReact] = useState()
     const [userDetails] = useUser();
-    // const [details, setDetails] = useState()
     const { isLoading, posts, error } = useSelector(state => state.posts)
     // console.log(posts)
     const dispatch = useDispatch();
@@ -18,15 +18,28 @@ const DisplayNewsFeed = () => {
         dispatch(fetchPosts())
     }, [])
 
-//  handle react 
+    //  handle react 
     const handleReact = (id, email) => {
         const addReact = { id, email }
-        axios.patch("http://localhost:5000/reacts", addReact)
+        axios.patch("https://insight-space-server.vercel.app/reacts", addReact)
             .then(data => console.log(data.data))
             .catch(err => console.log(err.message))
     }
-
-
+    // for add bookmarks
+    const handleBookMark = (id, email) => {
+        const addBookMark = { postId:id, email }
+        axios.post("https://insight-space-server.vercel.app/book-marks", addBookMark)
+            .then(data => {
+                if(data){
+                    Swal.fire(
+                        'Success!',
+                        'This Question save on your collections.',
+                        'success'
+                    )
+                }
+            })
+            .catch(err => console.log(err.message))
+    }
 
 
     return (
@@ -38,11 +51,11 @@ const DisplayNewsFeed = () => {
                             <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                             <div>
                                 <p className="text-lg font-semibold pt-1">{p.userName}</p>
-                                <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory> 5 min ago</h6>
+                                <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
                             </div>
                         </div>
-                        <span>{p.text}</span>
-                        {<span onClick={() => setDetails(p.text)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See More</span>}
+                        <p>{p.text}</p>
+                        {/* {<span onClick={() =>(p.text)} className="underline underline-offset-4 ms-2 text-sm text-green-600">{p.text} See More</span>} */}
                     </div>
                     <div>
                         {
@@ -56,7 +69,7 @@ const DisplayNewsFeed = () => {
                             <button className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {p.comment.length}</button>
                         </div>
                         <div>
-                            <button><FaBookmark className="text-2xl me-2"></FaBookmark></button>
+                            <button><FaBookmark onClick={()=>handleBookMark(p._id , userDetails?.email)} className="text-2xl me-2"></FaBookmark></button>
                         </div>
                     </div>
                 </div>)
