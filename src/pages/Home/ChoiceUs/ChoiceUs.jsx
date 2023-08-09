@@ -4,7 +4,7 @@ import icon3 from "../../../assets/images/icons/sun.png"
 const ChoiceUs = () => {
     return (
         <>
-            <div className="Insight-space justify-center items-center w-11/12 mx-auto ">
+            <div className="Insight-space justify-center items-center w-11/12 mx-auto mt-20 mb-20">
                 <div className="grid md:grid-cols-2 bg-stone-200 rounded-lg text-black border-8 border-x-stone-400">
                     <div className="flex items-center justify-center  w-5/6 drop-shadow-lg backdrop-blur-sm bg-emerald/80">
                         <div className="">
