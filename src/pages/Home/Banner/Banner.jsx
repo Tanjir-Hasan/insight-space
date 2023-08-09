@@ -10,30 +10,35 @@ const Banner = () => {
             .then(res => res.json())
             .then(data => setContent(data))
             .catch(error => console.error(error))
-    })
-
-
+    });
 
     return (
         <>
-        <div className=' className="h-56"'>
-            <Slider autoplay={3000}>
-                {content.map((item, index) => (
-                    <div
-                        key={index}
-                        style={{ background: `url('${item.Bg_Image}') no-repeat center center` }}
-                    >
-                        <div className="text-center">
-                            <div className='bg-stone-800 opacity-60 h-60'>
-                            <h1 className='mt-20 pt-10 text-4xl font-semibold text-white'>{item.title}</h1>
-                            <p className='mt-5 text-xl  text-white'>{item.description}</p>
-                            <button className='mt-5 mb-5 rounded-full bg-white w-40 h-12 '>Sign Up</button>
+            <div className=''>
+                <Slider autoplay={3000}>
+                    {content.map((item, index) => (
+                        <div
+                            key={index}
+                            className=''
+                            style={{
+                                backgroundImage: `url('${item.Bg_Image}')`,
+                                backgroundSize: 'cover',
+                                backgroundRepeat: 'no-repeat', 
+                                height: '100%'
+                            }}
+                        >
+                            <div className="text-center overlay">
+                                <div className='content-container py-36'>
+                                    <h1 className='title'>{item.title}</h1>
+                                    <p className='description'>{item.description}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </Slider>
+                    ))}
+                </Slider>
             </div>
+
+
         </>
     );
 };

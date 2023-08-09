@@ -14,6 +14,7 @@ const DisplayNewsFeed = () => {
     const ref = useRef();
     const [hide, setHide] = useState(false);
     const { isLoading, posts, error } = useSelector(state => state.posts)
+    // console.log(posts)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchPosts())
