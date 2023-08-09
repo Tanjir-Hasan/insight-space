@@ -12,22 +12,14 @@ import store from './StateManagment/store/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div>
-<<<<<<< HEAD
-    <ThemeProvider>
-      <AuthProvider>
-        <>
-          <RouterProvider router={router} />
-        </>
-      </AuthProvider>
-    </ThemeProvider>
-=======
-    <Provider store={store}>
-      <ThemeProvider>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>
-      </ThemeProvider>
-    </Provider>
->>>>>>> 024faf5b9b87190598495b5665901900d41480bf
+    <div>
+      <Provider store={store}>
+        <ThemeProvider>
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
+        </ThemeProvider>
+      </Provider>
+    </div>
   </div>
 )
