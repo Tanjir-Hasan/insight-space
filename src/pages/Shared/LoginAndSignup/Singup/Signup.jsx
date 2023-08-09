@@ -2,7 +2,10 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
 import axios from "axios";
+<<<<<<< HEAD
 import Swal from "sweetalert2";
+=======
+>>>>>>> abc62aadcc7f3ba239492110a2e8b3325887395c
 import { Link } from "react-router-dom";
 // import "./Signup.css";
 const Signup = () => {
@@ -117,6 +120,9 @@ const Signup = () => {
                   className="btn bg-cyan-400 rounded-md mt-2 px-3 py-2 block mb-1 w-9/12 mx-auto cursor-pointer"
                   value="Sign Up"
                 />
+                <div>
+                  <p className="text-center text-yellow-600">All ready registered? <Link to="/login"><span className="hover:font-semibold">Log in hare</span></Link></p>
+                </div>
               </div>
             </form>
             {/* social login  */}
