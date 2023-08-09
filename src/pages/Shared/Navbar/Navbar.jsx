@@ -157,7 +157,7 @@ const Navbar = () => {
                         </span>
 
                         {isOpen === true && (
-                            <div className='flex flex-row justify-between bg-[#0b132b] md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-28 right-5 md:w-[250px] w-[350px] duration-1000'>
+                            <div className='flex flex-row justify-between md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-28 right-5 md:w-[250px] w-[350px] duration-1000'>
                                 <ActiveLink to="/">Home</ActiveLink>
                                 <ActiveLink to="/news-feed">News Feed</ActiveLink>
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
