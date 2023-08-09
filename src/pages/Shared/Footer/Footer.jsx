@@ -3,7 +3,7 @@ import './footer.css'
 
 const Footer = () => {
     return (
-       <div className=" bg-slate-900 text-white px-5 py-5 mt-96 ">
+       <div className=" bg-slate-900 text-white px-5 py-5">
          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5  text-xs lg:justify-items-center list-none">
            
             <div className="text-slate-300">
