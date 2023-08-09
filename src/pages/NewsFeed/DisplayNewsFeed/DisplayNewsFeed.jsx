@@ -5,7 +5,7 @@ const DisplayNewsFeed = ({ post }) => {
     const [details, setDetails] = useState(post?.postText.slice(0, 200))
     const { postText, userName, userPhoto, postImg, reacts, comments } = post;
     return (
-        <div className="my-6 bg-slate-100">
+        <div className="my-6 bg-slate-100 rounded-lg">
             <div className="p-4">
                 <div className="flex space-x-2 mb-4">
                     <img src={userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />

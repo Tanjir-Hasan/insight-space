@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import NewsForm from "./NewsForm/NewsForm";
 import DisplayNewsFeed from "./DisplayNewsFeed/DisplayNewsFeed";
 import Categories from "./Categories/Categories";
+import UserDetails from "./UserDetails/USerDetails";
 
 const NewsFeed = () => {
     const [user, setUser] = useState({});
@@ -18,7 +19,7 @@ const NewsFeed = () => {
     }, [])
 
     return (
-        <div className="min-h-screen pt-16 w-3/4 mx-auto">
+        <div className="min-h-screen w-10/12 mx-auto">
             <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4 w-full">
                 <div className="border border-spacing-4">
                     <h2 className="text-lg font-semibold text-center mt-4 mb-6 underline underline-offset-8">Select Your Favourites Categories</h2>
@@ -36,7 +37,7 @@ const NewsFeed = () => {
                 {/* Field start */}
                 <div className="border border-spacing-4">
                     <h2 className="text-lg font-semibold text-center mt-4 mb-6 underline underline-offset-8">User details</h2>
-
+                      <UserDetails></UserDetails>
                 </div>
             </div>
         </div>

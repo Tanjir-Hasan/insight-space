@@ -1,7 +1,8 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import useAuth from "../../../../Hooks/UseAuth";
 
 const SocialLogin = () => {
-    
+    const {googleSignIn} = useAuth();
   // google sign in
   const handleGoogleSignIn = () => {
     console.log("click on sign in with Google");

@@ -1,15 +1,17 @@
 import { useForm } from "react-hook-form";
 import "./Login.css";
 import SocialLogin from "../SocialLogIn/SocialLogin";
+import useAuth from "../../../../Hooks/UseAuth";
 const Login = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    const { signIn, errorMsg, setErrorMsg } = useAuth();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = (data) => {
+        const {email , password} = data ;
+         signIn(email , password)
+         .then(result => {setErrorMsg("")})
+         .catch(err => setErrorMsg(err.message))
+    };
 
-    const onSubmit = (data) => console.log(data);
- 
     return (
         <>
             <div className="flex flex-col md:flex-row justify-center items-center pt-5 box-border">
@@ -22,35 +24,34 @@ const Login = () => {
                             {/* name */}
                             {/* name */}
                             <div className="mb-1 box-border">
-                                <label htmlFor="name" className="text-sm block">
-                                    Name
+                                <label htmlFor="email" className="text-sm block">
+                                    Email
                                 </label>
                                 <input
                                     className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
-                                    type="text"
-                                    id="name"
-                                    {...register("name")}
-                                    placeholder="Enter your name"
+                                    type="email"
+                                    {...register("email")}
+                                    placeholder="Enter your email"
                                 />
                             </div>
 
                             {/* email */}
                             {/* email */}
                             <div className="mb-1">
-                                <label htmlFor="email" className="text-sm block">
-                                    Email
+                                <label htmlFor="password" className="text-sm block">
+                                   Password
                                 </label>
                                 <input
                                     className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
-                                    type="text"
-                                    id="email"
-                                    {...register("email")}
-                                    placeholder="Enter your email"
+                                    type="password"
+                                    {...register("password")}
+                                    placeholder="Enter your password"
                                 />
                             </div>
                             {/* <input {...register("exampleRequired", { required: true })} /> */}
                             {errors.exampleRequired && <span>This field is required</span>}
                             {/* submit button */}
+                            {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
                             {/* submit button */}
                             <div className="mt-4">
                                 <input
@@ -63,7 +64,7 @@ const Login = () => {
                         {/* social login  */}
                         <SocialLogin />
                         {/* social login  */}
-                        
+
                     </div>
                 </div>
 

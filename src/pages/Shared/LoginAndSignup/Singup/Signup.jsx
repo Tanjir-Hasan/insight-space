@@ -1,14 +1,29 @@
 import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
+import useAuth from "../../../../Hooks/UseAuth";
+import axios from "axios";
 // import "./Signup.css";
 const Signup = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { createUser, errorMsg, setErrorMsg } = useAuth();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  // create user and user details set on database 
+  const onSubmit = (data) => {
+    const { name, email, photo, password } = data;
+    createUser(email, password)
+      .then(result => {
+        setErrorMsg("")
+        const date = new Date();
+        const newUser = { displayName: name, email, photoURL: photo, date }
+        axios.post('http://localhost:5000/add-user', newUser)
+          .then(data => console.log(data.data))
+          .catch(err => console.log(err))
+      })
+      .catch(err => {
+        setErrorMsg(err.message);
+      })
+
+  };
 
   return (
     <div>
@@ -31,6 +46,7 @@ const Signup = () => {
                   id="name"
                   {...register("name")}
                   placeholder="Enter your name"
+                  required
                 />
               </div>
 
@@ -46,11 +62,27 @@ const Signup = () => {
                   id="email"
                   {...register("email")}
                   placeholder="Enter your email"
+                  required
                 />
               </div>
 
               {/* password  */}
               {/* password  */}
+              <div className="mb-1">
+                <label htmlFor="photo" className="text-sm block">
+                  Photo Url
+                </label>
+                <input
+                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
+                  type="text"
+                  {...register("photo")}
+                  placeholder="your photo url"
+                  required
+                />
+              </div>
+
+              {/* confirm password  */}
+              {/* confirm password  */}
               <div className="mb-1">
                 <label htmlFor="password" className="text-sm block">
                   Password
@@ -58,29 +90,15 @@ const Signup = () => {
                 <input
                   className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
                   type="password"
-                  id="password"
                   {...register("password")}
                   placeholder="password"
-                />
-              </div>
-
-              {/* confirm password  */}
-              {/* confirm password  */}
-              <div className="mb-1">
-                <label htmlFor="confirm_password" className="text-sm block">
-                  Confirm Password
-                </label>
-                <input
-                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
-                  type="password"
-                  id="confirm_password"
-                  {...register("confirm_password")}
-                  placeholder="confirm password"
+                  required
                 />
               </div>
               {/* <input {...register("exampleRequired", { required: true })} /> */}
               {errors.exampleRequired && <span>This field is required</span>}
               {/* submit button */}
+              {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
               {/* submit button */}
               <div className="mt-4">
                 <input
