@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
   env: { browser: true, es2023: true , node: true },
-  rules: {
-    "react/prop-types": "off",
+  "rules": {
+    "no-underscore-dangle": ["error", { "allow": [_id, b_codes_id] }],
   },
   extends: [
     'eslint:recommended',

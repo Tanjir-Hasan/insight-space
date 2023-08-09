@@ -1,68 +1,33 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import './footer.css'
+import { ThemeContext } from "../../../providers/ThemeProvider";
 
 const Footer = () => {
+
+    const { theme } = useContext(ThemeContext);
+
     return (
-       <div className=" bg-slate-900 text-white px-5 py-5">
-         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5  text-xs lg:justify-items-center list-none">
-           
-            <div className="text-slate-300">
-                <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr className="border-slate-600 md:w-12/12 w-4/12" />
-               <div className="mt-2 leading-5">
-               <Link><li className="footer-hover footer-effect">Terms & Conditions</li></Link>
-                <Link><li className="footer-hover footer-effect">Privacy policy</li></Link>
-                <Link><li className="footer-hover footer-effect">Cookie policy</li></Link>
-                <li></li>
-               </div>
+        <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-8`}>
+
+            <div className="md:flex justify-between px-10">
+                <div>
+                    <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="" className='h-24' />
+                </div>
+                <div className="font-[Poppins] flex flex-col lg:mr-4 md:ml-0 ml-4">
+                        <Link>Terms & Conditions</Link>
+                        <Link>Privacy Policy</Link>
+                        <Link>Cookie Policy</Link>
+                        <h3 className="text-2xl font-[Poppins] mt-3">InSight Space</h3>
+                </div>
             </div>
 
-            <div className="text-slate-300">
-                <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr className="border-slate-600 md:w-12/12 w-4/12"/>
-                <div className="mt-2 leading-5">
-                <Link><li className="footer-hover footer-effect">Terms & Conditions</li></Link>
-                <Link><li className="footer-hover footer-effect">Privacy policy</li></Link>
-                <Link><li className="footer-hover footer-effect">Cookie policy</li></Link>
-                <li></li>
-                </div>              
+            <div className="flex-grow border-t border-gray-400 mx-16 my-6"></div>
+
+            <div>
+                <p className="text-center font-[Poppins]">Copyright © 2023 - All right reserved.</p>
             </div>
 
-            <div className="text-slate-300">
-                <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr className="border-slate-600 md:w-12/12 w-4/12"/>
-                <div className="mt-2 leading-5">
-                <Link><li className="footer-hover footer-effect">About Us</li></Link>
-                <Link><li className="footer-hover footer-effect">Contact Us</li></Link>
-                <Link><li className="footer-hover footer-effect">Cookie policy</li></Link>
-                <li></li>
-                </div>               
-            </div>
-
-            <div className="text-slate-300">
-                <h3 className="text-white font-bold text-sm">Service</h3>
-                <hr className="border-slate-600 md:w-12/12 w-4/12"/>
-                <div className="mt-2 leading-5">
-                <Link><li className="footer-hover footer-effect">Terms & Conditions</li></Link>
-                <Link><li className="footer-hover footer-effect">Privacy policy</li></Link>
-                <Link><li className="footer-hover footer-effect">Cookie policy</li></Link>
-                <li></li>
-                </div>               
-            </div>
         </div>
-
-        <hr className="mt-3 border-gray-600" />
-        <div className="md:flex justify-center gap-10 items-center mt-2">
-            <h3>Copyright © 2023 - All right reserved</h3>
-            <div  className="flex gap-2">
-                <img className="w-10 h-10 p-1 hover:p-0 cursor-pointer rounded-full" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/2048px-Facebook_f_logo_%282021%29.svg.png" alt="" />
-
-                <img className="w-10 h-10 p-1 hover:p-0 cursor-pointer rounded-full" src="https://static-00.iconduck.com/assets.00/linkedin-icon-1024x1024-z5dvl47c.png" alt="" />
-
-                <img className="w-10 h-10 p-1 hover:p-0 cursor-pointer  rounded-full" src="https://w7.pngwing.com/pngs/462/874/png-transparent-instagram-logo-icon-instagram-icon-text-logo-sticker-thumbnail.png" alt="" />
-            </div>
-        </div>
-       </div>
     );
 };
 

@@ -4,10 +4,16 @@ import useAuth from "../../../../Hooks/UseAuth";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import { useContext } from "react";
+import { ThemeContext } from "../../../../providers/ThemeProvider";
+import Button from "../../../../components/Button";
 
 const Signup = () => {
+
+  const { theme } = useContext(ThemeContext);
+
   const { createUser, errorMsg, setErrorMsg } = useAuth();
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   // create user and user details set on database 
@@ -37,26 +43,28 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-center text-3xl font-semibold underline">Registration Now</h2>
+    <div className={`${theme === 'dark' ? 'dark' : ''} font-[Poppins] pb-8`}>
+
+      <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Create a new account</h2>
+
       <div className="flex flex-col md:flex-row justify-center items-center pt-5">
-        <div className="w-full md:w-1/2">
-          <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-cyan-500/50 rounded-md p-5 ">
+        <div className="lg:w-2/3 w-full lg:px-0 px-6">
+          <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#344e41] rounded-md md:p-12 p-6">
             {/* signup form  */}
             {/* signup form  */}
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* name */}
               {/* name */}
               <div className="mb-1 box-border">
-                <label htmlFor="name" className="text-sm block">
+                <label htmlFor="name" className="text-md block">
                   Name
                 </label>
                 <input
-                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
+                  className="input-field"
                   type="text"
                   id="name"
                   {...register("name")}
-                  placeholder="Enter your name"
+                  placeholder="Your Name"
                   required
                 />
               </div>
@@ -64,15 +72,15 @@ const Signup = () => {
               {/* email */}
               {/* email */}
               <div className="mb-1">
-                <label htmlFor="email" className="text-sm block">
+                <label htmlFor="email" className="text-md block">
                   Email
                 </label>
                 <input
-                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
+                  className="input-field"
                   type="text"
                   id="email"
                   {...register("email")}
-                  placeholder="Enter your email"
+                  placeholder="Enter Your Email"
                   required
                 />
               </div>
@@ -80,14 +88,14 @@ const Signup = () => {
               {/* password  */}
               {/* password  */}
               <div className="mb-1">
-                <label htmlFor="photo" className="text-sm block">
+                <label htmlFor="photo" className="text-md block">
                   Photo Url
                 </label>
                 <input
-                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
+                  className="input-field"
                   type="text"
                   {...register("photo")}
-                  placeholder="your photo url"
+                  placeholder="Your Photo Url"
                   required
                 />
               </div>
@@ -95,33 +103,34 @@ const Signup = () => {
               {/* confirm password  */}
               {/* confirm password  */}
               <div className="mb-1">
-                <label htmlFor="password" className="text-sm block">
+                <label htmlFor="password" className="text-md block">
                   Password
                 </label>
                 <input
-                  className="w-[90%] border-b-2 border-gray-300 rounded-md px-2 py-1 box-border ml-4 mt-2 focus:outline-none focus:border-green-400 focus:bg-gray-100"
+                  className="input-field"
                   type="password"
                   {...register("password")}
-                  placeholder="password"
+                  placeholder="Password"
                   required
                 />
               </div>
-              <p>Already have an account ? <Link className="text-blue-600 underline underline-offset-2" to="/login">Login</Link></p>
+
               {/* <input {...register("exampleRequired", { required: true })} /> */}
               {errors.exampleRequired && <span>This field is required</span>}
               {/* submit button */}
               {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
               {/* submit button */}
-              <div className="mt-4">
-                <input
-                  type="submit"
-                  className="btn bg-cyan-400 rounded-md mt-2 px-3 py-2 block mb-1 w-9/12 mx-auto cursor-pointer"
-                  value="Sign Up"
-                />
-                <div>
-                  <p className="text-center text-yellow-600">All ready registered? <Link to="/login"><span className="hover:font-semibold">Log in hare</span></Link></p>
-                </div>
+
+              <div className="mt-4 flex justify-center">
+                <Button heading="Sign Up">
+                  <input type="submit" value="Sign Up" />
+                </Button>
               </div>
+
+              <div className="text-center mt-4">
+                <span>Already have an account? <Link to="/login"><span className="text-[#84a98c] hover:text-[#344e41] duration-1000">Login</span></Link></span>
+              </div>
+
             </form>
             {/* social login  */}
             <SocialLogin />

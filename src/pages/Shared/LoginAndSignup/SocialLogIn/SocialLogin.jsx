@@ -45,11 +45,15 @@ const SocialLogin = () => {
             .catch(err => setErrorMsg(err.message))
     }
     return (
-        <div>
-            <div className="w-[90%] mx-auto">
-                <h1 className="signup_line">or signup with</h1>
+        <div className="w-[90%] mx-auto">
+
+            <div className="relative flex py-4 items-center">
+                <div className="flex-grow border-t border-gray-400"></div>
+                <span className="flex-shrink mx-4 text-gray-400">Or</span>
+                <div className="flex-grow border-t border-gray-400"></div>
             </div>
-            <div className="flex justify-center gap-5 py-5">
+
+            <div className="flex justify-center gap-5 pb-5">
                 <button
                     onClick={handleGoogleSignIn}
                     className="btn"
