@@ -12,6 +12,7 @@ const DisplayNewsFeed = () => {
     const [userDetails] = useUser();
     // const [details, setDetails] = useState()
     const { isLoading, posts, error } = useSelector(state => state.posts)
+    // console.log(posts)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchPosts())
