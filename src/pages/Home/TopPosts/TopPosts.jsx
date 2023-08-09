@@ -16,7 +16,7 @@ const TopPosts = () => {
 
     const { isLoading, posts, error } = useSelector(state => state.posts);
 
-    console.log(posts)
+    // console.log(posts)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -57,10 +57,13 @@ const TopPosts = () => {
             <Marquee pauseOnHover speed={100}>
                 {
                     posts && posts.slice(0, 4).map(topPost =>
-                        <div key={topPost._id} className='mx-5 my-12'>
-                            <div className='px-5 py-8 bg-opacity-40 rounded-xl shadow-xl shadow-[#84a98c] w-full hover:bg-[#84a98c] duration-700'>
+                        <div key={topPost._id} className='mx-5 my-20'>
+                            <div className='relative px-5 py-8 bg-opacity-40 rounded-xl shadow-xl shadow-[#84a98c] w-full hover:bg-[#84a98c] duration-700'>
+                                <div className='flex justify-center'>
+                                    <img src={topPost.userPhoto} alt="" className='rounded-full -mt-[61px] h-14' />
+                                </div>
                                 <h2 className='font-[Cinzel]'>{topPost.text.substring(0, 70)}...</h2>
-                                <h2 className='font-[Cinzel]'>By, {topPost.userName}</h2>
+                                    <h2 className='font-[Cinzel]'>{topPost.userName}</h2>
                             </div>
                         </div>
                     )
