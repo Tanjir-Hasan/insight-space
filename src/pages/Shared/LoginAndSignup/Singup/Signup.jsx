@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 // import "./Signup.css";
 const Signup = () => {
   const { createUser, errorMsg, setErrorMsg } = useAuth();
@@ -15,8 +17,16 @@ const Signup = () => {
         setErrorMsg("")
         const date = new Date();
         const newUser = { displayName: name, email, photoURL: photo, date }
-        axios.post('http://localhost:5000/add-user', newUser)
-          .then(data => console.log(data.data))
+        axios.post('https://insight-space-server.vercel.app/add-user', newUser)
+          .then(data => {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Your account Created Successfully',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          })
           .catch(err => console.log(err))
       })
       .catch(err => {
@@ -95,6 +105,7 @@ const Signup = () => {
                   required
                 />
               </div>
+              <p>Already have an account ? <Link className="text-blue-600 underline underline-offset-2" to="/login">Login</Link></p>
               {/* <input {...register("exampleRequired", { required: true })} /> */}
               {errors.exampleRequired && <span>This field is required</span>}
               {/* submit button */}

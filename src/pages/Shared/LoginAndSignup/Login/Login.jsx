@@ -2,13 +2,24 @@ import { useForm } from "react-hook-form";
 import "./Login.css";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 const Login = () => {
     const { signIn, errorMsg, setErrorMsg } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         const {email , password} = data ;
          signIn(email , password)
-         .then(result => {setErrorMsg("")})
+         .then(result => {
+            setErrorMsg("")
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your account Login Successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
          .catch(err => setErrorMsg(err.message))
     };
 
@@ -48,6 +59,7 @@ const Login = () => {
                                     placeholder="Enter your password"
                                 />
                             </div>
+                            <p>Are you new at here ?<Link className="text-blue-600 underline underline-offset-2" to="/sign-up"> sign up</Link></p>
                             {/* <input {...register("exampleRequired", { required: true })} /> */}
                             {errors.exampleRequired && <span>This field is required</span>}
                             {/* submit button */}

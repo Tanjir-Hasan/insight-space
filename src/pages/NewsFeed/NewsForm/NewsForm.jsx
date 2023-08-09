@@ -1,19 +1,39 @@
-import { useState } from "react";
+import axios from "axios";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const NewsForm = ({ user }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { register, handleSubmit } = useForm();
+    const ref = useRef();
 
+    // post form submit function 
     const onSubmit = data => {
-        console.log(data);
+        const status = ref.current.value;
+        const date = new Date();
+        const react = 0 ;
+        const comment = [];
+        const { category, text } = data;
+        const newPost = { status, date, category, text, userEmail: user.email , react , comment }
+        axios.post('http://localhost:5000/posts', newPost)
+            .then(data => { 
+                Swal.fire(
+                    'Success!',
+                    'Your Questions Uploaded.',
+                    'success'
+                  )
+                  setIsModalOpen(!isModalOpen)
+             })
+            .catch(err => console.log(err.message))
     }
 
     return (
         <div>
+            {/* main form  */}
             <div className="border border-spacing-4 pt-4 pb-8 rounded bg-slate-100">
                 <div className="flex space-x-2 mx-4">
-                    <img src={user?.photoUrl} alt="user photo" className="w-12 h-12 rounded-full my-2" />
+                    <img src={user?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                     <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="w-full border border-spacing-3 rounded-xl px-2" placeholder="Post Your Questions" />
                 </div>
             </div>
@@ -27,13 +47,13 @@ const NewsForm = ({ user }) => {
                     {/* display content  */}
                     <div>
                         <div className="flex space-x-2 ">
-                            <img src={user?.photoUrl} alt="user photo" className="w-12 h-12 rounded-full my-2" />
+                            <img src={user?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                             <div>
-                                <p className="text-lg font-bold pt-2">{user?.name}</p>
-                                <select className="w-full border rounded-md focus:ring focus:ring-blue-300">
-                                    <option value="option1">Friends</option>
-                                    <option value="option2">Public</option>
-                                    <option value="option3">Only me</option>
+                                <p className="text-lg font-bold pt-2">{user?.displayName}</p>
+                                <select ref={ref} className="w-full border rounded-md focus:ring focus:ring-blue-300">
+                                    <option>Friends</option>
+                                    <option>Public</option>
+                                    <option>Only me</option>
                                 </select>
                             </div>
                         </div>

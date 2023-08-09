@@ -3,21 +3,16 @@ import NewsForm from "./NewsForm/NewsForm";
 import DisplayNewsFeed from "./DisplayNewsFeed/DisplayNewsFeed";
 import Categories from "./Categories/Categories";
 import UserDetails from "./UserDetails/USerDetails";
+import useAuth from "../../Hooks/UseAuth";
 
 const NewsFeed = () => {
-    const [user, setUser] = useState({});
     const [posts, setPosts] = useState([]);
+    const { user } = useAuth();
     useEffect(() => {
         fetch("post.json")
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])
-    useEffect(() => {
-        fetch("data.json")
-            .then(res => res.json())
-            .then(data => setUser(data[0]))
-    }, [])
-
     return (
         <div className="min-h-screen w-10/12 mx-auto">
             <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4 w-full">
@@ -37,7 +32,7 @@ const NewsFeed = () => {
                 {/* Field start */}
                 <div className="border border-spacing-4">
                     <h2 className="text-lg font-semibold text-center mt-4 mb-6 underline underline-offset-8">User details</h2>
-                      <UserDetails></UserDetails>
+                    <UserDetails></UserDetails>
                 </div>
             </div>
         </div>
