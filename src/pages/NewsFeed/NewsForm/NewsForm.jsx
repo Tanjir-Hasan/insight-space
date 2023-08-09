@@ -1,30 +1,35 @@
+/* eslint-disable react/prop-types */ //
 import axios from "axios";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useUser from "../../../Hooks/useUser";
+
 
 const NewsForm = ({ user }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [userDetails] = useUser();
     const { register, handleSubmit } = useForm();
     const ref = useRef();
-
     // post form submit function 
     const onSubmit = data => {
         const status = ref.current.value;
         const date = new Date();
-        const react = 0 ;
+        const react = [];
         const comment = [];
         const { category, text } = data;
-        const newPost = { status, date, category, text, userEmail: user.email , react , comment }
+        const newPost = { status, date, category, text, userEmail: user.email, react, comment , userPhoto:userDetails?.photoURL , userName: userDetails?.displayName }
         axios.post('https://insight-space-server.vercel.app/posts', newPost)
-            .then(data => { 
-                Swal.fire(
-                    'Success!',
-                    'Your Questions Uploaded.',
-                    'success'
-                  )
-                  setIsModalOpen(!isModalOpen)
-             })
+            .then(data => {
+                if (data) {
+                    Swal.fire(
+                        'Success!',
+                        'Your Questions Uploaded.',
+                        'success'
+                    )
+                    setIsModalOpen(!isModalOpen)
+                }
+            })
             .catch(err => console.log(err.message))
     }
 
