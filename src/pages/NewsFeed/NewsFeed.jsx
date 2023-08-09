@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import NewsForm from "./NewsForm/NewsForm";
 import DisplayNewsFeed from "./DisplayNewsFeed/DisplayNewsFeed";
 import Categories from "./Categories/Categories";
@@ -6,13 +5,7 @@ import UserDetails from "./UserDetails/USerDetails";
 import useAuth from "../../Hooks/UseAuth";
 
 const NewsFeed = () => {
-    const [posts, setPosts] = useState([]);
     const { user } = useAuth();
-    useEffect(() => {
-        fetch("post.json")
-            .then(res => res.json())
-            .then(data => setPosts(data))
-    }, [])
     return (
         <div className="min-h-screen w-10/12 mx-auto">
             <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4 w-full">
@@ -24,9 +17,7 @@ const NewsFeed = () => {
                 <div className="lg:col-span-2">
                     <NewsForm user={user}></NewsForm>
                     <div>
-                        {
-                            posts?.map(p => <DisplayNewsFeed key={p._id} post={p}></DisplayNewsFeed>)
-                        }
+                        <DisplayNewsFeed></DisplayNewsFeed>
                     </div>
                 </div>
                 {/* Field start */}
