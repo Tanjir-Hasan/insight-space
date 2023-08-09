@@ -16,7 +16,7 @@ const NewsForm = ({ user }) => {
         const comment = [];
         const { category, text } = data;
         const newPost = { status, date, category, text, userEmail: user.email , react , comment }
-        axios.post('http://localhost:5000/posts', newPost)
+        axios.post('https://insight-space-server.vercel.app/posts', newPost)
             .then(data => { 
                 Swal.fire(
                     'Success!',

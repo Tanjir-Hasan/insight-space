@@ -2,11 +2,9 @@ import { useForm } from "react-hook-form";
 import "./Login.css";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
-<<<<<<< HEAD
 import Swal from "sweetalert2";
-=======
->>>>>>> abc62aadcc7f3ba239492110a2e8b3325887395c
 import { Link } from "react-router-dom";
+
 const Login = () => {
     const { signIn, errorMsg, setErrorMsg } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
