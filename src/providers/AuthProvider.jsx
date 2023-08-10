@@ -14,7 +14,6 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [btnLoading, setBtnLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
-
     // google provider
     const googleProvider = new GoogleAuthProvider();
 
@@ -85,7 +84,7 @@ const AuthProvider = ({ children }) => {
         googleSignIn,
         githubSignIn,
         logOut,
-        updateUserProfile
+        updateUserProfile,
     }
 
     return (
