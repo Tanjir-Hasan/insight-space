@@ -32,7 +32,17 @@ const ChoiceUs = () => {
 
                     <div className="flex items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
 
-                        <div className="space-y-5">
+                        <motion.div
+                            ref={ref}
+                            initial="hidden"
+                            animate={controls}
+                            variants={{
+                                visible: { opacity: 1, x: 0 },
+                                hidden: { opacity: 0, x: -100 },
+                            }}
+                            transition={{ duration: 0.9 }}
+
+                            className="space-y-5">
 
                             <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">Why Choose Us?</h1>
                             <ul className="font-[Cinzel]">
@@ -47,13 +57,13 @@ const ChoiceUs = () => {
                                 </Link>
                             </div>
 
-                        </div>
+                        </motion.div>
 
                     </div>
 
                     {/* right side card for large device*/}
 
-                    <div className=" relative w-10/12 py-24 md:mr-20 hidden sm:block">
+                    <div className="relative w-10/12 py-24 md:mr-20 hidden sm:block">
 
                         {/* <!-- banner top card --> */}
 
@@ -112,7 +122,7 @@ const ChoiceUs = () => {
                                 hidden: { opacity: 0, x: -100 },
                             }}
                             transition={{ duration: 0.9 }}
-                            
+
                             className="md:-ml-40 w-full md:w-5/6">
                             <div className="relative h-40 rounded-lg flex px-5 items-center">
                                 <div className="absolute -top-10 left-12">

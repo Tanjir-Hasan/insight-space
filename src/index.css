@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .dark {
-    background-color: #0b132b;
+    background-color: #000814;
     color: #fff;
 }
 
@@ -18,3 +18,10 @@
 .input-field {
     @apply w-full border-b-2 border-[#84a98c] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#344e41] focus:bg-[#f8f9fa]
 }
+
+/* 
+000814
+1b1b1e
+*/
+
+
