@@ -32,30 +32,30 @@ const Banner = () => {
                 <p className="legend">Stay Ahead of the Curve: Dive into Technology.</p>
             </div>
 
-            {/* <div className='md:h-[720px] group'>
-                <img src="https://i.ibb.co/qg9QYph/aditya-rathod-tc-rukx-VBXQ-unsplash-1.jpg" className='grayscale' />
-                <p className="legend">Legend 1</p>
+            <div className='md:h-[720px] group'>
+                <img src="https://i.ibb.co/198MvrV/Entertainment-Buzz.jpg" className='grayscale' />
+                <p className="legend">Lights, Camera, Action: Dive into Entertainment Buzz.</p>
             </div>
 
             <div className='md:h-[720px] group'>
-                <img src="https://i.ibb.co/qg9QYph/aditya-rathod-tc-rukx-VBXQ-unsplash-1.jpg" className='grayscale' />
-                <p className="legend">Legend 1</p>
+                <img src="https://i.ibb.co/XDBfWCs/Science-Exploration.jpg" className='grayscale' />
+                <p className="legend">Journey to the Unknown: Explore the Cosmos.</p>
             </div>
 
             <div className='md:h-[720px] group'>
-                <img src="https://i.ibb.co/qg9QYph/aditya-rathod-tc-rukx-VBXQ-unsplash-1.jpg" className='grayscale' />
-                <p className="legend">Legend 1</p>
+                <img src="https://i.ibb.co/1MRvWc9/Adventures-Beyond-Borders-Travel-and-Explore.jpg" className='grayscale' />
+                <p className="legend">Adventures Beyond Borders: Travel and Explore.</p>
             </div>
 
             <div className='md:h-[720px] group'>
-                <img src="https://i.ibb.co/qg9QYph/aditya-rathod-tc-rukx-VBXQ-unsplash-1.jpg" className='grayscale' />
-                <p className="legend">Legend 1</p>
+                <img src="https://i.ibb.co/9gDmnXK/calum-lewis-v-A1-L1j-RTM70-unsplash-1.jpg" className='grayscale' />
+                <p className="legend">Savor the Flavors: Culinary Delights Await.</p>
             </div>
 
             <div className='md:h-[720px] group'>
-                <img src="https://i.ibb.co/qg9QYph/aditya-rathod-tc-rukx-VBXQ-unsplash-1.jpg" className='grayscale' />
-                <p className="legend">Legend 1</p>
-            </div> */}
+                <img src="https://i.ibb.co/dGgTM2q/florian-klauer-mk7-D-4-UCfmg-unsplash-1.jpg" className='grayscale' />
+                <p className="legend">Share the Journey: Connect Through Personal Narratives.</p>
+            </div>
 
         </Carousel>
     );
