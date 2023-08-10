@@ -12,17 +12,6 @@ import store from './StateManagment/store/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div>
-<<<<<<< HEAD
-    <div>
-      <Provider store={store}>
-        <ThemeProvider>
-          <AuthProvider>
-            <RouterProvider router={router} />
-          </AuthProvider>
-        </ThemeProvider>
-      </Provider>
-    </div>
-=======
     <Provider store={store}>
       <ThemeProvider>
         <AuthProvider>
@@ -30,6 +19,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </AuthProvider>
       </ThemeProvider>
     </Provider>
->>>>>>> 355f6d77560b3f61355a3b15dcd080ee4033493a
   </div>
 )
