@@ -32,17 +32,7 @@ const ChoiceUs = () => {
 
                     <div className="flex items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
 
-                        <motion.div
-                            ref={ref}
-                            initial="hidden"
-                            animate={controls}
-                            variants={{
-                                visible: { opacity: 1, x: 0 },
-                                hidden: { opacity: 0, x: -100 },
-                            }}
-                            transition={{ duration: 0.9 }}
-
-                            className="space-y-5">
+                        <div className="space-y-5 md:px-0 px-6">
 
                             <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">Why Choose Us?</h1>
                             <ul className="font-[Cinzel]">
@@ -51,19 +41,19 @@ const ChoiceUs = () => {
                                 <li className="list-[upper-roman] list-inside">Collaboration, Continuous Learning, and Innovation.</li>
                             </ul>
 
-                            <div className="md:w-8/12 md:mx-0 w-10/12 mx-auto">
+                            <div className="md:w-8/12 md:mx-0 w-11/12 mx-auto">
                                 <Link to="/login">
                                     <Button heading="Sign-up"></Button>
                                 </Link>
                             </div>
 
-                        </motion.div>
+                        </div>
 
                     </div>
 
                     {/* right side card for large device*/}
 
-                    <div className="relative w-10/12 py-24 md:mr-20 hidden sm:block">
+                    <div className="relative w-10/12 md:mr-20 hidden sm:block py-24">
 
                         {/* <!-- banner top card --> */}
 
@@ -138,7 +128,17 @@ const ChoiceUs = () => {
 
                     {/* right side card for small device */}
 
-                    <div className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
+                    <div
+                        // ref={ref}
+                        // initial="hidden"
+                        // animate={controls}
+                        // variants={{
+                        //     visible: { opacity: 1, x: 0 },
+                        //     hidden: { opacity: 0, x: -100 },
+                        // }}
+                        // transition={{ duration: 0.9 }}
+
+                        className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
 
                         <div className="hover:bg-[#84a98c] duration-500 rounded-3xl p-5">
                             <div className="flex justify-center">
