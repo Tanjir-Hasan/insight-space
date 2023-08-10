@@ -8,7 +8,7 @@ import ActiveLink from '../../../components/ActiveLink';
 
 const Navbar = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     const { theme, toggleTheme } = useContext(ThemeContext);
 
