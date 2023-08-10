@@ -12,7 +12,7 @@ import store from './StateManagment/store/store';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div>
+  <div className='overflow-hidden object-cover'>
     <Provider store={store}>
       <ThemeProvider>
         <AuthProvider>
