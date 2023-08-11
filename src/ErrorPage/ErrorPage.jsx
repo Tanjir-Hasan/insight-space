@@ -15,7 +15,7 @@ const ErrorPage = () => {
 
           <div className="mt-4 flex justify-center">
             <Link to="/">
-              <Button heading="Home">
+              <Button heading="Back to Home">
                 <input type="submit" value="Home" />
               </Button>
             </Link>
