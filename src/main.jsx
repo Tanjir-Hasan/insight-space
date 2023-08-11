@@ -10,13 +10,14 @@ import { Provider } from 'react-redux';
 import store from './StateManagment/store/store';
 
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='overflow-hidden object-cover'>
     <Provider store={store}>
       <ThemeProvider>
         <AuthProvider>
           <RouterProvider router={router} />
-        </AuthProvider>
+        </AuthProvider>     
       </ThemeProvider>
     </Provider>
   </div>

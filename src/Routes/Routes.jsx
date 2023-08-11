@@ -5,13 +5,13 @@ import Login from "../pages/Shared/LoginAndSignup/Login/Login";
 import Signup from "../pages/Shared/LoginAndSignup/Singup/Signup";
 import NewsFeed from "../pages/NewsFeed/NewsFeed";
 import BlogFeed from "../pages/BlogFeed/BlogFeed";
-// import ErrorPage from "../ErrorPage/ErrorPage";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
-        // errorElement: <ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
