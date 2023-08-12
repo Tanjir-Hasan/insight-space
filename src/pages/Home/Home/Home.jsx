@@ -1,5 +1,7 @@
 import Banner from "../Banner/Banner";
 import ChoiceUs from "../ChoiceUs/ChoiceUs";
+import CommunityGuidelines from "../CommunityGuidelines/CommunityGuidelines";
+import ExploreContent from "../ExploreContent/ExploreContent";
 
 import TopPosts from "../TopPosts/TopPosts";
 
@@ -8,8 +10,10 @@ const Home = () => {
     return (
         <>
             <Banner></Banner>
-            <ChoiceUs></ChoiceUs>
             <TopPosts></TopPosts>
+            <ExploreContent></ExploreContent>
+            <ChoiceUs></ChoiceUs>
+            <CommunityGuidelines></CommunityGuidelines>
         </> )
 };
 

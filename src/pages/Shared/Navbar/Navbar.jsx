@@ -8,7 +8,7 @@ import ActiveLink from '../../../components/ActiveLink';
 
 const Navbar = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         // f6fff8 
         // edede9
-        <div className={`font-[Poppins] py-2 md:pb-0 pb-6 pr-1 ${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'}`}>
+        <div className={`font-[Poppins] py-2 md:pb-0 pb-6 pr-1 fixed left-0 top-0 right-0 ${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'}`}>
             <div className='flex justify-between items-center'>
 
                 <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="" className='h-16' />
