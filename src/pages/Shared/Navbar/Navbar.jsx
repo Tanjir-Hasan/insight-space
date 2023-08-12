@@ -5,11 +5,13 @@ import { MdDarkMode } from 'react-icons/md';
 // import { BsSearch } from 'react-icons/bs';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
+import useUser from '../../../Hooks/useUser';
+import useAuth from '../../../Hooks/UseAuth';
 
 const Navbar = () => {
-
+    const [userDetails] = useUser();
+    const { info, setInfo } = useAuth();
     const [isOpen, setIsOpen] = useState(true);
-
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     const handleThemeToggle = () => {
@@ -60,9 +62,7 @@ const Navbar = () => {
                     <button onClick={handleThemeToggle}>
                         {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
                     </button>
-
-                    <img src="https://i.ibb.co/txZTzJB/user-1.png" alt="user-image" className='h-8 rounded-full' />
-
+                    {userDetails?.photoURL && <img onClick={() => setInfo(!info)} src={userDetails?.photoURL} alt="user-image" className='h-8 rounded-full' />}
                 </div>
             </div>
         </div>

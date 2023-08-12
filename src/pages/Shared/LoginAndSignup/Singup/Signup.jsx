@@ -9,11 +9,8 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Button from "../../../../components/Button";
 
 const Signup = () => {
-
   const { theme } = useContext(ThemeContext);
-
   const { createUser, errorMsg, setErrorMsg } = useAuth();
-
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   // create user and user details set on database 
@@ -23,7 +20,7 @@ const Signup = () => {
       .then(result => {
         setErrorMsg("")
         const date = new Date();
-        const newUser = { displayName: name, email, photoURL: photo, date }
+        const newUser = { displayName: name, email, photoURL: photo, date, role: "regular" }
         axios.post('https://insight-space-server.vercel.app/add-user', newUser)
           .then(data => {
             Swal.fire({
