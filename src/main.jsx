@@ -17,7 +17,6 @@ const queryClient = new QueryClient()
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<<<<<<< HEAD
   <div>
     <div>
       <Provider store={store}>
@@ -30,15 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ThemeProvider>
       </Provider>
     </div>
-=======
-  <div className='overflow-hidden object-cover'>
-    <Provider store={store}>
-      <ThemeProvider>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>     
-      </ThemeProvider>
-    </Provider>
->>>>>>> f43faa18dd27356165f2002317bc7df6b7f805e0
   </div>
 )

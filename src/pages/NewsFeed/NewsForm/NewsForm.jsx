@@ -5,9 +5,11 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useUser from "../../../Hooks/useUser";
 import usePosts from "../../../Hooks/usePosts";
+import useAuth from "../../../Hooks/UseAuth";
 
 
-const NewsForm = ({ user }) => {
+const NewsForm = () => {
+    const { user } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [userDetails] = useUser();
     const [ , refetch] = usePosts();
@@ -41,7 +43,7 @@ const NewsForm = ({ user }) => {
             {/* main form  */}
             <div className="border border-spacing-4 mt-2 pt-4 pb-8 rounded bg-slate-100">
                 <div className="flex space-x-2 mx-4">
-                    <img src={user?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
+                    <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                     <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="w-full border border-spacing-3 rounded-xl px-2" placeholder="Post Your Questions" />
                 </div>
             </div>

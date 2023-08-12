@@ -1,11 +1,10 @@
-import NewsForm from "./NewsForm/NewsForm";
-import DisplayNewsFeed from "./DisplayNewsFeed/DisplayNewsFeed";
-import Categories from "./Categories/Categories";
-import UserDetails from "./UserDetails/USerDetails";
-import useAuth from "../../Hooks/UseAuth";
+import Categories from "../Categories/Categories";
+import DisplayNewsFeed from "../DisplayNewsFeed/DisplayNewsFeed";
+import NewsForm from "../NewsForm/NewsForm";
+import UserDetails from "../UserDetails/UserDetails";
+
 
 const NewsFeed = () => {
-    const { user } = useAuth();
     return (
         <div className="min-h-screen w-10/12 mx-auto">
             <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4 w-full">
@@ -15,7 +14,7 @@ const NewsFeed = () => {
                 </div>
                 {/* Post start*/}
                 <div className="lg:col-span-2">
-                    <NewsForm user={user}></NewsForm>
+                    <NewsForm></NewsForm>
                     <div>
                         <DisplayNewsFeed></DisplayNewsFeed>
                     </div>
