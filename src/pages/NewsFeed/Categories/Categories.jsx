@@ -1,19 +1,8 @@
-import { useEffect } from "react";
-import { fetchPosts } from "../../../StateManagment/Posts/postSlice";
-import { useDispatch, useSelector } from "react-redux";
+import usePosts from "../../../Hooks/usePosts";
 
 
 const Categories = () => {
-
-    // const books = useSelector((state) => state.booksReducer.books)
-    // console.log(books)
-    const { isLoading, posts, error } = useSelector(state => state.posts)
-    console.log(posts)
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchPosts())
-    }, [])
-
+      const [posts] = usePosts();
 
     // const educationHandle =()=>{
     //     const educationfind = posts.filter(education => education.category === 'Technology' )
@@ -22,11 +11,11 @@ const Categories = () => {
     return (
         <div className="">
             {
-                posts && posts.map(categorie =>
-                    <div key={categorie._id} className="px-4">
+                posts && posts.map(c =>
+                    <div key={c._id} className="px-4">
                         <label className="flex items-center">
                             <input type="checkbox" className="form-checkbox text-indigo-600 h-5 w-5" />
-                            <span className="ml-2 text-gray-700">{categorie.category}</span>
+                            <span className="ml-2 text-gray-700">{c.category}</span>
                         </label>
                     </div>
                 )}

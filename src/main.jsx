@@ -8,28 +8,25 @@ import { ThemeProvider } from './providers/ThemeProvider';
 import AuthProvider from './providers/AuthProvider';
 import { Provider } from 'react-redux';
 import store from './StateManagment/store/store';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div>
-<<<<<<< HEAD
     <div>
       <Provider store={store}>
         <ThemeProvider>
           <AuthProvider>
-            <RouterProvider router={router} />
+            <QueryClientProvider client={queryClient}>
+              <RouterProvider router={router} />
+            </QueryClientProvider>
           </AuthProvider>
         </ThemeProvider>
       </Provider>
     </div>
-=======
-    <Provider store={store}>
-      <ThemeProvider>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>
-      </ThemeProvider>
-    </Provider>
->>>>>>> 355f6d77560b3f61355a3b15dcd080ee4033493a
   </div>
 )

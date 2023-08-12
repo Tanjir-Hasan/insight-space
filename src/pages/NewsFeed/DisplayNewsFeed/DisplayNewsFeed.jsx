@@ -1,30 +1,28 @@
 /* eslint-disable react/prop-types */ //
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory } from 'react-icons/fa';
-import { fetchPosts } from "../../../StateManagment/Posts/postSlice";
-import { useDispatch, useSelector } from "react-redux";
 import useUser from "../../../Hooks/useUser";
 import axios from "axios";
 import Swal from "sweetalert2";
 import moment from "moment";
+import usePosts from "../../../Hooks/usePosts";
 
 
 const DisplayNewsFeed = () => {
     const [userDetails] = useUser();
     const ref = useRef();
     const [hide, setHide] = useState(false);
-    const { isLoading, posts, error } = useSelector(state => state.posts)
-    // console.log(posts)
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchPosts())
-    }, [])
-
+    const [posts, refetch ] = usePosts();
+    
     //  handle react 
     const handleReact = (id, email) => {
         const addReact = { id, email }
         axios.patch("https://insight-space-server.vercel.app/reacts", addReact)
-            .then(data => console.log(data.data))
+            .then(data => {
+                if (data) {
+                    refetch()
+                }
+            })
             .catch(err => console.log(err.message))
     }
     // for add bookmarks
@@ -33,6 +31,7 @@ const DisplayNewsFeed = () => {
         axios.post("https://insight-space-server.vercel.app/book-marks", addBookMark)
             .then(data => {
                 if (data) {
+                    refetch()
                     Swal.fire(
                         'Success!',
                         'This Question save on your collections.',
@@ -47,7 +46,11 @@ const DisplayNewsFeed = () => {
         const comment = ref.current.value;
         const newComment = { comment, postId: p._id, email: user.email, displayName: user.displayName, photoURL: user.photoURL }
         axios.patch("https://insight-space-server.vercel.app/comment", newComment)
-            .then(data => console.log(data.data))
+            .then(data => {
+                if (data) {
+                    refetch()
+                }
+            })
             .catch(err => console.log(err.message))
     }
 

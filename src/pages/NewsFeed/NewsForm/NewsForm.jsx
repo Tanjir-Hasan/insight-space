@@ -4,11 +4,13 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useUser from "../../../Hooks/useUser";
+import usePosts from "../../../Hooks/usePosts";
 
 
 const NewsForm = ({ user }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [userDetails] = useUser();
+    const [ , refetch] = usePosts();
     const { register, handleSubmit } = useForm();
     const ref = useRef();
     // post form submit function 
@@ -18,7 +20,7 @@ const NewsForm = ({ user }) => {
         const react = [];
         const comment = [];
         const { category, text } = data;
-        const newPost = { status, date, category, text, userEmail: user.email, react, comment , userPhoto:userDetails?.photoURL , userName: userDetails?.displayName }
+        const newPost = { status, date, category, text, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName }
         axios.post('https://insight-space-server.vercel.app/posts', newPost)
             .then(data => {
                 if (data) {
@@ -27,6 +29,7 @@ const NewsForm = ({ user }) => {
                         'Your Questions Uploaded.',
                         'success'
                     )
+                    refetch()
                     setIsModalOpen(!isModalOpen)
                 }
             })
