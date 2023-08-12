@@ -18,7 +18,7 @@ const useBookMarks = () => {
     })
     const postId = data?.map(id => id.postId)
     const bookmarks = posts?.filter(p => postId?.includes(p._id))
-    console.log(bookmarks);
+    // console.log(bookmarks);
     return [bookmarks]
 };
 

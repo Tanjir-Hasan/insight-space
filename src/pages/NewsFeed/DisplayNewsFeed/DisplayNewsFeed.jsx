@@ -34,7 +34,6 @@ const DisplayNewsFeed = () => {
                             p.postImg && <img src={p.postImg} className="w-full max-h-[600px]" alt="image" />
                         }
                     </div>
-                    {/* TODO: make like and comment dynamic */}
                     <div className="w-full flex items-center py-6 px-8">
                         <div className="w-full flex space-x-8">
                             <button onClick={() => handleReact(p._id, userDetails.email)} className="flex items-center"><FaHeart className={p.react.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {p.react.length}</button>

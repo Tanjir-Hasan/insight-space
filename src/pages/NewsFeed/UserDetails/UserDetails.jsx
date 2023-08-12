@@ -41,17 +41,17 @@ const UserDetails = () => {
                     <div className="flex justify-center my-4">
                         {userDetails?.photoURL && <img className="w-20 h-20 rounded-full" src={userDetails?.photoURL} alt="user image" />}
                     </div>
-                    <h2 className="text-lg font-semibold uppercase">{userDetails?.displayName}</h2>
+                    <h2 className="text-lg font-bold uppercase">{userDetails?.displayName}</h2>
                     <h2 className="text-lg font-semibold">User ID : {userDetails?._id}</h2>
                     <div className="flex justify-center my-4">
-                        <button className="border border-blue-500 text-blue-500 rounded-lg px-4 py-2 hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out"><Link>View Profile</Link></button>
+                        <button className="border border-[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out"><Link>View Profile</Link></button>
                     </div>
                     <hr className="underline underline-offset-8"></hr>
                 </div>
                 <div className="my-4 space-y-2">
-                    <button className="w-full border-b-4 border-blue-500 text-blue-500 rounded-lg px-4 py-2 hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out">My posts </button>
-                    <button className="w-full border-b-4 border-blue-500 text-blue-500 rounded-lg px-4 py-2 hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out"> Book Marks </button>
-                    <button onClick={handleLogOut} className="w-full border-b-4 border-blue-500 text-blue-500 rounded-lg px-4 py-2 hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out">Log out</button>
+                    <button className="w-full border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">My posts </button>
+                    <button className="w-full border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out"> Book Marks </button>
+                    <button onClick={handleLogOut} className="w-full border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">Log out</button>
                 </div>
             </div>}
         </div>
