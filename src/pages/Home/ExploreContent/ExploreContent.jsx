@@ -51,7 +51,7 @@ const ExploreContent = () => {
                     }}
                     transition={{ duration: 0.9 }} className="md:w-11/12 mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -65,7 +65,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -79,7 +79,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -93,7 +93,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -107,7 +107,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -121,7 +121,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -135,7 +135,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -149,7 +149,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -164,7 +164,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -179,7 +179,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -194,7 +194,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -209,7 +209,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -223,7 +223,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -237,7 +237,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -251,7 +251,7 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/login">
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>

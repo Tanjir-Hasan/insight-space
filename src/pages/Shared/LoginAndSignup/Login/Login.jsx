@@ -8,11 +8,8 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Button from "../../../../components/Button";
 
 const Login = () => {
-
     const { theme } = useContext(ThemeContext);
-
     const { signIn, errorMsg, setErrorMsg } = useAuth();
-
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {

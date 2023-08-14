@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 const Banner = () => {
     return (
-        <Carousel autoPlay>
+        <Carousel autoPlay infiniteLoop>
 
             <div className='group md:h-[720px]'>
                 {/* <img src="https://i.ibb.co/7Ws57k2/news-1.jpg" className='grayscale' /> */}
