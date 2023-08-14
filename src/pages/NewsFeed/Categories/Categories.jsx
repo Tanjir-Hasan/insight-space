@@ -1,52 +1,42 @@
-import { useEffect } from "react";
-import { fetchPosts } from "../../../StateManagment/Posts/postSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import usePosts from "../../../Hooks/usePosts";
 
 
 const Categories = () => {
+    const [posts] = usePosts();
+    const [checkedCategories, setCheckedCategories] = useState([]);
 
-    // const books = useSelector((state) => state.booksReducer.books)
-    // console.log(books)
-    const { isLoading, posts, error } = useSelector(state => state.posts)
-    console.log(posts)
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchPosts())
-    }, [])
+    const Categories = posts.filter((post, index, self) =>
+        index === self.findIndex((p) => p.category === post.category)
+    );
 
+    const handleCheckboxChange = (category) => {
+        if (checkedCategories.includes(category)) {
+            setCheckedCategories(checkedCategories.filter(c => c !== category));
+        } else {
+            setCheckedCategories([...checkedCategories, category]);
+        }
+    };
+ console.log(checkedCategories);
 
-    // const educationHandle =()=>{
-    //     const educationfind = posts.filter(education => education.category === 'Technology' )
-    //     console.log(educationfind)
-    // }
     return (
-        <div className="">
+        <div>
             {
-                posts && posts.map(categorie =>
-                    <div key={categorie._id} className="px-4">
+                Categories && Categories.map(c =>
+                    <div key={c._id} className="px-4">
                         <label className="flex items-center">
-                            <input type="checkbox" className="form-checkbox text-indigo-600 h-5 w-5" />
-                            <span className="ml-2 text-gray-700">{categorie.category}</span>
+                            <input
+                                name="category"
+                                value={c.category}
+                                type="checkbox"
+                                className="form-checkbox text-indigo-600 h-5 w-5"
+                                checked={checkedCategories.includes(c.category)}
+                                onChange={() => handleCheckboxChange(c.category)}
+                            />
+                            <span className="ml-2 text-gray-700">{c.category}</span>
                         </label>
                     </div>
                 )}
-
-
-
-                {/* <div className="px-4">
-                <label className="flex items-center">
-                            <input onClick={()=>educationHandle()} type="checkbox" className="form-checkbox text-indigo-600 h-5 w-5" />
-                            <span className="ml-2 text-gray-700">Educational</span>
-                        </label>
-                </div>
-
-                <div className="px-4">
-                <label className="flex items-center">
-                            <input type="checkbox" className="form-checkbox text-indigo-600 h-5 w-5" />
-                            <span className="ml-2 text-gray-700">Health</span>
-                        </label>
-                </div> */}
-
         </div>
     );
 };

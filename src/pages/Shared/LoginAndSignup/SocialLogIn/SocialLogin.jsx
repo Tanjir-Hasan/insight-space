@@ -13,7 +13,7 @@ const SocialLogin = () => {
                 const loggedUser = result.user;
                 const { displayName, email, photoURL } = loggedUser;
                 const date = new Date();
-                const newUser = { displayName, email, photoURL, date }
+                const newUser = { displayName, email, photoURL, date, role: "regular" }
                 axios.post('https://insight-space-server.vercel.app/add-user', newUser)
                     .then(data => console.log(data.data))
                     .catch(err => console.log(err))
