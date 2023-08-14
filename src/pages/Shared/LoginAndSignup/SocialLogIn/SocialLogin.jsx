@@ -28,12 +28,13 @@ const SocialLogin = () => {
             .catch(err => setErrorMsg(err.message))
     }
 
-    // github sign in
+    // github sign in 
     const handleGithubSignIn = () => {
         githubSignIn()
             .then(result => {
                 setErrorMsg("")
                 const loggedUser = result.user;
+                console.log(loggedUser);
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
