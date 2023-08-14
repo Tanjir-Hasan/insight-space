@@ -11,8 +11,9 @@ import useAuth from "../../../Hooks/UseAuth";
 const NewsForm = () => {
     const { user } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState("questions")
     const [userDetails] = useUser();
-    const [ , refetch] = usePosts();
+    const [, refetch] = usePosts();
     const { register, handleSubmit } = useForm();
     const ref = useRef();
     // post form submit function 
@@ -49,14 +50,21 @@ const NewsForm = () => {
             </div>
             {/* modal body  */}
             {isModalOpen && (
-                <div className="fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded shadow-lg sm:w-full lg:w-1/3">
+                <div className="fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded shadow-lg sm:w-full lg:w-2/5">
                     <button onClick={() => setIsModalOpen(false)} className=" bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded absolute right-2 top-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                     </button>
-                    {/* display content  */}
+                    {/* modal two sections start  */}
+                    <div className="flex border-b-2 border-spacing-6 mb-5">
+                        <button onClick={() => setIsOpen("questions")} className="w-full border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">Ask a Questions</button>
+                        <button onClick={() => setIsOpen("blogs")} className="w-full border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">Create a Blog</button>
+                    </div>
+
+                    {/* modal two sections end  */}
+                    {/* display  post contend content  */}
                     <div>
-                        <div className="flex space-x-2 ">
+                        <div className="flex space-x-2">
                             <img src={user?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                             <div>
                                 <p className="text-lg font-bold pt-2">{user?.displayName}</p>
@@ -68,7 +76,8 @@ const NewsForm = () => {
                             </div>
                         </div>
                     </div>
-                    <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
+                    {/* questions from start */}
+                    {isOpen == "questions" ? <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
                         <div className="my-2 w-1/2">
                             <p className="text-md font-semibold mb-2">Select Category : </p>
                             <select required {...register("category")} className="w-full border rounded-md focus:ring focus:ring-blue-300">
@@ -84,7 +93,26 @@ const NewsForm = () => {
                         <div className="mt-8">
                             <button type="submit" className="w-full border border-slate-500 text-slate-500 rounded-md px-4 py-2 hover:bg-slate-500 hover:text-white transition duration-300 ease-in-out">Post</button>
                         </div>
-                    </form>
+                    </form> : 
+                    // blog  form start
+                        <form className="mt-8">
+                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="write your blog"></textarea><br />
+                            <div className="mt-4">
+                                <label className="block text-gray-700 font-bold mb-2" htmlFor="fileInput">
+                                    Image
+                                </label>
+                                <input
+                                    className="rounded-lg px-4 py-2 w-full bg-white focus:outline-none focus:border-blue-500"
+                                    type="file"
+                                    id="fileInput"
+                                    name="fileInput"
+                                />
+                            </div>
+                            <div className="mt-8">
+                                <button type="submit" className="w-full border border-slate-500 text-slate-500 rounded-md px-4 py-2 hover:bg-slate-500 hover:text-white transition duration-300 ease-in-out">Post Blog</button>
+                            </div>
+                        </form>}
+                    {/* blog from end */}
                 </div>
             )}
         </div>
