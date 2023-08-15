@@ -34,7 +34,7 @@ const CommunityGuidelines = () => {
                     }}
                     transition={{ duration: 0.9 }}
 
-                    className="md:text-5xl text-3xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12">
+                    className="md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12">
                     Community Guidelines
                 </motion.h1>
 

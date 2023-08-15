@@ -1,7 +1,7 @@
 import Banner from "../Banner/Banner";
 import ChoiceUs from "../ChoiceUs/ChoiceUs";
 import CommunityGuidelines from "../CommunityGuidelines/CommunityGuidelines";
-import ExploreContent from "../Explore Content/ExploreContent";
+import ExploreContent from "../ExploreContent/ExploreContent";
 import PeerToPeer from "../PeerToPeer/PeerToPeer";
 import TopPosts from "../TopPosts/TopPosts";
 
@@ -19,3 +19,4 @@ const Home = () => {
 };
 
 export default Home;
+
