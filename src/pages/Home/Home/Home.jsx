@@ -2,7 +2,7 @@ import Banner from "../Banner/Banner";
 import ChoiceUs from "../ChoiceUs/ChoiceUs";
 import CommunityGuidelines from "../CommunityGuidelines/CommunityGuidelines";
 import ExploreContent from "../ExploreContent/ExploreContent";
-
+import PeerToPeer from "../PeerToPeer/PeerToPeer";
 import TopPosts from "../TopPosts/TopPosts";
 
 
@@ -13,8 +13,10 @@ const Home = () => {
             <TopPosts></TopPosts>
             <ExploreContent></ExploreContent>
             <ChoiceUs></ChoiceUs>
+            <PeerToPeer></PeerToPeer>
             <CommunityGuidelines></CommunityGuidelines>
         </> )
 };
 
 export default Home;
+
