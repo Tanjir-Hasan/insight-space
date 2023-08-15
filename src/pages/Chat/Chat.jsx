@@ -34,7 +34,7 @@ const Chat = () => {
         e.preventDefault()
         const data = ref.current.value
         const date = new Date();
-        const newText = { date, data }
+        const newText = {date , data}
         const newMessage = { message: newText, sender: user?.email, receiver: userDetails?.email }
         axios.post("http://localhost:5000/chatMessage", newMessage)
             .then(data => console.log(data))
