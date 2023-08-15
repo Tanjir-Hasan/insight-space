@@ -6,6 +6,7 @@ import Signup from "../pages/Shared/LoginAndSignup/Singup/Signup";
 import BlogFeed from "../pages/BlogFeed/BlogFeed";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
+import Chat from "../pages/Chat/Chat";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: "/sign-up",
                 element: <Signup></Signup>
+            },
+            {
+               path: "/chat",
+               element: <Chat></Chat> 
             }
         ]
     },
