@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */ //
 import { useRef, useState } from "react";
-import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory } from 'react-icons/fa';
+import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaThList } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
@@ -13,7 +13,7 @@ const DisplayNewsFeed = () => {
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
-
+    const [isAction, setIsAction] = useState(null)
     return (
         <div>
             {
@@ -40,7 +40,7 @@ const DisplayNewsFeed = () => {
                             <button onClick={() => setHide(p._id)} className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {p.comment.length}</button>
                         </div>
                         <div>
-                            <button><FaBookmark onClick={() => handleBookMark(p._id, userDetails?.email)} className="text-2xl me-2"></FaBookmark></button>
+                            <button><FaBookmark onClick={() => handleBookMark(p._id, userDetails?.email)} className="text-2xl me-2" title="book mark"></FaBookmark></button>
                         </div>
                     </div>
                     {/* comment body  */}
@@ -59,6 +59,13 @@ const DisplayNewsFeed = () => {
                                             <div>
                                                 <p className="text-lg font-semibold">{c.displayName}</p>
                                                 <p>{c.comment}</p>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setIsAction(p._id)}><FaThList></FaThList></button>
+                                                {isAction === p.id && <div>
+                                                    <button>Edit</button>
+                                                    <button>Delete</button>
+                                                </div>}
                                             </div>
                                         </div>
                                     </div>)
