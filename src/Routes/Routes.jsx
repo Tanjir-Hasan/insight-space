@@ -6,7 +6,11 @@ import Signup from "../pages/Shared/LoginAndSignup/Singup/Signup";
 import BlogFeed from "../pages/BlogFeed/BlogFeed";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
+<<<<<<< HEAD
 import Chat from "../pages/Chat/Chat";
+=======
+import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
+>>>>>>> fbb6410a9ff5b9e8ec5431f95e29aa03ff38a4b5
 
 const router = createBrowserRouter([
     {
@@ -23,8 +27,8 @@ const router = createBrowserRouter([
                 element:<NewsFeed></NewsFeed> 
             },
             {
-                path: "/q&a",
-                element: <BlogFeed></BlogFeed>
+                path: "/ques-ans",
+                element: <QuesAndAns></QuesAndAns>
             },
             {
                 path: "/blog-feed",
