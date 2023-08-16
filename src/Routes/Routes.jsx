@@ -6,8 +6,11 @@ import Signup from "../pages/Shared/LoginAndSignup/Singup/Signup";
 import BlogFeed from "../pages/BlogFeed/BlogFeed";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
+import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
+import Chat from "../pages/Chat/Chat";
 import Chat from "../pages/Chat/Chat";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
+
 
 const router = createBrowserRouter([
     {
@@ -40,7 +43,7 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-               path: "/chat",
+               path: "/chats",
                element: <Chat></Chat> 
             }
         ]

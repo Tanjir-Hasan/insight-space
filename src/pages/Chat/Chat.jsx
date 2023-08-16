@@ -30,25 +30,17 @@ const Chat = () => {
 
 
 
-    const handleSubmit = (e)=> {
+    const handleSubmit = (e) => {
         e.preventDefault()
         const data = ref.current.value
-        console.log(data);
-        const newMessage = {m}
-       
-        useEffect(() => {
-            const sendMessages = async () => {
-                try {
-                    const send = await axios.get(`http://localhost:5000/chatMessage", ${data}`);
-                    sendMessages(send.data ? [send.data] : []);
-                } catch (error) {
-                    console.log('Error fetching message:', error);
-                }
-            };
-    
-            fetchFeedback();
-        }, [user?.email]);
+        const date = new Date();
+        const newText = {date , data}
+        const newMessage = { message: newText, sender: user?.email, receiver: userDetails?.email }
+        axios.post("http://localhost:5000/chatMessage", newMessage)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
     }
+
     return (
         <>
             <div>
