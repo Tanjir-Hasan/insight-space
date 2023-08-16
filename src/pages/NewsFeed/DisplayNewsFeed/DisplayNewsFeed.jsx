@@ -10,10 +10,20 @@ import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 const DisplayNewsFeed = () => {
     const [userDetails] = useUser();
     const ref = useRef();
+    const editComment = useRef();
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
+    const [commentId, setCommentId] = useState(null)
+
+
+
+    const handleEditComment = (id) => {
+        setCommentId(id)
+    }
+
+
     return (
         <div>
             {
@@ -54,17 +64,21 @@ const DisplayNewsFeed = () => {
                             <div>
                                 {
                                     p?.comment?.map((c, i) => <div className="pt-2 pb-8 px-4" key={i}>
-                                        <div className="flex space-x-3 items-center">
-                                            <img src={c.photoURL} alt="" className="w-10 h-10 rounded-full" />
-                                            <div>
-                                                <p className="text-lg font-semibold">{c.displayName}</p>
-                                                <p>{c.comment}</p>
+                                        <div className="flex justify-between">
+                                            {/* comment edit  */}
+                                            <div className="flex space-x-3">
+                                                <img src={c.photoURL} alt="" className="w-10 h-10 rounded-full" />
+                                                <div>
+                                                    <p className="text-lg font-semibold">{c.displayName}</p>
+                                                    <p hidden={commentId === c.commentId}>{c.comment}</p>
+                                                    {commentId === c.commentId && <div className="flex space-x-2">< textarea ref={editComment} name="" id="" cols="2" rows="1" defaultValue={c.comment} className="w-full px-4 py-2 border border-spacing-4 rounded-3xl"></textarea><button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300">submit</button></div>}
+                                                </div>
                                             </div>
                                             <div>
-                                                <button onClick={() => setIsAction(p._id)}><FaThList></FaThList></button>
-                                                {isAction === p.id && <div>
-                                                    <button>Edit</button>
-                                                    <button>Delete</button>
+                                                <button onClick={() => setIsAction(c.commentId)}><FaThList></FaThList></button>
+                                                {isAction === c.commentId && <div>
+                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full my-2" onClick={() => handleEditComment(c.commentId)}>Edit</button>
+                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full">Delete</button>
                                                 </div>}
                                             </div>
                                         </div>
@@ -75,7 +89,7 @@ const DisplayNewsFeed = () => {
                     }
                 </div>)
             }
-        </div>
+        </div >
     );
 };
 
