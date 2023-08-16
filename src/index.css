@@ -29,10 +29,6 @@
     display: none;
 }
 
-/* .carousel .legend {
-    margin-bottom: 320px;
-} */
-
 .grayscale {
     filter: grayscale(95%);
     transition: filter 0.3s ease-in-out; 
