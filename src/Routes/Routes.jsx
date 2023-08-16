@@ -11,6 +11,8 @@ import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
 import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
+import ContactForm from "../pages/Home/Support/ContactForm";
+
 
 const router = createBrowserRouter([
     {
@@ -55,8 +57,12 @@ const router = createBrowserRouter([
                 element: <MyPost></MyPost>
             },
             {
-                path: "my-bookmarks",
+                path: "/my-bookmarks",
                 element: <MyBookmarks></MyBookmarks>
+            },
+            {
+                path: "/support",
+                element: <ContactForm></ContactForm>
             }
         ]
     },

@@ -18,18 +18,18 @@ const queryClient = new QueryClient()
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div>
-    <div>
-      <Provider store={store}>
-        <ThemeProvider>
-          <AuthProvider>
-            <QueryClientProvider client={queryClient}>
-              <RouterProvider router={router} />
-              <ToastContainer />
-            </QueryClientProvider>
-          </AuthProvider>
-        </ThemeProvider>
-      </Provider>
-    </div>
+
+  <div className='object-cover overflow-hidden'>
+    <Provider store={store}>
+      <ThemeProvider>
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+            <ToastContainer />
+          </QueryClientProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    </Provider>
   </div>
+
 )

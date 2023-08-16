@@ -43,21 +43,21 @@ const useNewsFeedFunctionality = () => {
             })
             .catch(err => console.log(err.message))
     };
-
-    const handleUpdateComment = (postId, commentId, text) => {
+ 
+    // for update comment 
+    const handleUpdateComment = (postId, commentId, text, setIsAction, setCommentAction) => {
         const updateComment = text.current.value;
         const updateData = { postId, updateComment, commentId };
-        axios.patch("http://localhost:5000/updateComment", updateData)
+        axios.patch("https://insight-space-server.vercel.app/updateComment", updateData)
             .then(data => {
                 if (data.data.modifiedCount > 0) {
-
+                    setCommentAction(null);
+                    setIsAction(null);
+                    refetch();
                 }
             })
             .catch(err => console.log(err))
     }
-
-
-
 
     return [handleReact, handleBookMark, handleAddComment, handleUpdateComment]
 };
