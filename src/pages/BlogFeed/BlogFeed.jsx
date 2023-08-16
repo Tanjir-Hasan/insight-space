@@ -50,7 +50,10 @@ const BlogFeed = () => {
                                 className="w-full border border-spacing-3 rounded-xl px-2" required />
                         </div>
 
-                        <input type="file" name="image" id="" {...register("file",)} />
+                        <label className="mx-6">
+                            <input type="file" name="image" id="" {...register("file")}
+                             className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold  file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
+                        </label>
 
                         <div className="px-6">
                             <Button heading="Share your thoughts"></Button>

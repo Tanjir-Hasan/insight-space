@@ -114,15 +114,10 @@ const NewsForm = () => {
                         <form className="mt-8">
                             <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?"></textarea><br />
                             <div className="mt-4">
-                                <label className="block text-gray-700 font-bold mb-2" htmlFor="fileInput">
-                                    Image
-                                </label>
-                                <input
-                                    className="rounded-lg px-4 py-2 w-full bg-white focus:outline-none focus:border-blue-500"
-                                    type="file"
+                                <input type="file"
                                     id="fileInput"
-                                    name="fileInput"
-                                />
+                                    name="fileInput" id="" {...register("file")}
+                                    className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
                             </div>
                             <div className="mt-8">
                                 <button type="submit" className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg">Post Blog</button>
