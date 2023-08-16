@@ -3,7 +3,6 @@ import useAuth from '../../../../Hooks/UseAuth';
 import Navbar from '../../Navbar/Navbar';
 import Button from '../../../../components/Button';
 import { Link } from 'react-router-dom';
-
 const ResetPass = () => {
     const { resetPassword } = useAuth()
     const [email, setEmail] = useState('');
