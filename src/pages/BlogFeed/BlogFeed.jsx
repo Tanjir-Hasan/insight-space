@@ -37,7 +37,7 @@ const BlogFeed = () => {
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
 
-            <div className="w-2/3 mx-auto py-4">
+            <div className="md:w-2/3 w-11/12 mx-auto py-4">
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -50,13 +50,19 @@ const BlogFeed = () => {
                                 className="w-full border border-spacing-3 rounded-xl px-2" required />
                         </div>
 
+                        <select ref={ref} className="text-black font-[Poppins] border rounded-md mx-6 mt-5 w-28 px-3">
+                            <option>Public</option>
+                            <option>Friends</option>
+                            <option>Only me</option>
+                        </select>
+
                         <label className="mx-6">
                             <input type="file" name="image" id="" {...register("file")}
-                             className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold  file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
+                                className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
                         </label>
 
                         <div className="px-6">
-                            <Button heading="Share your thoughts"></Button>
+                            <button className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-16 md:px-24 py-2 rounded-lg'>Share your thoughts</button>
                         </div>
 
                     </div>

@@ -7,10 +7,16 @@ import BlogFeed from "../pages/BlogFeed/BlogFeed";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
+import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
 import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
+<<<<<<< HEAD
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
+=======
+import ContactForm from "../pages/Home/Support/ContactForm";
+
+>>>>>>> 112ab53ebaf4c26a6b0a6f8f7e6140d9100dd5ab
 
 const router = createBrowserRouter([
     {
@@ -39,6 +45,10 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
+                path: "/resetPassword",
+                element: <ResetPass></ResetPass>
+            },
+            {
                 path: "/sign-up",
                 element: <Signup></Signup>
             },
@@ -55,8 +65,13 @@ const router = createBrowserRouter([
                 element: <MyBookmarks></MyBookmarks>
             },
             {
+<<<<<<< HEAD
                 path: "/view-Profile",
                 element: <ViewProfile></ViewProfile>
+=======
+                path: "/support",
+                element: <ContactForm></ContactForm>
+>>>>>>> 112ab53ebaf4c26a6b0a6f8f7e6140d9100dd5ab
             }
         ]
     },
