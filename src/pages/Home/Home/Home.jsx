@@ -1,3 +1,4 @@
+import AdvancedCapabilities from "../AdvancedCapabilities/AdvancedCapabilities";
 import Banner from "../Banner/Banner";
 import ChoiceUs from "../ChoiceUs/ChoiceUs";
 import CommunityGuidelines from "../CommunityGuidelines/CommunityGuidelines";
@@ -16,6 +17,7 @@ const Home = () => {
             <ChoiceUs></ChoiceUs>         
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
+            <AdvancedCapabilities></AdvancedCapabilities>
             <CommunityGuidelines></CommunityGuidelines>
           
         </> )
