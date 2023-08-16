@@ -1,14 +1,19 @@
 /* eslint-disable react/prop-types */ //
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaThList } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
 import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 import Swal from "sweetalert2";
+import { ThemeContext } from "../../../providers/ThemeProvider";
+
 
 
 const DisplayNewsFeed = () => {
+
+    const { theme } = useContext(ThemeContext);
+
     const [userDetails] = useUser();
     const ref = useRef();
     const [hide, setHide] = useState(false);
@@ -57,7 +62,9 @@ const DisplayNewsFeed = () => {
     return (
         <div>
             {
-                posts && posts.map(p => <div key={p._id} className="my-6 bg-slate-100 rounded-lg">
+                posts && posts.map(p => <div key={p._id}
+                    className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
+                >
                     <div className="p-4">
                         <div className="flex space-x-2 mb-4">
                             <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />

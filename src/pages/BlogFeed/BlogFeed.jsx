@@ -37,22 +37,27 @@ const BlogFeed = () => {
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
 
-            <div className="w-2/3 mx-auto">
+            <div className="w-2/3 mx-auto py-4">
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-spacing-4 mt-2 pt-4 pb-8 rounded`}>
+                    <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#84a98c] border-spacing-4 mt-2 pt-4 pb-8 rounded-lg`}>
 
-                        <div className="flex space-x-2 mx-4">
+                        <div className="flex space-x-2 mx-4 px-2">
                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                             <input type="post" placeholder="What's on your mind?"
                                 {...register("post",)}
                                 className="w-full border border-spacing-3 rounded-xl px-2" required />
                         </div>
 
-                        <input type="file" name="image" id="" {...register("file",)} />
+                        <label className="mx-6">
+                            <input type="file" name="image" id="" {...register("file")}
+                             className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold  file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
+                        </label>
 
-                        <Button heading="Share your thoughts"></Button>
+                        <div className="px-6">
+                            <Button heading="Share your thoughts"></Button>
+                        </div>
 
                     </div>
 
@@ -63,7 +68,7 @@ const BlogFeed = () => {
                 <div>
                     {
                         posts && posts.map(p => <div key={p._id}
-                            className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg`}>
+                            className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}>
                             <div className="p-4">
                                 <div className="flex space-x-2 mb-4">
                                     <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
