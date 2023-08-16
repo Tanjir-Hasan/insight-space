@@ -11,12 +11,9 @@ import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
 import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
-<<<<<<< HEAD
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
-=======
 import ContactForm from "../pages/Home/Support/ContactForm";
 
->>>>>>> 112ab53ebaf4c26a6b0a6f8f7e6140d9100dd5ab
 
 const router = createBrowserRouter([
     {
@@ -65,13 +62,13 @@ const router = createBrowserRouter([
                 element: <MyBookmarks></MyBookmarks>
             },
             {
-<<<<<<< HEAD
+
                 path: "/view-Profile",
                 element: <ViewProfile></ViewProfile>
-=======
+            },
+            {
                 path: "/support",
                 element: <ContactForm></ContactForm>
->>>>>>> 112ab53ebaf4c26a6b0a6f8f7e6140d9100dd5ab
             }
         ]
     },
