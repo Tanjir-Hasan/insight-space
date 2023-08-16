@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/config.firebase";
+import axios from "axios";
 
 
 const auth = getAuth(app);
@@ -66,12 +67,19 @@ const AuthProvider = ({ children }) => {
     // unsubscribe from firebase 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            // console.log('current user', currentUser);
-
-            //  set user
             if (currentUser) {
                 setUser(currentUser);
                 setLoading(false);
+            }
+            if (currentUser) {
+                axios.post('https://insight-space-server.vercel.app/jwt', { email: currentUser.email })
+                    .then(data => {
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false);
+                    })
+            }
+            else {
+                localStorage.removeItem('access-token')
             }
         });
         return () => {
@@ -93,7 +101,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         resetPassword,
         updateUserProfile,
-        info, 
+        info,
         setInfo
     }
 

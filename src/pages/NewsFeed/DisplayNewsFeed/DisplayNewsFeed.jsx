@@ -10,7 +10,6 @@ import { ThemeContext } from "../../../providers/ThemeProvider";
 import axios from "axios";
 
 
-
 const DisplayNewsFeed = () => {
     const { theme } = useContext(ThemeContext);
     const [userDetails] = useUser();
@@ -21,7 +20,6 @@ const DisplayNewsFeed = () => {
     const [handleReact, handleBookMark, handleAddComment, handleUpdateComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
-
 
 
     const handleDelete = (id) => {
@@ -35,7 +33,7 @@ const DisplayNewsFeed = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/deleteComment?id=${id}`)
+                axios.delete(`https://insight-space-server.vercel.app/deleteComment?id=${id}`)
                     .then(data => {
                         console.log(data.data);
                         if (data) {

@@ -7,20 +7,17 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import useMyPost from "../../../../Hooks/useMyPost";
 
 const MyAllPots = () => {
-
     const { theme } = useContext(ThemeContext);
-
     const [userDetails] = useUser();
     const ref = useRef();
     const [hide, setHide] = useState(false);
     const [myPost] = useMyPost()
-   console.log(myPost)
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     return (
         <div>
         {
-            myPost && myPost .map(p => <div key={p._id}
+            myPost && myPost.map(p => <div key={p._id}
                 className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
             >
                 <div className="p-4">
