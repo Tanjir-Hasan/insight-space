@@ -11,7 +11,6 @@ import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 
-
 const router = createBrowserRouter([
     {
         path: "/",

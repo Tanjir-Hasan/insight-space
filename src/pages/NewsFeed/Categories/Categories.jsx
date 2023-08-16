@@ -17,7 +17,7 @@ const Categories = () => {
             setCheckedCategories([...checkedCategories, category]);
         }
     };
- console.log(checkedCategories);
+//  console.log(checkedCategories);
 
     return (
         <div>

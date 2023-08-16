@@ -42,9 +42,24 @@ const useNewsFeedFunctionality = () => {
                 }
             })
             .catch(err => console.log(err.message))
+    };
+
+    const handleUpdateComment = (postId, commentId, text) => {
+        const updateComment = text.current.value;
+        const updateData = { postId, updateComment, commentId };
+        axios.patch("http://localhost:5000/updateComment", updateData)
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+
+                }
+            })
+            .catch(err => console.log(err))
     }
 
-    return [handleReact, handleBookMark, handleAddComment]
+
+
+
+    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment]
 };
 
 export default useNewsFeedFunctionality;

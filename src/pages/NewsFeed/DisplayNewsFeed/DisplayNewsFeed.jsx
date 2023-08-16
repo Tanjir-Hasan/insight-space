@@ -11,20 +11,19 @@ import { ThemeContext } from "../../../providers/ThemeProvider";
 
 
 const DisplayNewsFeed = () => {
-
     const { theme } = useContext(ThemeContext);
-
     const [userDetails] = useUser();
     const ref = useRef();
+    const updateRef = useRef();
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
-    const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
+    const [handleReact, handleBookMark, handleAddComment, handleUpdateComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
+    const [commentAction, setCommentAction] = useState(null)
 
 
 
-
-    const handleDelete = (comment)=>{
+    const handleDelete = (comment) => {
         console.log(comment)
         Swal.fire({
             title: 'Are you sure?',
@@ -34,26 +33,26 @@ const DisplayNewsFeed = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`https://localhost:5000/comment/${comment.commentId}`, {
                     method: 'DELETE'
                 })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if(data.deletedCount > 0){    
-                        // refetch();                      
-                        Swal.fire(
-                            'Deleted!',
-                            'Your comment has been deleted.',
-                            'success'
-                        )
-                    }
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            // refetch();                      
+                            Swal.fire(
+                                'Deleted!',
+                                'Your comment has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
 
             }
-          })
+        })
     }
 
 
@@ -98,26 +97,31 @@ const DisplayNewsFeed = () => {
                                 <textarea ref={ref} name="" id="" cols="2" rows="1" className="w-full px-4 py-2 border border-spacing-4 rounded-3xl" placeholder="add your answer"></textarea>
                                 <button onClick={() => handleAddComment(p, userDetails, ref)} className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 flex items-center">Add<FaArrowRight className="text-2xl ms-2"></FaArrowRight> </button>
                             </div>
+                            {/* comment section start */}
                             <div>
                                 {
                                     p?.comment?.map((c, i) => <div className="pt-2 pb-8 px-4" key={i}>
-                                        <div className="flex space-x-3 items-center">
-                                            <img src={c.photoURL} alt="" className="w-10 h-10 rounded-full" />
-                                            <div>
-                                                <p className="text-lg font-semibold">{c.displayName}</p>
-                                                <p>{c.comment}</p>
+                                        <div className="flex justify-between">
+                                            <div className="flex space-x-2">
+                                                <img src={c.photoURL} alt="" className="w-10 h-10 rounded-full" />
+                                                <div>
+                                                    <p className="text-lg font-semibold">{c.displayName}</p>
+                                                    <p hidden={commentAction === c.commentId}>{c.comment}</p>
+                                                    {commentAction === c.commentId && <div><textarea ref={updateRef} name="" id="" cols="80" rows="2" defaultValue={c.comment} className="w-full px-4 py-2 border border-spacing-4 rounded-3xl"></textarea><button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleUpdateComment(p._id, c.commentId, updateRef)}>Update</button></div>}
+                                                </div>
                                             </div>
-                                            <div>
-                                                <button onClick={() => setIsAction(p._id)}><FaThList></FaThList></button>
-                                                {isAction === p.id && <div>
-                                                    <button>Edit</button>
-                                                    <button  onClick={() => handleDelete(p.comment)}>Delete</button>
+                                            <div hidden={commentAction === c.commentId}>
+                                                <button hidden={isAction === c.commentId} onClick={() => setIsAction(c.commentId)}><FaThList></FaThList></button>
+                                                {isAction === c.commentId && <div>
+                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full mb-2" onClick={() => setCommentAction(c.commentId)}>Edit</button>
+                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleDelete(p.comment)}>Delete</button>
                                                 </div>}
                                             </div>
                                         </div>
                                     </div>)
                                 }
                             </div>
+                            {/* comment section end */}
                         </div>
                     }
                 </div>)
