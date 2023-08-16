@@ -36,7 +36,7 @@ const DisplayNewsFeed = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://localhost:5000/comment/${comment.id}`, {
+                fetch(`https://localhost:5000/comment/${comment.commentId}`, {
                     method: 'DELETE'
                 })
                 .then(res => res.json())

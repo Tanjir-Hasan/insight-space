@@ -3,12 +3,12 @@ import useAuth from '../../../../Hooks/UseAuth';
 import useMyPost from '../../../../Hooks/useMyPost';
 import { ThemeContext } from '../../../../providers/ThemeProvider';
 import Categories from '../../Categories/Categories';
-import DisplayNewsFeed from '../../DisplayNewsFeed/DisplayNewsFeed';
 import NewsForm from '../../NewsForm/NewsForm';
 import UserDetails from '../UserDetails';
-import MyAllPots from "./MyAllPots";
+import MyAllBookmarks from "./MyAllBookmarks";
 
-const MyPost = () => {
+
+const MyBookmarks = () => {
     const { info } = useAuth();
     const { theme } = useContext(ThemeContext);
 
@@ -27,7 +27,7 @@ const MyPost = () => {
                 <div className="lg:col-span-2">
                     <NewsForm></NewsForm>
                     <div>
-                        <MyAllPots></MyAllPots>
+                        <MyAllBookmarks></MyAllBookmarks>
                     </div>
                 </div>
                 {/* Field start */}
@@ -40,4 +40,4 @@ const MyPost = () => {
     );
 };
 
-export default MyPost;
+export default MyBookmarks;
