@@ -8,11 +8,6 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import Chat from "../pages/Chat/Chat";
-<<<<<<< HEAD
-
-=======
->>>>>>> 1c47b8ca7b6fed6f76cdf38e393f98b10514f785
-
 
 const router = createBrowserRouter([
     {
