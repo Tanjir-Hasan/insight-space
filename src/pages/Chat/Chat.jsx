@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import useAuth from '../../Hooks/UseAuth';
 import axios from 'axios';
@@ -7,7 +6,7 @@ const Chat = () => {
     const [searchEmail, setSearchEmail] = useState("");
     const [userDetails, setUserDetails] = useState(null);
     const { user } = useAuth();
-    const ref = useRef()
+    const ref = useRef();
 
     const handleSearch = () => {
         if (searchEmail.trim() !== "") {
@@ -25,10 +24,6 @@ const Chat = () => {
             setUserDetails(null);
         }
     };
-    const [message, setMessage] = useState("");
-    const [receivedMessage, setReceivedMessage] = useState("");
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -39,7 +34,7 @@ const Chat = () => {
         axios.post("http://localhost:5000/chatMessage", newMessage)
             .then(data => console.log(data))
             .catch(err => console.log(err))
-    }
+    };
 
     return (
         <>
