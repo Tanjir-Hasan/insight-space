@@ -72,10 +72,16 @@ const Login = () => {
 
                             {/* <input {...register("exampleRequired", { required: true })} /> */}
                             {errors.exampleRequired && <span>This field is required</span>}
-                            {/* submit button */}
                             {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
-                            {/* submit button */}
 
+                            {/* Password reset button */}
+                            <Link to={"/resetPassword"} className="underline text-[#84a98c]">Reset Password</Link>
+
+
+
+
+
+                            {/* submit button */}
                             <div className="mt-4 flex justify-center">
                                 <Button heading="Login">
                                     <input type="submit" value="Log in" />
