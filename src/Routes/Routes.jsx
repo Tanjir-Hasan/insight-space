@@ -8,6 +8,8 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import Chat from "../pages/Chat/Chat";
+import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
+import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
             {
                path: "/chats",
                element: <Chat></Chat> 
+            },
+            {
+                path: "/my-post",
+                element: <MyPost></MyPost>
+            },
+            {
+                path: "my-bookmarks",
+                element: <MyBookmarks></MyBookmarks>
             }
         ]
     },

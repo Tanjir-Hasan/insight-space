@@ -37,8 +37,8 @@ const DisplayNewsFeed = () => {
             if (result.isConfirmed) {
                 axios.delete(`http://localhost:5000/deleteComment?id=${id}`)
                     .then(data => {
-                        if (data.data.deletedCount > 0) {
-                            // refetch();                      
+                        console.log(data.data);
+                        if (data) {
                             Swal.fire(
                                 'Deleted!',
                                 'Your comment has been deleted.',
@@ -46,8 +46,7 @@ const DisplayNewsFeed = () => {
                             )
                         }
                     })
-                    .catch(err => console.log(err))
-
+                    .catch(err => console.log(err.message))
             }
         })
     }
@@ -109,7 +108,7 @@ const DisplayNewsFeed = () => {
                                                 </div>
                                             </div>
                                             {/* delete and edit button  */}
-                                            <div hidden={commentAction === c.commentId}>
+                                            <div hidden={commentAction === c.commentId || c.email !== userDetails.email}>
                                                 <button hidden={isAction === c.commentId} onClick={() => setIsAction(c.commentId)}><FaEllipsisV></FaEllipsisV></button>
                                                 {isAction === c.commentId && <div>
                                                     {/* edit btn  */}
