@@ -4,6 +4,7 @@ import ChoiceUs from "../ChoiceUs/ChoiceUs";
 import CommunityGuidelines from "../CommunityGuidelines/CommunityGuidelines";
 import ExploreContent from "../ExploreContent/ExploreContent";
 import PeerToPeer from "../PeerToPeer/PeerToPeer";
+import ContactForm from "../Support/ContactForm";
 import TopPosts from "../TopPosts/TopPosts";
 
 
@@ -14,13 +15,12 @@ const Home = () => {
             <TopPosts></TopPosts>
             <ExploreContent></ExploreContent>
 
-            <ChoiceUs></ChoiceUs>         
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>
             <CommunityGuidelines></CommunityGuidelines>
-          
-        </> )
+            <ContactForm></ContactForm>
+        </>)
 };
 
 export default Home;
