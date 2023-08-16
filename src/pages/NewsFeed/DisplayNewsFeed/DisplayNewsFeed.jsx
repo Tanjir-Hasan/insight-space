@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */ //
 import { useContext, useRef, useState } from "react";
-import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaThList } from 'react-icons/fa';
+import { FaArrowRight, FaBookmark, FaComment, FaEllipsisV, FaHeart, FaHistory } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
 import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../../../providers/ThemeProvider";
+import axios from "axios";
 
 
 
@@ -23,8 +24,7 @@ const DisplayNewsFeed = () => {
 
 
 
-    const handleDelete = (comment) => {
-        console.log(comment)
+    const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -35,13 +35,9 @@ const DisplayNewsFeed = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://localhost:5000/comment/${comment.id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
+                axios.delete(`http://localhost:5000/deleteComment?id=${id}`)
                     .then(data => {
-                        console.log(data)
-                        if (data.deletedCount > 0) {
+                        if (data.data.deletedCount > 0) {
                             // refetch();                      
                             Swal.fire(
                                 'Deleted!',
@@ -50,6 +46,7 @@ const DisplayNewsFeed = () => {
                             )
                         }
                     })
+                    .catch(err => console.log(err))
 
             }
         })
@@ -104,17 +101,21 @@ const DisplayNewsFeed = () => {
                                         <div className="flex justify-between">
                                             <div className="flex space-x-2">
                                                 <img src={c.photoURL} alt="" className="w-10 h-10 rounded-full" />
+                                                {/* comment delete and edit functionality  */}
                                                 <div>
                                                     <p className="text-lg font-semibold">{c.displayName}</p>
                                                     <p hidden={commentAction === c.commentId}>{c.comment}</p>
-                                                    {commentAction === c.commentId && <div><textarea ref={updateRef} name="" id="" cols="80" rows="2" defaultValue={c.comment} className="w-full px-4 py-2 border border-spacing-4 rounded-3xl"></textarea><button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleUpdateComment(p._id, c.commentId, updateRef)}>Update</button></div>}
+                                                    {commentAction === c.commentId && <div><textarea ref={updateRef} name="" id="" cols="80" rows="2" defaultValue={c.comment} className="w-full px-4 py-2 border border-spacing-4 rounded-3xl"></textarea><button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleUpdateComment(p._id, c.commentId, updateRef, setIsAction, setCommentAction)}>Update</button></div>}
                                                 </div>
                                             </div>
+                                            {/* delete and edit button  */}
                                             <div hidden={commentAction === c.commentId}>
-                                                <button hidden={isAction === c.commentId} onClick={() => setIsAction(c.commentId)}><FaThList></FaThList></button>
+                                                <button hidden={isAction === c.commentId} onClick={() => setIsAction(c.commentId)}><FaEllipsisV></FaEllipsisV></button>
                                                 {isAction === c.commentId && <div>
+                                                    {/* edit btn  */}
                                                     <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full mb-2" onClick={() => setCommentAction(c.commentId)}>Edit</button>
-                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleDelete(p.comment)}>Delete</button>
+                                                    {/* delete btn  */}
+                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleDelete(c.commentId)}>Delete</button>
                                                 </div>}
                                             </div>
                                         </div>
