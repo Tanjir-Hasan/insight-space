@@ -9,6 +9,7 @@ import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import Chat from "../pages/Chat/Chat";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 
+
 const router = createBrowserRouter([
     {
         path: "/",
