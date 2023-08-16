@@ -6,9 +6,14 @@ import Swal from "sweetalert2";
 import useUser from "../../../Hooks/useUser";
 import usePosts from "../../../Hooks/usePosts";
 import useAuth from "../../../Hooks/UseAuth";
-
+import { useContext } from "react";
+import { ThemeContext } from "../../../providers/ThemeProvider";
+import { SlClose } from 'react-icons/sl';
 
 const NewsForm = () => {
+
+    const { theme } = useContext(ThemeContext);
+
     const { user } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState("questions")
@@ -40,35 +45,46 @@ const NewsForm = () => {
     }
 
     return (
-        <div>
+        <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-4 mt-5 border border-[#84a98c] rounded-lg`}>
+
             {/* main form  */}
-            <div className="border border-spacing-4 mt-2 pt-4 pb-8 rounded bg-slate-100">
+
+            <div className="mt-2 py-4 rounded-lg">
                 <div className="flex space-x-2 mx-4">
                     <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
-                    <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="w-full border border-spacing-3 rounded-xl px-2" placeholder="Post Your Questions" />
+                    <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="w-full border border-spacing-3 rounded-xl px-2" placeholder="What's on your mind?" />
                 </div>
             </div>
+
             {/* modal body  */}
+
             {isModalOpen && (
-                <div className="fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded shadow-lg sm:w-full lg:w-2/5">
-                    <button onClick={() => setIsModalOpen(false)} className=" bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded absolute right-2 top-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                <div className={`${theme === 'dark' ? 'bg-[#001427]' : 'bg-[#f0efeb]'} fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#84a98c] sm:w-full lg:w-2/5`}>
+
+                    <button onClick={() => setIsModalOpen(false)} className="px-3 py-1 rounded absolute right-3 top-2">
+                        <SlClose className="text-2xl hover:text-[#ad2831]" />
                     </button>
+
                     {/* modal two sections start  */}
-                    <div className="flex border-b-2 border-spacing-6 mb-5">
-                        <button onClick={() => setIsOpen("questions")} className="w-full border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">Ask a Questions</button>
-                        <button onClick={() => setIsOpen("blogs")} className="w-full border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">Create a Blog</button>
+
+                    <div className="flex my-5 gap-5">
+
+                        <button onClick={() => setIsOpen("questions")} className="text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-16 py-2 rounded-lg">Ask a Questions</button>
+
+                        <button onClick={() => setIsOpen("blogs")} className="text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-16 py-2 rounded-lg">Create a Blog</button>
+
                     </div>
 
                     {/* modal two sections end  */}
+
                     {/* display  post contend content  */}
+
                     <div>
                         <div className="flex space-x-2">
                             <img src={user?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                             <div>
-                                <p className="text-lg font-bold pt-2">{user?.displayName}</p>
-                                <select ref={ref} className="w-full border rounded-md focus:ring focus:ring-blue-300">
+                                <p className="text-lg font-[Poppins] font-bold pt-2">{user?.displayName}</p>
+                                <select ref={ref} className="text-black font-[Poppins] w-full border rounded-md">
                                     <option>Friends</option>
                                     <option>Public</option>
                                     <option>Only me</option>
@@ -78,9 +94,9 @@ const NewsForm = () => {
                     </div>
                     {/* questions from start */}
                     {isOpen == "questions" ? <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
-                        <div className="my-2 w-1/2">
-                            <p className="text-md font-semibold mb-2">Select Category : </p>
-                            <select required {...register("category")} className="w-full border rounded-md focus:ring focus:ring-blue-300">
+                        <div className="my-2 w-1/2 font-[Poppins]">
+                            <p className="text-md font-semibold mb-2">Select Category: </p>
+                            <select required {...register("category")} className="text-black w-full border rounded-md">
                                 <option>Educational</option>
                                 <option>Science</option>
                                 <option>Health</option>
@@ -89,14 +105,14 @@ const NewsForm = () => {
                                 <option>Books</option>
                             </select>
                         </div>
-                        <textarea rows="4" {...register("text")} type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="write your questions"></textarea><br />
+                        <textarea rows="4" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?"></textarea><br />
                         <div className="mt-8">
-                            <button type="submit" className="w-full border border-slate-500 text-slate-500 rounded-md px-4 py-2 hover:bg-slate-500 hover:text-white transition duration-300 ease-in-out">Post</button>
+                            <button type="submit" className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg">Post</button>
                         </div>
-                    </form> : 
-                    // blog  form start
+                    </form> :
+                        // blog  form start
                         <form className="mt-8">
-                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="write your blog"></textarea><br />
+                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?"></textarea><br />
                             <div className="mt-4">
                                 <label className="block text-gray-700 font-bold mb-2" htmlFor="fileInput">
                                     Image
@@ -109,7 +125,7 @@ const NewsForm = () => {
                                 />
                             </div>
                             <div className="mt-8">
-                                <button type="submit" className="w-full border border-slate-500 text-slate-500 rounded-md px-4 py-2 hover:bg-slate-500 hover:text-white transition duration-300 ease-in-out">Post Blog</button>
+                                <button type="submit" className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg">Post Blog</button>
                             </div>
                         </form>}
                     {/* blog from end */}

@@ -7,7 +7,7 @@ const Footer = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-8`}>
+        <div className={`${theme === 'dark' ? 'bg-[#001427] text-white' : 'bg-[#f0efeb]'} py-8`}>
 
             <div className="md:flex justify-between px-10">
                 <div>
