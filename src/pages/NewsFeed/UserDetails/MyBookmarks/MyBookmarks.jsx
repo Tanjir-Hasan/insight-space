@@ -12,9 +12,7 @@ const MyBookmarks = () => {
     const { info } = useAuth();
     const { theme } = useContext(ThemeContext);
 
-    const [myPost] = useMyPost();
-
-    console.log(myPost)
+    
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
         <div className="min-h-screen w-10/12 mx-auto">

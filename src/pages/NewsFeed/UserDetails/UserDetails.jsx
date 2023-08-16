@@ -44,7 +44,7 @@ const UserDetails = () => {
                     <h2 className="text-lg font-bold uppercase">{userDetails?.displayName}</h2>
                     <h2 className="text-lg font-semibold">User ID : {userDetails?._id}</h2>
                     <div className="flex justify-center my-4">
-                        <button className="border border-[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out"><Link>View Profile</Link></button>
+                       <Link to="/view-Profile"> <button className="border border-[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">View Profile</button></Link>
                     </div>
                     <hr className="underline underline-offset-8"></hr>
                 </div>
