@@ -8,6 +8,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import Chat from "../pages/Chat/Chat";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
+import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/resetPassword",
+                element: <ResetPass></ResetPass>
             },
             {
                 path: "/sign-up",
