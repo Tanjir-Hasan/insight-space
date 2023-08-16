@@ -6,6 +6,7 @@ import NewsForm from "../NewsForm/NewsForm";
 import UserDetails from "../UserDetails/UserDetails";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 
+
 const NewsFeed = () => {
 
     const { info } = useAuth();
