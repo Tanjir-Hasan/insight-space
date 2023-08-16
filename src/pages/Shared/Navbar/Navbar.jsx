@@ -43,9 +43,9 @@ const Navbar = () => {
                     <div>
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen === true ? (
-                                <BiMenuAltRight className='h-8 w-6 text-[#84a98c]' />
+                                <BiMenuAltRight className='h-8 w-6 cursor-pointer text-[#84a98c]' />
                             ) : (
-                                <BiMenu className='h-8 w-6 text-[#84a98c]' />
+                                <BiMenu className='h-8 w-6 cursor-pointer text-[#84a98c]' />
                             )}
                         </span>
 
@@ -63,7 +63,7 @@ const Navbar = () => {
                     <button onClick={handleThemeToggle}>
                         {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
                     </button>
-                    {userDetails?.photoURL && <img onClick={() => setInfo(!info)} src={userDetails?.photoURL} alt="user-image" className='h-8 rounded-full' />}
+                    {userDetails?.photoURL && <img onClick={() => setInfo(!info)} src={userDetails?.photoURL} alt="user-image" className='h-8 cursor-pointer rounded-full' />}
                 </div>
             </div>
         </div>

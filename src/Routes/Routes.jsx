@@ -10,6 +10,7 @@ import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
+import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 
 const router = createBrowserRouter([
     {
@@ -50,8 +51,12 @@ const router = createBrowserRouter([
                 element: <MyPost></MyPost>
             },
             {
-                path: "my-bookmarks",
+                path: "/my-bookmarks",
                 element: <MyBookmarks></MyBookmarks>
+            },
+            {
+                path: "/view-Profile",
+                element: <ViewProfile></ViewProfile>
             }
         ]
     },
