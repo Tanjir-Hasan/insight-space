@@ -7,13 +7,10 @@ import BlogFeed from "../pages/BlogFeed/BlogFeed";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
-<<<<<<< HEAD
 import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
-=======
 import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
->>>>>>> 42872325a67d350831f658cb565236e87ef72c2c
 
 const router = createBrowserRouter([
     {
