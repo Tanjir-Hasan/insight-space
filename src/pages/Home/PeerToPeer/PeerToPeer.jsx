@@ -44,7 +44,7 @@ const PeerToPeer = () => {
                                 <Link to="/login">
                                     <Button className="text-center" heading="Send Message"></Button>
                                 </Link>
-                                <Loading></Loading>
+                                
                             </div>
 
                         </div>
