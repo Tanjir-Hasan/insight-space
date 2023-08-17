@@ -3,7 +3,6 @@ import useAuth from '../../../../Hooks/UseAuth';
 import useMyPost from '../../../../Hooks/useMyPost';
 import { ThemeContext } from '../../../../providers/ThemeProvider';
 import Categories from '../../Categories/Categories';
-import DisplayNewsFeed from '../../DisplayNewsFeed/DisplayNewsFeed';
 import NewsForm from '../../NewsForm/NewsForm';
 import UserDetails from '../UserDetails';
 import MyAllPots from "./MyAllPots";
@@ -11,8 +10,8 @@ import MyAllPots from "./MyAllPots";
 const MyPost = () => {
     const { info } = useAuth();
     const { theme } = useContext(ThemeContext);
+    const [myPost] = useMyPost();
 
-   
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
         <div className="min-h-screen w-10/12 mx-auto">

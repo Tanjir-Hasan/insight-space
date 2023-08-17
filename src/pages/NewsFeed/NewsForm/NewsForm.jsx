@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */ //
-import axios from "axios";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -9,11 +8,11 @@ import useAuth from "../../../Hooks/UseAuth";
 import { useContext } from "react";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import { SlClose } from 'react-icons/sl';
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const NewsForm = () => {
-
+    const [axiosSecure] = useAxiosSecure();
     const { theme } = useContext(ThemeContext);
-
     const { user } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState("questions")
@@ -29,7 +28,7 @@ const NewsForm = () => {
         const comment = [];
         const { category, text } = data;
         const newPost = { status, date, category, text, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName }
-        axios.post('https://insight-space-server.vercel.app/posts', newPost)
+        axiosSecure.post('/posts', newPost)
             .then(data => {
                 if (data) {
                     Swal.fire(
@@ -43,6 +42,49 @@ const NewsForm = () => {
             })
             .catch(err => console.log(err.message))
     }
+
+
+    const handleBlogSubmit = (e) => {
+        e.preventDefault();
+        const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
+        const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+        const form = e.target;
+        const blogText = form.blogText.value;
+        const imgInput = form.fileInput;
+
+        const formData = new FormData();
+        formData.append('image', imgInput.files[0]);
+        fetch(image_hosting_url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imageResponse => {
+                if (imageResponse.success) {
+                    const imgURL = imageResponse.data.display_url;
+                    const date = new Date();
+                    const status = ref.current.value;
+                    const react = [];
+                    const comment = [];
+                    const newPost = { imgURL, category: "blog", status, date, text: blogText, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName };
+                    axiosSecure.post('/posts', newPost)
+                        .then(data => {
+                            if (data) {
+                                Swal.fire(
+                                    'Success!',
+                                    'Your Blog Uploaded.',
+                                    'success'
+                                )
+                                refetch()
+                                setIsModalOpen(!isModalOpen)
+                            }
+                        })
+                        .catch(err => console.log(err.message))
+                }
+            })
+    }
+
+
 
     return (
         <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-4 mt-5 border border-[#84a98c] rounded-lg`}>
@@ -111,12 +153,12 @@ const NewsForm = () => {
                         </div>
                     </form> :
                         // blog  form start
-                        <form className="mt-8">
-                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?"></textarea><br />
+                        <form className="mt-8" onSubmit={handleBlogSubmit}>
+                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" name="blogText" placeholder="What's on your mind?"></textarea><br />
                             <div className="mt-4">
                                 <input type="file"
                                     id="fileInput"
-                                    name="fileInput"  {...register("file")}
+                                    name="fileInput"
                                     className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
                             </div>
                             <div className="mt-8">

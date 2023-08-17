@@ -10,8 +10,6 @@ import { ThemeContext } from "../../../providers/ThemeProvider";
 import axios from "axios";
 
 
-
-
 const DisplayNewsFeed = () => {
     const { theme } = useContext(ThemeContext);
     const [userDetails] = useUser();
@@ -26,7 +24,6 @@ const DisplayNewsFeed = () => {
  
 
 
-
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -38,7 +35,7 @@ const DisplayNewsFeed = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/deleteComment?id=${id}`)
+                axios.delete(`https://insight-space-server.vercel.app/deleteComment?id=${id}`)
                     .then(data => {
                         console.log(data.data);
                         if (data) {
@@ -76,7 +73,7 @@ const DisplayNewsFeed = () => {
                     </div>
                     <div>
                         {
-                            p.postImg && <img src={p.postImg} className="w-full max-h-[600px]" alt="image" />
+                            p.imgURL && <img src={p.imgURL} className="w-full max-h-[600px]" alt="blog image" />
                         }
                     </div>
                     <div className="w-full flex items-center py-6 px-8">
