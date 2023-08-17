@@ -7,16 +7,26 @@ import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
 import useUser from '../../../Hooks/useUser';
 import useAuth from '../../../Hooks/UseAuth';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Navbar = () => {
     const [userDetails] = useUser();
     const { info, setInfo } = useAuth();
     const [isOpen, setIsOpen] = useState(true);
     const { theme, toggleTheme } = useContext(ThemeContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleThemeToggle = () => {
         toggleTheme();
     };
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     return (
         // f6fff8 
@@ -25,18 +35,6 @@ const Navbar = () => {
             <div className='flex justify-between items-center'>
 
                 <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="" className='h-16' />
-
-                {/* <div className='hidden sm:block'>
-                    <div className='flex items-center'>
-                        <BsSearch />
-
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                        />
-
-                    </div>
-                </div> */}
 
                 <div className='flex items-center gap-3'>
 
@@ -55,7 +53,9 @@ const Navbar = () => {
                                 <ActiveLink to="/news-feed">News Feed</ActiveLink>
                                 <ActiveLink to="/ques-ans">Q&A</ActiveLink>
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
-                                {userDetails ? <ActiveLink to="">Logout</ActiveLink> : <ActiveLink to="/login">Login</ActiveLink>}
+                                {userDetails ?
+                                    <button onClick={handleLogOut}>Logout</button>
+                                    : <ActiveLink to="/login">Login</ActiveLink>}
                             </div>
                         )}
                     </div>
@@ -63,7 +63,9 @@ const Navbar = () => {
                     <button onClick={handleThemeToggle}>
                         {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
                     </button>
-                    {userDetails?.photoURL && <img onClick={() => setInfo(!info)} src={userDetails?.photoURL} alt="user-image" className='h-8 cursor-pointer rounded-full' />}
+
+                    <img src={userDetails ? userDetails?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+
                 </div>
             </div>
         </div>

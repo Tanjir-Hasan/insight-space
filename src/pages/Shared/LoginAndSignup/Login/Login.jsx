@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Button from "../../../../components/Button";
@@ -12,11 +12,18 @@ const Login = () => {
     const { signIn, errorMsg, setErrorMsg } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const navigate = useNavigate();
+
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
     const onSubmit = (data) => {
         const { email, password } = data;
         signIn(email, password)
             .then(result => {
                 setErrorMsg("")
+                navigate(from, { replace: true })
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
