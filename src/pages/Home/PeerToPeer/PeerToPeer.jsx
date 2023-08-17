@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useAnimation } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 
+
 const PeerToPeer = () => {
 
     const { theme } = useContext(ThemeContext);
@@ -32,21 +33,21 @@ const PeerToPeer = () => {
 
             <div className='bg-fixed bg-[url("https://i.ibb.co/WpR71T2/connection.jpg")] bg-no-repeat bg-cover'>
 
-                <div className='lg:flex py-20 px-10'>
+                <div className='md:flex justify-between md:gap-10 lg:gap-16 py-20 px-10'>
 
-                    <div className='p-6 items-center bg-fixed bg-[#e5e5e5]/30 rounded-md'>
+                    <div className='w-full md:w-1/2 p-6 items-center bg-fixed bg-[#e5e5e5]/30 rounded-md mb-5 md:mb-0'>
                         <img className="rounded-md" src="https://i.ibb.co/235F36k/hands-1.jpg" />
                     </div>
 
-                    <div className='bg-[#000814] bg-opacity-60 lg:p-20 p-6 lg:mt-0 mt-8 md:ml-24 w-full rounded-md'>
-
-                        <p className='text-3xl font-[Poppins] font-semibold text-white pt-10'>Discuss with your peer</p>
-
-                        <p className='text-xl font-[Cinzel] pt-10 text-white text-justify'>Welcome to our Peer-to-Peer Learning Hub, where knowledge flows freely between like-minded individuals.In this dynamic corner of our platform.</p>
-
-                        <Link to="/login">
-                            <button className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] duration-700 lg:px-24 px-12 py-2 rounded-lg mt-10 lg:w-8/12 w-10/12'>Send Message</button>
-                        </Link>
+                           
+                        <div className='w-full md:w-1/2 bg-slate-500 bg-opacity-60 p-6 md:p-16 lg:p-20'>
+                            <p className='text-3xl font-semibold text-white pt-10'>Discuss with your peer</p>
+                            <p className='text-xl pt-10 text-white text-justify'>Welcome to our Peer-to-Peer Learning Hub, where knowledge flows freely between like-minded individuals.In this dynamic corner of our platform.</p>
+                            <div className="mt-10 md:w-8/12 md:mx-0 w-full item-center text-center">
+                                <Link to="/login">
+                                    <Button heading="Send Message"></Button>
+                                </Link>
+                            </div>
 
                     </div>
                 </div>

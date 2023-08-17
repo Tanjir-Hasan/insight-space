@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BsSend } from "react-icons/bs";
 import { BiLoaderAlt } from "react-icons/bi";
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2'
 import { ColorRing } from "react-loader-spinner";
+import { ThemeContext } from "../../../providers/ThemeProvider";
 
 const ContactForm = () => {
+
+    const { theme } = useContext(ThemeContext);
+
     const [loading, setLoading] = useState(false);
     // emailjs initialization
     emailjs.init("dN2Z3JjKlbihQjXW6");
@@ -58,61 +62,75 @@ const ContactForm = () => {
             });
     };
     return (
-        <div id="contact" className="container mx-auto mb-4 md:mb-10">
-            <div className="md:flex justify-between items-center gap-5">
+        <div id="contact" className={`${theme === 'dark' ? 'dark' : ''} pt-10 pb-20`}>
 
-                <div
-                    data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-duration="1500"
-                    className="md:w-6/12 mx-5 md:mx-0">
+                <div className='md:w-10/12 w-11/12 mx-auto'>
+                    <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8'>Help Desk
+                    <br />
+                    <span className="text-lg">Share your query, ask us anything, anytime.</span>
+                    </h2>
+                </div>
+
+                <div className="md:w-8/12 w-11/12 mx-auto">
                     <form onSubmit={handleSubmit}>
-                        <div className="mb-4">
-                            <label htmlFor="name" className="block font-semibold mb-2">
-                                Name:
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                                required
-                            />
+
+                        <div className="md:flex gap-10 items-center">
+
+                            <div className="md:w-1/2 w-10/12 mx-auto space-y-5">
+
+                                <div className="">
+                                    <label htmlFor="name" className="font-[Poppins] block font-semibold mb-2">
+                                        Name:
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        className="w-full text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                                        required
+                                    />
+                                </div>
+
+                                <div className="">
+                                    <label htmlFor="email" className="font-[Poppins] block font-semibold mb-2">
+                                        Email:
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="w-full text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                                        required
+                                    />
+                                </div>
+
+                            </div>
+
+                            <div className="md:w-1/2 w-10/12 mx-auto md:py-0 py-5">
+                                <label htmlFor="message" className="font-[Poppins] block font-semibold mb-2">
+                                    Message:
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className="w-full text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                                    rows={4}
+                                    required
+                                />
+                            </div>
+
                         </div>
-                        <div className="mb-4">
-                            <label htmlFor="email" className="block font-semibold mb-2">
-                                Email:
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                                required
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label htmlFor="message" className="block font-semibold mb-2">
-                                Message:
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                                rows={4}
-                                required
-                            />
-                        </div>
-                        <div className="flex justify-center">
+
+                        <div className="md:flex justify-end mt-5">
                             <button
                                 type="submit"
-                                className={`bg-[#84a98c] hover:bg-[#344e41] text-white py-2 px-10 rounded duration-700 flex items-center gap-3 text-xl ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#84a98c]"}`}
+                                className={`bg-[#84a98c] hover:bg-[#344e41] text-white py-2 rounded duration-700 flex justify-center items-center gap-3 text-xl font-[Poppins] md:w-72 w-10/12 md:mx-0 mx-auto ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#84a98c]"}`}
                                 disabled={loading}
                             >
                                 Send Message{loading ? <>
@@ -128,9 +146,10 @@ const ContactForm = () => {
                                 </> : <BsSend />}
                             </button>
                         </div>
+
                     </form>
                 </div>
-            </div>
+
         </div>
     );
 };
