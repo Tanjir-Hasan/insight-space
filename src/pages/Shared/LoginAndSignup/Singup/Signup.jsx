@@ -15,26 +15,46 @@ const Signup = () => {
 
   // create user and user details set on database 
   const onSubmit = (data) => {
-    const { name, email, photo, password } = data;
-    createUser(email, password)
-      .then(result => {
-        setErrorMsg("")
-        const date = new Date();
-        const newUser = { displayName: name, email, photoURL: photo, date, role: "regular" }
-        axios.post('https://insight-space-server.vercel.app/add-user', newUser)
-          .then(data => {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Your account Created Successfully',
-              showConfirmButton: false,
-              timer: 1500
+    const formData = new FormData();
+    // image hosting function 
+    setErrorMsg("")
+    formData.append('image', data.photo[0]);
+    const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+    fetch(image_hosting_url, {
+      method: "POST",
+      body: formData
+    })
+      .then(res => res.json())
+      .then(imageResponse => {
+        if (imageResponse.success) {
+          // image url 
+          const imgURL = imageResponse.data.display_url;
+
+          //  signUp functions 
+          const { name, email, password } = data;
+          const date = new Date();
+          createUser(email, password)
+            .then(result => {
+              setErrorMsg("")
+              const newUser = { displayName: name, email, photoURL: imgURL, date, role: "regular" }
+              axios.post('https://insight-space-server.vercel.app/add-user', newUser)
+                .then(data => {
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your account Created Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                })
+                .catch(err => setErrorMsg(err.message))
             })
-          })
-          .catch(err => console.log(err))
-      })
-      .catch(err => {
-        setErrorMsg(err.message);
+            .catch(err => {
+              setErrorMsg(err.message);
+            })
+
+        }
       })
 
   };
@@ -81,22 +101,6 @@ const Signup = () => {
                   required
                 />
               </div>
-
-              {/* password  */}
-              {/* password  */}
-              <div className="mb-1">
-                <label htmlFor="photo" className="text-md block">
-                  Photo Url
-                </label>
-                <input
-                  className="input-field"
-                  type="text"
-                  {...register("photo")}
-                  placeholder="Your Photo Url"
-                  required
-                />
-              </div>
-
               {/* confirm password  */}
               {/* confirm password  */}
               <div className="mb-1">
@@ -110,6 +114,18 @@ const Signup = () => {
                   placeholder="Password"
                   required
                 />
+              </div>
+              {/* photoUrl  */}
+              {/* photoUrl  */}
+              <div className="mb-1">
+                <label htmlFor="photo" className="text-md block">
+                  Photo
+                </label>
+                <input type="file"
+                  id="image"
+                  name="fileInput"
+                  {...register("photo")}
+                  className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" required />
               </div>
 
               {/* <input {...register("exampleRequired", { required: true })} /> */}

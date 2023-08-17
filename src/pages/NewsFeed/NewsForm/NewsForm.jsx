@@ -123,9 +123,9 @@ const NewsForm = () => {
 
                     <div>
                         <div className="flex space-x-2">
-                            <img src={user?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
+                            <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                             <div>
-                                <p className="text-lg font-[Poppins] font-bold pt-2">{user?.displayName}</p>
+                                <p className="text-lg font-[Poppins] font-bold pt-2">{userDetails?.displayName}</p>
                                 <select ref={ref} className="text-black font-[Poppins] w-full border rounded-md">
                                     <option>Friends</option>
                                     <option>Public</option>
