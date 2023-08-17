@@ -13,6 +13,8 @@ import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
+import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news-feed",
-                element:<NewsFeed></NewsFeed> 
+                element: <NewsFeed></NewsFeed>
             },
             {
                 path: "/ques-ans",
@@ -50,8 +52,8 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-               path: "/chats",
-               element: <Chat></Chat> 
+                path: "/chats",
+                element: <Chat></Chat>
             },
             {
                 path: "/my-post",
@@ -69,6 +71,10 @@ const router = createBrowserRouter([
             {
                 path: "/support",
                 element: <ContactForm></ContactForm>
+            },
+            {
+                path: '/AdminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             }
         ]
     },

@@ -4,7 +4,7 @@ import useAuth from "./UseAuth";
 
 const useUser = () => {
     const {user} = useAuth()
-    const [userDetails, setUserDetails] = useState("")
+    const [userDetails, setUserDetails] = useState({})
     const url = `https://insight-space-server.vercel.app/users?email=${user?.email}`
     useEffect(() => {
         axios.get(url)

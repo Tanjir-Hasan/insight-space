@@ -8,7 +8,7 @@ const PopularPost = () => {
     const { theme } = useContext(ThemeContext);
 
     const [popularPost] = usePopularPost();
-    console.log(popularPost)
+    // console.log(popularPost)
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
             <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] w-1/3 mx-auto lg:pt-20 pt-10'>

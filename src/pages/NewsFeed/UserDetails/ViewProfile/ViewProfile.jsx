@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import useAuth from '../../../../Hooks/UseAuth';
 import { ThemeContext } from '../../../../providers/ThemeProvider';
-import Categories from '../../Categories/Categories';
-import NewsForm from '../../NewsForm/NewsForm';
 import UserDetails from '../UserDetails';
 import ViewMyProfile from "./ViewMyProfile";
 
@@ -18,7 +16,6 @@ const ViewProfile = () => {
                     <div>
                         <ViewMyProfile></ViewMyProfile>
                     </div>
-
                     <div className="border border-spacing-4 pt-8">
                         {info && <UserDetails></UserDetails>}
                     </div>
