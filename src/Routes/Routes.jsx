@@ -28,24 +28,15 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news-feed",
-                element:
-                <PrivateRoute>
-                    <NewsFeed></NewsFeed> 
-                </PrivateRoute>
+                element:<PrivateRoute><NewsFeed></NewsFeed></PrivateRoute> 
             },
             {
                 path: "/ques-ans",
-                element: 
-                <PrivateRoute>
-                    <QuesAndAns></QuesAndAns>
-                </PrivateRoute>
+                element: <PrivateRoute><QuesAndAns></QuesAndAns></PrivateRoute>
             },
             {
                 path: "/blog-feed",
-                element: 
-                <PrivateRoute>
-                    <BlogFeed></BlogFeed>
-                </PrivateRoute>
+                element: <PrivateRoute><BlogFeed></BlogFeed></PrivateRoute>
             },
             {
                 path: "/login",

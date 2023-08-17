@@ -5,39 +5,43 @@ import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
-import Button from "../../../../components/Button";
+import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 
 const Login = () => {
     const { theme } = useContext(ThemeContext);
-    const { signIn, errorMsg, setErrorMsg } = useAuth();
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
+    const { signIn, errorMsg, setErrorMsg, btnLoading, setBtnLoading  } = useAuth();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const location = useLocation()
     const navigate = useNavigate();
-
-    const location = useLocation();
-
-    const from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/";
 
     const onSubmit = (data) => {
-        const { email, password } = data;
-        signIn(email, password)
-            .then(result => {
-                
-                setErrorMsg("")
-               
+        setErrorMsg("");
+        setBtnLoading(true);
+        signIn(data?.email, data?.password)
+            .then(res => {
+                reset();
+                setBtnLoading(false);
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Your account Login Successfully',
+                    title: 'Login Successfully',
                     showConfirmButton: false,
                     timer: 1500
                 })
-              navigate('/')
-               
+                navigate(from, { replace: true });
+                // console.log(res.user);
+            }).catch(err => {
+                setBtnLoading(false);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${err.message}`,
+                })
+                console.log(err);
             })
-            .catch(err => setErrorMsg(err.message))
-           
-    };
+
+    }
 
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''} pb-8`}>
@@ -50,13 +54,11 @@ const Login = () => {
 
                     <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#344e41] rounded-md md:p-12 p-6">
                         {/* signup form  */}
-                        {/* signup form  */}
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            {/* name */}
                             {/* name */}
 
                             <div className="mb-1 box-border">
-                                <label htmlFor="email" className="text-md block">
+                                <label htmlFor="email" className="text-md font-[Cinzel] block">
                                     Email
                                 </label>
                                 <input
@@ -68,9 +70,8 @@ const Login = () => {
                             </div>
 
                             {/* email */}
-                            {/* email */}
                             <div className="mb-1">
-                                <label htmlFor="password" className="text-md block">
+                                <label htmlFor="password" className="text-md font-[Cinzel] block">
                                     Password
                                 </label>
                                 <input
@@ -86,21 +87,15 @@ const Login = () => {
                             {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
 
                             {/* Password reset button */}
-                            <Link to={"/resetPassword"} className="underline text-[#84a98c]">Reset Password</Link>
-
-
-
-
+                            <Link to={"/resetPassword"} className="font-[Cinzel] text-[#84a98c] hover:text-[#344e41] duration-1000 hover:underline">Reset Password</Link>
 
                             {/* submit button */}
                             <div className="mt-4 flex justify-center">
-                                <Button heading="Login">
-                                    <input type="submit" value="Log in" />
-                                </Button>
+                                <ButtonWithLoading loading={btnLoading}>Login Now!</ButtonWithLoading>
                             </div>
 
-                            <div className="text-center mt-4">
-                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#84a98c] hover:text-[#344e41] duration-1000">Register Now!</span></Link></span>
+                            <div className="text-center font-[Cinzel] mt-4">
+                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#84a98c] hover:text-[#344e41] hover:underline duration-1000">Register Now!</span></Link></span>
                             </div>
 
                         </form>
