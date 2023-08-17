@@ -5,28 +5,33 @@ import { MdDarkMode } from 'react-icons/md';
 // import { BsSearch } from 'react-icons/bs';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
-import useUser from '../../../Hooks/useUser';
 import useAuth from '../../../Hooks/UseAuth';
-import { AuthContext } from '../../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
-    const [userDetails] = useUser();
-    const { info, setInfo } = useAuth();
+    const { user, logOut } = useAuth();
     const [isOpen, setIsOpen] = useState(true);
     const { theme, toggleTheme } = useContext(ThemeContext);
-    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleThemeToggle = () => {
         toggleTheme();
     };
 
     const handleLogOut = () => {
-        logOut()
-            .then()
-            .catch(error => {
-                console.log(error);
+        logOut().then(() => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Logout Successfully',
+                showConfirmButton: false,
+                timer: 1500
             })
+            navigate("/");
+        }).catch(error => {
+            console.log(error);
+        })
     }
 
     return (
@@ -56,9 +61,11 @@ const Navbar = () => {
                                 <ActiveLink to="/news-feed">News Feed</ActiveLink>
                                 <ActiveLink to="/ques-ans">Q&A</ActiveLink>
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
-                                {userDetails ?
-                                    <button onClick={handleLogOut}>Logout</button>
-                                    : <ActiveLink to="/login">Login</ActiveLink>}
+                                {
+                                    user ?
+                                        <button onClick={handleLogOut}>Logout</button>
+                                        : <ActiveLink to="/login">Login</ActiveLink>
+                                }
                             </div>
                         )}
                     </div>
@@ -67,7 +74,11 @@ const Navbar = () => {
                         {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
                     </button>
 
-                    <img onClick={() => setInfo(!info)} src={userDetails ? userDetails?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+                    {
+                        user && <><img className="w-8 h-8 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} /></>
+                    }
+
+
 
                 </div>
             </div>

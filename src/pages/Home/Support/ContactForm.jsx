@@ -5,12 +5,13 @@ import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2'
 import { ColorRing } from "react-loader-spinner";
 import { ThemeContext } from "../../../providers/ThemeProvider";
+import ButtonWithLoading from "../../../components/ButtonWithLoading";
+import useAuth from "../../../Hooks/UseAuth";
 
 const ContactForm = () => {
 
     const { theme } = useContext(ThemeContext);
-
-    const [loading, setLoading] = useState(false);
+    const {btnLoading, setBtnLoading} = useAuth()
     // emailjs initialization
     emailjs.init("dN2Z3JjKlbihQjXW6");
 
@@ -29,7 +30,7 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setLoading(true);
+        setBtnLoading(true);
         // Send the email using EmailJS
         emailjs.send("service_m09mch3", "template_ojktfke", formData)
             .then((response) => {
@@ -47,7 +48,7 @@ const ContactForm = () => {
                     email: '',
                     message: '',
                 });
-                setLoading(false);
+                setBtnLoading(false);
             })
             .catch((error) => {
                 Swal.fire({
@@ -58,7 +59,7 @@ const ContactForm = () => {
                     timer: 1500
                 })
                 console.error('Error sending email:', error);
-                setLoading(false);
+                setBtnLoading(false);
             });
     };
     return (
@@ -128,23 +129,7 @@ const ContactForm = () => {
                         </div>
 
                         <div className="md:flex justify-end mt-5">
-                            <button
-                                type="submit"
-                                className={`bg-[#84a98c] hover:bg-[#344e41] text-white py-2 rounded duration-700 flex justify-center items-center gap-3 text-xl font-[Poppins] md:w-72 w-10/12 md:mx-0 mx-auto ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#84a98c]"}`}
-                                disabled={loading}
-                            >
-                                Send Message{loading ? <>
-                                    <ColorRing
-                                        visible={true}
-                                        height="30"
-                                        width="30"
-                                        ariaLabel="blocks-loading"
-                                        wrapperStyle={{}}
-                                        wrapperClass="blocks-wrapper"
-                                        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-                                    />
-                                </> : <BsSend />}
-                            </button>
+                            <ButtonWithLoading loading={btnLoading} icon={<BsSend/>}>Send Message</ButtonWithLoading>
                         </div>
 
                     </form>

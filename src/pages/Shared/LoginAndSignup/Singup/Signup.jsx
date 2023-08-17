@@ -2,25 +2,33 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Button from "../../../../components/Button";
+import ButtonWithLoading from "../../../../components/ButtonWithLoading";
+import { useState } from "react";
 
 const Signup = () => {
   const { theme } = useContext(ThemeContext);
-  const { createUser, errorMsg, setErrorMsg } = useAuth();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { createUser, errorMsg, setErrorMsg, updateUserProfile, btnLoading, setBtnLoading } = useAuth();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+  const location = useLocation()
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
 
   // create user and user details set on database 
   const onSubmit = (data) => {
+    setErrorMsg("")
+    setBtnLoading(true);
     const formData = new FormData();
     // image hosting function 
-    setErrorMsg("")
     formData.append('image', data.photo[0]);
     const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+
     fetch(image_hosting_url, {
       method: "POST",
       body: formData
@@ -36,22 +44,35 @@ const Signup = () => {
           const date = new Date();
           createUser(email, password)
             .then(result => {
-              setErrorMsg("")
-              const newUser = { displayName: name, email, photoURL: imgURL, date, role: "regular" }
-              axios.post('https://insight-space-server.vercel.app/add-user', newUser)
-                .then(data => {
-                  Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Your account Created Successfully',
-                    showConfirmButton: false,
-                    timer: 1500
+              console.log(result.user);
+
+              if (result.user) {
+                updateUserProfile(name, imgURL)
+                  .then(() => {
+                    const newUser = { displayName: name, email, photoURL: imgURL, date, role: "regular" }
+                    axios.post('https://insight-space-server.vercel.app/add-user', newUser)
+                      .then(data => {
+                        setBtnLoading(false);
+                        reset();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Your account Created Successfully',
+                          showConfirmButton: false,
+                          timer: 1500
+                        })
+                        navigate(from, { replace: true });
+                      })
+                      .catch(err => {
+                        setErrorMsg(err.message)
+                        setBtnLoading(false);
+                      })
                   })
-                })
-                .catch(err => setErrorMsg(err.message))
+              }
             })
             .catch(err => {
-              setErrorMsg(err.message);
+              setErrorMsg(err.message)
+              setBtnLoading(false);
             })
 
         }
@@ -135,9 +156,7 @@ const Signup = () => {
               {/* submit button */}
 
               <div className="mt-4 flex justify-center">
-                <Button heading="Sign Up">
-                  <input type="submit" value="Sign Up" />
-                </Button>
+                <ButtonWithLoading loading={btnLoading}>Sign Up</ButtonWithLoading>
               </div>
 
               <div className="text-center mt-4">
