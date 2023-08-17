@@ -71,7 +71,7 @@ const DisplayNewsFeed = () => {
                     </div>
                     <div>
                         {
-                            p.postImg && <img src={p.postImg} className="w-full max-h-[600px]" alt="image" />
+                            p.imgURL && <img src={p.imgURL} className="w-full max-h-[600px]" alt="blog image" />
                         }
                     </div>
                     <div className="w-full flex items-center py-6 px-8">
