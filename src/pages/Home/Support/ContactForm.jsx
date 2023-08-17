@@ -130,7 +130,7 @@ const ContactForm = () => {
                         <div className="md:flex justify-end mt-5">
                             <button
                                 type="submit"
-                                className={`bg-[#84a98c] hover:bg-[#344e41] text-white py-2 px-16 rounded duration-700 flex items-center gap-3 text-xl font-[Poppins] md:w-72 w-10/12 md:mx-0 mx-auto ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#84a98c]"}`}
+                                className={`bg-[#84a98c] hover:bg-[#344e41] text-white py-2 rounded duration-700 flex justify-center items-center gap-3 text-xl font-[Poppins] md:w-72 w-10/12 md:mx-0 mx-auto ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#84a98c]"}`}
                                 disabled={loading}
                             >
                                 Send Message{loading ? <>
