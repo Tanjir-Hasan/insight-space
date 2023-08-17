@@ -11,7 +11,6 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 import { Link, useNavigate } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -78,10 +77,7 @@ const Navbar = () => {
 
                     </button>     
                     <img src={userDetails ? userDetails?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
-
-                   
-                    <img onClick={() => setInfo(!info)} src={userDetails ? userDetails?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
-
+                              
 
                 </div>
             </div>
