@@ -7,7 +7,7 @@ const ViewMyProfile = () => {
    
    const [userDetails] = useUser();
    const {displayName, photoURL, email, _id, date} = userDetails;
-   console.log(userDetails)
+//    console.log(userDetails)
     
     return (
         <div className="md:flex gap-5 border p-5 items-center ">

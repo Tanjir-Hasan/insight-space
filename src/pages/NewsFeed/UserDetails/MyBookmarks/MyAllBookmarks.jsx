@@ -13,7 +13,7 @@ const MyAllBookmarks = () => {
     const ref = useRef();
     const [hide, setHide] = useState(false);
     const [bookmarks] = useBookMarks()
-    console.log(bookmarks)
+    // console.log(bookmarks)
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
 

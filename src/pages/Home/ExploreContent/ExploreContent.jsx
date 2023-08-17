@@ -1,18 +1,22 @@
-import React from 'react';
 import { useContext } from 'react';
 import { BiRightArrow } from 'react-icons/bi';
 import { ThemeContext } from '../../../providers/ThemeProvider';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from "react";
+import usePosts from '../../../Hooks/usePosts';
 
 const ExploreContent = () => {
 
     const { theme } = useContext(ThemeContext);
-
     const controls = useAnimation();
     const [ref, inView] = useInView();
+    const [posts] = usePosts();
+  
+
+
+
 
     useEffect(() => {
         if (inView) {
@@ -23,6 +27,7 @@ const ExploreContent = () => {
     }, [controls, inView]);
 
     return (
+    
         <div className={`${theme === 'dark' ? 'dark' : ''} md:pt-20 pt-10`}>
 
             <div className="md:w-10/12 w-11/12 mx-auto space-y-10 md:pb-20 pb-10">
@@ -51,7 +56,10 @@ const ExploreContent = () => {
                     }}
                     transition={{ duration: 0.9 }} className="md:w-11/12 mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
 
-                    <Link to="/login">
+                    <Link to={{
+                        pathname: '/news-feed',
+                        state: { educationData: posts } // Pass the "education" data as a prop
+                    }}>
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>
@@ -65,7 +73,10 @@ const ExploreContent = () => {
                         </div>
                     </Link>
 
-                    <Link to="/login">
+                    <Link to={{
+                        pathname: '/news-feed',
+                        state: { artsData: "" } // Pass the "education" data as a prop
+                    }}>
                         <div className="p-8">
                             <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#84a98c]">
                                 <div>

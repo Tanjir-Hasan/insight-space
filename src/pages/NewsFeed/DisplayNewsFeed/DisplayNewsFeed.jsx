@@ -21,6 +21,8 @@ const DisplayNewsFeed = () => {
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
 
+ 
+
 
     const handleDelete = (id) => {
         Swal.fire({
