@@ -8,7 +8,7 @@ import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 
-const TopPosts = () => {
+const FeaturedPosts = () => {
 
     const { theme } = useContext(ThemeContext);
 
@@ -76,4 +76,4 @@ const TopPosts = () => {
     );
 };
 
-export default TopPosts;
+export default FeaturedPosts;
