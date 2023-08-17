@@ -2,7 +2,6 @@ import { useContext, useRef, useState } from "react";
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaThList } from 'react-icons/fa';
 import moment from "moment";
 import useUser from "../../../../Hooks/useUser";
-import usePosts from "../../../../Hooks/usePosts";
 import useNewsFeedFunctionality from "../../../../Hooks/useNewsfeedFunctionality";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import useBookMarks from "../../../../Hooks/useBookMarks";
@@ -13,9 +12,8 @@ const MyAllBookmarks = () => {
     const [userDetails] = useUser();
     const ref = useRef();
     const [hide, setHide] = useState(false);
-    const [posts] = usePosts();
     const [bookmarks] = useBookMarks()
-    console.log(bookmarks)
+    // console.log(bookmarks)
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
 

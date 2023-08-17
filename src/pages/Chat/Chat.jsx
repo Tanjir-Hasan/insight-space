@@ -31,7 +31,7 @@ const Chat = () => {
         const date = new Date();
         const newText = {date , data}
         const newMessage = { message: newText, sender: user?.email, receiver: userDetails?.email }
-        axios.post("http://localhost:5000/chatMessage", newMessage)
+        axios.post("https://insight-space-server.vercel.app/chatMessage", newMessage)
             .then(data => console.log(data))
             .catch(err => console.log(err))
     };

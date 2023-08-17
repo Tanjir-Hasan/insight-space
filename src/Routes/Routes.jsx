@@ -11,6 +11,7 @@ import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
 import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
+import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
 
 
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
             {
                 path: "/my-bookmarks",
                 element: <MyBookmarks></MyBookmarks>
+            },
+            {
+
+                path: "/view-Profile",
+                element: <ViewProfile></ViewProfile>
             },
             {
                 path: "/support",

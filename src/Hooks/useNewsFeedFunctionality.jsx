@@ -1,13 +1,14 @@
-import axios from "axios";
 import usePosts from "./usePosts";
 import Swal from "sweetalert2";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useNewsFeedFunctionality = () => {
+    const [axiosSecure] = useAxiosSecure();
     const [, refetch] = usePosts();
     //   for react react 
     const handleReact = (id, email) => {
         const addReact = { id, email }
-        axios.patch("https://insight-space-server.vercel.app/reacts", addReact)
+        axiosSecure.patch("/reacts", addReact)
             .then(data => {
                 if (data) {
                     refetch()
@@ -18,7 +19,7 @@ const useNewsFeedFunctionality = () => {
     // for add bookmarks
     const handleBookMark = (id, email) => {
         const addBookMark = { postId: id, email }
-        axios.post("https://insight-space-server.vercel.app/book-marks", addBookMark)
+        axiosSecure.post("/book-marks", addBookMark)
             .then(data => {
                 if (data) {
                     refetch()
@@ -35,7 +36,7 @@ const useNewsFeedFunctionality = () => {
     const handleAddComment = (p, user, ref) => {
         const comment = ref.current.value;
         const newComment = { comment, postId: p._id, email: user.email, displayName: user.displayName, photoURL: user.photoURL }
-        axios.patch("https://insight-space-server.vercel.app/comment", newComment)
+        axiosSecure.patch("/comment", newComment)
             .then(data => {
                 if (data) {
                     refetch()
@@ -43,12 +44,12 @@ const useNewsFeedFunctionality = () => {
             })
             .catch(err => console.log(err.message))
     };
- 
+
     // for update comment 
     const handleUpdateComment = (postId, commentId, text, setIsAction, setCommentAction) => {
         const updateComment = text.current.value;
         const updateData = { postId, updateComment, commentId };
-        axios.patch("https://insight-space-server.vercel.app/updateComment", updateData)
+        axiosSecure.patch("/updateComment", updateData)
             .then(data => {
                 if (data.data.modifiedCount > 0) {
                     setCommentAction(null);
