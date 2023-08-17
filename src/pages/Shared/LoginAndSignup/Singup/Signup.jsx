@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
@@ -12,6 +12,7 @@ const Signup = () => {
   const { theme } = useContext(ThemeContext);
   const { createUser, errorMsg, setErrorMsg } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
   // create user and user details set on database 
   const onSubmit = (data) => {
@@ -47,6 +48,7 @@ const Signup = () => {
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  navigate('/')
                 })
                 .catch(err => setErrorMsg(err.message))
             })

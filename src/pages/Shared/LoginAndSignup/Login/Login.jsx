@@ -22,8 +22,9 @@ const Login = () => {
         const { email, password } = data;
         signIn(email, password)
             .then(result => {
+                
                 setErrorMsg("")
-                navigate(from, { replace: true })
+               
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -31,8 +32,11 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+              navigate('/')
+               
             })
             .catch(err => setErrorMsg(err.message))
+           
     };
 
     return (

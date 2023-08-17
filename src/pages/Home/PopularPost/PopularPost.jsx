@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import usePopularPost from '../../../Hooks/usePopularPost';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import Marquee from 'react-fast-marquee';
+import { Link } from 'react-router-dom';
 
 const PopularPost = () => {
 
@@ -16,9 +17,9 @@ const PopularPost = () => {
                 Trending Posts
             </h1>
 
-            {/* <Marquee pauseOnHover speed={100}>
+            <Marquee pauseOnHover speed={100}>
                 {
-                    posts && posts.slice(0, 6).map(topPost =>
+                    popularPost && popularPost.slice(0, 6).map(topPost =>
                         <div key={topPost._id} className='mx-5 my-20'>
                             <div className='relative px-5 py-8 bg-opacity-40 rounded-xl shadow-xl shadow-[#84a98c] md:w-[600px] w-[300px] hover:bg-[#84a98c] duration-700'>
                                 <div className='flex justify-center'>
@@ -32,7 +33,7 @@ const PopularPost = () => {
                         </div>
                     )
                 }
-            </Marquee> */}
+            </Marquee>
 
         </div>
     );
