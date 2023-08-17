@@ -2,18 +2,20 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
 import useAuth from "../../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 
 const Login = () => {
     const { theme } = useContext(ThemeContext);
-    const { signIn, errorMsg, setErrorMsg, btnLoading, setBtnLoading  } = useAuth();
+    const { signIn, errorMsg, setErrorMsg, btnLoading, setBtnLoading } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const location = useLocation()
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
+    const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
         setErrorMsg("");
@@ -43,6 +45,9 @@ const Login = () => {
 
     }
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''} pb-8`}>
 
@@ -70,16 +75,26 @@ const Login = () => {
                             </div>
 
                             {/* email */}
-                            <div className="mb-1">
+                            <div className="mb-1 relative">
                                 <label htmlFor="password" className="text-md block">
                                     Password
                                 </label>
                                 <input
                                     className="input-field"
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     {...register("password")}
                                     placeholder="Enter Your Password"
                                 />
+                                <div
+                                    className="absolute bottom-4 right-2 cursor-pointer"
+                                    onClick={togglePasswordVisibility}
+                                >
+                                    {showPassword ? (
+                                        <AiOutlineEyeInvisible size={20} />
+                                    ) : (
+                                        <AiOutlineEye size={20} />
+                                    )}
+                                </div>
                             </div>
 
                             {/* <input {...register("exampleRequired", { required: true })} /> */}
