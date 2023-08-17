@@ -3,7 +3,7 @@ import usePopularPost from '../../../Hooks/usePopularPost';
 
 const PopularPost = () => {
     const [popularPost] = usePopularPost();
-    console.log(popularPost)
+    // console.log(popularPost)
     return (
         <div>
             
