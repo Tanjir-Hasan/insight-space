@@ -8,6 +8,7 @@ import ActiveLink from '../../../components/ActiveLink';
 import useUser from '../../../Hooks/useUser';
 import useAuth from '../../../Hooks/UseAuth';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [userDetails] = useUser();
@@ -34,7 +35,9 @@ const Navbar = () => {
         <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#001427] text-white' : 'bg-[#f0efeb]'}  ${isOpen ? "pb-6 md:pb-0" : "pb-0"}`}>
             <div className='flex justify-between items-center'>
 
-                <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="" className='h-16' />
+                <Link to="/">
+                    <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-16' />
+                </Link>
 
                 <div className='flex items-center gap-3'>
 

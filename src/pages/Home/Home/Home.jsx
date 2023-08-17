@@ -17,7 +17,7 @@ const Home = () => {
         <>
             <Banner></Banner>
             <FeaturedPosts></FeaturedPosts>    
-            <PopularPost></PopularPost>
+            {/* <PopularPost></PopularPost> */}
             <ExploreContent></ExploreContent>
             <ChoiceUs></ChoiceUs>         
             <PeerToPeer></PeerToPeer>
