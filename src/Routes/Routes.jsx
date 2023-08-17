@@ -13,8 +13,9 @@ import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
+import PrivateRoute from "../Routes/PrivateRoute";
+import AdminRoute from "../Routes/AdminRoute";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
-import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -29,15 +30,15 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news-feed",
-                element: <NewsFeed></NewsFeed>
+                element:<NewsFeed></NewsFeed> 
             },
             {
                 path: "/ques-ans",
-                element: <QuesAndAns></QuesAndAns>
+                element: <PrivateRoute><QuesAndAns></QuesAndAns></PrivateRoute>
             },
             {
                 path: "/blog-feed",
-                element: <BlogFeed></BlogFeed>
+                element: <PrivateRoute><BlogFeed></BlogFeed></PrivateRoute>
             },
             {
                 path: "/login",

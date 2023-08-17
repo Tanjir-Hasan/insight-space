@@ -101,7 +101,7 @@ const NewsForm = () => {
             {/* modal body  */}
 
             {isModalOpen && (
-                <div className={`${theme === 'dark' ? 'bg-[#001427]' : 'bg-[#f0efeb]'} fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#84a98c] sm:w-full lg:w-2/5`}>
+                <div className={`${theme === 'dark' ? 'bg-[#001427]' : 'bg-[#f0efeb]'} fixed top-1/3 mt-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#84a98c] sm:w-full lg:w-2/5`}>
 
                     <button onClick={() => setIsModalOpen(false)} className="px-3 py-1 rounded absolute right-3 top-2">
                         <SlClose className="text-2xl hover:text-[#ad2831]" />

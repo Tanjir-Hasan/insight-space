@@ -2,9 +2,13 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import useAuth from "../../../../Hooks/UseAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
     const { googleSignIn, githubSignIn, setErrorMsg } = useAuth();
+    const location = useLocation()
+    const navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/";
     // google sign in
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -24,6 +28,7 @@ const SocialLogin = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                navigate(from, { replace: true });
             })
             .catch(err => setErrorMsg(err.message))
     }
@@ -42,6 +47,7 @@ const SocialLogin = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                navigate(from, { replace: true });
             })
             .catch(err => setErrorMsg(err.message))
     }
