@@ -1,6 +1,5 @@
 import { useContext, useRef, useState } from "react";
 import { ThemeContext } from "../../providers/ThemeProvider";
-import Button from "../../components/Button";
 import useUser from "../../Hooks/useUser";
 import { useForm } from "react-hook-form";
 import usePosts from "../../Hooks/usePosts";
@@ -41,7 +40,7 @@ const BlogFeed = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#84a98c] border-spacing-4 mt-2 pt-4 pb-8 rounded-lg`}>
+                    <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#84a98c] border-spacing-4 mt-2 py-5 rounded-lg`}>
 
                         <div className="flex space-x-2 mx-4 px-2">
                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
