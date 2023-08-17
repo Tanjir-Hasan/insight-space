@@ -72,13 +72,15 @@ const Navbar = () => {
 
                     <button onClick={handleThemeToggle}>
                         {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
+
+                       
+                            
+                                {/* <img className="w-8 h-8 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} /> */}
+                                <img src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+                            
+                     
+
                     </button>
-
-                    {
-                        user && <><img className="w-8 h-8 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} /></>
-                    }
-
-
 
                 </div>
             </div>
