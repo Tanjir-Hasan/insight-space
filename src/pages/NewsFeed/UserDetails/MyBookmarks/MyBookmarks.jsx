@@ -23,7 +23,7 @@ const MyBookmarks = () => {
                 </div>
                 {/* Post start*/}
                 <div className="lg:col-span-2">
-                    <NewsForm></NewsForm>
+                    
                     <div>
                         <MyAllBookmarks></MyAllBookmarks>
                     </div>

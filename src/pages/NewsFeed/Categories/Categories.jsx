@@ -5,6 +5,7 @@ import usePosts from "../../../Hooks/usePosts";
 const Categories = () => {
     const [posts] = usePosts();
     const [checkedCategories, setCheckedCategories] = useState([]);
+    // console.log(checkedCategories)
 
     const Categories = posts.filter((post, index, self) =>
         index === self.findIndex((p) => p.category === post.category)
@@ -17,7 +18,7 @@ const Categories = () => {
             setCheckedCategories([...checkedCategories, category]);
         }
     };
-//  console.log(checkedCategories);
+//  console.log(Categories);
 
     return (
         <div>
