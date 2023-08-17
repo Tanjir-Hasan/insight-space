@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 import '../../Home/PeerToPeer/PeerToPeer.css'
+import Loading from '../../../components/Loading';
 
 const PeerToPeer = () => {
 
@@ -43,6 +44,7 @@ const PeerToPeer = () => {
                                 <Link to="/login">
                                     <Button className="text-center" heading="Send Message"></Button>
                                 </Link>
+                                <Loading></Loading>
                             </div>
 
                         </div>
