@@ -13,7 +13,9 @@ import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "../Routes/PrivateRoute";
+import AdminRoute from "../Routes/AdminRoute";
+import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 
 
 const router = createBrowserRouter([
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news-feed",
-                element:<PrivateRoute><NewsFeed></NewsFeed></PrivateRoute> 
+                element:<NewsFeed></NewsFeed> 
             },
             {
                 path: "/ques-ans",
@@ -51,8 +53,8 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-               path: "/chats",
-               element: <Chat></Chat> 
+                path: "/chats",
+                element: <Chat></Chat>
             },
             {
                 path: "/my-post",
@@ -79,6 +81,10 @@ const router = createBrowserRouter([
             {
                 path: "/support",
                 element: <ContactForm></ContactForm>
+            },
+            {
+                path: '/AdminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             }
         ]
     },
