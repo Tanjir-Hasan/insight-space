@@ -13,6 +13,7 @@ import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -27,15 +28,24 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news-feed",
-                element:<NewsFeed></NewsFeed> 
+                element:
+                <PrivateRoute>
+                    <NewsFeed></NewsFeed> 
+                </PrivateRoute>
             },
             {
                 path: "/ques-ans",
-                element: <QuesAndAns></QuesAndAns>
+                element: 
+                <PrivateRoute>
+                    <QuesAndAns></QuesAndAns>
+                </PrivateRoute>
             },
             {
                 path: "/blog-feed",
-                element: <BlogFeed></BlogFeed>
+                element: 
+                <PrivateRoute>
+                    <BlogFeed></BlogFeed>
+                </PrivateRoute>
             },
             {
                 path: "/login",
@@ -55,16 +65,25 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-post",
-                element: <MyPost></MyPost>
+                element: 
+                <PrivateRoute>
+                    <MyPost></MyPost>
+                </PrivateRoute>
             },
             {
                 path: "/my-bookmarks",
-                element: <MyBookmarks></MyBookmarks>
+                element: 
+                <PrivateRoute>
+                    <MyBookmarks></MyBookmarks>
+                </PrivateRoute>
             },
             {
 
                 path: "/view-Profile",
-                element: <ViewProfile></ViewProfile>
+                element: 
+                <PrivateRoute>
+                    <ViewProfile></ViewProfile>
+                </PrivateRoute>
             },
             {
                 path: "/support",
