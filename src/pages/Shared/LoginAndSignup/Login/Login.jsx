@@ -63,7 +63,7 @@ const Login = () => {
                             {/* name */}
 
                             <div className="mb-1 box-border">
-                                <label htmlFor="email" className="text-md block">
+                                <label htmlFor="email" className="text-md font-[Cinzel] block">
                                     Email
                                 </label>
                                 <input
@@ -76,7 +76,7 @@ const Login = () => {
 
                             {/* email */}
                             <div className="mb-1 relative">
-                                <label htmlFor="password" className="text-md block">
+                                <label htmlFor="password" className="text-md font-[Cinzel] block">
                                     Password
                                 </label>
                                 <input
@@ -102,19 +102,15 @@ const Login = () => {
                             {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
 
                             {/* Password reset button */}
-                            <Link to={"/resetPassword"} className="underline text-[#84a98c]">Reset Password</Link>
-
-
-
-
+                            <Link to={"/resetPassword"} className="font-[Cinzel] text-[#84a98c] hover:text-[#344e41] duration-1000 hover:underline">Reset Password</Link>
 
                             {/* submit button */}
                             <div className="mt-4 flex justify-center">
                                 <ButtonWithLoading loading={btnLoading}>Login Now!</ButtonWithLoading>
                             </div>
 
-                            <div className="text-center mt-4">
-                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#84a98c] hover:text-[#344e41] duration-1000">Register Now!</span></Link></span>
+                            <div className="text-center font-[Cinzel] mt-4">
+                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#84a98c] hover:text-[#344e41] hover:underline duration-1000">Register Now!</span></Link></span>
                             </div>
 
                         </form>

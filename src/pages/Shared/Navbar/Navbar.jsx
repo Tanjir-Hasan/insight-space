@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 import { BiMenuAltRight, BiMenu } from 'react-icons/bi';
 import { BsSun } from 'react-icons/bs';
 import { MdDarkMode } from 'react-icons/md';
-// import { BsSearch } from 'react-icons/bs';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
 import useAuth from '../../../Hooks/UseAuth';
@@ -35,8 +34,6 @@ const Navbar = () => {
     }
 
     return (
-        // f6fff8 
-        // edede9
         <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#001427] text-white' : 'bg-[#f0efeb]'}  ${isOpen ? "pb-6 md:pb-0" : "pb-0"}`}>
             <div className='flex justify-between items-center'>
 
@@ -73,15 +70,11 @@ const Navbar = () => {
                     <button onClick={handleThemeToggle}>
                         {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
 
-                       
-                            
-                                {/* <img className="w-8 h-8 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} /> */}
-                                <img src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
-                            
-                     
 
                     </button>
 
+                    <img src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+                
                 </div>
             </div>
         </div>

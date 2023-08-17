@@ -81,12 +81,20 @@ const Signup = () => {
   };
 
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''} font-[Poppins] pb-8`}>
+    <div className={`${theme === 'dark' ? 'dark' : ''} font-[Cinzel] pb-8`}>
 
       <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Create a new account</h2>
 
       <div className="flex flex-col md:flex-row justify-center items-center pt-5">
+
+        <div className="w-full md:w-1/2 mt-5 md:mt-0">
+
+          <img src="./login.jpg" alt="" />
+
+        </div>
+
         <div className="lg:w-2/3 w-full lg:px-0 px-6">
+
           <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#344e41] rounded-md md:p-12 p-6">
             {/* signup form  */}
             {/* signup form  */}
@@ -168,12 +176,11 @@ const Signup = () => {
             <SocialLogin />
             {/* social login  */}
           </div>
+
         </div>
 
-        <div className="w-full md:w-1/2 mt-5 md:mt-0">
-          <img src="./login.jpg" alt="" />
-        </div>
       </div>
+
     </div>
   );
 };
