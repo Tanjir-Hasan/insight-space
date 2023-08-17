@@ -8,7 +8,10 @@ import ActiveLink from '../../../components/ActiveLink';
 import useUser from '../../../Hooks/useUser';
 import useAuth from '../../../Hooks/UseAuth';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
+
+
 
 const Navbar = () => {
     const [userDetails] = useUser();
@@ -16,6 +19,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(true);
     const { theme, toggleTheme } = useContext(ThemeContext);
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleThemeToggle = () => {
         toggleTheme();
@@ -24,8 +28,11 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then()
+            navigate('/')
             .catch(error => {
                 console.log(error);
+               
+
             })
     }
 
@@ -56,18 +63,21 @@ const Navbar = () => {
                                 <ActiveLink to="/news-feed">News Feed</ActiveLink>
                                 <ActiveLink to="/ques-ans">Q&A</ActiveLink>
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
+
                                 {userDetails ?
                                     <button onClick={handleLogOut}>Logout</button>
-                                    : <ActiveLink to="/login">Login</ActiveLink>}
+                                    : <ActiveLink to="/login">Login</ActiveLink>}                                  
+
                             </div>
                         )}
                     </div>
 
                     <button onClick={handleThemeToggle}>
                         {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
-                    </button>
 
-                    <img onClick={() => setInfo(!info)} src={userDetails ? userDetails?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+                    </button>     
+                    <img src={userDetails ? userDetails?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+                              
 
                 </div>
             </div>

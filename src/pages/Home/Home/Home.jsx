@@ -9,15 +9,15 @@ import PopularPost from "../PopularPost/PopularPost";
 
 import ContactForm from "../Support/ContactForm";
 
-import FeaturedPosts from "../FeaturedPosts/FeaturedPosts";
+// import FeaturedPosts from "../FeaturedPosts/FeaturedPosts";
 
 
 const Home = () => {
     return (
         <>
             <Banner></Banner>
-            <FeaturedPosts></FeaturedPosts>    
-            {/* <PopularPost></PopularPost> */}
+            {/* <FeaturedPosts></FeaturedPosts>     */}
+            <PopularPost></PopularPost>
             <ExploreContent></ExploreContent>
             <ChoiceUs></ChoiceUs>         
             <PeerToPeer></PeerToPeer>
