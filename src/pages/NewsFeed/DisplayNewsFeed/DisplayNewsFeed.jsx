@@ -11,7 +11,11 @@ import axios from "axios";
 
 
 const DisplayNewsFeed = () => {
+
     const { theme } = useContext(ThemeContext);
+
+    const [show, setShow] = useState(false);
+
     const [userDetails] = useUser();
     const ref = useRef();
     const updateRef = useRef();
@@ -21,8 +25,6 @@ const DisplayNewsFeed = () => {
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
    
-
- 
 
 
     const handleDelete = (id) => {
@@ -50,9 +52,7 @@ const DisplayNewsFeed = () => {
                     .catch(err => console.log(err.message))
             }
         })
-    }
-
-
+    };
 
 
     return (
@@ -69,14 +69,37 @@ const DisplayNewsFeed = () => {
                                 <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
                             </div>
                         </div>
+
                         <p>{p.text}</p>
+
+                        {/* <p>
+                            {
+                                show === true ?
+                                    <>
+                                        <p>
+                                            {p.text}
+                                        </p>
+                                        <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read Less</span>
+                                    </>
+                                    :
+                                    <>
+                                        <p className='text-slate-500'>
+                                            {p.text.substring(0, 250)}
+                                        </p>
+                                        <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read More</span>
+                                    </>
+                            }
+                        </p> */}
+
                         {/* {<span onClick={() =>(p.text)} className="underline underline-offset-4 ms-2 text-sm text-green-600">{p.text} See More</span>} */}
                     </div>
+
                     <div>
                         {
                             p.imgURL && <img src={p.imgURL} className="w-full max-h-[600px]" alt="blog image" />
                         }
                     </div>
+
                     <div className="w-full flex items-center py-6 px-8">
                         <div className="w-full flex space-x-8">
                             <button onClick={() => handleReact(p._id, userDetails.email)} className="flex items-center"><FaHeart className={p.react.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {p.react.length}</button>
@@ -86,7 +109,9 @@ const DisplayNewsFeed = () => {
                             <button><FaBookmark onClick={() => handleBookMark(p._id, userDetails?.email)} className="text-2xl me-2" title="book mark"></FaBookmark></button>
                         </div>
                     </div>
+
                     {/* comment body  */}
+
                     {
                         hide === p._id && <div>
                             <div className="flex items-center space-x-2 px-4 py-6 border border-spacing-2">

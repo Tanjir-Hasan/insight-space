@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news-feed",
-                element:<NewsFeed></NewsFeed> 
+                element:<PrivateRoute><NewsFeed></NewsFeed> </PrivateRoute>
             },
             {
                 path: "/ques-ans",
