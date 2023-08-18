@@ -46,7 +46,7 @@ const NewsForm = () => {
 
     const handleBlogSubmit = (e) => {
         e.preventDefault();
-        const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
+        const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
         const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
         const form = e.target;
         const blogText = form.blogText.value;

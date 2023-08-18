@@ -16,7 +16,7 @@ const Home = () => {
             {/* <FeaturedPosts></FeaturedPosts>     */}        
             <PopularPost></PopularPost>
             <ExploreContent></ExploreContent>
-            <ChoiceUs></ChoiceUs>         
+            <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>
             <CommunityGuidelines></CommunityGuidelines>
