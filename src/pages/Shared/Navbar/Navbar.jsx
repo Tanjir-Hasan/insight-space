@@ -9,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Navbar = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, info, setInfo } = useAuth();
     const [isOpen, setIsOpen] = useState(true);
     const { theme, toggleTheme } = useContext(ThemeContext);
     const navigate = useNavigate()
@@ -58,6 +58,7 @@ const Navbar = () => {
                                 <ActiveLink to="/news-feed">News Feed</ActiveLink>
                                 <ActiveLink to="/ques-ans">Q&A</ActiveLink>
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
+                                <ActiveLink to="/feedback">FB</ActiveLink>
                                 {
                                     user ?
                                         <button onClick={handleLogOut}>Logout</button>
@@ -73,8 +74,8 @@ const Navbar = () => {
 
                     </button>
 
-                    <img src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
-                
+                    <img onClick={() => setInfo(!info)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+
                 </div>
             </div>
         </div>
@@ -82,3 +83,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
