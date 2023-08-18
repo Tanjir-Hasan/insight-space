@@ -19,6 +19,7 @@ import UsersFeedBack from "../pages/UsersFeedBack/UsersFeedBack";
 import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
+import BlogFeedss from "../pages/BlogFeedss/BlogFeedss";
 
 
 const router = createBrowserRouter([
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
             {
                 path: '/AdminHome',
                 element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+            },
+            {
+                path: '/blogss',
+                element: <BlogFeedss></BlogFeedss>
             }
         ]
     },
