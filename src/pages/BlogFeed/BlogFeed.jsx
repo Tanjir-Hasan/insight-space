@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAuth from "../../Hooks/UseAuth";
+import useBlog from "../../Hooks/useBlog";
 
 const BlogFeed = () => {
 
@@ -18,17 +19,19 @@ const BlogFeed = () => {
 
     const [userDetails] = useUser();
 
+    const [blogs, refetch] = useBlog();
+
+    console.log(blogs)
+
     const { user } = useAuth();
 
     const [axiosSecure] = useAxiosSecure();
-
-    const [, refetch] = usePosts();
 
     // const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
 
     const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
-    console.log(image_hosting_url);
+    // console.log(image_hosting_url);
     const handleBlogSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -87,9 +90,7 @@ const BlogFeed = () => {
 
                         <div className="flex space-x-2 mx-4 px-2">
                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
-                            <input type="post" name="blogText" placeholder="What's on your mind?"
-                                
-                                className="w-full border border-spacing-3 rounded-xl px-2" required />
+                            <input type="post" name="blogText" placeholder="What's on your mind?" className="text-black w-full border border-spacing-3 rounded-xl px-2" required />
                         </div>
 
                         <select ref={ref} className="text-black font-[Poppins] border rounded-md mx-6 mt-5 w-28 px-3">
@@ -117,7 +118,7 @@ const BlogFeed = () => {
 
                 <div>
                     {
-                        posts && posts.map(p => <div key={p._id}
+                        blogs && blogs.map(p => <div key={p._id}
                             className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}>
                             <div className="p-4">
                                 <div className="flex space-x-2 mb-4">
