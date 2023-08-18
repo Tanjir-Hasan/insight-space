@@ -4,27 +4,23 @@ import ChoiceUs from "../ChoiceUs/ChoiceUs";
 import CommunityGuidelines from "../CommunityGuidelines/CommunityGuidelines";
 import ExploreContent from "../ExploreContent/ExploreContent";
 import PeerToPeer from "../PeerToPeer/PeerToPeer";
-
 import PopularPost from "../PopularPost/PopularPost";
-
 import ContactForm from "../Support/ContactForm";
-
-import TopPosts from "../TopPosts/TopPosts";
+import FeaturedPosts from "../FeaturedPosts/FeaturedPosts";
 
 
 const Home = () => {
     return (
         <>
             <Banner></Banner>
-            <TopPosts></TopPosts>
-            <ExploreContent></ExploreContent>       
-            <ChoiceUs></ChoiceUs>         
+            <FeaturedPosts></FeaturedPosts>
+            <PopularPost></PopularPost>
+            <ExploreContent></ExploreContent>
+            <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>
             <CommunityGuidelines></CommunityGuidelines>
-            <PopularPost></PopularPost>
             <ContactForm></ContactForm>
-          
         </> )
 
            

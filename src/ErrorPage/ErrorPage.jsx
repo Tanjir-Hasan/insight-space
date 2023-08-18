@@ -1,4 +1,3 @@
-
 import Lottie from "lottie-react-web";
 import animation from '../../public/animation_lleu6qza.json'
 import Button from "../components/Button";

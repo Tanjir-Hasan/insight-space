@@ -1,14 +1,14 @@
+import moment from "moment";
 import useUser from "../../../../Hooks/useUser";
 
 
 
 const ViewMyProfile = () => {
 
-   
-   const [userDetails] = useUser();
-   const {displayName, photoURL, email, _id, date} = userDetails;
-//    console.log(userDetails)
-    
+    const [userDetails] = useUser();
+    const { displayName, photoURL, email, _id, date } = userDetails;
+    //    console.log(userDetails)
+
     return (
         <div className="md:flex gap-5 border p-5 items-center ">
             <div className="grid items-center gap-5">
@@ -20,7 +20,6 @@ const ViewMyProfile = () => {
                     <span className="text-xl" >User ID:</span>
                     <span className="font-semibold">{_id}</span>
                 </h4>
-
                 <h2 className="grid mt-4">
                     <span className="text-xl">Name:</span>
                     <span className="font-semibold">{displayName}</span>
@@ -31,7 +30,7 @@ const ViewMyProfile = () => {
                 </h3>
                 <p className="grid mt-4">
                     <span className="text-xl">Join Date:</span>
-                    <span className="font-semibold">{date}</span>
+                    <span className="font-semibold">{moment(date).format('lll')}</span>
                 </p>
 
             </div>

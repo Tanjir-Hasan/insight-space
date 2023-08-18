@@ -16,6 +16,9 @@ import ContactForm from "../pages/Home/Support/ContactForm";
 import FeedBack from "../pages/FeedBack/FeedBack";
 import UsersFeedBack from "../pages/UsersFeedBack/UsersFeedBack";
 
+import PrivateRoute from "../Routes/PrivateRoute";
+import AdminRoute from "../Routes/AdminRoute";
+import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 
 
 const router = createBrowserRouter([
@@ -34,11 +37,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/ques-ans",
-                element: <QuesAndAns></QuesAndAns>
+                element: <PrivateRoute><QuesAndAns></QuesAndAns></PrivateRoute>
             },
             {
                 path: "/blog-feed",
-                element: <BlogFeed></BlogFeed>
+                element: <PrivateRoute><BlogFeed></BlogFeed></PrivateRoute>
             },
             {
                 path: "/login",
@@ -53,21 +56,30 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-               path: "/chats",
-               element: <Chat></Chat> 
+                path: "/chats",
+                element: <Chat></Chat>
             },
             {
                 path: "/my-post",
-                element: <MyPost></MyPost>
+                element: 
+                <PrivateRoute>
+                    <MyPost></MyPost>
+                </PrivateRoute>
             },
             {
                 path: "/my-bookmarks",
-                element: <MyBookmarks></MyBookmarks>
+                element: 
+                <PrivateRoute>
+                    <MyBookmarks></MyBookmarks>
+                </PrivateRoute>
             },
             {
 
                 path: "/view-Profile",
-                element: <ViewProfile></ViewProfile>
+                element: 
+                <PrivateRoute>
+                    <ViewProfile></ViewProfile>
+                </PrivateRoute>
             },
             {
                 path: "/support",
@@ -80,7 +92,10 @@ const router = createBrowserRouter([
             {
                 path:"/usersfeedback",
                 element: <UsersFeedBack></UsersFeedBack>
-
+            },
+            {
+                path: '/AdminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             }
         ]
     },
