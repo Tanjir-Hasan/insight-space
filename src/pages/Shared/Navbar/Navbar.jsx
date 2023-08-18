@@ -7,6 +7,7 @@ import ActiveLink from '../../../components/ActiveLink';
 import useAuth from '../../../Hooks/UseAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 
 const Navbar = () => {
     const { user, logOut, info, setInfo } = useAuth();
@@ -21,7 +22,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut().then(() => {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Logout Successfully',
                 showConfirmButton: false,
@@ -79,6 +80,8 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
+
+
     );
 };
 

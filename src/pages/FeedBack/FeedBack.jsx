@@ -50,25 +50,25 @@ const FeedBack = () => {
                             <label htmlFor="message" className="block font-semibold mb-2">
                                 Name:
                             </label>
-                            <input type="text" name="name" defaultValue={user?.displayName} placeholder='name' readOnly></input>
+                            <input type="text" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' name="name" defaultValue={user?.displayName} placeholder='name' readOnly></input>
 
-                            <label htmlFor="message" className="block font-semibold mb-2">
+                            <label htmlFor="message" className="block font-semibold my-2">
                                 Email:
                             </label>
-                            <input type="email"  name="email" defaultValue={user?.email} placeholder='email' readOnly></input>
+                            <input type="email" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' name="email" defaultValue={user?.email} placeholder='email' readOnly></input>
 
                             <label htmlFor="message" className="block font-semibold mb-2 mt-4">
                                 Message:
                             </label>
-                            <textarea required name="" id=""  {...register("message")} cols="30" rows="5"></textarea>
+                            <textarea required name="" id="" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' {...register("message")} cols="30" rows="5"></textarea>
 
                             <label htmlFor="rating" className="block font-semibold mb-5 mt-5">
                                 Rating:
                             </label>
                             {/* <label for="">Select a comment</label> */}
                             <div className='flex'>
-                                <p>select : </p>
-                                <select defaultValue={5} {...register("rating")} name="rating" id="rating">
+                                <p className='text-lg font-semibold me-2'>select : </p>
+                                <select className='border border-spacing-3 px-2 py-1 border-gray-300 rounded-lg' defaultValue={5} {...register("rating")} name="rating" id="rating">
                                     <option value="1">1.0</option>
                                     <option value="2">2.0</option>
                                     <option value="3">3.0</option>
@@ -96,19 +96,9 @@ const FeedBack = () => {
                                     </Link>
                                 </div>
                             </div>
-
-
-
                         </form>
-
-
                     </div>
-
-
-
                 </div>
-
-
             </div>
         </div>
     );

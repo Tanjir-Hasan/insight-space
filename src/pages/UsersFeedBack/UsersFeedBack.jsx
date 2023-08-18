@@ -30,7 +30,7 @@ const UsersFeedBack = () => {
                 {
                     feedbacks?.map(f => <div key={f._id} className='hover:bg-[#84a98c] duration-500 rounded-b-xl p-20 border-double border-4 border-sky-500 hover:text-white'>
                         <div className=''>
-                            <h4 className='text-2xl font-[Poppins] mb-5'>Name: {f.userName}</h4>
+                            <h4 className='text-2xl font-[Poppins] mb-5 uppercase'>Name: {f.userName}</h4>
                             <p className='font-[Cinzel]'>Email : {f.email}</p>
                             <p className='font-[Cinzel]'>Feedback: {f.message}</p>
                             <p className='font-[Cinzel]'>Rating: {f.rating}</p>

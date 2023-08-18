@@ -21,6 +21,7 @@ import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/news-feed",
-                element:<NewsFeed></NewsFeed> 
+                element:<PrivateRoute><NewsFeed></NewsFeed> </PrivateRoute>
             },
             {
                 path: "/ques-ans",
@@ -101,6 +102,7 @@ const router = createBrowserRouter([
                 path:"/allPosts",
                 element : <AdminRoute><AllPosts></AllPosts></AdminRoute>
             }
+            
         ]
     },
 ]);

@@ -64,18 +64,17 @@ const QuesAndAns = () => {
 
                 <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#84a98c] mt-2 py-5 rounded-lg`}>
 
-
-                    <form onSubmit={handleSubmit(onSubmit)} className="font-[Poppins] mt-8">
+                    <form onSubmit={handleSubmit(onSubmit)} className="font-[Poppins] ">
 
                         <div className="flex space-x-2 mx-4">
 
                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
 
-                            <textarea rows="2" {...register("text")} type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="Ask your question"></textarea>
+                            <textarea rows="2" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="Ask your question"></textarea>
 
                         </div>
 
-                        <p className="text-md font-semibold mb-2 px-5">Select Category: </p>
+                        <p className="text-md font-semibold my-2 px-5">Select Category: </p>
 
                         <div className="flex md:flex-row flex-col justify-between items-center font-[Poppins] my-2 px-5">
 

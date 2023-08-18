@@ -50,7 +50,7 @@ const ExploreContent = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: 100 },
                     }}
-                    transition={{ duration: 0.9 }} className="md:w-11/12 mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
+                    transition={{ duration: 0.9 }} className="md:w-11/12 mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 300px)' }}>
 
                     <Link to={{
                         pathname: '/news-feed',
