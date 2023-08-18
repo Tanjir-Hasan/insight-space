@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAuth from "../../Hooks/UseAuth";
+import useBlog from "../../Hooks/useBlog";
 
 const BlogFeed = () => {
 
@@ -18,17 +19,19 @@ const BlogFeed = () => {
 
     const [userDetails] = useUser();
 
+    const [blogs, refetch] = useBlog();
+
+    console.log(blogs)
+
     const { user } = useAuth();
 
     const [axiosSecure] = useAxiosSecure();
-
-    const [, refetch] = usePosts();
 
     // const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
 
     const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
-    console.log(image_hosting_url);
+    // console.log(image_hosting_url);
     const handleBlogSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -117,7 +120,7 @@ const BlogFeed = () => {
 
                 <div>
                     {
-                        posts && posts.map(p => <div key={p._id}
+                        blogs && blogs.map(p => <div key={p._id}
                             className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}>
                             <div className="p-4">
                                 <div className="flex space-x-2 mb-4">
