@@ -94,7 +94,7 @@ const NewsForm = () => {
             <div className="mt-2 py-4 rounded-lg">
                 <div className="flex space-x-2 mx-4">
                     <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
-                    <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="w-full border border-spacing-3 rounded-xl px-2" placeholder="What's on your mind?" />
+                    <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="text-black w-full border border-spacing-3 rounded-xl px-2" placeholder="What's on your mind?" />
                 </div>
             </div>
 
@@ -159,7 +159,7 @@ const NewsForm = () => {
                                 <input type="file"
                                     id="fileInput"
                                     name="fileInput"
-                                    className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
+                                    className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-black file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
                             </div>
                             <div className="mt-8">
                                 <button type="submit" className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg">Post Blog</button>
