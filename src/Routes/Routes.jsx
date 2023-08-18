@@ -18,6 +18,7 @@ import UsersFeedBack from "../pages/UsersFeedBack/UsersFeedBack";
 import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
+import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 
 
 const router = createBrowserRouter([
@@ -93,8 +94,12 @@ const router = createBrowserRouter([
                 element: <UsersFeedBack></UsersFeedBack>
             },
             {
-                path: '/AdminHome',
+                path: '/allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path:"/allPosts",
+                element : <AdminRoute><AllPosts></AllPosts></AdminRoute>
             }
         ]
     },
