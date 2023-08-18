@@ -58,6 +58,7 @@ const Navbar = () => {
                                 <ActiveLink to="/news-feed">News Feed</ActiveLink>
                                 <ActiveLink to="/ques-ans">Q&A</ActiveLink>
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
+                                <ActiveLink to="/feedback">FB</ActiveLink>
                                 {
                                     user ?
                                         <button onClick={handleLogOut}>Logout</button>
@@ -82,3 +83,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
