@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <>
             <Banner></Banner>
-            {/* <FeaturedPosts></FeaturedPosts>     */}
+            {/* <FeaturedPosts></FeaturedPosts>     */}        
             <PopularPost></PopularPost>
             <ExploreContent></ExploreContent>
             <ChoiceUs></ChoiceUs>         
