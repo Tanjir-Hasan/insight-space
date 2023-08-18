@@ -20,6 +20,7 @@ import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -95,7 +96,8 @@ const router = createBrowserRouter([
             {
                 path: '/AdminHome',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            }
+            },
+            
         ]
     },
 ]);
