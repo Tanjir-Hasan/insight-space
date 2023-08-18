@@ -64,7 +64,7 @@ const FeaturedPosts = () => {
                                     <img src={topPost.userPhoto} alt="" className='rounded-full -mt-[61px] h-14' />
                                 </div>
                                 <h2 className='font-[Cinzel]'>{topPost.text.substring(0, 70)}... {"  "}
-                                    <span className='text-[#023e8a] hover:font-semibold cursor-pointer'><Link to="/login">Read more</Link></span>
+                                    <span className='text-[#023e8a] hover:font-semibold cursor-pointer'><Link to="/news-feed">Read more</Link></span>
                                 </h2>
                                 <h2 className='font-[Cinzel]'>{topPost.userName}</h2>
                             </div>
