@@ -1,6 +1,7 @@
 
 import Lottie from "lottie-react-web";
 import animation from '../../public/animation_lleu6qza.json'
+import Button from "../components/Button";
 
 const ErrorPage = () => {
   return (
@@ -9,7 +10,13 @@ const ErrorPage = () => {
         options={{
           animationData: animation
         }}
+        
       />
+      {/* <Link to="/">
+              <Button heading="Back to Home">
+                <input type="submit" value="Home" />
+              </Button>
+            </Link> */}
      
             
          

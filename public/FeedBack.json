@@ -1,0 +1,142 @@
+[
+    {
+        "id": "1",
+        "name": "John Doe",
+        "email": "john@example.com",
+        "message": "Great service! Really enjoyed the experience.",
+        "rating": 5
+    },
+    {
+        "id": "2",
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "message": "Prompt response and excellent support.",
+        "rating": 4
+    },
+    {
+        "id": "3",
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "message": "Had a few issues, but they were quickly resolved.",
+        "rating": 3
+    },
+    {
+        "id": "4",
+        "name": "Bob Brown",
+        "email": "bob@example.com",
+        "message": "Not satisfied with the product quality.",
+        "rating": 2
+    },
+    {
+        "id": "5",
+        "name": "Charlie Wilson",
+        "email": "charlie@example.com",
+        "message": "Outstanding service! Will definitely recommend.",
+        "rating": 5
+    },
+    {
+        "id": "6",
+        "name": "Emily Davis",
+        "email": "emily@example.com",
+        "message": "Impressed by the quick delivery and friendly staff.",
+        "rating": 4
+    },
+    {
+        "id": "7",
+        "name": "Michael Brown",
+        "email": "michael@example.com",
+        "message": "The user interface could use some improvements.",
+        "rating": 3
+    },
+    {
+        "id": "8",
+        "name": "Sophia Miller",
+        "email": "sophia@example.com",
+        "message": "Had a minor issue, but customer support was helpful.",
+        "rating": 4
+    },
+    {
+        "id": "9",
+        "name": "William Wilson",
+        "email": "william@example.com",
+        "message": "Excellent product, exceeded my expectations.",
+        "rating": 5
+    },
+    {
+        "id": "10",
+        "name": "Olivia Harris",
+        "email": "olivia@example.com",
+        "message": "Average experience, nothing too special.",
+        "rating": 3
+    },
+    {
+        "id": "11",
+        "name": "Liam Turner",
+        "email": "liam@example.com",
+        "message": "The service was satisfactory, but could be improved.",
+        "rating": 3
+    },
+    {
+        "id": "12",
+        "name": "Ava Martinez",
+        "email": "ava@example.com",
+        "message": "Really impressed by the quality of the product!",
+        "rating": 5
+    },
+    {
+        "id": "13",
+        "name": "Noah Anderson",
+        "email": "noah@example.com",
+        "message": "Had a bit of a wait, but the end result was worth it.",
+        "rating": 4
+    },
+    {
+        "id": "14",
+        "name": "Isabella Clark",
+        "email": "isabella@example.com",
+        "message": "Excellent customer service! They went above and beyond.",
+        "rating": 5
+    },
+    {
+        "id": "15",
+        "name": "James Hernandez",
+        "email": "james@example.com",
+        "message": "The product arrived damaged, disappointed with the packaging.",
+        "rating": 2
+    },
+    {
+        "id": "16",
+        "name": "Mia Turner",
+        "email": "mia@example.com",
+        "message": "Average experience, nothing extraordinary.",
+        "rating": 3
+    },
+    {
+        "id": "17",
+        "name": "Benjamin Patel",
+        "email": "benjamin@example.com",
+        "message": "The website is user-friendly and easy to navigate.",
+        "rating": 4
+    },
+    {
+        "id": "18",
+        "name": "Ella Green",
+        "email": "ella@example.com",
+        "message": "The customer support team was very helpful.",
+        "rating": 4
+    },
+    {
+        "id": "19",
+        "name": "Lucas Jackson",
+        "email": "lucas@example.com",
+        "message": "Impressed by the timely delivery and product quality.",
+        "rating": 5
+    },
+    {
+        "id": "20",
+        "name": "Scarlett White",
+        "email": "scarlett@example.com",
+        "message": "Had a few hiccups, but they were resolved professionally.",
+        "rating": 4
+    }
+]

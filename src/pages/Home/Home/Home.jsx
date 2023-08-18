@@ -18,7 +18,6 @@ const Home = () => {
             <Banner></Banner>
             <TopPosts></TopPosts>
             <ExploreContent></ExploreContent>       
-            <ExploreContent></ExploreContent>
             <ChoiceUs></ChoiceUs>         
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>

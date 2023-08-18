@@ -13,6 +13,9 @@ import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
+import FeedBack from "../pages/FeedBack/FeedBack";
+import UsersFeedBack from "../pages/UsersFeedBack/UsersFeedBack";
+
 
 
 const router = createBrowserRouter([
@@ -69,6 +72,15 @@ const router = createBrowserRouter([
             {
                 path: "/support",
                 element: <ContactForm></ContactForm>
+            },
+            {
+                path:"/feedback",
+                element: <FeedBack></FeedBack>
+            },
+            {
+                path:"/usersfeedback",
+                element: <UsersFeedBack></UsersFeedBack>
+
             }
         ]
     },
