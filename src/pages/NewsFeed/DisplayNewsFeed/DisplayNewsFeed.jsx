@@ -24,6 +24,7 @@ const DisplayNewsFeed = () => {
     const [handleReact, handleBookMark, handleAddComment, handleUpdateComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
+   
 
 
     const handleDelete = (id) => {
