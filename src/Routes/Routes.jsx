@@ -15,7 +15,7 @@ import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
 import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
-import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
+import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -74,8 +74,8 @@ const router = createBrowserRouter([
                 element: <ContactForm></ContactForm>
             },
             {
-                path: '/AdminHome',
-                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+                path: '/allUsers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             }
         ]
     },
