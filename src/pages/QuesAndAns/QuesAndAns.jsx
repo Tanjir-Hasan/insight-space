@@ -9,6 +9,8 @@ import usePosts from '../../Hooks/usePosts';
 import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory } from 'react-icons/fa';
 import moment from "moment";
+import useAuth from '../../Hooks/UseAuth';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const QuesAndAns = () => {
 
@@ -17,6 +19,12 @@ const QuesAndAns = () => {
     const ref = useRef();
 
     const [userDetails] = useUser();
+
+    const { user } = useAuth();
+
+    const [axiosSecure] = useAxiosSecure();
+
+    const [, refetch] = usePosts();
 
     const { register, handleSubmit } = useForm();
 
@@ -27,7 +35,7 @@ const QuesAndAns = () => {
         const comment = [];
         const { category, text } = data;
         const newPost = { status, date, category, text, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName }
-        axios.post('https://insight-space-server.vercel.app/posts', newPost)
+        axiosSecure.post('/posts', newPost)
             .then(data => {
                 if (data) {
                     Swal.fire(
@@ -56,15 +64,16 @@ const QuesAndAns = () => {
 
                 <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#84a98c] mt-2 py-5 rounded-lg`}>
 
-                    <div className="flex space-x-2 mx-4">
-
-                        <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
-
-                        <textarea rows="2" {...register("text")} type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="Ask your question"></textarea>
-
-                    </div>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="font-[Poppins] mt-8">
+
+                        <div className="flex space-x-2 mx-4">
+
+                            <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
+
+                            <textarea rows="2" {...register("text")} type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="Ask your question"></textarea>
+
+                        </div>
 
                         <p className="text-md font-semibold mb-2 px-5">Select Category: </p>
 

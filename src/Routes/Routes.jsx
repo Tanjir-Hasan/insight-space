@@ -59,16 +59,25 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-post",
-                element: <MyPost></MyPost>
+                element: 
+                <PrivateRoute>
+                    <MyPost></MyPost>
+                </PrivateRoute>
             },
             {
                 path: "/my-bookmarks",
-                element: <MyBookmarks></MyBookmarks>
+                element: 
+                <PrivateRoute>
+                    <MyBookmarks></MyBookmarks>
+                </PrivateRoute>
             },
             {
 
                 path: "/view-Profile",
-                element: <ViewProfile></ViewProfile>
+                element: 
+                <PrivateRoute>
+                    <ViewProfile></ViewProfile>
+                </PrivateRoute>
             },
             {
                 path: "/support",

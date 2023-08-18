@@ -3,19 +3,44 @@ import usePopularPost from '../../../Hooks/usePopularPost';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from "react";
 
 const PopularPost = () => {
 
     const { theme } = useContext(ThemeContext);
 
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
+  
+    useEffect(() => {
+        if (inView) {
+            controls.start('visible');
+        } else {
+            controls.start("hidden");
+        }
+    }, [controls, inView]);
+
     const [popularPost] = usePopularPost();
     // console.log(popularPost)
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
-            <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] w-1/3 mx-auto lg:pt-20 pt-10'>
-                Trending Posts
-            </h1>
 
+            <motion.h1
+                    ref={ref}
+                    initial="hidden"
+                    animate={controls}
+                    variants={{
+                        visible: { opacity: 1, x: 0 },
+                        hidden: { opacity: 0, x: -100 },
+                    }}
+                    transition={{ duration: 0.9 }}
+
+                    className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] md:w-1/3 w-10/12 mx-auto lg:pt-20 pt-10'>
+                    Trending Posts
+                </motion.h1>
+                
             <Marquee pauseOnHover speed={100}>
                 {
                     popularPost && popularPost.slice(0, 6).map(topPost =>

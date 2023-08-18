@@ -14,10 +14,6 @@ const ExploreContent = () => {
     const [ref, inView] = useInView();
     const [posts] = usePosts();
   
-
-
-
-
     useEffect(() => {
         if (inView) {
             controls.start('visible');
