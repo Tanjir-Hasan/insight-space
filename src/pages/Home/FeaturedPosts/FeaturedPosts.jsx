@@ -51,7 +51,7 @@ const FeaturedPosts = () => {
                     Featured Posts
                 </motion.h1>
 
-                <span className="absolute -bottom-2 w-1/3 left-0 h-0.5 bg-[#84a98c] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform -rotate-1 duration-700"></span>
+                <span className="absolute -bottom-2 md:w-1/3 w-11/12 left-0 h-0.5 bg-[#84a98c] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform -rotate-1 duration-700"></span>
 
             </div>
 
