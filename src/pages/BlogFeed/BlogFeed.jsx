@@ -90,9 +90,7 @@ const BlogFeed = () => {
 
                         <div className="flex space-x-2 mx-4 px-2">
                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
-                            <input type="post" name="blogText" placeholder="What's on your mind?"
-                                
-                                className="w-full border border-spacing-3 rounded-xl px-2" required />
+                            <input type="post" name="blogText" placeholder="What's on your mind?" className="text-black w-full border border-spacing-3 rounded-xl px-2" required />
                         </div>
 
                         <select ref={ref} className="text-black font-[Poppins] border rounded-md mx-6 mt-5 w-28 px-3">

@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const useBlog = () => {
     const [axiosSecure] = useAxiosSecure();
-    const url = "http://localhost:5000/blog";
+    const url = "/blog";
     const { data: blogs, refetch } = useQuery({
         queryKey: ['blogs'],
         queryFn: () => axiosSecure.get(url)
