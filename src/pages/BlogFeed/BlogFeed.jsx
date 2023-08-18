@@ -19,7 +19,7 @@ import useBlog from '../../Hooks/useBlog';
 
 const BlogFeed = () => {
     const [posts] = usePosts();
-    console.log(posts)
+    // console.log(posts)
     const [singleData, setSingleData] = useState("");
     const controls = useAnimation();
     const [refs, inView] = useInView();
@@ -45,12 +45,12 @@ const BlogFeed = () => {
         }
     }, [controls, inView]);
 
-    console.log(posts)
+    // console.log(posts)
 
     const haldleClick = (_id) => {
         const findData = posts.find(post => post._id === _id)
         setSingleData(findData)
-        console.log(findData)
+        // console.log(findData)
     }
 
 
@@ -145,9 +145,9 @@ const BlogFeed = () => {
                     <div className='border rounded-lg border-[#84a98c]'>
                         <div className="p-4">
                             <div className="flex space-x-2 mb-4">
-                                <img src={singleData.userPhoto ? singleData.userPhoto : "https://i.ibb.co/tbpwNBs/shamim-removebg-preview.png"} alt="user photo" className="w-12 h-12 rounded-full" />
+                                <img src={singleData?.userPhoto ? singleData?.userPhoto : "https://i.ibb.co/tbpwNBs/shamim-removebg-preview.png"} alt="user photo" className="w-12 h-12 rounded-full" />
                                 <div>
-                                    <p className="text-lg font-semibold pt-1">{singleData.userName ? singleData.userName : "MD Shamim Miah"}</p>
+                                    <p className="text-lg font-semibold pt-1">{singleData?.userName ? singleData.userName : "MD Shamim Miah"}</p>
                                     <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(singleData.date).startOf('hour').fromNow()}</h6>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ const BlogFeed = () => {
                         </div>
                         <div>
                             {
-                                <img src={singleData.imgURL ? singleData.imgURL : "https://i.ibb.co/J5cXvT4/want44772-1-Ib-Ur41479200085-1.jpg"} className="w-full  h-[400px]" alt="image" />
+                                <img src={singleData?.imgURL ? singleData.imgURL : "https://i.ibb.co/J5cXvT4/want44772-1-Ib-Ur41479200085-1.jpg"} className="w-full  h-[400px]" alt="image" />
                             }
                         </div>
                         <div className="w-full flex items-center py-6 px-8">
@@ -165,14 +165,14 @@ const BlogFeed = () => {
                                 <button onClick={() => setHide(singleData?._id)} className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {singleData?.comment?.length}</button>
                             </div>
                             <div>
-                                <button><FaBookmark onClick={() => handleBookMark(singleData._id, userDetails?.email)} className="text-2xl me-2"></FaBookmark></button>
+                                <button><FaBookmark onClick={() => handleBookMark(singleData?._id, userDetails?.email)} className="text-2xl me-2"></FaBookmark></button>
                             </div>
                         </div>
                         {/* comment body  */}
                         {
                             hide === singleData._id && <div>
                                 <div className="flex items-center space-x-2 px-4 py-6 border border-spacing-2">
-                                    <img src={userDetails.photoURL} alt="user photo" className="w-12 h-12 rounded-full" />
+                                    <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full" />
                                     <textarea ref={ref} name="" id="" cols="2" rows="1" className="w-full px-4 py-2 border border-spacing-4 rounded-3xl" placeholder="add your answer"></textarea>
                                     <button onClick={() => handleAddComment(p, userDetails, ref)} className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 flex items-center">Add<FaArrowRight className="text-2xl ms-2"></FaArrowRight> </button>
                                 </div>
