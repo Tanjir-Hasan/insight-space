@@ -240,7 +240,7 @@ const BlogFeed = () => {
                                         <h2 className='font-[Cinzel]'>{p.text.substring(0, 100)}... {"  "}
                                             <span className='text-[#023e8a] hover:font-semibold cursor-pointer'>Read more</span>
                                         </h2>
-                                        <h2 className='font-[Cinzel]'> written by: {p.userName}</h2>
+                                        <h2 className='font-[Cinzel]'>Posted by: {p.userName}</h2>
                                     </div>
                                 </div>
 
