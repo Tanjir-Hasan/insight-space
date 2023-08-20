@@ -18,7 +18,8 @@ import UsersFeedBack from "../pages/UsersFeedBack/UsersFeedBack";
 import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
-import RealTimeChat from "../pages/Shared/RealTimeChat/RealTimeChat";
+import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
+
 
 
 const router = createBrowserRouter([
@@ -32,75 +33,76 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: "news-feed",
-                element: <PrivateRoute><NewsFeed></NewsFeed> </PrivateRoute>
+                path: "/news-feed",
+                element:<PrivateRoute><NewsFeed></NewsFeed> </PrivateRoute>
             },
             {
-                path: "ques-ans",
+                path: "/ques-ans",
                 element: <PrivateRoute><QuesAndAns></QuesAndAns></PrivateRoute>
             },
             {
-                path: "blog-feed",
+                path: "/blog-feed",
                 element: <PrivateRoute><BlogFeed></BlogFeed></PrivateRoute>
             },
             {
-                path: "login",
+                path: "/login",
                 element: <Login></Login>
             },
             {
-                path: "resetPassword",
+                path: "/resetPassword",
                 element: <ResetPass></ResetPass>
             },
             {
-                path: "sign-up",
+                path: "/sign-up",
                 element: <Signup></Signup>
             },
             {
-                path: "chats",
+                path: "/chats",
                 element: <Chat></Chat>
             },
             {
-                path: "my-post",
-                element:
-                    <PrivateRoute>
-                        <MyPost></MyPost>
-                    </PrivateRoute>
+                path: "/my-post",
+                element: 
+                <PrivateRoute>
+                    <MyPost></MyPost>
+                </PrivateRoute>
             },
             {
-                path: "my-bookmarks",
-                element:
-                    <PrivateRoute>
-                        <MyBookmarks></MyBookmarks>
-                    </PrivateRoute>
+                path: "/my-bookmarks",
+                element: 
+                <PrivateRoute>
+                    <MyBookmarks></MyBookmarks>
+                </PrivateRoute>
             },
             {
-                path: "view-Profile",
-                element:
-                    <PrivateRoute>
-                        <ViewProfile></ViewProfile>
-                    </PrivateRoute>
+
+                path: "/view-Profile",
+                element: 
+                <PrivateRoute>
+                    <ViewProfile></ViewProfile>
+                </PrivateRoute>
             },
             {
-                path: "live-chat",
-                element: <RealTimeChat></RealTimeChat>
-            },
-            {
-                path: "support",
+                path: "/support",
                 element: <ContactForm></ContactForm>
             },
             {
-                path: "feedback",
+                path:"/feedback",
                 element: <FeedBack></FeedBack>
             },
             {
-                path: "usersfeedback",
+                path:"/usersfeedback",
                 element: <UsersFeedBack></UsersFeedBack>
             },
             {
-                path: 'AdminHome',
+                path: '/allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
-
+            {
+                path:"/allPosts",
+                element : <AdminRoute><AllPosts></AllPosts></AdminRoute>
+            }
+            
         ]
     },
 ]);
