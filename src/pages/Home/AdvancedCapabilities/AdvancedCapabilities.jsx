@@ -26,7 +26,7 @@ const AdvancedCapabilities = () => {
 
                 <div className="md:w-10/12 w-11/12 mx-auto">
 
-                    <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:pt-20 pt-10'>
+                    <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] w-1/2 mx-auto lg:pt-20 pt-10'>
                         Advanced Capabilities
                         <br />
                         <span className='text-xl'>- Taking it to the Next Level -</span>
