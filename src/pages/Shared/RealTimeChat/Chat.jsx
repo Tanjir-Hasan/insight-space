@@ -3,9 +3,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import useAuth from '../../../Hooks/UseAuth';
 
 const Chat = ({ socket, userName, room, searchEmail, userDetails }) => {
-
+    const {user} = useAuth();
     const [currentMessage, setCurrentMessage] = useState("");
 
     const [messageList, setMessageList] = useState([]);
@@ -43,14 +44,16 @@ const Chat = ({ socket, userName, room, searchEmail, userDetails }) => {
 
             // Save the conversation to the backend
             const conversationData = {
-                sender: userName,
+                senderName: userName,
+                sender:user?.email ,
                 receiver: searchEmail,
                 message: currentMessage,
                 timestamp: new Date(),
             };
 
-            await axios.post("http://localhost:5001/conversations", conversationData); // Corrected URL
-
+            await axios.post("http://localhost:5001/conversations", conversationData) // Corrected URL
+            .then(data => console.log(data.data))
+            .catch(err => console.log(err.message))
             setMessageList((list) => [...list, messageData]);
             setCurrentMessage("");
         }
