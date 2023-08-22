@@ -19,6 +19,7 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 
 
@@ -101,7 +102,8 @@ const router = createBrowserRouter([
             {
                 path:"/allPosts",
                 element : <AdminRoute><AllPosts></AllPosts></AdminRoute>
-            }
+            },
+           
             
         ]
     },
