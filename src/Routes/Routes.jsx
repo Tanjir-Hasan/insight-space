@@ -8,7 +8,6 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
-import Chat from "../pages/Chat/Chat";
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
@@ -18,6 +17,10 @@ import UsersFeedBack from "../pages/UsersFeedBack/UsersFeedBack";
 import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
+import Chat from "../pages/Message/Chat"
+import Videos from "../pages/Videos/Videos";
+import Quiz from "../pages/Quiz/Quiz";
+
 
 
 
@@ -97,6 +100,18 @@ const router = createBrowserRouter([
                 path: '/AdminHome',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
+            {
+                path: '/message',
+                element: <Chat></Chat>
+            },
+            {
+                path: "/videos",
+                element: <Videos></Videos>
+            },
+            {
+                path: "/quiz",
+                element: <Quiz></Quiz>
+            }
             
         ]
     },

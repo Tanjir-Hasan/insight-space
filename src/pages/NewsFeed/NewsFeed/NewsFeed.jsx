@@ -23,8 +23,7 @@ const NewsFeed = () => {
                 <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4 w-full">
                     <div className="border border-spacing-4">
                         <h2 className="text-lg font-semibold text-center mt-4 mb-6 underline underline-offset-8">Select Your Favourites Categories</h2>
-                        <Categories></Categories>
-                       
+                        <Categories></Categories> 
                     </div>
                     {/* Post start*/}
                     <div className="lg:col-span-2">
