@@ -98,7 +98,7 @@ const router = createBrowserRouter([
                 element: <UsersFeedBack></UsersFeedBack>
             },
             {
-                path: 'AdminHome',
+                path: '/AdminHome',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
