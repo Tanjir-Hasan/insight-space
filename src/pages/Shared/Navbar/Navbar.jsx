@@ -78,7 +78,7 @@ const Navbar = () => {
 
                     </button>
 
-                    <img onClick={() => setInfo(!info)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 w-8 rounded-full' />
+                    <img onClick={() => setInfo(!info)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
 
                 </div>
             </div>

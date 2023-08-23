@@ -1,8 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import { FaHistory } from "react-icons/fa";
+import { FaHistory, FaTrashAlt } from "react-icons/fa";
 import moment from "moment";
 import Swal from "sweetalert2";
 
@@ -10,14 +9,15 @@ import Swal from "sweetalert2";
 const AllPosts = () => {
     const [axiosSecure] = useAxiosSecure();
     const [id, setId] = useState(null);
+    const [posts, setPosts] = useState([]);
+    const [reload, setReload] = useState(false);
     const { theme } = useContext(ThemeContext);
-    const { data: posts, refetch } = useQuery({
-        queryKey: ["posts"],
-        queryFn: () => axiosSecure.get("/allPosts")
+    useEffect(() => {
+        axiosSecure.get("/allPosts")
             .then(data => {
-                return data.data
+                setPosts(data.data);
             })
-    })
+    }, [axiosSecure, reload])
 
     const handleDeletePost = id => {
         Swal.fire({
@@ -33,7 +33,7 @@ const AllPosts = () => {
                 axiosSecure.delete(`/post?id=${id}`)
                     .then(data => {
                         if (data.data.deletedCount > 0) {
-                            refetch();
+                            setReload(!reload);
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
@@ -52,9 +52,9 @@ const AllPosts = () => {
 
 
     return (
-        <div className="w-1/3 mx-auto py-4">
+        <div className="sm:w-full sm:mx-4 md:w-4/5 md:mx-auto lg:w-4/6 lg:mx-auto py-4">
             {
-                posts && posts.map(p => <div key={p._id}
+                posts?.map(p => <div key={p._id}
                     className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
                 >
                     <div className="p-4">
@@ -66,7 +66,7 @@ const AllPosts = () => {
                                     <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
                                 </div>
                             </div>
-                            <button onClick={() => handleDeletePost(p._id)} className="border-2 border-[#84a98c] text-[#84a98c] hover:bg-[#84a98c] hover:text-white px-4 py-2 rounded-lg transition duration-300 ease-in-out">delete post</button>
+                            <button onClick={() => handleDeletePost(p._id)} className="text-[#84a98c] text-2xl hover:text-red-700 transition duration-300" title="remove this post"><FaTrashAlt></FaTrashAlt></button>
                         </div>
                         <div className="my-4">
                             <span hidden={id === p._id}>{p.text?.slice(0, 300)}</span>

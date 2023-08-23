@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */ //
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { FaArrowRight, FaBookmark, FaComment, FaEllipsisV, FaHeart, FaHistory } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
@@ -7,23 +7,33 @@ import usePosts from "../../../Hooks/usePosts";
 import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import axios from "axios";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useSelector } from "react-redux";
 
 
 const DisplayNewsFeed = () => {
     const [id, setId] = useState(null);
     const { theme } = useContext(ThemeContext);
-
     const [userDetails] = useUser();
+    const [axiosSecure] = useAxiosSecure();
     const ref = useRef();
     const updateRef = useRef();
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
+    const [allPosts, setAllPosts] = useState([]);
     const [handleReact, handleBookMark, handleAddComment, handleUpdateComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
+    const categoriesData = useSelector(state => state?.categories);
 
-
+    useEffect(() => {
+        if (categoriesData.length === 0) {
+            setAllPosts(posts)
+        }
+        else if (categoriesData.length > 0) {
+            setAllPosts(categoriesData)
+        }
+    }, [categoriesData, posts])
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -36,7 +46,7 @@ const DisplayNewsFeed = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://insight-space-server.vercel.app/deleteComment?id=${id}`)
+                axiosSecure.delete(`/deleteComment?id=${id}`)
                     .then(data => {
                         console.log(data.data);
                         if (data) {
@@ -52,10 +62,11 @@ const DisplayNewsFeed = () => {
         })
     };
 
+
     return (
         <div>
             {
-                posts && posts.map(p => <div key={p._id}
+                allPosts && allPosts.map(p => <div key={p._id}
                     className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
                 >
                     <div className="p-4">
@@ -75,8 +86,8 @@ const DisplayNewsFeed = () => {
                                 <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See Less</span>
                             </span>
                         </div>
-                         {/* see more btn end  */}
                     </div>
+
                     <div>
                         {
                             p.imgURL && <img src={p.imgURL} className="w-full max-h-[600px]" alt="blog image" />

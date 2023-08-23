@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import usePosts from "../../../Hooks/usePosts";
+import { useDispatch } from "react-redux";
+import { setCategories } from "../../../StateManagment/Posts/categoriesSlice";
 
 
 const Categories = () => {
     const [posts] = usePosts();
+    const dispatch = useDispatch();
     const [checkedCategories, setCheckedCategories] = useState([]);
-    // console.log(checkedCategories)
-
-    const Categories = posts.filter((post, index, self) =>
+    const Categories = posts?.filter((post, index, self) =>
         index === self.findIndex((p) => p.category === post.category)
     );
 
@@ -18,10 +19,16 @@ const Categories = () => {
             setCheckedCategories([...checkedCategories, category]);
         }
     };
-//  console.log(checkedCategories);
+    useEffect(() => {
+        const data = posts?.filter(p => checkedCategories.includes(p.category))
+        dispatch(setCategories(data));
+    }, [checkedCategories, posts, dispatch])
 
     return (
         <div>
+            <div className="px-4 py-4">
+                <p className="text-xl font-semibold">Select Your Favourite Categories</p>
+            </div>
             {
                 Categories && Categories.map(c =>
                     <div key={c._id} className="px-4">
