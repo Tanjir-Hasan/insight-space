@@ -23,7 +23,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut().then(() => {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Logout Successfully',
                 showConfirmButton: false,

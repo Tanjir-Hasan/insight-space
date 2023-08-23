@@ -2,51 +2,31 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import useAuth from '../../Hooks/UseAuth';
-
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { useForm } from 'react-hook-form';
 
 
 const FeedBack = () => {
     const { user } = useAuth()
-
-
-    const handleFeedback = event => {
-        event.preventDefault();
-
-        const form = event.target;
-        const name = form.name.value;
-        const opinion = form.opinion.value;
-        const rating = form.rating.value;
-        const message = form.message.value;
-        const email = user?.email;
-        const date = form.date.value;
-
+    const [axiosSecure] = useAxiosSecure();
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => {
+        const {message , rating } = data ;
+        const date = new Date();
         const feedback = {
-            userName: name,
-            email,
-            opinion,
+            userName: user?.displayName,
+            email : user?.email,
             rating,
-            date
-
+            date ,
+            message
         }
-        console.log(feedback)
-
-        fetch('http://localhost:5000/feedback', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-
-            },
-            body: JSON.stringify(feedback)
+        axiosSecure.post("/feedback", feedback)
+        .then(data => {
+            if (data.data) {
+                alert('Your response has been recorded')
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    alert('Your response has been recorded')
-                }
-            })
-
-    }
+    };
 
     return (
         <div>
@@ -66,87 +46,59 @@ const FeedBack = () => {
                         </ul>
 
 
-                        <form onSubmit={handleFeedback}>
-
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <label htmlFor="message" className="block font-semibold mb-2">
                                 Name:
                             </label>
-                            <input type="text" name="name" defaultValue={user?.displayName} placeholder='name' ></input>
+                            <input type="text" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' name="name" defaultValue={user?.displayName} placeholder='name' readOnly></input>
 
-                            <label htmlFor="message" className="block font-semibold mb-2">
+                            <label htmlFor="message" className="block font-semibold my-2">
                                 Email:
                             </label>
-                            <input type="text" name="email" defaultValue={user?.email} placeholder='email'></input>
-
-                            <label htmlFor="message" className="block font-semibold mb-2">
-                                Date:
-                            </label>
-                            <input type="date" name="date" placeholder='email'></input>
+                            <input type="email" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' name="email" defaultValue={user?.email} placeholder='email' readOnly></input>
 
                             <label htmlFor="message" className="block font-semibold mb-2 mt-4">
                                 Message:
                             </label>
-                            <input type="text" name="message" value=" " placeholder='name'></input>
-
-                            <label htmlFor="comment" className="block font-semibold mb-5 mt-5">
-                                Select a Comment:
-                            </label>
-                            {/* <label for="">Select a comment</label> */}
-                            <select name="opinion" id="opinion">
-                                <option value="Select">Select</option>
-                                <option value="Great service! Really enjoyed the experience.">Great service! Really enjoyed the experience.</option>
-                                <option value="Prompt response and excellent support.">Prompt response and excellent support.</option>
-                                <option value="Outstanding service! Will definitely recommend.">Outstanding service! Will definitely recommend.</option>
-                                <option value="Not bad! Like it.">Not bad! Like it.</option>
-                                <option value="Not satisfied with the product quality.">Not satisfied with the product quality.</option>
-                                <option value="Had a few issues, but they were quickly resolved.">Had a few issues, but they were quickly resolved.</option>
-                            </select>
+                            <textarea required name="" id="" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' {...register("message")} cols="30" rows="5"></textarea>
 
                             <label htmlFor="rating" className="block font-semibold mb-5 mt-5">
                                 Rating:
                             </label>
                             {/* <label for="">Select a comment</label> */}
-                            <select name="rating" id="rating">
-                                <option value="Select">Select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="3.5">3.5</option>
-                                <option value="4">4</option>
-                                <option value="4.5">4.5</option>
-                                <option value="5">5</option>
-                            </select>
+                            <div className='flex'>
+                                <p className='text-lg font-semibold me-2'>select : </p>
+                                <select className='border border-spacing-3 px-2 py-1 border-gray-300 rounded-lg' defaultValue={5} {...register("rating")} name="rating" id="rating">
+                                    <option value="1">1.0</option>
+                                    <option value="2">2.0</option>
+                                    <option value="3">3.0</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="4">4.0</option>
+                                    <option value="4.5">4.5</option>
+                                    <option value="5">5.0</option>
+                                </select>
+                            </div>
 
                             <label htmlFor="#" className="block font-semibold mb-2">
 
                             </label>
                             <div className=''>
-                                
-                            <div className="md:w-38 md:mx-0  mx-aut mt-10">
-                                <input className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg" type="submit" value="send feedback">
 
-                                </input>
+                                <div className="md:w-38 md:mx-0  mx-auto mt-10">
+                                    <input className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg" type="submit" value="send feedback">
+
+                                    </input>
+                                </div>
+
+                                <div className="md:w-25  mt-10">
+                                    <Link to="/usersfeedback">
+                                        <Button heading="Feedback Submisiions"></Button>
+                                    </Link>
+                                </div>
                             </div>
-
-                            <div className="md:w-25  mt-10">
-                                <Link to="/usersfeedback">
-                                    <Button heading="Feedback Submisiions"></Button>
-                                </Link>
-                            </div>
-                            </div>
-
-
-
                         </form>
-
-
                     </div>
-
-
-
                 </div>
-
-
             </div>
         </div>
     );
