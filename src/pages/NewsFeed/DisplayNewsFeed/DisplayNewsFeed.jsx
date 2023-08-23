@@ -10,7 +10,8 @@ import { ThemeContext } from "../../../providers/ThemeProvider";
 import axios from "axios";
 
 
-const DisplayNewsFeed = () => {
+const DisplayNewsFeed = ({query}) => {
+    console.log(query);
 
     const { theme } = useContext(ThemeContext);
 
@@ -58,7 +59,7 @@ const DisplayNewsFeed = () => {
     return (
         <div>
             {
-                posts && posts.map(p => <div key={p._id}
+                posts && posts?.filter(post=>post.text.toLowerCase().includes(query.toLowerCase()))?.map(p => <div key={p._id}
                     className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
                 >
                     <div className="p-4">
