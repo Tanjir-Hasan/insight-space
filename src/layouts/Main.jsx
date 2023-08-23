@@ -1,9 +1,8 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Navbar from '../pages/Shared/Navbar/Navbar';
-import Footer from '../pages/Shared/Footer/Footer';
-import GoogleTranslator from '../components/GoogleTranslator';
- // Replace with the correct path
+import { Outlet } from "react-router-dom";
+import Navbar from "../pages/Shared/Navbar/Navbar";
+import Footer from "../pages/Shared/Footer/Footer";
+import Message from "../pages/Message/Message";
+import GoogleTranslator from "../components/GoogleTranslator";
 
 const Main = () => {
     return (
@@ -12,7 +11,7 @@ const Main = () => {
             <div className="mt-[72px]">
                 <Outlet />
             </div>
-            <GoogleTranslator /> {/* Add the GoogleTranslator component here */}
+            <GoogleTranslator /> 
             <Footer />
         </>
     );
