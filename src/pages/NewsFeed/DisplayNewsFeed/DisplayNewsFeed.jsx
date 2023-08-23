@@ -11,10 +11,8 @@ import axios from "axios";
 
 
 const DisplayNewsFeed = () => {
-
+    const [id, setId] = useState(null);
     const { theme } = useContext(ThemeContext);
-
-    const [show, setShow] = useState(false);
 
     const [userDetails] = useUser();
     const ref = useRef();
@@ -24,7 +22,7 @@ const DisplayNewsFeed = () => {
     const [handleReact, handleBookMark, handleAddComment, handleUpdateComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
-   
+
 
 
     const handleDelete = (id) => {
@@ -54,7 +52,6 @@ const DisplayNewsFeed = () => {
         })
     };
 
-
     return (
         <div>
             {
@@ -69,31 +66,17 @@ const DisplayNewsFeed = () => {
                                 <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
                             </div>
                         </div>
-
-                        <p>{p.text}</p>
-
-                        {/* <p>
-                            {
-                                show === true ?
-                                    <>
-                                        <p>
-                                            {p.text}
-                                        </p>
-                                        <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read Less</span>
-                                    </>
-                                    :
-                                    <>
-                                        <p className='text-slate-500'>
-                                            {p.text.substring(0, 250)}
-                                        </p>
-                                        <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read More</span>
-                                    </>
-                            }
-                        </p> */}
-
-                        {/* {<span onClick={() =>(p.text)} className="underline underline-offset-4 ms-2 text-sm text-green-600">{p.text} See More</span>} */}
+                        {/* see more btn  */}
+                        <div className="my-4">
+                            <span hidden={id === p._id}>{p.text?.slice(0, 300)}</span>
+                            <span hidden={p.text?.length < 300}>
+                                <span hidden={id !== p._id}>{p.text}</span>
+                                <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See More</span>
+                                <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See Less</span>
+                            </span>
+                        </div>
+                         {/* see more btn end  */}
                     </div>
-
                     <div>
                         {
                             p.imgURL && <img src={p.imgURL} className="w-full max-h-[600px]" alt="blog image" />

@@ -8,7 +8,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
-import Chat from "../pages/Chat/Chat";
+
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
@@ -19,7 +19,12 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
-import RealTimeChat from "../pages/Shared/RealTimeChat/RealTimeChat";
+
+
+
+import Quiz from "../pages/Quiz/Quiz";
+import Videos from "../pages/Videos/Videos";
+import Chat from "../pages/Message/Chat";
 
 
 const router = createBrowserRouter([
@@ -82,10 +87,6 @@ const router = createBrowserRouter([
                     </PrivateRoute>
             },
             {
-                path: "live-chat",
-                element: <RealTimeChat></RealTimeChat>
-            },
-            {
                 path: "support",
                 element: <ContactForm></ContactForm>
             },
@@ -102,9 +103,22 @@ const router = createBrowserRouter([
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
-                path:"/allPosts",
-                element : <AdminRoute><AllPosts></AllPosts></AdminRoute>
-            }
+                path: "/allPosts",
+                element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
+            },
+            {
+
+                path: '/message',
+                element: <Chat></Chat>
+            },
+            {
+                path: "/videos",
+                element: <Videos></Videos>
+            },
+            {
+                path: "/quiz",
+                element: <Quiz></Quiz>
+            },
         ]
     },
 ]);
