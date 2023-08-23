@@ -11,7 +11,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useSelector } from "react-redux";
 
 
-const DisplayNewsFeed = () => {
+const DisplayNewsFeed = ({query}) => {
     const [id, setId] = useState(null);
     const { theme } = useContext(ThemeContext);
     const [userDetails] = useUser();
@@ -34,6 +34,8 @@ const DisplayNewsFeed = () => {
             setAllPosts(categoriesData)
         }
     }, [categoriesData, posts])
+
+    console.log(allPosts);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -66,7 +68,7 @@ const DisplayNewsFeed = () => {
     return (
         <div>
             {
-                allPosts && allPosts.map(p => <div key={p._id}
+                allPosts && allPosts.filter(post=> post.text.toLowerCase().includes(query.toLowerCase())).map(p => <div key={p._id}
                     className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
                 >
                     <div className="p-4">
