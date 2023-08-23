@@ -1,0 +1,871 @@
+[
+    {
+      "id": 1,
+      "categoryName": "Science",
+      "question": "Which gas do plants use to photosynthesize?",
+      "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+      "correctAnswer": "Carbon Dioxide"
+    },
+    {
+      "id": 2,
+      "categoryName": "Science",
+      "question": "What is the smallest unit of matter?",
+      "options": ["Atom", "Molecule", "Cell", "Electron"],
+      "correctAnswer": "Atom"
+    },
+    {
+      "id": 3,
+      "categoryName": "Science",
+      "question": "Which planet is known as the \"Red Planet\"?",
+      "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "correctAnswer": "Mars"
+    },
+    {
+      "id": 4,
+      "categoryName": "Science",
+      "question": "What is the chemical symbol for gold?",
+      "options": ["Go", "Au", "Ag", "Gd"],
+      "correctAnswer": "Au"
+    },
+    {
+      "id": 5,
+      "categoryName": "Science",
+      "question": "What type of blood vessels carry blood away from the heart?",
+      "options": ["Veins", "Arteries", "Capillaries", "Ventricles"],
+      "correctAnswer": "Arteries"
+    },
+    {
+      "id": 6,
+      "categoryName": "Science",
+      "question": "What is the process by which liquid water turns into water vapor?",
+      "options": ["Condensation", "Freezing", "Evaporation", "Sublimation"],
+      "correctAnswer": "Evaporation"
+    },
+    {
+      "id": 7,
+      "categoryName": "Science",
+      "question": "Which scientist formulated the laws of motion and universal gravitation?",
+      "options": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+      "correctAnswer": "Isaac Newton"
+    },
+    {
+      "id": 8,
+      "categoryName": "Science",
+      "question": "What is the main function of the mitochondria in a cell?",
+      "options": ["Photosynthesis", "Cell Division", "Energy Production", "Protein Synthesis"],
+      "correctAnswer": "Energy Production"
+    },
+    {
+      "id": 9,
+      "categoryName": "Science",
+      "question": "Which electromagnetic wave has the shortest wavelength?",
+      "options": ["Radio Waves", "Microwaves", "X-rays", "Gamma Rays"],
+      "correctAnswer": "Gamma Rays"
+    },
+    {
+      "id": 10,
+      "categoryName": "Science",
+      "question": "What is the chemical symbol for the element oxygen?",
+      "options": ["Ox", "O", "Om", "Oi"],
+      "correctAnswer": "O"
+    },
+    {
+      "id": 11,
+      "categoryName": "Science",
+      "question": "What is the basic unit of heredity in living organisms?",
+      "options": ["Gene", "Cell", "Protein", "Chromosome"],
+      "correctAnswer": "Gene"
+    },
+    {
+      "id": 12,
+      "categoryName": "Science",
+      "question": "Which gas is responsible for the Earth's ozone layer?",
+      "options": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Ozone"],
+      "correctAnswer": "Ozone"
+    },
+    {
+      "id": 13,
+      "categoryName": "Science",
+      "question": "What is the process that converts sugar into energy within cells?",
+      "options": ["Fermentation", "Respiration", "Digestion", "Photosynthesis"],
+      "correctAnswer": "Respiration"
+    },
+    {
+      "id": 14,
+      "categoryName": "Science",
+      "question": "What is the center of an atom called, containing protons and neutrons?",
+      "options": ["Electron Cloud", "Nucleus", "Core", "Centeroid"],
+      "correctAnswer": "Nucleus"
+    },
+    {
+      "id": 15,
+      "categoryName": "Science",
+      "question": "Which force keeps planets in orbit around the sun?",
+      "options": ["Magnetic Force", "Centrifugal Force", "Frictional Force", "Gravitational Force"],
+      "correctAnswer": "Gravitational Force"
+    },
+    {
+        "id": 26,
+        "categoryName": "Educational",
+        "question": "What is the largest mammal on Earth?",
+        "options": ["African Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        "correctAnswer": "Blue Whale"
+      },
+      {
+        "id": 27,
+        "categoryName": "Educational",
+        "question": "What is the process of plants losing water through small openings on their leaves?",
+        "options": ["Transpiration", "Photosynthesis", "Respiration", "Evaporation"],
+        "correctAnswer": "Transpiration"
+      },
+      {
+        "id": 28,
+        "categoryName": "Educational",
+        "question": "What is the currency of Japan?",
+        "options": ["Yuan", "Peso", "Rupee", "Yen"],
+        "correctAnswer": "Yen"
+      },
+      {
+        "id": 29,
+        "categoryName": "Educational",
+        "question": "Which famous scientist developed the theory of relativity?",
+        "options": ["Isaac Newton", "Albert Einstein", "Marie Curie", "Nikola Tesla"],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "id": 30,
+        "categoryName": "Educational",
+        "question": "Which gas is necessary for respiration in humans?",
+        "options": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Helium"],
+        "correctAnswer": "Oxygen"
+      },
+      {
+        "id": 31,
+        "categoryName": "Educational",
+        "question": "What is the process of a liquid turning into a gas at the surface?",
+        "options": ["Sublimation", "Vaporization", "Evaporation", "Condensation"],
+        "correctAnswer": "Evaporation"
+      },
+      {
+        "id": 32,
+        "categoryName": "Educational",
+        "question": "What is the capital of Australia?",
+        "options": ["Melbourne", "Sydney", "Brisbane", "Canberra"],
+        "correctAnswer": "Canberra"
+      },
+      {
+        "id": 33,
+        "categoryName": "Educational",
+        "question": "Which famous scientist is known for his laws of motion and gravity?",
+        "options": ["Isaac Newton", "Galileo Galilei", "Leonardo da Vinci", "Charles Darwin"],
+        "correctAnswer": "Isaac Newton"
+      },
+      {
+        "id": 34,
+        "categoryName": "Educational",
+        "question": "What is the process of converting a solid directly into a gas called?",
+        "options": ["Condensation", "Melting", "Sublimation", "Vaporization"],
+        "correctAnswer": "Sublimation"
+      },
+      {
+        "id": 35,
+        "categoryName": "Educational",
+        "question": "What is the capital of Canada?",
+        "options": ["Vancouver", "Montreal", "Toronto", "Ottawa"],
+        "correctAnswer": "Ottawa"
+      },
+      {
+        "id": 36,
+        "categoryName": "Educational",
+        "question": "Which famous scientist discovered the principles of vaccination?",
+        "options": ["Marie Curie", "Louis Pasteur", "Charles Darwin", "Alexander Fleming"],
+        "correctAnswer": "Louis Pasteur"
+      },
+      {
+        "id": 37,
+        "categoryName": "Educational",
+        "question": "What is the process of a gas turning directly into a solid called?",
+        "options": ["Condensation", "Deposition", "Evaporation", "Sublimation"],
+        "correctAnswer": "Deposition"
+      },
+      {
+        "id": 38,
+        "categoryName": "Educational",
+        "question": "What is the largest planet in our solar system?",
+        "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+        "correctAnswer": "Jupiter"
+      },
+      {
+        "id": 39,
+        "categoryName": "Educational",
+        "question": "Which famous author wrote 'Pride and Prejudice'?",
+        "options": ["Jane Austen", "Emily Brontë", "Charlotte Brontë", "Virginia Woolf"],
+        "correctAnswer": "Jane Austen"
+      },
+      {
+        "id": 40,
+        "categoryName": "Educational",
+        "question": "What is the process of the Earth's rotation on its axis called?",
+        "options": ["Revolution", "Orbit", "Rotation", "Equinox"],
+        "correctAnswer": "Rotation"
+      },
+      {
+        "id": 41,
+        "categoryName": "Health",
+        "question": "What is the recommended daily amount of water intake for adults?",
+        "options": ["2 liters", "1 liter", "4 liters", "8 glasses"],
+        "correctAnswer": "2 liters"
+      },
+      {
+        "id": 42,
+        "categoryName": "Health",
+        "question": "Which nutrient is the body's primary source of energy?",
+        "options": ["Protein", "Vitamin C", "Carbohydrates", "Calcium"],
+        "correctAnswer": "Carbohydrates"
+      },
+      {
+        "id": 43,
+        "categoryName": "Health",
+        "question": "What is the medical term for high blood pressure?",
+        "options": ["Hypertension", "Hypotension", "Arrhythmia", "Tachycardia"],
+        "correctAnswer": "Hypertension"
+      },
+      {
+        "id": 44,
+        "categoryName": "Health",
+        "question": "Which organ is responsible for detoxifying the blood and storing vital nutrients?",
+        "options": ["Liver", "Lungs", "Stomach", "Pancreas"],
+        "correctAnswer": "Liver"
+      },
+      {
+        "id": 45,
+        "categoryName": "Health",
+        "question": "What is the medical term for the voice box?",
+        "options": ["Trachea", "Larynx", "Esophagus", "Pharynx"],
+        "correctAnswer": "Larynx"
+      },
+      {
+        "id": 46,
+        "categoryName": "Health",
+        "question": "Which vitamin is known as the 'sunshine vitamin'?",
+        "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
+        "correctAnswer": "Vitamin D"
+      },
+      {
+        "id": 47,
+        "categoryName": "Health",
+        "question": "What is the main function of red blood cells?",
+        "options": ["Transporting oxygen", "Digesting food", "Producing antibodies", "Filtering waste"],
+        "correctAnswer": "Transporting oxygen"
+      },
+      {
+        "id": 48,
+        "categoryName": "Health",
+        "question": "Which part of the brain is responsible for regulating basic bodily functions like breathing and heart rate?",
+        "options": ["Cerebrum", "Cerebellum", "Medulla oblongata", "Hippocampus"],
+        "correctAnswer": "Medulla oblongata"
+      },
+      {
+        "id": 49,
+        "categoryName": "Health",
+        "question": "What is the medical term for inflammation of the joints?",
+        "options": ["Arthritis", "Bronchitis", "Pneumonia", "Appendicitis"],
+        "correctAnswer": "Arthritis"
+      },
+      {
+        "id": 50,
+        "categoryName": "Health",
+        "question": "Which type of diabetes is usually diagnosed in childhood or adolescence?",
+        "options": ["Type 1 diabetes", "Type 2 diabetes", "Gestational diabetes", "Pre-diabetes"],
+        "correctAnswer": "Type 1 diabetes"
+      },
+      {
+        "id": 51,
+        "categoryName": "Health",
+        "question": "What is the body's largest organ?",
+        "options": ["Heart", "Lungs", "Liver", "Skin"],
+        "correctAnswer": "Skin"
+      },
+      {
+        "id": 52,
+        "categoryName": "Health",
+        "question": "Which gland regulates metabolism and energy production?",
+        "options": ["Pituitary gland", "Adrenal gland", "Thyroid gland", "Pancreas"],
+        "correctAnswer": "Thyroid gland"
+      },
+      {
+        "id": 53,
+        "categoryName": "Health",
+        "question": "What is the medical term for the knee cap?",
+        "options": ["Femur", "Tibia", "Fibula", "Patella"],
+        "correctAnswer": "Patella"
+      },
+      {
+        "id": 54,
+        "categoryName": "Health",
+        "question": "What is the primary function of white blood cells?",
+        "options": ["Carrying oxygen", "Fighting infection", "Digesting food", "Producing hormones"],
+        "correctAnswer": "Fighting infection"
+      },
+      {
+        "id": 55,
+        "categoryName": "Health",
+        "question": "What is the medical term for a heart attack?",
+        "options": ["Arrhythmia", "Myocarditis", "Cardiomyopathy", "Myocardial infarction"],
+        "correctAnswer": "Myocardial infarction"
+      },
+      {
+        "id": 56,
+        "categoryName": "Health",
+        "question": "Which sense is associated with the olfactory system?",
+        "options": ["Hearing", "Smell", "Taste", "Sight"],
+        "correctAnswer": "Smell"
+      },
+      {
+        "id": 57,
+        "categoryName": "Technology",
+        "question": "What does the acronym 'URL' stand for?",
+        "options": ["Uniform Resource Locator", "Universal Research Link", "User Registration List", "Underlying Resource Lookup"],
+        "correctAnswer": "Uniform Resource Locator"
+      },
+      {
+        "id": 58,
+        "categoryName": "Technology",
+        "question": "Which programming language is known for its use in web development and creating interactive web pages?",
+        "options": ["Python", "Java", "HTML", "C++"],
+        "correctAnswer": "HTML"
+      },
+      {
+        "id": 59,
+        "categoryName": "Technology",
+        "question": "What is the primary function of a router in a computer network?",
+        "options": ["Firewall protection", "Data storage", "Packet forwarding", "Printer management"],
+        "correctAnswer": "Packet forwarding"
+      },
+      {
+        "id": 60,
+        "categoryName": "Technology",
+        "question": "Which company developed the first commercially successful personal computer?",
+        "options": ["Apple", "IBM", "Microsoft", "Dell"],
+        "correctAnswer": "IBM"
+      },
+      {
+        "id": 61,
+        "categoryName": "Technology",
+        "question": "What is the process of encoding information in a way that only authorized parties can access it?",
+        "options": ["Hacking", "Encryption", "Decryption", "Compression"],
+        "correctAnswer": "Encryption"
+      },
+      {
+        "id": 62,
+        "categoryName": "Technology",
+        "question": "Which technology allows a user to interact with a computer using gestures, voice, or touch?",
+        "options": ["Artificial intelligence", "Virtual reality", "Augmented reality", "Human-computer interaction"],
+        "correctAnswer": "Human-computer interaction"
+      },
+      {
+        "id": 63,
+        "categoryName": "Technology",
+        "question": "What is the term for a malicious software that disguises itself as a legitimate program?",
+        "options": ["Virus", "Trojan horse", "Spyware", "Worm"],
+        "correctAnswer": "Trojan horse"
+      },
+      {
+        "id": 64,
+        "categoryName": "Technology",
+        "question": "Which type of computer memory is non-volatile and retains data even when the power is turned off?",
+        "options": ["RAM", "ROM", "Cache memory", "Virtual memory"],
+        "correctAnswer": "ROM"
+      },
+      {
+        "id": 65,
+        "categoryName": "Technology",
+        "question": "What is the term for a network of interconnected devices, typically used for sharing resources and information?",
+        "options": ["Internet", "Web", "LAN", "Cloud"],
+        "correctAnswer": "Internet"
+      },
+      {
+        "id": 66,
+        "categoryName": "Technology",
+        "question": "Which technology protocol is used for secure communication over the Internet?",
+        "options": ["HTTP", "FTP", "SMTP", "HTTPS"],
+        "correctAnswer": "HTTPS"
+      },
+      {
+        "id": 67,
+        "categoryName": "Technology",
+        "question": "Which computer component is often referred to as the 'brain' of the computer?",
+        "options": ["Motherboard", "Hard drive", "CPU", "Graphics card"],
+        "correctAnswer": "CPU"
+      },
+      {
+        "id": 68,
+        "categoryName": "Technology",
+        "question": "What does the acronym 'IoT' stand for?",
+        "options": ["Internet of Things", "Input/Output Technology", "Intranet of Things", "Information on Technology"],
+        "correctAnswer": "Internet of Things"
+      },
+      {
+        "id": 69,
+        "categoryName": "Technology",
+        "question": "Which programming language is used for developing mobile applications for iOS devices?",
+        "options": ["Java", "Python", "Swift", "C#"],
+        "correctAnswer": "Swift"
+      },
+      {
+        "id": 70,
+        "categoryName": "Technology",
+        "question": "What is the term for a small piece of code that performs a specific task or function?",
+        "options": ["Algorithm", "Script", "Function", "Snippet"],
+        "correctAnswer": "Snippet"
+      },
+      {
+        "id": 71,
+        "categoryName": "Technology",
+        "question": "Which technology allows multiple users to access a single operating system simultaneously?",
+        "options": ["Multi-core processing", "Multi-threading", "Multi-tasking", "Multi-user"],
+        "correctAnswer": "Multi-user"
+      },
+      {
+        "id": 72,
+        "categoryName": "Technology",
+        "question": "What is the term for a software application that automates repetitive tasks or processes?",
+        "options": ["Algorithm", "Script", "Macro", "Function"],
+        "correctAnswer": "Macro"
+      },
+      {
+        "id": 73,
+        "categoryName": "Food",
+        "question": "What is the main ingredient in guacamole?",
+        "options": ["Tomato", "Avocado", "Onion", "Lemon"],
+        "correctAnswer": "Avocado"
+      },
+      {
+        "id": 74,
+        "categoryName": "Food",
+        "question": "Which type of pasta is shaped like small rice grains?",
+        "options": ["Spaghetti", "Fusilli", "Orzo", "Penne"],
+        "correctAnswer": "Orzo"
+      },
+      {
+        "id": 75,
+        "categoryName": "Food",
+        "question": "What is the primary flavoring ingredient in pesto sauce?",
+        "options": ["Basil", "Garlic", "Tomato", "Oregano"],
+        "correctAnswer": "Basil"
+      },
+      {
+        "id": 76,
+        "categoryName": "Food",
+        "question": "Which fruit is known as the 'king of fruits' and has a strong, distinctive odor?",
+        "options": ["Banana", "Pineapple", "Durian", "Mango"],
+        "correctAnswer": "Durian"
+      },
+      {
+        "id": 77,
+        "categoryName": "Food",
+        "question": "What type of meat is traditionally used in a classic BLT sandwich?",
+        "options": ["Turkey", "Chicken", "Bacon", "Ham"],
+        "correctAnswer": "Bacon"
+      },
+      {
+        "id": 78,
+        "categoryName": "Food",
+        "question": "Which type of cheese is typically used on a Margherita pizza?",
+        "options": ["Cheddar", "Parmesan", "Mozzarella", "Swiss"],
+        "correctAnswer": "Mozzarella"
+      },
+      {
+        "id": 79,
+        "categoryName": "Food",
+        "question": "What is the main ingredient in hummus?",
+        "options": ["Chickpeas", "Lentils", "Quinoa", "Barley"],
+        "correctAnswer": "Chickpeas"
+      },
+      {
+        "id": 80,
+        "categoryName": "Food",
+        "question": "What is the popular Japanese dish made from fermented soybeans?",
+        "options": ["Sushi", "Ramen", "Tempura", "Miso soup"],
+        "correctAnswer": "Miso soup"
+      },
+      {
+        "id": 81,
+        "categoryName": "Food",
+        "question": "Which type of bread is often associated with Italy and has a thin, crispy crust?",
+        "options": ["Baguette", "Ciabatta", "Pita", "Rye bread"],
+        "correctAnswer": "Ciabatta"
+      },
+      {
+        "id": 82,
+        "categoryName": "Food",
+        "question": "What is the main ingredient in traditional tzatziki sauce?",
+        "options": ["Yogurt", "Mayonnaise", "Mustard", "Ketchup"],
+        "correctAnswer": "Yogurt"
+      },
+      {
+        "id": 83,
+        "categoryName": "Food",
+        "question": "What is the name of the Italian dish made from thinly sliced raw meat or fish?",
+        "options": ["Sashimi", "Carpaccio", "Sushi", "Tartare"],
+        "correctAnswer": "Carpaccio"
+      },
+      {
+        "id": 84,
+        "categoryName": "Food",
+        "question": "Which vegetable is often used as a substitute for noodles in dishes like 'zoodles'?",
+        "options": ["Cauliflower", "Broccoli", "Zucchini", "Spinach"],
+        "correctAnswer": "Zucchini"
+      },
+      {
+        "id": 85,
+        "categoryName": "Food",
+        "question": "What type of fish is a common ingredient in traditional fish and chips?",
+        "options": ["Salmon", "Tuna", "Cod", "Trout"],
+        "correctAnswer": "Cod"
+      },
+      {
+        "id": 86,
+        "categoryName": "Food",
+        "question": "What is the main ingredient in traditional French onion soup?",
+        "options": ["Lentils", "Chicken", "Beef", "Onions"],
+        "correctAnswer": "Onions"
+      },
+      {
+        "id": 87,
+        "categoryName": "Food",
+        "question": "Which type of nut is often used to make pesto sauce?",
+        "options": ["Pistachio", "Almond", "Cashew", "Pine nut"],
+        "correctAnswer": "Pine nut"
+      },
+      {
+        "id": 88,
+        "categoryName": "Food",
+        "question": "What is the traditional base ingredient of a Cobb salad?",
+        "options": ["Lettuce", "Spinach", "Kale", "Arugula"],
+        "correctAnswer": "Lettuce"
+      },
+      {
+        "id": 89,
+        "categoryName": "Books",
+        "question": "Which classic novel is about a man who turns into a giant insect?",
+        "options": ["Dracula", "Moby-Dick", "The Metamorphosis", "Pride and Prejudice"],
+        "correctAnswer": "The Metamorphosis"
+      },
+      {
+        "id": 90,
+        "categoryName": "Books",
+        "question": "Who wrote the fantasy series 'A Song of Ice and Fire'?",
+        "options": ["J.R.R. Tolkien", "George R.R. Martin", "J.K. Rowling", "C.S. Lewis"],
+        "correctAnswer": "George R.R. Martin"
+      },
+      {
+        "id": 91,
+        "categoryName": "Books",
+        "question": "What is the title of the first book in J.K. Rowling's Harry Potter series?",
+        "options": ["Harry Potter and the Sorcerer's Stone", "Harry Potter and the Chamber of Secrets", "Harry Potter and the Prisoner of Azkaban", "Harry Potter and the Goblet of Fire"],
+        "correctAnswer": "Harry Potter and the Sorcerer's Stone"
+      },
+      {
+        "id": 92,
+        "categoryName": "Books",
+        "question": "Which author wrote the dystopian novel '1984'?",
+        "options": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "Margaret Atwood"],
+        "correctAnswer": "George Orwell"
+      },
+      {
+        "id": 93,
+        "categoryName": "Books",
+        "question": "What is the title of the novel featuring the character Holden Caulfield?",
+        "options": ["Catcher in the Rye", "Great Expectations", "To Kill a Mockingbird", "Lord of the Flies"],
+        "correctAnswer": "Catcher in the Rye"
+      },
+      {
+        "id": 94,
+        "categoryName": "Books",
+        "question": "Which novel features a young girl named Scout Finch and addresses issues of racism and injustice?",
+        "options": ["Little Women", "Wuthering Heights", "To Kill a Mockingbird", "Pride and Prejudice"],
+        "correctAnswer": "To Kill a Mockingbird"
+      },
+      {
+        "id": 95,
+        "categoryName": "Books",
+        "question": "What is the name of the first book in J.R.R. Tolkien's 'The Lord of the Rings' trilogy?",
+        "options": ["The Fellowship of the Ring", "The Two Towers", "The Return of the King", "The Hobbit"],
+        "correctAnswer": "The Fellowship of the Ring"
+      },
+      {
+        "id": 96,
+        "categoryName": "Books",
+        "question": "Which author wrote the novel 'Pride and Prejudice'?",
+        "options": ["Jane Austen", "Emily Brontë", "Charlotte Brontë", "Virginia Woolf"],
+        "correctAnswer": "Jane Austen"
+      },
+      {
+        "id": 97,
+        "categoryName": "Books",
+        "question": "What is the title of the first book in the 'Twilight' series by Stephenie Meyer?",
+        "options": ["New Moon", "Eclipse", "Breaking Dawn", "Twilight"],
+        "correctAnswer": "Twilight"
+      },
+      {
+        "id": 98,
+        "categoryName": "Books",
+        "question": "Which Shakespeare play features the character Hamlet?",
+        "options": ["Macbeth", "Romeo and Juliet", "Hamlet", "Othello"],
+        "correctAnswer": "Hamlet"
+      },
+      {
+        "id": 99,
+        "categoryName": "Books",
+        "question": "Which book series is set in the fictional land of Narnia?",
+        "options": ["Harry Potter", "The Chronicles of Narnia", "Percy Jackson", "A Series of Unfortunate Events"],
+        "correctAnswer": "The Chronicles of Narnia"
+      },
+      {
+        "id": 100,
+        "categoryName": "Books",
+        "question": "Who wrote the novel 'Frankenstein; or, The Modern Prometheus'?",
+        "options": ["Mary Shelley", "Charlotte Brontë", "Emily Dickinson", "Edgar Allan Poe"],
+        "correctAnswer": "Mary Shelley"
+      },
+      {
+        "id": 101,
+        "categoryName": "Books",
+        "question": "What is the title of the first book in the 'Hunger Games' trilogy by Suzanne Collins?",
+        "options": ["Catching Fire", "Mockingjay", "The Hunger Games", "Divergent"],
+        "correctAnswer": "The Hunger Games"
+      },
+      {
+        "id": 102,
+        "categoryName": "Books",
+        "question": "Which novel features the character Jay Gatsby and explores themes of wealth and the American Dream?",
+        "options": ["The Great Gatsby", "Of Mice and Men", "The Catcher in the Rye", "Brave New World"],
+        "correctAnswer": "The Great Gatsby"
+      },
+      {
+        "id": 104,
+        "categoryName": "Fashion",
+        "question": "Which French fashion designer founded the luxury brand Chanel?",
+        "options": ["Christian Dior", "Yves Saint Laurent", "Coco Chanel", "Givenchy"],
+        "correctAnswer": "Coco Chanel"
+      },
+      {
+        "id": 105,
+        "categoryName": "Fashion",
+        "question": "What type of clothing is characterized by a fitted bodice and a flared skirt?",
+        "options": ["Tunic", "Trousers", "Peplum dress", "Maxi dress"],
+        "correctAnswer": "Peplum dress"
+      },
+      {
+        "id": 106,
+        "categoryName": "Fashion",
+        "question": "Which iconic fashion item is known for its interlocking double C logo?",
+        "options": ["Louis Vuitton bag", "Gucci belt", "Hermès scarf", "Chanel handbag"],
+        "correctAnswer": "Chanel handbag"
+      },
+      {
+        "id": 107,
+        "categoryName": "Fashion",
+        "question": "What is the term for the small, ornamental piece of jewelry that is attached to clothing?",
+        "options": ["Brooch", "Earring", "Necklace", "Bracelet"],
+        "correctAnswer": "Brooch"
+      },
+      {
+        "id": 108,
+        "categoryName": "Fashion",
+        "question": "Which fabric is often associated with luxury due to its softness and warmth?",
+        "options": ["Cotton", "Linen", "Silk", "Polyester"],
+        "correctAnswer": "Silk"
+      },
+      {
+        "id": 109,
+        "categoryName": "Fashion",
+        "question": "What is the name for the style of skirt that is tight at the waist and flares out at the hips?",
+        "options": ["Pencil skirt", "A-line skirt", "Wrap skirt", "Pleated skirt"],
+        "correctAnswer": "A-line skirt"
+      },
+      {
+        "id": 110,
+        "categoryName": "Fashion",
+        "question": "Which fashion accessory is worn around the neck and is typically made of silk or polyester?",
+        "options": ["Bolo tie", "Cravat", "Necktie", "Ascot"],
+        "correctAnswer": "Necktie"
+      },
+      {
+        "id": 111,
+        "categoryName": "Fashion",
+        "question": "What is the term for a style of pants that have a tight fit around the hips and thighs and flare out from the knees?",
+        "options": ["Skinny jeans", "Bootcut jeans", "Flare jeans", "Jogger pants"],
+        "correctAnswer": "Bootcut jeans"
+      },
+      {
+        "id": 112,
+        "categoryName": "Fashion",
+        "question": "Which high-end shoe designer is known for their signature red soles?",
+        "options": ["Jimmy Choo", "Manolo Blahnik", "Christian Louboutin", "Prada"],
+        "correctAnswer": "Christian Louboutin"
+      },
+      {
+        "id": 113,
+        "categoryName": "Fashion",
+        "question": "What is the term for the small, decorative fasteners used to secure shirt cuffs?",
+        "options": ["Button", "Zipper", "Cufflink", "Snap"],
+        "correctAnswer": "Cufflink"
+      },
+      {
+        "id": 114,
+        "categoryName": "Fashion",
+        "question": "What is the name for a type of necktie that is narrow and often made of knit fabric?",
+        "options": ["Bow tie", "Four-in-hand tie", "Skinny tie", "Ascot tie"],
+        "correctAnswer": "Skinny tie"
+      },
+      {
+        "id": 115,
+        "categoryName": "Fashion",
+        "question": "Which fashion designer is associated with the creation of the little black dress?",
+        "options": ["Coco Chanel", "Alexander McQueen", "Ralph Lauren", "Donatella Versace"],
+        "correctAnswer": "Coco Chanel"
+      },
+      {
+        "id": 116,
+        "categoryName": "Fashion",
+        "question": "What type of footwear is known for its open-toed design and often features a strap across the instep?",
+        "options": ["Ballet flats", "Mules", "Sneakers", "Sandals"],
+        "correctAnswer": "Sandals"
+      },
+      {
+        "id": 117,
+        "categoryName": "Fashion",
+        "question": "What is the term for a lightweight scarf worn around the neck?",
+        "options": ["Shawl", "Pashmina", "Stole", "Scarves"],
+        "correctAnswer": "Pashmina"
+      },
+      {
+        "id": 118,
+        "categoryName": "Fashion",
+        "question": "Which fashion accessory is typically worn on the head and is often associated with weddings?",
+        "options": ["Fascinator", "Beanie", "Beret", "Snapback cap"],
+        "correctAnswer": "Fascinator"
+      },
+      {
+        "id": 119,
+        "categoryName": "Fashion",
+        "question": "What is the term for a close-fitting hat that covers the top of the head?",
+        "options": ["Fedora", "Bowler hat", "Cloche hat", "Wide-brim hat"],
+        "correctAnswer": "Cloche hat"
+      },
+      {
+        "id": 120,
+        "categoryName": "Sports",
+        "question": "Which sport is known as the 'gentleman's game'?",
+        "options": ["Soccer", "Basketball", "Cricket", "Tennis"],
+        "correctAnswer": "Cricket"
+      },
+      {
+        "id": 121,
+        "categoryName": "Sports",
+        "question": "In which country did the sport of judo originate?",
+        "options": ["Japan", "China", "South Korea", "Brazil"],
+        "correctAnswer": "Japan"
+      },
+      {
+        "id": 122,
+        "categoryName": "Sports",
+        "question": "Which athlete is often referred to as 'The Greatest' and is a boxing legend?",
+        "options": ["Muhammad Ali", "Mike Tyson", "Floyd Mayweather", "Manny Pacquiao"],
+        "correctAnswer": "Muhammad Ali"
+      },
+      {
+        "id": 123,
+        "categoryName": "Sports",
+        "question": "Which sport is played on a diamond and involves bases and home runs?",
+        "options": ["Soccer", "Football", "Baseball", "Hockey"],
+        "correctAnswer": "Baseball"
+      },
+      {
+        "id": 124,
+        "categoryName": "Sports",
+        "question": "Which country is known for its dominance in the sport of soccer and has won the most World Cup titles?",
+        "options": ["Brazil", "Germany", "Argentina", "Italy"],
+        "correctAnswer": "Brazil"
+      },
+      {
+        "id": 125,
+        "categoryName": "Sports",
+        "question": "Which tennis player has won the most Grand Slam singles titles in history?",
+        "options": ["Rafael Nadal", "Novak Djokovic", "Roger Federer", "Serena Williams"],
+        "correctAnswer": "Serena Williams"
+      },
+      {
+        "id": 126,
+        "categoryName": "Sports",
+        "question": "What is the highest score achievable in a single turn in the sport of bowling?",
+        "options": ["100", "200", "300", "400"],
+        "correctAnswer": "300"
+      },
+      {
+        "id": 127,
+        "categoryName": "Sports",
+        "question": "Which team sport features positions such as pitcher, catcher, and outfielders?",
+        "options": ["Basketball", "Soccer", "Volleyball", "Softball"],
+        "correctAnswer": "Softball"
+      },
+      {
+        "id": 128,
+        "categoryName": "Sports",
+        "question": "In which Olympic sport do athletes compete in a triathlon of swimming, cycling, and running?",
+        "options": ["Track and field", "Gymnastics", "Rowing", "Triathlon"],
+        "correctAnswer": "Triathlon"
+      },
+      {
+        "id": 129,
+        "categoryName": "Sports",
+        "question": "Which American football quarterback is widely regarded as one of the greatest of all time?",
+        "options": ["Tom Brady", "Peyton Manning", "Joe Montana", "Brett Favre"],
+        "correctAnswer": "Tom Brady"
+      },
+      {
+        "id": 130,
+        "categoryName": "Sports",
+        "question": "Which sport is played on a grass field and involves hitting a small ball into a series of holes?",
+        "options": ["Golf", "Tennis", "Soccer", "Hockey"],
+        "correctAnswer": "Golf"
+      },
+      {
+        "id": 131,
+        "categoryName": "Sports",
+        "question": "In which year did the Summer Olympics first introduce the sport of basketball?",
+        "options": ["1900", "1924", "1936", "1948"],
+        "correctAnswer": "1936"
+      },
+      {
+        "id": 132,
+        "categoryName": "Sports",
+        "question": "Which country is known for its dominant performance in the sport of swimming and has produced swimmers like Michael Phelps?",
+        "options": ["Australia", "China", "Russia", "United States"],
+        "correctAnswer": "United States"
+      },
+      {
+        "id": 133,
+        "categoryName": "Sports",
+        "question": "Which sport involves sliding down a frozen track on a sled at high speeds?",
+        "options": ["Luge", "Bobsleigh", "Snowboarding", "Ice hockey"],
+        "correctAnswer": "Luge"
+      },
+      {
+        "id": 134,
+        "categoryName": "Sports",
+        "question": "Which sport is played with a shuttlecock and rackets, and can be played as singles or doubles?",
+        "options": ["Table tennis", "Badminton", "Squash", "Tennis"],
+        "correctAnswer": "Badminton"
+      },
+      {
+        "id": 135,
+        "categoryName": "Sports",
+        "question": "Which famous golfer is known for his nickname 'The Golden Bear'?",
+        "options": ["Tiger Woods", "Arnold Palmer", "Phil Mickelson", "Jack Nicklaus"],
+        "correctAnswer": "Jack Nicklaus"
+      }
+
+  ]
