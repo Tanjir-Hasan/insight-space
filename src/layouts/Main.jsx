@@ -1,15 +1,19 @@
-import { Outlet } from "react-router-dom";
-import Navbar from "../pages/Shared/Navbar/Navbar";
-import Footer from "../pages/Shared/Footer/Footer";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../pages/Shared/Navbar/Navbar';
+import Footer from '../pages/Shared/Footer/Footer';
+import GoogleTranslator from '../components/GoogleTranslator';
+ // Replace with the correct path
 
 const Main = () => {
     return (
         <>
-            <Navbar></Navbar>
+            <Navbar />
             <div className="mt-[72px]">
-                <Outlet></Outlet>
+                <Outlet />
             </div>
-            <Footer></Footer>
+            <GoogleTranslator /> {/* Add the GoogleTranslator component here */}
+            <Footer />
         </>
     );
 };

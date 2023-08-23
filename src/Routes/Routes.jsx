@@ -20,6 +20,7 @@ import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 import RealTimeChat from "../pages/Shared/RealTimeChat/RealTimeChat";
+import ChatWithFirebase from "../pages/Shared/ChatWithFirebase/ChatWithFirebase/ChatWithFirebase";
 
 
 const router = createBrowserRouter([
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
             {
                 path: "live-chat",
                 element: <RealTimeChat></RealTimeChat>
+            },
+            {
+                path: "firebase-live-chat",
+                element: <ChatWithFirebase></ChatWithFirebase>
             },
             {
                 path: "support",
