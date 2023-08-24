@@ -14,9 +14,9 @@ const Home = () => {
     return (
         <>
             <Banner></Banner>
-            <FeaturedPosts></FeaturedPosts>            
             <PopularPost></PopularPost>
             <ExploreContent></ExploreContent>
+            <FeaturedPosts></FeaturedPosts>            
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>

@@ -27,7 +27,7 @@ const Categories = () => {
     return (
         <div>
             <div className="px-4 py-4">
-                <p className="text-xl font-semibold">Select Your Favourite Categories</p>
+                <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
             </div>
             {
                 Categories && Categories.map(c =>
@@ -41,7 +41,7 @@ const Categories = () => {
                                 checked={checkedCategories.includes(c.category)}
                                 onChange={() => handleCheckboxChange(c.category)}
                             />
-                            <span className="ml-2 text-gray-700">{c.category}</span>
+                            <span className="ml-2">{c.category}</span>
                         </label>
                     </div>
                 )}
