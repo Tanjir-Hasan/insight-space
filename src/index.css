@@ -38,6 +38,11 @@
     filter: grayscale(0%);
 }
 
+/* testimonial */
+/* .carousel-container .react-multiple-carousel__arrow .react-multiple-carousel__arrow--right {
+    display: none !important;
+} */
+
 /* #google_translate_element select{
     background-color:#f6edfd;
     color:#383ffa;
