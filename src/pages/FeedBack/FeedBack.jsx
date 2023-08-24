@@ -15,6 +15,7 @@ const FeedBack = () => {
         const date = new Date();
         const feedback = {
             userName: user?.displayName,
+            photo: user?.photoUrl,
             email : user?.email,
             rating,
             date ,

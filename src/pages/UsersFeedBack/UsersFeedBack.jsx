@@ -1,53 +1,43 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/UseAuth";
 import FeedbackCard from "./FeedbackCard";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const UsersFeedBack = () => {
     const { user } = useAuth();
     const [feedbacks, setFeedbacks] = useState([])
+    const [axiosSecure] = useAxiosSecure();
 
-    const url = `http://localhost:5000/feedback?email=${user?.email}`;
+
+    const url = `/feedback?email=${user?.email}`;
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setFeedbacks(data))
+       axiosSecure.get(url)
+            .then(data => setFeedbacks(data.data))
+            .catch(err => console.log(err.message))
 
-    }, [url])
+    }, [url , axiosSecure])
 
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete');
         if(proceed){
-            fetch(`http://localhost:5000/feedback/${id}`,{
-                method: 'DELETE'
-            })
-            .then(res => res.json())
+           axiosSecure.delete(`/feedback/${id}`)
             .then(data => { 
-            console.log(data);
-            if(data.deletedCount > 0){
+            if(data.data.deletedCount > 0){
                 alert('deleted successful');
                 const remaining = feedbacks.filter(f => f._id !== id);
                 setFeedbacks(remaining)
 
             }
             })
-            
+            .catch(err => console.log(err.message))    
         }
     }
 
     const handleUpdate = id => {
-        fetch(`http://localhost:5000/feedback/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({status: 'confirm'})
-
-        })
-        .then(res => res.json())
+        axiosSecure.patch(`/feedback/${id}` , {status: 'confirm'})
         .then(data => {
-            console.log(data);
-            if(data.modifiedCount > 0){
+            if(data.data.modifiedCount > 0){
                 // update
                 const remaining = feedbacks.filter(f => f._id !== id);
                 const updated =  feedbacks.find(f => f._id == id );
@@ -73,14 +63,12 @@ const UsersFeedBack = () => {
 
             <div className='items-center justify-center md:w-10/12 w-11/12 sm:w-10/12 mt-10 mx-auto '>
                 {
-                    feedbacks?.map(f => <FeedbackCard 
-                    key={f._id} 
-                    f={f} 
+                   <FeedbackCard 
+                    feedbacks ={feedbacks}
                     handleDelete={handleDelete}
                     handleUpdate={handleUpdate}
-                    className='hover:bg-[#84a98c] duration-500 rounded-b-xl p-5 border-double border-4 border-sky-500 hover:text-white'>
-                    
-                </FeedbackCard>)
+                    className='hover:bg-[#84a98c] duration-500 rounded-b-xl p-5 border-double border-4 border-sky-500 hover:text-white'> 
+                </FeedbackCard>
                 }
 
 

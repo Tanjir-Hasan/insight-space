@@ -11,7 +11,9 @@ import useAuth from "../../../Hooks/UseAuth";
 const ContactForm = () => {
 
     const { theme } = useContext(ThemeContext);
-    const {btnLoading, setBtnLoading} = useAuth()
+
+    const {btnLoading, setBtnLoading} = useAuth();
+
     // emailjs initialization
     emailjs.init("dN2Z3JjKlbihQjXW6");
 
@@ -62,6 +64,7 @@ const ContactForm = () => {
                 setBtnLoading(false);
             });
     };
+    
     return (
         <div id="contact" className={`${theme === 'dark' ? 'dark' : ''} pt-10 pb-20`}>
 

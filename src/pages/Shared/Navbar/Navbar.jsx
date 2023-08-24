@@ -7,31 +7,42 @@ import ActiveLink from '../../../components/ActiveLink';
 import useAuth from '../../../Hooks/UseAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
+import useAdmin from '../../../Hooks/useAdmin';
+
 
 const Navbar = () => {
     const { user, logOut, info, setInfo } = useAuth();
-    console.log(user)
     const [isOpen, setIsOpen] = useState(true);
     const { theme, toggleTheme } = useContext(ThemeContext);
     const navigate = useNavigate()
+    const [isAdmin] = useAdmin();
 
     const handleThemeToggle = () => {
         toggleTheme();
     };
 
     const handleLogOut = () => {
-        logOut().then(() => {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Logout Successfully',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            navigate("/");
-        }).catch(error => {
-            console.log(error);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Log out!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logOut()
+                    .then(result => {
+                        Swal.fire(
+                            'Logged Out!',
+                            'Your Account has been Logged out .',
+                            'success'
+                        )
+                        navigate("/")
+                    })
+                    .catch(error => { })
+            }
         })
     }
 
@@ -55,10 +66,10 @@ const Navbar = () => {
                         </span>
 
                         {isOpen && (
-                            <div className='flex justify-between gap-3 md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-5 w-[450px] duration-1000'>
+                            <div className='flex justify-between gap-3 md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-5  duration-1000'>
                                 <ActiveLink to="/">Home</ActiveLink>
-                                <ActiveLink to="/news-feed">News Feed</ActiveLink>
-                                <ActiveLink to="/ques-ans">Q&A</ActiveLink>
+                                {isAdmin ? <ActiveLink to="/AdminHome">All Users</ActiveLink> : <ActiveLink to="/news-feed">News Feed</ActiveLink>}
+                                {isAdmin ? <ActiveLink to="/allPosts">All Posts</ActiveLink> :<ActiveLink to="/ques-ans">Q&A</ActiveLink>}
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
                                 <ActiveLink to="/quiz">Quiz</ActiveLink>
                                 <ActiveLink to="/feedback">FB</ActiveLink>
