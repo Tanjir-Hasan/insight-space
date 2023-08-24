@@ -9,6 +9,7 @@ import ContactForm from "../Support/ContactForm";
 import FeaturedPosts from "../FeaturedPosts/FeaturedPosts";
 
 
+
 const Home = () => {
     return (
         <>
@@ -21,6 +22,7 @@ const Home = () => {
             <AdvancedCapabilities></AdvancedCapabilities>
             <CommunityGuidelines></CommunityGuidelines>
             <ContactForm></ContactForm>
+          
         </> )
 
            
