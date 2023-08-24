@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import postReducer from "../Posts/postSlice";
-// import bookMarksReducers from "../Posts/bookMarksSlice";
+import categoriesReducer from "../Posts/categoriesSlice";
 
 
 const store = configureStore({
     reducer :{
         posts : postReducer,
-        // bookMarks : bookMarksReducers ,
+        categories: categoriesReducer,
     }
 })
 

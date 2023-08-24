@@ -3,6 +3,7 @@ import useUser from "../../../Hooks/useUser";
 import useAuth from "../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import useBookMarks from "../../../Hooks/useBookMarks";
+import OutlineButton from "../../../components/outlineButton";
 
 const UserDetails = () => {
     const [userDetails] = useUser();
@@ -44,7 +45,10 @@ const UserDetails = () => {
                     <h2 className="text-lg font-bold uppercase">{userDetails?.displayName}</h2>
                     <h2 className="text-lg font-semibold">User ID : {userDetails?._id}</h2>
                     <div className="flex justify-center my-4">
-                       <Link to="/view-Profile"> <button className="border border-[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">View Profile</button></Link>
+                       <Link to="/view-Profile"> 
+                       {/* Add Outline button component */}
+                       <OutlineButton>View Profile</OutlineButton>
+                       </Link>
                     </div>
                     <hr className="underline underline-offset-8"></hr>
                 </div>

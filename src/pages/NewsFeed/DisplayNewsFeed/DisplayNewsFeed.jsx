@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */ //
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { FaArrowRight, FaBookmark, FaComment, FaEllipsisV, FaHeart, FaHistory } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
@@ -7,25 +7,35 @@ import usePosts from "../../../Hooks/usePosts";
 import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import axios from "axios";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useSelector } from "react-redux";
 
 
-const DisplayNewsFeed = () => {
-
+const DisplayNewsFeed = ({query}) => {
+    const [id, setId] = useState(null);
     const { theme } = useContext(ThemeContext);
-
-    const [show, setShow] = useState(false);
-
     const [userDetails] = useUser();
+    const [axiosSecure] = useAxiosSecure();
     const ref = useRef();
     const updateRef = useRef();
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
+    const [allPosts, setAllPosts] = useState([]);
     const [handleReact, handleBookMark, handleAddComment, handleUpdateComment] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
-   
+    const categoriesData = useSelector(state => state?.categories);
 
+    useEffect(() => {
+        if (categoriesData.length === 0) {
+            setAllPosts(posts)
+        }
+        else if (categoriesData.length > 0) {
+            setAllPosts(categoriesData)
+        }
+    }, [categoriesData, posts])
+
+    console.log(allPosts);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -38,7 +48,7 @@ const DisplayNewsFeed = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://insight-space-server.vercel.app/deleteComment?id=${id}`)
+                axiosSecure.delete(`/deleteComment?id=${id}`)
                     .then(data => {
                         console.log(data.data);
                         if (data) {
@@ -58,7 +68,7 @@ const DisplayNewsFeed = () => {
     return (
         <div>
             {
-                posts && posts.map(p => <div key={p._id}
+                allPosts && allPosts.filter(post=> post.text.toLowerCase().includes(query.toLowerCase())).map(p => <div key={p._id}
                     className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
                 >
                     <div className="p-4">
@@ -69,29 +79,15 @@ const DisplayNewsFeed = () => {
                                 <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
                             </div>
                         </div>
-
-                        <p>{p.text}</p>
-
-                        {/* <p>
-                            {
-                                show === true ?
-                                    <>
-                                        <p>
-                                            {p.text}
-                                        </p>
-                                        <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read Less</span>
-                                    </>
-                                    :
-                                    <>
-                                        <p className='text-slate-500'>
-                                            {p.text.substring(0, 250)}
-                                        </p>
-                                        <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read More</span>
-                                    </>
-                            }
-                        </p> */}
-
-                        {/* {<span onClick={() =>(p.text)} className="underline underline-offset-4 ms-2 text-sm text-green-600">{p.text} See More</span>} */}
+                        {/* see more btn  */}
+                        <div className="my-4">
+                            <span hidden={id === p._id}>{p.text?.slice(0, 300)}</span>
+                            <span hidden={p.text?.length < 300}>
+                                <span hidden={id !== p._id}>{p.text}</span>
+                                <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See More</span>
+                                <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See Less</span>
+                            </span>
+                        </div>
                     </div>
 
                     <div>

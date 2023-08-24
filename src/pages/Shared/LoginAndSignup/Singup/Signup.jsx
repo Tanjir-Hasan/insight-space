@@ -32,9 +32,8 @@ const Signup = () => {
 
     // image hosting function 
     formData.append('image', data.photo[0]);
-    const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
+    const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
-
     fetch(image_hosting_url, {
       method: "POST",
       body: formData
@@ -50,8 +49,6 @@ const Signup = () => {
           const date = new Date();
           createUser(email, password)
             .then(result => {
-              console.log(result.user);
-
               if (result.user) {
                 updateUserProfile(name, imgURL)
                   .then(() => {
