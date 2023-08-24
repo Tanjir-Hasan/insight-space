@@ -56,7 +56,6 @@ const Navbar = () => {
                 </Link>
 
                 <div className='flex items-center gap-3'>
-
                     <div>
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
@@ -70,10 +69,10 @@ const Navbar = () => {
                             <div className='flex justify-between gap-3 md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-5  duration-1000'>
                                 <ActiveLink to="/">Home</ActiveLink>
                                 {isAdmin ? <ActiveLink to="/AdminHome">All Users</ActiveLink> : <ActiveLink to="/news-feed">News Feed</ActiveLink>}
-                                {isAdmin ? <ActiveLink to="/allPosts">All Posts</ActiveLink> :<ActiveLink to="/ques-ans">Q&A</ActiveLink>}
-                                <ActiveLink to="/blog-feed">Blog</ActiveLink>
-                                <ActiveLink to="/quiz">Quiz</ActiveLink>
-                                <ActiveLink to="/feedback">FB</ActiveLink>
+                                {isAdmin ? <ActiveLink to="/allPosts">All Posts</ActiveLink> : <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/feedback">FB</ActiveLink>}
                                 {
                                     user ?
                                         <button onClick={handleLogOut}>Logout</button>
