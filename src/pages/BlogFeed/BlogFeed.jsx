@@ -13,6 +13,8 @@ import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
 import useAuth from '../../Hooks/UseAuth';
 import Swal from 'sweetalert2';
 import useBlog from '../../Hooks/useBlog';
+import ButtonWithLoading from '../../components/ButtonWithLoading';
+import { BsSend } from 'react-icons/bs';
 
 
 const BlogFeed = () => {
@@ -30,7 +32,7 @@ const BlogFeed = () => {
     const ref = useRef();
     const [hide, setHide] = useState(false);
 
-    const { user } = useAuth();
+    const { user, btnLoading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const [blogs, refetch] = useBlog();
 
@@ -122,7 +124,8 @@ const BlogFeed = () => {
                         </label>
 
                         <div className="px-6">
-                            <button type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-8 md:px-24 py-2 rounded-lg'>Share your thoughts</button>
+                            {/* fix submit button */}
+                            <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Share your thoughts</ButtonWithLoading>
                         </div>
 
                     </div>

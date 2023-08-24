@@ -21,12 +21,9 @@ import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
-<<<<<<< HEAD
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
-=======
 import AllUsersData from "../pages/Shared/AllUsers/AllUsers";
 import ReceivedFriendRequests from "../pages/Shared/AllUsers/ReceivedFriendRequests";
->>>>>>> 56a4c14a087d1d7fccf44c3b4013740cfb020c10
 
 
 const router = createBrowserRouter([
@@ -117,20 +114,13 @@ const router = createBrowserRouter([
                 path: "quiz",
                 element: <Quiz></Quiz>
             },
-<<<<<<< HEAD
             {
                 path:"/aboutus",
                 element: <AboutUs></AboutUs>
-=======
-           
-            {
-                path: "all-users-data",
-                element: <AllUsersData></AllUsersData>
             },
             {
                 path: "ReceivedFriendRequests",
                 element: <ReceivedFriendRequests></ReceivedFriendRequests>
->>>>>>> 56a4c14a087d1d7fccf44c3b4013740cfb020c10
             }
         ]
     },
