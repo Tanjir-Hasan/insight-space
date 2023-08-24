@@ -11,8 +11,8 @@ const Main = () => {
             <div className="mt-[72px]">
                 <Outlet />
             </div>
-            <GoogleTranslator /> 
             <Footer />
+            <GoogleTranslator /> 
         </>
     );
 };

@@ -38,4 +38,23 @@
     filter: grayscale(0%);
 }
 
+/* #google_translate_element select{
+    background-color:#f6edfd;
+    color:#383ffa;
+    border: none;
+    border-radius:3px;
+    padding:6px 8px
+} */
 
+/* .goog-te-banner-frame{
+    display:none !important;
+} */
+
+/* #google_translate_element {
+    display: none !important;
+}
+  
+
+#google_translate_element .goog-te-gadget {
+    display: none !important;
+} */

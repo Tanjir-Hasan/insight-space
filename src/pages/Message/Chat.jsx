@@ -1,12 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import Message from './Message';
 import SendMessage from './SendMessage';
 import { db } from '../../firebase/config.firebase';
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore';
-
+import { ThemeContext } from '../../providers/ThemeProvider';
 
 
 const Chat = () => {
+
+  const { theme } = useContext(ThemeContext);
+
   const [messages, setMessages] = useState([]);
   const scroll = useRef();
 
@@ -24,24 +27,22 @@ const Chat = () => {
 
 
   return (
-    <>
-      <div className=" mt-10 w-10/12 md:w-8/12 lg:w-8/12 mx-auto border ">
+    <div className={`${theme === 'dark' ? 'dark' : ''} py-8`}>
 
-       <div className='grid'>
-       {messages &&
-          messages.map((message) => (
-            <Message key={message.id} message={message} />
-          ))}
-       </div>
-       <SendMessage scroll={scroll} />
-      <span ref={scroll}></span>
+      <div className="mt-10 w-10/12 md:w-8/12 lg:w-8/12 mx-auto">
+
+        <div className='grid'>
+          {messages &&
+            messages.map((message) => (
+              <Message key={message.id} message={message} />
+            ))}
+        </div>
+        <SendMessage scroll={scroll} />
+        <span ref={scroll}></span>
 
       </div>
 
-      
-      {/* Send Message Compoenent */}
-
-    </>
+    </div>
   );
 };
 

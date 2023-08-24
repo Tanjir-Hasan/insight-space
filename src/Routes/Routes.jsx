@@ -25,6 +25,8 @@ import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
+import AllUsersData from "../pages/Shared/AllUsers/AllUsers";
+import ReceivedFriendRequests from "../pages/Shared/AllUsers/ReceivedFriendRequests";
 
 
 const router = createBrowserRouter([
@@ -103,22 +105,30 @@ const router = createBrowserRouter([
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
-                path: "/allPosts",
+                path: "allPosts",
                 element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
             },
             {
 
-                path: '/message',
+                path: 'message',
                 element: <Chat></Chat>
             },
             {
-                path: "/videos",
+                path: "videos",
                 element: <Videos></Videos>
             },
             {
-                path: "/quiz",
+                path: "quiz",
                 element: <Quiz></Quiz>
             },
+            {
+                path: "all-users-data",
+                element: <AllUsersData></AllUsersData>
+            },
+            {
+                path: "ReceivedFriendRequests",
+                element: <ReceivedFriendRequests></ReceivedFriendRequests>
+            }
         ]
     },
 ]);

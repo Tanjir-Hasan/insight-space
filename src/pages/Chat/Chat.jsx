@@ -10,7 +10,7 @@ const Chat = () => {
 
     const handleSearch = () => {
         if (searchEmail.trim() !== "") {
-            const url = `https://insight-space-server.vercel.app/users?email=${searchEmail.trim()}`;
+            const url = `https://insight-space-server.vercel.app/users?email=${user._id}`;
 
             axios.get(url)
                 .then(data => {
