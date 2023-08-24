@@ -4,6 +4,7 @@ import SendMessage from './SendMessage';
 import { db } from '../../firebase/config.firebase';
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore';
 import { ThemeContext } from '../../providers/ThemeProvider';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 
 const Chat = () => {
@@ -32,10 +33,14 @@ const Chat = () => {
       <div className="mt-10 w-10/12 md:w-8/12 lg:w-8/12 mx-auto">
 
         <div className='grid'>
-          {messages &&
+
+          {
+            messages &&
             messages.map((message) => (
               <Message key={message.id} message={message} />
-            ))}
+            ))
+          }
+
         </div>
         <SendMessage scroll={scroll} />
         <span ref={scroll}></span>

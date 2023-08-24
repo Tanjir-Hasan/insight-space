@@ -31,7 +31,7 @@ const Categories = () => {
             </div>
             {
                 Categories && Categories.map(c =>
-                    <div key={c._id} className="px-4">
+                    <div key={c._id} className="px-4 hover:scale-105 duration-700 mb-2 font-[Cinzel]">
                         <label className="flex items-center">
                             <input
                                 name="category"

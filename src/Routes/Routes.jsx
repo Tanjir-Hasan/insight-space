@@ -8,7 +8,6 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
-
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
@@ -19,15 +18,11 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
-
-
-
 import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
 import AllUsersData from "../pages/Shared/AllUsers/AllUsers";
 import ReceivedFriendRequests from "../pages/Shared/AllUsers/ReceivedFriendRequests";
-
 
 
 const router = createBrowserRouter([
@@ -63,10 +58,6 @@ const router = createBrowserRouter([
             {
                 path: "sign-up",
                 element: <Signup></Signup>
-            },
-            {
-                path: "chats",
-                element: <Chat></Chat>
             },
             {
                 path: "my-post",
@@ -111,7 +102,7 @@ const router = createBrowserRouter([
             },
             {
 
-                path: 'message',
+                path: 'group-conversations',
                 element: <Chat></Chat>
             },
             {
