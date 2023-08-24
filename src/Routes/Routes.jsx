@@ -25,7 +25,7 @@ import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
-import CorrectAns from "../pages/Quiz/CorrectAns";
+
 
 
 const router = createBrowserRouter([
@@ -120,10 +120,7 @@ const router = createBrowserRouter([
                 path: "/quiz",
                 element: <Quiz></Quiz>
             },
-            {
-                path: '/correctAns',
-                element: <CorrectAns></CorrectAns>,              
-            }
+           
         ]
     },
 ]);
