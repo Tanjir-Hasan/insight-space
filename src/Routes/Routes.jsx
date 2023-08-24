@@ -8,7 +8,6 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
-
 import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
 import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
@@ -19,13 +18,15 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
-
-
-
 import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
+<<<<<<< HEAD
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
+=======
+import AllUsersData from "../pages/Shared/AllUsers/AllUsers";
+import ReceivedFriendRequests from "../pages/Shared/AllUsers/ReceivedFriendRequests";
+>>>>>>> 56a4c14a087d1d7fccf44c3b4013740cfb020c10
 
 
 const router = createBrowserRouter([
@@ -63,10 +64,6 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-                path: "chats",
-                element: <Chat></Chat>
-            },
-            {
                 path: "my-post",
                 element:
                     <PrivateRoute>
@@ -100,29 +97,40 @@ const router = createBrowserRouter([
                 element: <UsersFeedBack></UsersFeedBack>
             },
             {
-                path: 'AdminHome',
+                path: '/AdminHome',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
-                path: "/allPosts",
+                path: "allPosts",
                 element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
             },
             {
 
-                path: '/message',
+                path: 'group-conversations',
                 element: <Chat></Chat>
             },
             {
-                path: "/videos",
+                path: "videos",
                 element: <Videos></Videos>
             },
             {
-                path: "/quiz",
+                path: "quiz",
                 element: <Quiz></Quiz>
             },
+<<<<<<< HEAD
             {
                 path:"/aboutus",
                 element: <AboutUs></AboutUs>
+=======
+           
+            {
+                path: "all-users-data",
+                element: <AllUsersData></AllUsersData>
+            },
+            {
+                path: "ReceivedFriendRequests",
+                element: <ReceivedFriendRequests></ReceivedFriendRequests>
+>>>>>>> 56a4c14a087d1d7fccf44c3b4013740cfb020c10
             }
         ]
     },

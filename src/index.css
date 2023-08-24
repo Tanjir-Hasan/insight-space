@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .dark {
-    background-color: #000814;
+    background-color: #011627;
     color: #fff;
 }
 
@@ -38,4 +38,32 @@
     filter: grayscale(0%);
 }
 
+.quiz-category-effect {
+    @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700 text-black hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl
+}
 
+/* testimonial */
+/* .carousel-container .react-multiple-carousel__arrow .react-multiple-carousel__arrow--right {
+    display: none !important;
+} */
+
+/* #google_translate_element select{
+    background-color:#f6edfd;
+    color:#383ffa;
+    border: none;
+    border-radius:3px;
+    padding:6px 8px
+} */
+
+/* .goog-te-banner-frame{
+    display:none !important;
+} */
+
+/* #google_translate_element {
+    display: none !important;
+}
+  
+
+#google_translate_element .goog-te-gadget {
+    display: none !important;
+} */

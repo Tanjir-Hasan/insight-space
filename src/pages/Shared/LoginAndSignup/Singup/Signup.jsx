@@ -8,11 +8,13 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Button from "../../../../components/Button";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
-import { useState } from "react";
 
 const Signup = () => {
+
   const { theme } = useContext(ThemeContext);
+
   const { createUser, errorMsg, setErrorMsg, updateUserProfile, btnLoading, setBtnLoading } = useAuth();
+
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const location = useLocation()
@@ -20,15 +22,18 @@ const Signup = () => {
   let from = location.state?.from?.pathname || "/";
 
   // create user and user details set on database 
+
   const onSubmit = (data) => {
+
     setErrorMsg("")
     setBtnLoading(true);
+
     const formData = new FormData();
+
     // image hosting function 
     formData.append('image', data.photo[0]);
-    const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
+    const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
-
     fetch(image_hosting_url, {
       method: "POST",
       body: formData
@@ -44,8 +49,6 @@ const Signup = () => {
           const date = new Date();
           createUser(email, password)
             .then(result => {
-              console.log(result.user);
-
               if (result.user) {
                 updateUserProfile(name, imgURL)
                   .then(() => {
@@ -74,10 +77,8 @@ const Signup = () => {
               setErrorMsg(err.message)
               setBtnLoading(false);
             })
-
         }
       })
-
   };
 
   return (

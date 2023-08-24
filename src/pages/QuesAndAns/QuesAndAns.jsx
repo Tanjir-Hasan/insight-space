@@ -11,6 +11,9 @@ import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory } from 'react-i
 import moment from "moment";
 import useAuth from '../../Hooks/UseAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { BsSend } from 'react-icons/bs';
+import ButtonWithLoading from '../../components/ButtonWithLoading';
+import { Link } from 'react-router-dom';
 
 const QuesAndAns = () => {
 
@@ -20,33 +23,51 @@ const QuesAndAns = () => {
 
     const [userDetails] = useUser();
 
-    const { user } = useAuth();
+    const { user, btnLoading, setBtnLoading } = useAuth();
 
     const [axiosSecure] = useAxiosSecure();
 
     const [, refetch] = usePosts();
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        const status = ref.current.value;
-        const date = new Date();
-        const react = [];
-        const comment = [];
-        const { category, text } = data;
-        const newPost = { status, date, category, text, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName }
-        axiosSecure.post('/posts', newPost)
-            .then(data => {
-                if (data) {
-                    Swal.fire(
-                        'Success!',
-                        'Your Questions Uploaded.',
-                        'success'
-                    )
-                    refetch()
-                }
-            })
-            .catch(err => console.log(err.message))
+        if (!data.text) {
+            alert("Please enter a text");
+        } else {
+            setBtnLoading(true);
+            const status = ref.current.value;
+            const date = new Date();
+            const react = [];
+            const comment = [];
+            const { category, text } = data;
+            const newPost = { status, date, category, text, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName }
+            axiosSecure.post('/posts', newPost)
+                .then(data => {
+                    if (data) {
+                        setBtnLoading(false);
+                        reset();
+                        Swal.fire(
+                            'Success!',
+                            'Your Questions Uploaded.',
+                            'success'
+                        )
+                        refetch()
+                    }
+                })
+                .catch((error) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Sorry Question Not Sent!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    console.error('Error sending Sorry Question Not Sent:', error);
+                    setBtnLoading(false);
+                });
+        }
+
     };
 
     // show post functionality
@@ -96,7 +117,8 @@ const QuesAndAns = () => {
                         </div>
 
                         <div className="md:mt-8 mt-5 px-5">
-                            <button type="submit" className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] duration-700 w-full md:px-24 px-2 py-2 rounded-lg">Ask a question</button>
+                            {/* fix submit button */}
+                            <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Ask a question</ButtonWithLoading>
                         </div>
 
                     </form>
