@@ -47,7 +47,8 @@ const Navbar = () => {
     }
 
     return (
-        <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#001427] text-white' : 'bg-[#f0efeb]'}  ${isOpen ? "pb-6 md:pb-0" : "pb-0"}`}>
+        <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb]'}  ${isOpen ? "pb-6 md:pb-0" : "pb-0"}`}>
+            {/* bg-[#001427] */}
             <div className='flex justify-between items-center'>
 
                 <Link to="/">
