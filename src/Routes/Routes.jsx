@@ -29,6 +29,7 @@ import AllUsersData from "../pages/Shared/AllUsers/AllUsers";
 import ReceivedFriendRequests from "../pages/Shared/AllUsers/ReceivedFriendRequests";
 
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -121,6 +122,7 @@ const router = createBrowserRouter([
                 path: "quiz",
                 element: <Quiz></Quiz>
             },
+           
             {
                 path: "all-users-data",
                 element: <AllUsersData></AllUsersData>

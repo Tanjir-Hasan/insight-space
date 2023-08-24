@@ -10,6 +10,7 @@ import FeaturedPosts from "../FeaturedPosts/FeaturedPosts";
 import Testimonial from "../Testimonial/Testimonial";
 
 
+
 const Home = () => {
     return (
         <>
@@ -23,6 +24,7 @@ const Home = () => {
             <CommunityGuidelines></CommunityGuidelines>
             <Testimonial></Testimonial>
             <ContactForm></ContactForm>
+          
         </> )
 
            
