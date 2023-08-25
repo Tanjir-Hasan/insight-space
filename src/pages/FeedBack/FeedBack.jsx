@@ -4,29 +4,32 @@ import Button from "../../components/Button";
 import useAuth from '../../Hooks/UseAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useForm } from 'react-hook-form';
+import ButtonWithLoading from '../../components/ButtonWithLoading';
+import { BsSend } from 'react-icons/bs';
 
 
 const FeedBack = () => {
-    const { user } = useAuth()
+    const { user, btnLoading } = useAuth()
+    console.log(user);
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        const {message , rating } = data ;
+        const { message, rating } = data;
         const date = new Date();
         const feedback = {
             userName: user?.displayName,
-            photo: user?.photoUrl,
-            email : user?.email,
+            photo: user?.photoURL,
+            email: user?.email,
             rating,
-            date ,
+            date,
             message
         }
         axiosSecure.post("/feedback", feedback)
-        .then(data => {
-            if (data.data) {
-                alert('Your response has been recorded')
-            }
-        })
+            .then(data => {
+                if (data.data) {
+                    alert('Your response has been recorded')
+                }
+            })
     };
 
     return (
@@ -51,17 +54,33 @@ const FeedBack = () => {
                             <label htmlFor="message" className="block font-semibold mb-2">
                                 Name:
                             </label>
-                            <input type="text" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' name="name" defaultValue={user?.displayName} placeholder='name' readOnly></input>
+                            <input
+                                type="text"
+                                className="w-full text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                                name="name"
+                                defaultValue={user?.displayName} placeholder='name'
+                                readOnly>
+                            </input>
 
                             <label htmlFor="message" className="block font-semibold my-2">
                                 Email:
                             </label>
-                            <input type="email" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' name="email" defaultValue={user?.email} placeholder='email' readOnly></input>
+                            <input
+                                type="email"
+                                className="w-full text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                                name="email"
+                                defaultValue={user?.email}
+                                placeholder='email' readOnly>
+                            </input>
 
                             <label htmlFor="message" className="block font-semibold mb-2 mt-4">
                                 Message:
                             </label>
-                            <textarea required name="" id="" className='border border-spacing-3 p-3 border-gray-300 rounded-lg' {...register("message")} cols="30" rows="5"></textarea>
+                            <textarea
+                                required name="" id=""
+                                className="w-full text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" 
+                                {...register("message")} cols="30" rows="5">
+                            </textarea>
 
                             <label htmlFor="rating" className="block font-semibold mb-5 mt-5">
                                 Rating:
@@ -69,7 +88,7 @@ const FeedBack = () => {
                             {/* <label for="">Select a comment</label> */}
                             <div className='flex'>
                                 <p className='text-lg font-semibold me-2'>select : </p>
-                                <select className='border border-spacing-3 px-2 py-1 border-gray-300 rounded-lg' defaultValue={5} {...register("rating")} name="rating" id="rating">
+                                <select className='border border-spacing-3 px-10 py-1 border-gray-300 rounded-lg' defaultValue={5} {...register("rating")} name="rating" id="rating">
                                     <option value="1">1.0</option>
                                     <option value="2">2.0</option>
                                     <option value="3">3.0</option>
@@ -86,9 +105,8 @@ const FeedBack = () => {
                             <div className=''>
 
                                 <div className="md:w-38 md:mx-0  mx-auto mt-10">
-                                    <input className="text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg" type="submit" value="send feedback">
-
-                                    </input>
+                                    {/* fix submit button */}
+                                    <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Send Feedback</ButtonWithLoading>
                                 </div>
 
                                 <div className="md:w-25  mt-10">

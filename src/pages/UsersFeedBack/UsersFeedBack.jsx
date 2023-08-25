@@ -2,21 +2,23 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/UseAuth";
 import FeedbackCard from "./FeedbackCard";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 const UsersFeedBack = () => {
     const { user } = useAuth();
-    const [feedbacks, setFeedbacks] = useState([])
     const [axiosSecure] = useAxiosSecure();
 
 
     const url = `/feedback?email=${user?.email}`;
-    useEffect(() => {
-       axiosSecure.get(url)
-            .then(data => setFeedbacks(data.data))
+    const {data:feedbacks , refetch} = useQuery({
+        queryKey :["feedback" , url],
+        queryFn : () => axiosSecure.get(url)
+            .then(data =>{ 
+                return data.data
+            })
             .catch(err => console.log(err.message))
-
-    }, [url , axiosSecure])
+    })
 
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete');
@@ -25,9 +27,7 @@ const UsersFeedBack = () => {
             .then(data => { 
             if(data.data.deletedCount > 0){
                 alert('deleted successful');
-                const remaining = feedbacks.filter(f => f._id !== id);
-                setFeedbacks(remaining)
-
+                refetch();
             }
             })
             .catch(err => console.log(err.message))    
@@ -35,15 +35,10 @@ const UsersFeedBack = () => {
     }
 
     const handleUpdate = id => {
-        axiosSecure.patch(`/feedback/${id}` , {status: 'confirm'})
+        axiosSecure.patch(`/feedback/${id}`)
         .then(data => {
             if(data.data.modifiedCount > 0){
-                // update
-                const remaining = feedbacks.filter(f => f._id !== id);
-                const updated =  feedbacks.find(f => f._id == id );
-                updated.status ='confirm';
-                const newFeedback = [updated, ...remaining];
-                setFeedbacks(newFeedback);
+               refetch();
             }
         })
     }
@@ -70,8 +65,6 @@ const UsersFeedBack = () => {
                     className='hover:bg-[#84a98c] duration-500 rounded-b-xl p-5 border-double border-4 border-sky-500 hover:text-white'> 
                 </FeedbackCard>
                 }
-
-
             </div>
         </div>
     );
