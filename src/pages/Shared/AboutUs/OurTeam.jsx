@@ -14,7 +14,7 @@ const teamData =
     {
         "teamName": "Mr. Tanjir",
         "position": "Team Member",
-        "memberImg": "https://i.ibb.co/N9YYhqF/50241594-2201770363415777-5877821572466606080-n.jpg",
+        "memberImg": "https://i.ibb.co/c1G27yn/Picsart-23-07-09-06-01-59-082-1.jpg",
     },
 
     "id": 2,
@@ -28,7 +28,7 @@ const teamData =
     "id": 3,
     "sumaiya":
     {
-        "teamName": "Mis. Sumaiya",
+        "teamName": "Miss. Sumaiya",
         "position": "Team Leader",
         "memberImg": "https://i.ibb.co/ZzYRd8h/357120978-325846719996339-506195303330660579-n.jpg",
     },
@@ -47,7 +47,7 @@ const teamData =
     {
         "teamName": "Mr. Kakan",
         "position": "Team Member",
-        "memberImg": "https://i.ibb.co/MC0jb8r/18157061-1038521846248124-888677393205779315-n.jpg",
+        "memberImg": "https://i.ibb.co/QHdQjWm/IMG20230626183352.png",
     },
 
 

@@ -196,7 +196,7 @@ const Quiz = () => {
 
                             <div key={index} className="question mt-5">
 
-                              <p className='text-xl text-[#d90427f6] font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
+                              <p className='text-xl font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
                               {question.options.map((option, optionIndex) => (
                                 <div key={optionIndex} className="option flex gap-5  ">
                                   <input

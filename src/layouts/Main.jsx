@@ -13,16 +13,13 @@ const Main = () => {
                 <Outlet />
             </div>
 
-            <div className="flex justify-between w-10/12 mx-auto my-5">
+            {/* <div className="flex justify-between w-10/12 mx-auto my-5">
                 <GoogleTranslator />
                 <Link to="/group-conversations">
-                    <img
-                        src="https://i.ibb.co/tQvLsdd/send.png"
-                        alt="send-image"
-                        className="h-16" title="Start Conversations"
-                    />
+                    <img src="https://i.ibb.co/LtKQ9c9/send-1.png" alt="send-image"
+                        className="h-16" />
                 </Link>
-            </div>
+            </div> */}
 
             {/* <div className="flex justify-between w-10/12 mx-auto my-5">
                 <GoogleTranslator />
