@@ -71,7 +71,7 @@ const Testimonial = () => {
 
                 <h1 className='md:text-5xl text-4xl flex md:flex-row flex-col items-baseline gap-3 font-[Poppins] border-b-2 border-[#84a98c] md:w-5/12 lg:pt-20 pt-10 '>
                     <span>Testimonials</span>
-                    <span className='text-xl'>- What's says our users -</span>
+                    <span className='text-xl'>- Our user's saying -</span>
                 </h1>
 
             </motion.div>
