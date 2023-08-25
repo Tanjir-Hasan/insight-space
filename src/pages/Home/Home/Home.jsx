@@ -17,18 +17,17 @@ const Home = () => {
             <Banner></Banner>
             <PopularPost></PopularPost>
             <ExploreContent></ExploreContent>
-            <FeaturedPosts></FeaturedPosts>            
+            <FeaturedPosts></FeaturedPosts>
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>
             <CommunityGuidelines></CommunityGuidelines>
             <Testimonial></Testimonial>
             <ContactForm></ContactForm>
-          
-        </> )
+        </>)
 
-           
-        
+
+
 };
 
 export default Home;
