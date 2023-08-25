@@ -8,7 +8,7 @@ const SocialLogin = () => {
     const { googleSignIn, githubSignIn, setErrorMsg } = useAuth();
     const location = useLocation()
     const navigate = useNavigate();
-    let from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/";
     // google sign in
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -20,7 +20,7 @@ const SocialLogin = () => {
                 const newUser = { displayName, email, photoURL, date, role: "regular" }
                 axios.post('https://insight-space-server.vercel.app/add-user', newUser)
                     .then(data => console.log(data.data))
-                    .catch(err => console.log(err))
+                    .catch(err => console.log(err.message))
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
