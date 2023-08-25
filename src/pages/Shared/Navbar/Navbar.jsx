@@ -72,7 +72,7 @@ const Navbar = () => {
                                 {isAdmin ? <ActiveLink to="/allPosts">All Posts</ActiveLink> : <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
                                 {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
                                 {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
-                                {!isAdmin && <ActiveLink to="/feedback">FB</ActiveLink>}
+                                <ActiveLink to="/about-us">About</ActiveLink>
                                 {
                                     user ?
                                         <button onClick={handleLogOut}>Logout</button>

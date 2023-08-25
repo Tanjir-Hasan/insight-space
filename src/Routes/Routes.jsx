@@ -92,7 +92,7 @@ const router = createBrowserRouter([
                 element: <UsersFeedBack></UsersFeedBack>
             },
             {
-                path: '/AdminHome',
+                path: 'AdminHome',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
@@ -113,7 +113,7 @@ const router = createBrowserRouter([
                 element: <Quiz></Quiz>
             },
             {
-                path:"/aboutus",
+                path:"about-us",
                 element: <AboutUs></AboutUs>
             }
         ]
