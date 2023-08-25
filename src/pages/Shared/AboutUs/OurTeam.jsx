@@ -62,7 +62,7 @@ const OurTeam = () => {
 
 
         clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-        webkitClipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+        WebkitClipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
         // backgroundImage : 'url(https://wallpaperaccess.com/full/4214210.gif)',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

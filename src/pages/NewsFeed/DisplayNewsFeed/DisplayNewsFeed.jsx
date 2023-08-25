@@ -35,8 +35,6 @@ const DisplayNewsFeed = ({query}) => {
         }
     }, [categoriesData, posts])
 
-    console.log(allPosts);
-
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
