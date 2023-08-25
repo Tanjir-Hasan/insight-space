@@ -74,12 +74,12 @@ const AuthProvider = ({ children }) => {
                 axios.post('https://insight-space-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         localStorage.setItem('access-token', data.data.token)
+                        setLoading(false);
                     })
             }
             else {
                 localStorage.removeItem('access-token')
                 setUser(null);
-                setLoading(false);
             }
         });
         return () => {
