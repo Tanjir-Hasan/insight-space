@@ -52,7 +52,7 @@ const Modal = ({ quiz, isOpen, onClose }) => {
                     </button>
 
                     <div className="mb-4">
-                        <h2 className="text-xl font-semibold">Modal Title</h2>
+                        <h2 className="text-xl font-semibold border-b-2">Correct Answer</h2>
                     </div>
 
                     <div className='grid grid-cols-2 gap-10 mt-10'>
@@ -74,7 +74,7 @@ const Modal = ({ quiz, isOpen, onClose }) => {
                                     </div>
                                 ))}
 
-                                <p>Ans: {question.correctAnswer}</p>
+                                <p className='text-sky-500 font-bold'>Ans: {question.correctAnswer}</p>
                             </div>
                         ))}
                     </div>
