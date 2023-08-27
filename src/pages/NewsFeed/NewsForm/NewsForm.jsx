@@ -48,7 +48,7 @@ const NewsForm = () => {
 
     const handleBlogSubmit = (e) => {
         e.preventDefault();
-        const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
+        const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
         const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
         const form = e.target;
         const blogText = form.blogText.value;
@@ -95,7 +95,7 @@ const NewsForm = () => {
 
             <div className="mt-2 py-4 rounded-lg">
                 <div className="flex space-x-2 mx-4">
-                    <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
+                    <img src={user?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
                     <input type="text" name="" id="" onClick={() => setIsModalOpen(true)} className="text-black w-full border border-spacing-3 rounded-xl px-2" placeholder="What's on your mind?" />
                 </div>
             </div>
@@ -121,7 +121,7 @@ const NewsForm = () => {
 
                     {/* modal two sections end  */}
 
-                    {/* display  post contend content  */}
+                    {/* display  post contend*/}
 
                     <div>
                         <div className="flex space-x-2">
@@ -136,7 +136,7 @@ const NewsForm = () => {
                             </div>
                         </div>
                     </div>
-                    {/* questions from start */}
+                    {/* questions form start */}
                     {isOpen == "questions" ? <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
                         <div className="my-2 w-1/2 font-[Poppins]">
                             <p className="text-md font-semibold mb-2">Select Category: </p>
@@ -149,7 +149,7 @@ const NewsForm = () => {
                                 <option>Books</option>
                             </select>
                         </div>
-                        <textarea rows="4" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?"></textarea><br />
+                        <textarea rows="4" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?" required></textarea><br />
                         <div className="mt-8">
                             {/* fix submit button */}
                             <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Post</ButtonWithLoading>
@@ -157,7 +157,7 @@ const NewsForm = () => {
                     </form> :
                         // blog  form start
                         <form className="mt-8" onSubmit={handleBlogSubmit}>
-                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" name="blogText" placeholder="What's on your mind?"></textarea><br />
+                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" name="blogText" placeholder="What's on your mind?" required></textarea><br />
                             <div className="mt-4">
                                 <input type="file"
                                     id="fileInput"

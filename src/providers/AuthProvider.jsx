@@ -13,7 +13,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const [info, setInfo] = useState(false);
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [btnLoading, setBtnLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
 
@@ -101,7 +101,7 @@ const AuthProvider = ({ children }) => {
         resetPassword,
         updateUserProfile,
         info,
-        setInfo
+        setInfo,
     }
 
     return (

@@ -9,6 +9,7 @@ const AllUsers = () => {
     const [axiosSecure] = useAxiosSecure();
     const ref = useRef();
     const [allUsers, setAllUsers] = useState([]);
+    
     const handleDeleteUser = id => {
         Swal.fire({
             title: 'Are you sure?',

@@ -1,23 +1,17 @@
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import { FaHistory, FaTrashAlt } from "react-icons/fa";
 import moment from "moment";
 import Swal from "sweetalert2";
+import usePosts from "../../../Hooks/usePosts";
 
 
 const AllPosts = () => {
     const [axiosSecure] = useAxiosSecure();
     const [id, setId] = useState(null);
-    const [posts, setPosts] = useState([]);
-    const [reload, setReload] = useState(false);
+    const [posts, refetch] = usePosts();
     const { theme } = useContext(ThemeContext);
-    useEffect(() => {
-        axiosSecure.get("/allPosts")
-            .then(data => {
-                setPosts(data.data);
-            })
-    }, [axiosSecure, reload])
 
     const handleDeletePost = id => {
         Swal.fire({
@@ -33,7 +27,7 @@ const AllPosts = () => {
                 axiosSecure.delete(`/post?id=${id}`)
                     .then(data => {
                         if (data.data.deletedCount > 0) {
-                            setReload(!reload);
+                            refetch();
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
