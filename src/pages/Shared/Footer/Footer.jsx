@@ -17,7 +17,7 @@ const Footer = () => {
                         <Link>Terms & Conditions</Link>
                         <Link>Privacy Policy</Link>
                         <Link>Cookie Policy</Link>
-                        <Link to="/aboutus">About Us</Link>
+                        <Link to="/about-us">About Us</Link>
                         <h3 className="text-2xl font-[Poppins] mt-3">InSight Space</h3>
                 </div>
             </div>

@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [btnLoading, setBtnLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
-    
+
     // google provider
     const googleProvider = new GoogleAuthProvider();
 
@@ -70,16 +70,15 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 setUser(currentUser);
-                setLoading(false);
                 axios.post('https://insight-space-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         localStorage.setItem('access-token', data.data.token)
+                        setLoading(false);
                     })
             }
             else {
                 localStorage.removeItem('access-token')
                 setUser(null);
-                setLoading(false);
             }
         });
         return () => {
@@ -102,7 +101,7 @@ const AuthProvider = ({ children }) => {
         resetPassword,
         updateUserProfile,
         info,
-        setInfo
+        setInfo,
     }
 
     return (
