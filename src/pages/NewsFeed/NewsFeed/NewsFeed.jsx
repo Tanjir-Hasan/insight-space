@@ -19,7 +19,7 @@ const NewsFeed = () => {
             <div className="min-h-screen w-10/12 mx-auto">
                 <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4 w-full">
                     {/* Search Field */}
-                    <div className="border border-spacing-4">
+                    <div className="border border-spacing-4 ">
                         <div className='flex items-center pl-4 mt-10 md:mt-0'>
                         <input onChange={(e) => setSearchText(e.target.value)} type="text" name="text" placeholder='Search by Post' className='my-2 border-2 border-black focus:border-[#84a98c] focus:outline-0 rounded-lg md:p-2 p-1 w-full' />
                         <span className='relative right-10'><FaSearch></FaSearch></span>

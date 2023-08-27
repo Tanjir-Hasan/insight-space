@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 import { ThemeContext } from '../../../providers/ThemeProvider';
+import FAQQuestion from './FAQQuestion';
 
 
 
@@ -175,6 +176,8 @@ const AboutUs = () => {
                 </div>
 
             </div>
+
+            <FAQQuestion></FAQQuestion>
 
             {/* <OurTeam></OurTeam> */}
             <OurTeam></OurTeam>

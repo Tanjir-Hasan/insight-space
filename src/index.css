@@ -41,6 +41,9 @@
 .quiz-category-effect {
     @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700 text-black hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl
 }
+.quiz-category-effects {
+    @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700  hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl
+}
 
 
 

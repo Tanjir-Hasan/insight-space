@@ -189,14 +189,14 @@ const Quiz = () => {
                   showResults ?
 
                     (
-                      <div className='grid grid-cols-2 gap-10 mt-10'>
+                      <div className='grid md:grid-cols-2 gap-10 mt-10'>
 
                         {
                           quiz.map((question, index) => (
 
                             <div key={index} className="question mt-5">
 
-                              <p className='text-xl text-[#d90427f6] font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
+                              <p className='text-xl  font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
                               {question.options.map((option, optionIndex) => (
                                 <div key={optionIndex} className="option flex gap-5  ">
                                   <input
