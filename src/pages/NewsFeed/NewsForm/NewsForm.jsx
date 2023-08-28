@@ -11,9 +11,11 @@ import { SlClose } from 'react-icons/sl';
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import ButtonWithLoading from "../../../components/ButtonWithLoading";
 import { BsSend } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 const NewsForm = () => {
     const [axiosSecure] = useAxiosSecure();
+    const bookMarks = useSelector(state => state?.bookMarks)
     const { theme } = useContext(ThemeContext);
     const { user, btnLoading } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,10 +88,8 @@ const NewsForm = () => {
             })
     }
 
-
-
     return (
-        <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-4 mt-5 border border-[#84a98c] rounded-lg`}>
+        <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-4 mt-5 border border-[#84a98c] rounded-lg`}>
 
             {/* main form  */}
 

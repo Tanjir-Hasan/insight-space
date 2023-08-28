@@ -88,14 +88,8 @@ const FriendsAndSearch = () => {
 
     const handleAcceptRequest = async (requestId) => {
         try {
-            const response = await axios.put(`https://insight-space-server.vercel.app/friendRequests/accept/${requestId}`);
-
-            if (response.status === 200) {
-                fetchReceivedRequests();
-                console.log('Friend request accepted successfully');
-            } else {
-                console.error('Error accepting friend request:', response.data);
-            }
+            await axiosSecure.put(`/friend-requests/accept/${requestId}`)
+            fetchReceivedRequests(); // Refresh friend requests after accepting
         } catch (error) {
             console.error('Error accepting friend request:', error);
         }
