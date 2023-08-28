@@ -61,7 +61,7 @@ const FriendsAndSearch = () => {
     // Accept friend request function (similar to FriendSection component)
     const handleAcceptRequest = async (requestId) => {
         try {
-            await axiosSecure.put(`/friend-requests/accept/${requestId}`);
+            await axiosSecure.put(`/friend-requests/accept/${requestId}`)
             fetchReceivedRequests(); // Refresh friend requests after accepting
         } catch (error) {
             console.error('Error accepting friend request:', error);

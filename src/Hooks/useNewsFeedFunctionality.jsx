@@ -1,10 +1,14 @@
 import usePosts from "./usePosts";
 import Swal from "sweetalert2";
 import useAxiosSecure from "./useAxiosSecure";
+import useAuth from "./UseAuth";
+import useBookMarks from "./useBookMarks";
 
 const useNewsFeedFunctionality = () => {
     const [axiosSecure] = useAxiosSecure();
     const [, refetch] = usePosts();
+    const { user } = useAuth();
+    const [bookmarks, reload, setReload] = useBookMarks();
     //   for react react 
     const handleReact = (id, email) => {
         const addReact = { id, email }
@@ -89,7 +93,24 @@ const useNewsFeedFunctionality = () => {
         })
     };
 
-    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete]
+
+    const handleDeletePost = (post) => {
+        if (user?.email === post.userEmail) {
+            axiosSecure.delete(`/deletePost/${post._id}`)
+                .then(data => console.log(data.data))
+                .catch(err => console.log(err.message))
+        }
+        else {
+            axiosSecure.delete(`/deleteBookMark/${post._id}`)
+                .then(data => {
+                    if (data.data.deletedCount > 0) {
+                        setReload(!reload)
+                    };
+                })
+                .catch(err => console.log(err.message))
+        }
+    }
+    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete, handleDeletePost]
 };
 
 export default useNewsFeedFunctionality;

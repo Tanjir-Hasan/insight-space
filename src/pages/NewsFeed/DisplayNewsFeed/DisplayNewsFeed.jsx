@@ -7,7 +7,6 @@ import usePosts from "../../../Hooks/usePosts";
 import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import { useSelector } from "react-redux";
-import { } from 'react-icons/fa';
 
 
 
@@ -20,7 +19,7 @@ const DisplayNewsFeed = ({ query }) => {
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
     const [allPosts, setAllPosts] = useState([]);
-    const [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete] = useNewsFeedFunctionality();
+    const [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete , handleDeletePost ] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
     // redux state 
@@ -60,7 +59,7 @@ const DisplayNewsFeed = ({ query }) => {
                                 </div>
                             </div>
                             <div className="px-6" hidden={posts.length === allPosts.length}>
-                                <button><FaTrashAlt className="transition-transform duration-300 ease-in-out text-xl hover:scale-150 hover:text-red-600"></FaTrashAlt></button>
+                                <button><FaTrashAlt onClick={()=>handleDeletePost(p)} className="transition-transform duration-300 ease-in-out text-xl hover:scale-150 hover:text-red-600"></FaTrashAlt></button>
                             </div>
                         </div>
                         {/* see more btn  */}

@@ -99,7 +99,7 @@ const Navbar = () => {
             {/* modal start  */}
             <div>
                 {isModalOpen && (
-                    <div className='absolute top-16 right-0 rounded-xl'>
+                    <div className='absolute top-20 right-0 rounded-xl'>
                         <div className="bg-white p-6  rounded-xl">
                             <UserDetails userDetails={userDetails}></UserDetails>
                         </div>
