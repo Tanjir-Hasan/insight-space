@@ -1,80 +1,66 @@
 /* eslint-disable react/prop-types */ //
 import { useContext, useEffect, useRef, useState } from "react";
-import { FaArrowRight, FaBookmark, FaComment, FaEllipsisV, FaHeart, FaHistory } from 'react-icons/fa';
+import { FaArrowRight, FaBookmark, FaComment, FaEllipsisV, FaHeart, FaHistory, FaTrashAlt } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
 import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
-import Swal from "sweetalert2";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useSelector } from "react-redux";
+import { } from 'react-icons/fa';
 
 
-const DisplayNewsFeed = ({query}) => {
+
+const DisplayNewsFeed = ({ query }) => {
     const [id, setId] = useState(null);
     const { theme } = useContext(ThemeContext);
     const [userDetails] = useUser();
-    const [axiosSecure] = useAxiosSecure();
     const ref = useRef();
     const updateRef = useRef();
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
     const [allPosts, setAllPosts] = useState([]);
-    const [handleReact, handleBookMark, handleAddComment, handleUpdateComment] = useNewsFeedFunctionality();
+    const [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
+    // redux state 
     const categoriesData = useSelector(state => state?.categories);
+    const bookMarks = useSelector(state => state?.bookMarks)
+    const myPosts = useSelector(state => state?.myPosts)
 
     useEffect(() => {
-        if (categoriesData.length === 0) {
-            setAllPosts(posts)
-        }
-        else if (categoriesData.length > 0) {
+        if (categoriesData.length > 0) {
             setAllPosts(categoriesData)
         }
-    }, [categoriesData, posts])
-
-    const handleDelete = (id) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosSecure.delete(`/deleteComment?id=${id}`)
-                    .then(data => {
-                        console.log(data.data);
-                        if (data) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your comment has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
-                    .catch(err => console.log(err.message))
-            }
-        })
-    };
+        else if (bookMarks.length > 0) {
+            setAllPosts(bookMarks)
+        }
+        else if (myPosts.length > 0) {
+            setAllPosts(myPosts)
+        }
+        else {
+            setAllPosts(posts)
+        }
+    }, [categoriesData, posts, myPosts, bookMarks])
 
 
     return (
         <div>
             {
-                allPosts && allPosts.filter(post=> post.text.toLowerCase().includes(query.toLowerCase())).map(p => <div key={p._id}
+                allPosts && allPosts.filter(post => post.text.toLowerCase().includes(query.toLowerCase())).map(p => <div key={p._id}
                     className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
                 >
                     <div className="p-4">
-                        <div className="flex space-x-2 mb-4">
-                            <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
-                            <div>
-                                <p className="text-lg font-semibold pt-1">{p.userName}</p>
-                                <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
+                        <div className="flex justify-between">
+                            <div className="flex space-x-2 mb-4">
+                                <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                <div>
+                                    <p className="text-lg font-semibold pt-1">{p.userName}</p>
+                                    <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
+                                </div>
+                            </div>
+                            <div className="px-6" hidden={posts.length === allPosts.length}>
+                                <button><FaTrashAlt className="transition-transform duration-300 ease-in-out text-xl hover:scale-150 hover:text-red-600"></FaTrashAlt></button>
                             </div>
                         </div>
                         {/* see more btn  */}
@@ -110,7 +96,7 @@ const DisplayNewsFeed = ({query}) => {
                         hide === p._id && <div>
                             <div className="flex items-center space-x-2 px-4 py-6 border border-spacing-2">
                                 <img src={userDetails.photoURL} alt="user photo" className="w-12 h-12 rounded-full" />
-                                <textarea ref={ref} name="" id="" cols="2" rows="1" className="w-full px-4 py-2 border border-spacing-4 rounded-3xl" placeholder="add your answer"></textarea>
+                                <textarea ref={ref} name="" id="" cols="2" rows="1" className="w-full px-4 py-2 border border-spacing-4 rounded-3xl" placeholder="add your answer" required ></textarea>
                                 <button onClick={() => handleAddComment(p, userDetails, ref)} className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 flex items-center">Add<FaArrowRight className="text-2xl ms-2"></FaArrowRight> </button>
                             </div>
                             {/* comment section start */}

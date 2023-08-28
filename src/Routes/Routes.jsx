@@ -8,8 +8,6 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import NewsFeed from "../pages/NewsFeed/NewsFeed/NewsFeed";
 import QuesAndAns from "../pages/QuesAndAns/QuesAndAns";
 import ResetPass from "../pages/Shared/LoginAndSignup/ResetPassword/ResetPass";
-import MyPost from "../pages/NewsFeed/UserDetails/MyPost/MyPost";
-import MyBookmarks from "../pages/NewsFeed/UserDetails/MyBookmarks/MyBookmarks";
 import ViewProfile from "../pages/NewsFeed/UserDetails/ViewProfile/ViewProfile";
 import ContactForm from "../pages/Home/Support/ContactForm";
 import FeedBack from "../pages/FeedBack/FeedBack";
@@ -22,7 +20,7 @@ import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
-import AdminLayout from "../layouts/AdminLayout";
+
 
 
 const router = createBrowserRouter([
@@ -58,20 +56,6 @@ const router = createBrowserRouter([
             {
                 path: "sign-up",
                 element: <Signup></Signup>
-            },
-            {
-                path: "my-post",
-                element:
-                    <PrivateRoute>
-                        <MyPost></MyPost>
-                    </PrivateRoute>
-            },
-            {
-                path: "my-bookmarks",
-                element:
-                    <PrivateRoute>
-                        <MyBookmarks></MyBookmarks>
-                    </PrivateRoute>
             },
             {
                 path: "view-Profile",

@@ -36,13 +36,15 @@ const useNewsFeedFunctionality = () => {
     const handleAddComment = (p, user, ref) => {
         const comment = ref.current.value;
         const newComment = { comment, postId: p._id, email: user.email, displayName: user.displayName, photoURL: user.photoURL }
-        axiosSecure.patch("/comment", newComment)
-            .then(data => {
-                if (data) {
-                    refetch()
-                }
-            })
-            .catch(err => console.log(err.message))
+        if (comment.length > 0) {
+            axiosSecure.patch("/comment", newComment)
+                .then(data => {
+                    if (data) {
+                        refetch()
+                    }
+                })
+                .catch(err => console.log(err.message))
+        }
     };
 
     // for update comment 
@@ -60,7 +62,34 @@ const useNewsFeedFunctionality = () => {
             .catch(err => console.log(err))
     }
 
-    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment]
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/deleteComment?id=${id}`)
+                    .then(data => {
+                        console.log(data.data);
+                        if (data) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your comment has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+                    .catch(err => console.log(err.message))
+            }
+        })
+    };
+
+    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete]
 };
 
 export default useNewsFeedFunctionality;

@@ -8,18 +8,23 @@ import useAuth from '../../../Hooks/UseAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
+import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
+import useUser from '../../../Hooks/useUser';
 
 
 const Navbar = () => {
-    const { user, logOut, info, setInfo } = useAuth();
+    const { user, logOut } = useAuth();
+    const [userDetails] = useUser();
     const [isOpen, setIsOpen] = useState(true);
     const { theme, toggleTheme } = useContext(ThemeContext);
     const navigate = useNavigate()
     const [isAdmin] = useAdmin();
-
     const handleThemeToggle = () => {
         toggleTheme();
     };
+    // for modal 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const handleLogOut = () => {
         Swal.fire({
@@ -87,14 +92,22 @@ const Navbar = () => {
 
 
                     </button>
-
-                    <img onClick={() => setInfo(!info)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+                    <img onClick={() => setIsModalOpen(!isModalOpen)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
 
                 </div>
             </div>
+            {/* modal start  */}
+            <div>
+                {isModalOpen && (
+                    <div className='absolute top-16 right-0 rounded-xl'>
+                        <div className="bg-white p-6  rounded-xl">
+                            <UserDetails userDetails={userDetails}></UserDetails>
+                        </div>
+                    </div>
+                )}
+            </div>
+            {/* modal end  */}
         </div>
-
-
     );
 };
 

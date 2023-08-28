@@ -7,7 +7,7 @@ import useAxiosSecure from './useAxiosSecure';
 const useMyPost = () => {
     const {user} = useAuth()
     const [axiosSecure] = useAxiosSecure();
-    const [myPost, setMyPost] = useState("")
+    const [myPost, setMyPost] = useState([]);
     // console.log(myPost)
     const url = `/my-posts?userEmail=${user?.email}`
 
