@@ -22,6 +22,7 @@ import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
+import AdminLayout from "../layouts/AdminLayout";
 
 
 const router = createBrowserRouter([
@@ -100,7 +101,6 @@ const router = createBrowserRouter([
                 element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
             },
             {
-
                 path: 'group-conversations',
                 element: <Chat></Chat>
             },
