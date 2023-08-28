@@ -23,6 +23,8 @@ import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
 import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
+import SearchUser from "../pages/Shared/SearchUser/SearchUser";
+import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
 
 
 const router = createBrowserRouter([
@@ -120,6 +122,10 @@ const router = createBrowserRouter([
             {
                 path: "paid-members",
                 element : <PaidMembers></PaidMembers>
+            },
+            {
+                path: "friends",
+                element: <FriendsAndSearch></FriendsAndSearch>
             }           
         ]
     },
