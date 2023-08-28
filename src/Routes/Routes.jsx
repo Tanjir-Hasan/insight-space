@@ -115,7 +115,7 @@ const router = createBrowserRouter([
             {
                 path:"about-us",
                 element: <AboutUs></AboutUs>
-            }
+            }           
         ]
     },
 ]);

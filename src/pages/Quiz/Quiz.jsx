@@ -163,13 +163,13 @@ const Quiz = () => {
 
                 </div>
 
-                <div className='grid grid-cols-3 gap-5 justify-items-center my-10 '>
+                <div className='grid md:grid-cols-3 gap-5 text-center justify-items-center mt-5  '>
 
-                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-8 md:px-16 py-2 rounded-lg'>Back to Quiz</button>
+                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700  py-2 rounded-lg'>Back to Quiz</button>
 
-                  <button onClick={openModal} type="submit" className='text-xl text-white font-[Poppins] bg-[#0e6ba8] hover:bg-[#0e6aa8d1] w-full duration-700 px-8 md:px-16 py-2 rounded-lg'>Correct Answesr</button>
+                  <button onClick={openModal} type="submit" className='text-xl text-white font-[Poppins] bg-[#0e6ba8] hover:bg-[#0e6aa8d1] w-full duration-700  py-2 rounded-lg'>Correct Answesr</button>
 
-                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-8 md:px-16 py-2 rounded-lg'>Continue</button>
+                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700  py-2 rounded-lg'>Continue</button>
 
                 </div>
                 <div className="">
@@ -189,13 +189,14 @@ const Quiz = () => {
                   showResults ?
 
                     (
-                      <div className='grid grid-cols-2 gap-10 mt-10'>
+                      <div className='grid md:grid-cols-2 gap-10 mt-10'>
 
                         {
                           quiz.map((question, index) => (
 
                             <div key={index} className="question mt-5">
 
+                              <p className='text-xl  font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
                               <p className='text-xl font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
                               {question.options.map((option, optionIndex) => (
                                 <div key={optionIndex} className="option flex gap-5  ">
