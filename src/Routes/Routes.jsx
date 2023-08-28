@@ -119,7 +119,7 @@ const router = createBrowserRouter([
                 element: <AboutUs></AboutUs>
             },
             {
-                path: "FriendsAndSearch",
+                path: "friends",
                 element: <FriendsAndSearch></FriendsAndSearch>
             }           
         ]

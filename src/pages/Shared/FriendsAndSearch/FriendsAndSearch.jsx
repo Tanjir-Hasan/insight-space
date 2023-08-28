@@ -68,6 +68,16 @@ const FriendsAndSearch = () => {
         }
     };
 
+
+    const handleDenyRequest = async (requestId) => {
+        try {
+            await axiosSecure.put(`/friend-requests/deny/${requestId}`);
+            fetchReceivedRequests(); // Refresh friend requests after denying
+        } catch (error) {
+            console.error('Error denying friend request:', error);
+        }
+    };
+
     const fetchFriends = async () => {
         try {
             const response = await axiosSecure.get('/friends');
@@ -79,9 +89,9 @@ const FriendsAndSearch = () => {
         }
     };
 
-
     useEffect(() => {
         fetchReceivedRequests();
+        fetchFriends();
     }, [axiosSecure]);
 
     return (
@@ -89,7 +99,7 @@ const FriendsAndSearch = () => {
             {/* User search input and search button */}
             <input
                 type="text"
-                value={searchEmail}
+                value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Enter email"
             />
@@ -108,6 +118,8 @@ const FriendsAndSearch = () => {
                 <p>No user details found.</p>
             )}
 
+            <br />
+
             {/* Display received friend requests */}
             <h2>Friend Requests</h2>
             {isLoading ? (
@@ -115,10 +127,10 @@ const FriendsAndSearch = () => {
             ) : receivedRequests.length > 0 ? (
                 <ul>
                     {receivedRequests.map(request => (
-                        <li key={request._id}>
-                            {request.sender} sent you a friend request.
-                            <button onClick={() => handleAcceptRequest(request._id)}>Accept</button>
-                            {/* Add a "Deny" button here */}
+                        <li className='space-x-5' key={request._id}>
+                            {request.sender}
+                            <button className='bg-green-700 p-2' onClick={() => handleAcceptRequest(request._id)}>Accept</button>
+                            <button className='bg-rose-700 p-2' onClick={() => handleDenyRequest(request._id)}>Deny</button>
                         </li>
                     ))}
                 </ul>
@@ -126,6 +138,7 @@ const FriendsAndSearch = () => {
                 <p>No friend requests received.</p>
             )}
 
+            <br />
 
             <div>
                 <h2>My Friends</h2>
@@ -143,7 +156,7 @@ const FriendsAndSearch = () => {
                     <p>No friends found.</p>
                 )}
             </div>
-            
+
         </div>
     );
 };
