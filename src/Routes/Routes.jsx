@@ -20,6 +20,8 @@ import Quiz from "../pages/Quiz/Quiz";
 import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
+import SearchUser from "../pages/Shared/SearchUser/SearchUser";
+import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
 
 
 
@@ -99,6 +101,10 @@ const router = createBrowserRouter([
             {
                 path:"about-us",
                 element: <AboutUs></AboutUs>
+            },
+            {
+                path: "friends",
+                element: <FriendsAndSearch></FriendsAndSearch>
             }           
         ]
     },
