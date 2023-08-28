@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import axios from 'axios';
 
 const FriendsAndSearch = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -35,10 +36,36 @@ const FriendsAndSearch = () => {
         }
     };
 
+    // const sendFriendRequest = async () => {
+    //     try {
+    //         await axiosSecure.post('/friendRequests/send', {
+    //             receiverId: userDetails.email, // Use the correct identifier for the receiver
+    //         });
+    //         console.log('Friend request sent successfully');
+    //     } catch (error) {
+    //         console.error('Error sending friend request:', error);
+    //     }
+    // };
+
+    // Fetch received friend requests (similar to FriendSection component)
+
+
+    // Accept friend request function (similar to FriendSection component)
+    // const handleAcceptRequest = async (requestId) => {
+    //     try {
+    //         await axiosSecure.put(`/friendRequests/accept/${requestId}`);
+    //         fetchReceivedRequests(); // Refresh friend requests after accepting
+    //     } catch (error) {
+    //         console.error('Error accepting friend request:', error);
+    //     }
+    // };
+
+
+
     const sendFriendRequest = async () => {
         try {
-            await axiosSecure.post('/friend-requests/send', {
-                receiverId: userDetails.email, // Use the correct identifier for the receiver
+            await axiosSecure.post('/friendRequests/send', {
+                receiverId: userDetails.email,
             });
             console.log('Friend request sent successfully');
         } catch (error) {
@@ -46,10 +73,10 @@ const FriendsAndSearch = () => {
         }
     };
 
-    // Fetch received friend requests (similar to FriendSection component)
+
     const fetchReceivedRequests = async () => {
         try {
-            const response = await axiosSecure.get('/friend-requests/received');
+            const response = await axiosSecure.get('/friendRequests/received');
             setReceivedRequests(response.data);
             setIsLoading(false);
         } catch (error) {
@@ -58,21 +85,28 @@ const FriendsAndSearch = () => {
         }
     };
 
-    // Accept friend request function (similar to FriendSection component)
+
     const handleAcceptRequest = async (requestId) => {
         try {
-            await axiosSecure.put(`/friend-requests/accept/${requestId}`);
-            fetchReceivedRequests(); // Refresh friend requests after accepting
+            const response = await axios.put(`https://insight-space-server.vercel.app/friendRequests/accept/${requestId}`);
+
+            if (response.status === 200) {
+                fetchReceivedRequests();
+                console.log('Friend request accepted successfully');
+            } else {
+                console.error('Error accepting friend request:', response.data);
+            }
         } catch (error) {
             console.error('Error accepting friend request:', error);
         }
     };
 
 
+
     const handleDenyRequest = async (requestId) => {
         try {
-            await axiosSecure.put(`/friend-requests/deny/${requestId}`);
-            fetchReceivedRequests(); // Refresh friend requests after denying
+            await axiosSecure.put(`/friendRequests/deny/${requestId}`);
+            fetchReceivedRequests();
         } catch (error) {
             console.error('Error denying friend request:', error);
         }
@@ -93,6 +127,7 @@ const FriendsAndSearch = () => {
         fetchReceivedRequests();
         fetchFriends();
     }, [axiosSecure]);
+
 
     return (
         <div>

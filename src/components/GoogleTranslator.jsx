@@ -26,7 +26,7 @@ const GoogleTranslator = () => {
     // }, []);
 
 
-    return <div id="google_translate_element" className='goog-te-gadget goog-logo-link goog-te-banner-frame translated-ltr'></div>;
+    return <div id="google_translate_element"></div>;
 };
 
 export default GoogleTranslator;
