@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useMyFriends from '../../../Hooks/useMyFriends';
+
 
 const FriendsAndSearch = () => {
     const [searchValue, setSearchValue] = useState('');
-    const [searchEmail, setSearchEmail] = useState("");
     const [userDetails, setUserDetails] = useState(null);
     const [receivedRequests, setReceivedRequests] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [friends, setFriends] = useState([]);
-console.log(receivedRequests)
+    const [isLoading, setIsLoading] = useState(false);
+    const [friends] = useMyFriends();
+    console.log(friends);
     const [axiosSecure] = useAxiosSecure();
 
     // User search function (similar to SearchUser component)
@@ -35,76 +36,58 @@ console.log(receivedRequests)
         }
     };
 
-    const sendFriendRequest = async () => {
-        try {
-            await axiosSecure.post('/friendRequests/send', {
-                receiverId: userDetails.email, // Use the correct identifier for the receiver
-            });
-            console.log('Friend request sent successfully');
-        } catch (error) {
-            console.error('Error sending friend request:', error);
-        }
+
+    const sendFriendRequest = () => {
+        axiosSecure.post(`/friendRequests/send?email=${userDetails.email}`)
+            .then(data => {
+                console.log(data.data);
+                fetchReceivedRequests();
+            })
+            .catch(error => console.log(error.message))
     };
 
-    // Fetch received friend requests (similar to FriendSection component)
+
     const fetchReceivedRequests = async () => {
-        try {
-            const response = await axiosSecure.get('/friendRequests/received');
-            setReceivedRequests(response.data);
-            setIsLoading(false);
-        } catch (error) {
-            console.error('Error fetching received friend requests:', error);
-            setIsLoading(false);
-        }
-    };
-
-    // Accept friend request function (similar to FriendSection component)
-    const handleAcceptRequest = async (requestId) => {
-        try {
-            await axiosSecure.put(`/friendRequests/accept/${requestId}`);
-            await axiosSecure.put(`/friend-requests/accept/${requestId}`)
-            fetchReceivedRequests(); // Refresh friend requests after accepting
-        } catch (error) {
-            console.error('Error accepting friend request:', error);
-        }
+        axiosSecure.get(`/friendRequests/received`)
+            .then(data => setReceivedRequests(data.data))
+            .catch(error => console.log(error))
     };
 
 
-    const handleDenyRequest = async (requestId) => {
-        try {
-            await axiosSecure.put(`/friendRequests/deny/${requestId}`);
-            fetchReceivedRequests(); // Refresh friend requests after denying
-        } catch (error) {
-            console.error('Error denying friend request:', error);
-        }
+    const handleAcceptRequest = (requestId) => {
+        axiosSecure.patch(`/friendRequests/accept/${requestId}`)
+            .then(data => {
+                console.log(data.data)
+                fetchReceivedRequests();
+            })
+            .catch(err => console.log(err.message))
     };
 
-    const fetchFriends = async () => {
-        try {
-            const response = await axiosSecure.get('/friends');
-            setFriends(response.data);
-            setIsLoading(false);
-        } catch (error) {
-            console.error('Error fetching friends:', error);
-            setIsLoading(false);
-        }
+    const handleDenyRequest = (requestId) => {
+        axiosSecure.delete(`/friendRequests/deny/${requestId}`)
+            .then(data => {
+                console.log(data.data);
+                fetchReceivedRequests();
+            })
+            .catch(err => console.log(err.message))
     };
 
     useEffect(() => {
         fetchReceivedRequests();
-        fetchFriends();
     }, [axiosSecure]);
 
+
     return (
-        <div>
+        <div className='min-h-screen p-10'>
             {/* User search input and search button */}
             <input
                 type="text"
+                className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Enter email"
             />
-            <button onClick={handleSearch}>Search</button>
+            <button className='text-center text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41]duration-700 py-2 rounded-lg w-32 mx-2' onClick={handleSearch}>Search</button>
 
             {/* Display user details (if found) */}
             {userDetails ? (
@@ -125,7 +108,7 @@ console.log(receivedRequests)
             <h2>Friend Requests</h2>
             {isLoading ? (
                 <p>Loading...</p>
-            ) : receivedRequests.length > 0 ? (
+            ) : receivedRequests?.length > 0 ? (
                 <ul>
                     {receivedRequests.map(request => (
                         <li className='space-x-5' key={request._id}>
@@ -145,7 +128,7 @@ console.log(receivedRequests)
                 <h2>My Friends</h2>
                 {isLoading ? (
                     <p>Loading...</p>
-                ) : friends.length > 0 ? (
+                ) : friends?.length > 0 ? (
                     <ul>
                         {friends.map((friend) => (
                             <li key={friend._id}>

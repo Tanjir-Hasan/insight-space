@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setCategories } from "../../../StateManagment/Posts/categoriesSlice";
 
 
+
 const Categories = () => {
     const [posts] = usePosts();
     const dispatch = useDispatch();
@@ -29,22 +30,25 @@ const Categories = () => {
             <div className="px-4 py-4">
                 <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
             </div>
-            {
-                Categories && Categories.map(c =>
-                    <div key={c._id} className="px-4 hover:scale-105 duration-700 mb-2 font-[Cinzel]">
-                        <label className="flex items-center">
-                            <input
-                                name="category"
-                                value={c.category}
-                                type="checkbox"
-                                className="form-checkbox text-indigo-600 h-5 w-5"
-                                checked={checkedCategories.includes(c.category)}
-                                onChange={() => handleCheckboxChange(c.category)}
-                            />
-                            <span className="ml-2">{c.category}</span>
-                        </label>
-                    </div>
-                )}
+            <div>
+                {
+                    Categories && Categories.map(c =>
+                        <div key={c._id} className="px-4 hover:scale-105 duration-700 mb-2 font-[Cinzel]">
+                            <label className="flex items-center">
+                                <input
+                                    name="category"
+                                    value={c.category}
+                                    type="checkbox"
+                                    className="form-checkbox text-indigo-600 h-5 w-5"
+                                    checked={checkedCategories.includes(c.category)}
+                                    onChange={() => handleCheckboxChange(c.category)}
+                                />
+                                <span className="ml-2">{c.category}</span>
+                            </label>
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 };

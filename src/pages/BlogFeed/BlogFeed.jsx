@@ -216,7 +216,7 @@ const BlogFeed = () => {
                             visible: { opacity: 1, x: 0 },
                             hidden: { opacity: 0, x: 100 },
                         }}
-                        transition={{ duration: 0.9 }} className=" mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
+                        transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
                         <h2 className=" text-center text-4xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#84a98c] md:py-0 py-8">Blog heading</h2>
 
                         {
