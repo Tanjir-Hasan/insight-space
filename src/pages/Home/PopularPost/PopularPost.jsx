@@ -8,9 +8,8 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from "react";
 
 const PopularPost = () => {
-
+    const [popularPost] = usePopularPost();
     const { theme } = useContext(ThemeContext);
-
     const controls = useAnimation();
     const [ref, inView] = useInView();
   
@@ -22,8 +21,8 @@ const PopularPost = () => {
         }
     }, [controls, inView]);
 
-    const [popularPost] = usePopularPost();
-    // console.log(popularPost)
+
+ 
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
 

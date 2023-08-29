@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import usePosts from "../../../Hooks/usePosts";
 import { useDispatch } from "react-redux";
 import { setCategories } from "../../../StateManagment/Posts/categoriesSlice";
+import Search from "../Search/Search";
 
 
 
@@ -26,10 +27,10 @@ const Categories = () => {
     }, [checkedCategories, posts, dispatch])
 
     return (
-        <div>
-            <div className="px-4 py-4">
+        <div className="fixed left-0 px-5">
+            <Search></Search>           
                 <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
-            </div>
+           
             <div>
                 {
                     Categories && Categories.map(c =>

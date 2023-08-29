@@ -36,8 +36,8 @@ const Main = () => {
                 </div>
 
                 {
-                    user? (<div className="fixed bottom-4 right-6">
-                    <img className='animate-pulse hover:animate-none rounded-full w-24' onClick={openModal} src="https://i.ibb.co/b2JRtnf/uctyn-QJ7r-D7i.png" alt="" />
+                    user? (<div className="fixed bottom-2 right-2 md:bottom-3 md:right-3 ">
+                    <img className='animate-pulse hover:animate-none rounded-full w-16 md:h-20 md:w-20' onClick={openModal} src="https://i.ibb.co/b2JRtnf/uctyn-QJ7r-D7i.png" alt="" />
                     <Modal isOpen={isModalOpen} onClose={closeModal}>
                     </Modal>
                 </div>) : ""

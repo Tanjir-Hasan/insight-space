@@ -88,9 +88,9 @@ const Signup = () => {
 
       <div className="flex flex-col md:flex-row justify-center items-center pt-5">
 
-        <div className="w-full md:w-1/2 mt-5 md:mt-0">
+        <div className="w-full  md:w-1/2 mt-5 md:mt-0">
 
-          <img src="./login.jpg" alt="" />
+          <img className="mx-auto" src="https://i.ibb.co/64r4kyH/login-removebg-preview.png" alt="" />
 
         </div>
 

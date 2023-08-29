@@ -4,7 +4,7 @@ import Categories from '../Categories/Categories';
 
 const SearchAndCategory = () => {
     return (
-        <div className='fixed h-[calc(100%-276px)] mt-5'>
+        <div className='fixed left-0 h-[calc(100%-276px)] mt-5'>
             <Search></Search>
             <Categories></Categories>
         </div>

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaCheck, FaCheckSquare, FaRegWindowClose } from 'react-icons/fa';
+import { ThemeContext } from '../../../providers/ThemeProvider';
 import PayModal from './PayModal/PayModal';
 
 const MemberCard = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { theme } = useContext(ThemeContext);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -25,7 +27,7 @@ const MemberCard = () => {
 
 
                     <div>
-                        <div className=' border md:-mt-28 box-content  bg-white p-3 px-10 rounded-md  space-y-2 hover:bg-[#d3e4d6] transition duration-1000 ease-in-out transform hover:-translate-y-8 '>
+                        <div className={`${theme === 'dark' ? 'dark hover:bg-black' : 'bg-white'}  border md:-mt-28 box-content   p-3 px-10 rounded-md  space-y-2 hover:bg-[#d3e4d6] transition duration-1000 ease-in-out transform hover:-translate-y-8 `}>
 
                             <div className='flex items-center gap-1'>
                                 <img className='rounded-s-full w-10 h-10' src="https://cdn.vectorstock.com/i/preview-1x/45/10/vip-membership-golden-label-vector-1204510.jpg" alt="" />
@@ -82,8 +84,8 @@ const MemberCard = () => {
                         </div>
                     </div>
 
-
-                    <div className=' relative border  bg-lime-50 p-3 px-10 rounded-md  space-y-2  hover:bg-[#d3e4d6] transition duration-1000 ease-in-out transform hover:-translate-y-8'>
+                    {/* className={`${theme === 'dark' ? 'dark' : ''}`} */}
+                    <div className={`${theme === 'dark' ? 'dark hover:bg-black' : 'bg-lime-50 hover:bg-[#d3e4d6]'} relative border   p-3 px-10 rounded-md  space-y-2   transition duration-1000 ease-in-out transform hover:-translate-y-8`}>
 
                         <img className='absolute h-48 -right-14 -top-1' src=" https://i.ibb.co/TgnGm6s/30-discount-hang-tag-vector-template-flat-illustration-design-vector-eps-10-2-BM3-BKP-removebg-previ.png" alt="" />
 
@@ -144,7 +146,7 @@ const MemberCard = () => {
 
 
                     <div>
-                        <div className='  relative border md:-mt-28 box-content  bg-white p-3 px-10 rounded-md  space-y-2 hover:bg-[#d3e4d6] transition duration-1000 ease-in-out transform hover:-translate-y-8 '>
+                        <div className={`${theme === 'dark' ? 'dark hover:bg-black' : 'bg-white'}  relative border md:-mt-28 box-content   p-3 px-10 rounded-md  space-y-2 hover:bg-[#d3e4d6] transition duration-1000 ease-in-out transform hover:-translate-y-8 `}>
 
                             <img className='absolute h-48 -right-16 -top-4' src="https://media4.giphy.com/media/sGnVQF4n8KJgqFwxND/giphy.gif" alt="" />
                             <div className='flex items-center gap-1'>
