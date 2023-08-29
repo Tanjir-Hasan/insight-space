@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../../providers/ThemeProvider";
+import { BsArrowUpSquare } from 'react-icons/bs';
 
 const Footer = () => {
 
@@ -14,11 +15,14 @@ const Footer = () => {
                     <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="" className='h-20' />
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-5 pl-4 pt-5 md:pl-0 md:pt-0">
+                <div className="flex flex-col md:flex-row gap-5 items-center pl-4 pt-5 md:pl-0 md:pt-0">
                     <Link>Terms & Conditions</Link>
                     <Link>Privacy Policy</Link>
                     <Link>Cookie Policy</Link>
                     <Link to="/about-us">About Us</Link>
+                    <a href="#move-to-top">
+                        <BsArrowUpSquare className="text-2xl font-bold hover:text-[#84a98c] duration-700" />
+                    </a>
                 </div>
 
                 {/* <div className="font-[Poppins] flex flex-col lg:mr-4 md:ml-0 ml-4">

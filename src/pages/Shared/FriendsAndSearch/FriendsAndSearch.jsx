@@ -4,12 +4,19 @@ import useMyFriends from '../../../Hooks/useMyFriends';
 
 
 const FriendsAndSearch = () => {
+
     const [searchValue, setSearchValue] = useState('');
+
     const [userDetails, setUserDetails] = useState(null);
+
     const [receivedRequests, setReceivedRequests] = useState([]);
+
     const [isLoading, setIsLoading] = useState(false);
+
     const [friends] = useMyFriends();
+
     console.log(friends);
+
     const [axiosSecure] = useAxiosSecure();
 
     // User search function (similar to SearchUser component)
@@ -79,6 +86,7 @@ const FriendsAndSearch = () => {
 
     return (
         <div className='min-h-screen p-10'>
+
             {/* User search input and search button */}
             <input
                 type="text"
@@ -130,10 +138,8 @@ const FriendsAndSearch = () => {
                     <p>Loading...</p>
                 ) : friends?.length > 0 ? (
                     <ul>
-                        {friends.map((friend) => (
-                            <li key={friend._id}>
-                                {friend.name} - {friend.email}
-                            </li>
+                        {friends.map((friend, index) => (
+                            <li key={index}>{friend.email}</li>
                         ))}
                     </ul>
                 ) : (

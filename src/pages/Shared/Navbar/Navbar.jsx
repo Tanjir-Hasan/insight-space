@@ -94,11 +94,11 @@ const Navbar = () => {
 
                                 <ActiveLink to="/news-feed">News Feed</ActiveLink>
 
+                                <ActiveLink to="/connections">Connections</ActiveLink>
+
                                 <ActiveLink to="/ques-ans">Q&A</ActiveLink>
 
                                 <ActiveLink to="/blog-feed">Blog</ActiveLink>
-
-                                <ActiveLink to="/connections">Connections</ActiveLink>
 
                                 <ActiveLink to="/quiz">Quiz</ActiveLink>
 
