@@ -66,7 +66,8 @@ const useNewsFeedFunctionality = () => {
             .catch(err => console.log(err))
     }
 
-    const handleDelete = (id) => {
+    const handleDelete = (postId, commentId) => {
+        const data = { postId, commentId };
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -77,9 +78,9 @@ const useNewsFeedFunctionality = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/deleteComment?id=${id}`)
+                axiosSecure.patch('/deleteComment', data)
                     .then(data => {
-                        console.log(data.data);
+                        refetch();
                         if (data) {
                             Swal.fire(
                                 'Deleted!',
