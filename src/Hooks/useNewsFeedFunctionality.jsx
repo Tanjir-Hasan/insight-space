@@ -1,10 +1,14 @@
 import usePosts from "./usePosts";
 import Swal from "sweetalert2";
 import useAxiosSecure from "./useAxiosSecure";
+import useAuth from "./UseAuth";
+import useBookMarks from "./useBookMarks";
 
 const useNewsFeedFunctionality = () => {
     const [axiosSecure] = useAxiosSecure();
     const [, refetch] = usePosts();
+    const { user } = useAuth();
+    const [bookmarks, reload, setReload] = useBookMarks();
     //   for react react 
     const handleReact = (id, email) => {
         const addReact = { id, email }
@@ -36,13 +40,15 @@ const useNewsFeedFunctionality = () => {
     const handleAddComment = (p, user, ref) => {
         const comment = ref.current.value;
         const newComment = { comment, postId: p._id, email: user.email, displayName: user.displayName, photoURL: user.photoURL }
-        axiosSecure.patch("/comment", newComment)
-            .then(data => {
-                if (data) {
-                    refetch()
-                }
-            })
-            .catch(err => console.log(err.message))
+        if (comment.length > 0) {
+            axiosSecure.patch("/comment", newComment)
+                .then(data => {
+                    if (data) {
+                        refetch()
+                    }
+                })
+                .catch(err => console.log(err.message))
+        }
     };
 
     // for update comment 
@@ -60,7 +66,52 @@ const useNewsFeedFunctionality = () => {
             .catch(err => console.log(err))
     }
 
-    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment]
+    const handleDelete = (postId, commentId) => {
+        const data = { postId, commentId };
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch('/deleteComment', data)
+                    .then(data => {
+                        refetch();
+                        if (data) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your comment has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+                    .catch(err => console.log(err.message))
+            }
+        })
+    };
+
+
+    const handleDeletePost = (post) => {
+        if (user?.email === post.userEmail) {
+            axiosSecure.delete(`/deletePost/${post._id}`)
+                .then(data => console.log(data.data))
+                .catch(err => console.log(err.message))
+        }
+        else {
+            axiosSecure.delete(`/deleteBookMark/${post._id}`)
+                .then(data => {
+                    if (data.data.deletedCount > 0) {
+                        setReload(!reload)
+                    };
+                })
+                .catch(err => console.log(err.message))
+        }
+    }
+    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete, handleDeletePost]
 };
 
 export default useNewsFeedFunctionality;

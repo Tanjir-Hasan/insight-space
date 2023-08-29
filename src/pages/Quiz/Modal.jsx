@@ -33,7 +33,7 @@ const Modal = ({ quiz, isOpen, onClose }) => {
         <div>
             <div className="fixed inset-0 flex items-center justify-center z-50">
                 <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="bg-white rounded-lg p-6 z-10 w-[60%] max-h-[80vh] overflow-y-auto relative">
+                <div className="bg-white rounded-lg p-6 z-10 md:w-[70%] w-[90%] max-h-[80vh] overflow-y-auto relative">
                     <button
                         onClick={onClose}
                         className="absolute top-2 right-2 p-2 bg-gray-300 rounded-full hover:bg-gray-400 focus:outline-none">
@@ -55,7 +55,7 @@ const Modal = ({ quiz, isOpen, onClose }) => {
                         <h2 className="text-xl font-semibold border-b-2">Correct Answer</h2>
                     </div>
 
-                    <div className='grid grid-cols-2 gap-10 mt-10'>
+                    <div className='grid md:grid-cols-2 p-5 gap-10 mt-10'>
                         {quiz.map((question, index) => (
                             <div key={index} className="question mt-5">
 

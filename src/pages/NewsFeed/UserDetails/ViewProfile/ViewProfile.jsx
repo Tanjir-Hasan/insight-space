@@ -5,14 +5,12 @@ import UserDetails from '../UserDetails';
 import ViewMyProfile from "./ViewMyProfile";
 
 const ViewProfile = () => {
-
     const { info } = useAuth();
     const { theme } = useContext(ThemeContext);
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
             <div className="min-h-screen w-10/12 mx-auto ">
                 <div className="grid gap-5  md:justify-items-end sm:grid-cols-1 lg:grid-cols-2 w-full">
-
                     <div>
                         <ViewMyProfile></ViewMyProfile>
                     </div>

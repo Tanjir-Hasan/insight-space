@@ -36,7 +36,7 @@ const Home = () => {
                         className="h-16" />
                 </Link>
             </div>
-            <div className="md:fixed md:bottom-5 md:right-8">
+            {/* <div className="">
                 <Link to="/group-conversations">
                     <img
                         src="https://i.ibb.co/tQvLsdd/send.png"
@@ -44,7 +44,7 @@ const Home = () => {
                         className="h-16"
                     />
                 </Link>
-            </div>
+            </div> */}
         </>)
 
 
