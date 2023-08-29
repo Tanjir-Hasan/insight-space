@@ -108,9 +108,9 @@ const FriendsAndSearch = () => {
             <h2>Friend Requests</h2>
             {isLoading ? (
                 <p>Loading...</p>
-            ) : receivedRequests.length > 0 ? (
+            ) : receivedRequests?.length > 0 ? (
                 <ul>
-                    {receivedRequests.map(request => (
+                    {receivedRequests?.map(request => (
                         <li className='space-x-5' key={request._id}>
                             {request.sender}
                             <button className='bg-green-700 p-2' onClick={() => handleAcceptRequest(request._id)}>Accept</button>
@@ -128,7 +128,7 @@ const FriendsAndSearch = () => {
                 <h2>My Friends</h2>
                 {isLoading ? (
                     <p>Loading...</p>
-                ) : friends.length > 0 ? (
+                ) : friends?.length > 0 ? (
                     <ul>
                         {friends.map((friend) => (
                             <li key={friend._id}>

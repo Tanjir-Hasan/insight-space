@@ -103,7 +103,7 @@ const router = createBrowserRouter([
                 element: <AboutUs></AboutUs>
             },
             {
-                path: "friends",
+                path: "connections",
                 element: <FriendsAndSearch></FriendsAndSearch>
             }           
         ]
