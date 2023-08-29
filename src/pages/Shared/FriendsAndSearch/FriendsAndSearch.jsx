@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useMyFriends from '../../../Hooks/useMyFriends';
 
 
 const FriendsAndSearch = () => {
@@ -7,7 +8,8 @@ const FriendsAndSearch = () => {
     const [userDetails, setUserDetails] = useState(null);
     const [receivedRequests, setReceivedRequests] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [friends, setFriends] = useState([]);
+    const [friends] = useMyFriends();
+    console.log(friends);
     const [axiosSecure] = useAxiosSecure();
 
     // User search function (similar to SearchUser component)
@@ -61,8 +63,6 @@ const FriendsAndSearch = () => {
             .catch(err => console.log(err.message))
     };
 
-
-
     const handleDenyRequest = (requestId) => {
         axiosSecure.delete(`/friendRequests/deny/${requestId}`)
             .then(data => {
@@ -72,34 +72,22 @@ const FriendsAndSearch = () => {
             .catch(err => console.log(err.message))
     };
 
-
-    const fetchFriends = async () => {
-        try {
-            const response = await axiosSecure.get('/friends');
-            setFriends(response.data);
-            setIsLoading(false);
-        } catch (error) {
-            console.error('Error fetching friends:', error);
-            setIsLoading(false);
-        }
-    };
-
     useEffect(() => {
         fetchReceivedRequests();
-        fetchFriends();
     }, [axiosSecure]);
 
 
     return (
-        <div>
+        <div className='min-h-screen p-10'>
             {/* User search input and search button */}
             <input
                 type="text"
+                className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Enter email"
             />
-            <button onClick={handleSearch}>Search</button>
+            <button className='text-center text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41]duration-700 py-2 rounded-lg w-32 mx-2' onClick={handleSearch}>Search</button>
 
             {/* Display user details (if found) */}
             {userDetails ? (
