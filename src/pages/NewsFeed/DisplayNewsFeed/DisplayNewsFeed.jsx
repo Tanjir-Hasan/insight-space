@@ -19,7 +19,7 @@ const DisplayNewsFeed = ({ query }) => {
     const [hide, setHide] = useState(false);
     const [posts] = usePosts();
     const [allPosts, setAllPosts] = useState([]);
-    const [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete , handleDeletePost ] = useNewsFeedFunctionality();
+    const [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete, handleDeletePost] = useNewsFeedFunctionality();
     const [isAction, setIsAction] = useState(null)
     const [commentAction, setCommentAction] = useState(null)
     // redux state 
@@ -59,7 +59,7 @@ const DisplayNewsFeed = ({ query }) => {
                                 </div>
                             </div>
                             <div className="px-6" hidden={posts.length === allPosts.length}>
-                                <button><FaTrashAlt onClick={()=>handleDeletePost(p)} className="transition-transform duration-300 ease-in-out text-xl hover:scale-150 hover:text-red-600"></FaTrashAlt></button>
+                                <button><FaTrashAlt onClick={() => handleDeletePost(p)} className="transition-transform duration-300 ease-in-out text-xl hover:scale-150 hover:text-red-600"></FaTrashAlt></button>
                             </div>
                         </div>
                         {/* see more btn  */}
@@ -119,7 +119,7 @@ const DisplayNewsFeed = ({ query }) => {
                                                     {/* edit btn  */}
                                                     <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full mb-2" onClick={() => setCommentAction(c.commentId)}>Edit</button>
                                                     {/* delete btn  */}
-                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleDelete(c.commentId)}>Delete</button>
+                                                    <button className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full" onClick={() => handleDelete(p._id, c.commentId)}>Delete</button>
                                                 </div>}
                                             </div>
                                         </div>

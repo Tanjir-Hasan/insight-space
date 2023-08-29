@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setCategories } from "../../../StateManagment/Posts/categoriesSlice";
 
 
+
 const Categories = () => {
     const [posts] = usePosts();
     const dispatch = useDispatch();

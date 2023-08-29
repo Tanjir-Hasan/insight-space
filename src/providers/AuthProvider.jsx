@@ -13,6 +13,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const [info, setInfo] = useState(false);
     const [user, setUser] = useState(null);
+    const [searchText, setSearchText] = useState("");
     const [loading, setLoading] = useState(true);
     const [btnLoading, setBtnLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
@@ -101,6 +102,8 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         info,
         setInfo,
+        searchText,
+        setSearchText
     }
 
     return (
