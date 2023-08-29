@@ -9,14 +9,14 @@ const ViewProfile = () => {
     const { theme } = useContext(ThemeContext);
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''}`}>
-            <div className="min-h-screen w-10/12 mx-auto ">
-                <div className="grid gap-5  md:justify-items-end sm:grid-cols-1 lg:grid-cols-2 w-full">
-                    <div>
+            <div className="w-full md:w-3/4 px-3 md:px-0 mx-auto">
+                <div>
+                    <div className="py-10">
                         <ViewMyProfile></ViewMyProfile>
                     </div>
-                    <div className="border border-spacing-4 pt-8">
+                    {/* <div className="border border-spacing-4 pt-8">
                         {info && <UserDetails></UserDetails>}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
