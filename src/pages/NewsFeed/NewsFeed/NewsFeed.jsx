@@ -33,7 +33,7 @@ const NewsFeed = () => {
 
                     {/* middle section */}
 
-                    {/* Post start*/}
+                    {/* Post start*/}   
                     <div className="md:col-span-2 px-4">
                         <NewsForm></NewsForm>
                         {/* <div>
@@ -48,6 +48,7 @@ const NewsFeed = () => {
 
                     <div className="mt-5">
                         <TopPosts></TopPosts>
+                        {/* new */}
                     </div>
 
                     {/* Field start */}

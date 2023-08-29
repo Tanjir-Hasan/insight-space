@@ -7,7 +7,7 @@ const FriendsAndSearch = () => {
     const [searchValue, setSearchValue] = useState('');
     const [userDetails, setUserDetails] = useState(null);
     const [receivedRequests, setReceivedRequests] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [friends] = useMyFriends();
     console.log(friends);
     const [axiosSecure] = useAxiosSecure();
