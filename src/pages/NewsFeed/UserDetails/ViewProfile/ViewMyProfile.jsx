@@ -10,6 +10,7 @@ import { BsSend } from "react-icons/bs";
 import useAuth from "../../../../Hooks/UseAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 
 
@@ -20,7 +21,7 @@ const ViewMyProfile = () => {
     const { displayName, photoURL, email, _id, date } = userDetails;
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [axiosSecure] = useAxiosSecure();
-    console.log(userDetails);
+
     const onSubmit = (data) => {
 
         setErrorMsg("")
@@ -41,7 +42,6 @@ const ViewMyProfile = () => {
                 if (imageResponse.success) {
                     // image url 
                     const imgURL = imageResponse.data.display_url;
-
                     //  update function
                     const { name } = data;
                     const date = new Date();
@@ -73,7 +73,6 @@ const ViewMyProfile = () => {
                 }
             })
     };
-    console.log(isEdit);
     return (
         <div className="border p-10 rounded-xl shadow-xl">
             <h1 className="text-3xl font-semibold">My Profile</h1>
