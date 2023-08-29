@@ -62,6 +62,7 @@ console.log(receivedRequests)
     const handleAcceptRequest = async (requestId) => {
         try {
             await axiosSecure.put(`/friendRequests/accept/${requestId}`);
+            await axiosSecure.put(`/friend-requests/accept/${requestId}`)
             fetchReceivedRequests(); // Refresh friend requests after accepting
         } catch (error) {
             console.error('Error accepting friend request:', error);

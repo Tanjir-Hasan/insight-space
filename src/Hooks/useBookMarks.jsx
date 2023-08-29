@@ -1,25 +1,26 @@
-import axios from "axios";
 import useAuth from "./UseAuth";
-import { useQuery } from "@tanstack/react-query";
 import usePosts from "./usePosts";
+import { useState } from "react";
+import { useEffect } from "react";
+import useAxiosSecure from "./useAxiosSecure";
 
 
 const useBookMarks = () => {
     const { user } = useAuth();
     const [posts] = usePosts();
-
+    const [axiosSecure] = useAxiosSecure();
+    const [bookMarks, setBookMarks] = useState([]);
+    const [reload, setReload] = useState(false);
     const url = `https://insight-space-server.vercel.app/book-marks?email=${user?.email}`
-    const { refetch, data } = useQuery({
-        queryKey: ['bookmarks', user?.email],
-        queryFn: async () => await axios.get(url)
+    useEffect(() => {
+        axiosSecure.get(url)
             .then(data => {
-                return data.data
+                const postId = data.data?.map(id => id.postId)
+                const bookmarks = posts?.filter(p => postId?.includes(p._id))
+                setBookMarks(bookmarks)
             })
-    })
-    const postId = data?.map(id => id.postId)
-    const bookmarks = posts?.filter(p => postId?.includes(p._id))
-    // console.log(bookmarks);
-    return [bookmarks]
+    }, [url, reload])
+    return [bookMarks, reload, setReload]
 };
 
 export default useBookMarks;
