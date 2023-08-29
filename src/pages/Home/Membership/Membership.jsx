@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import free from "../../../assets/images/icons/free-gift.png";
 import info from "../../../assets/images/icons/info.png";
 import vip from "../../../assets/images/icons/vip.png";
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,12 +28,14 @@ const Membership = () => {
         <div className={`${theme === 'dark' ? 'dark' : 'w-11/12 my-14 mx-auto'}`}>
             <div className=" items-center justify-center  md:w-10/12 w-full mx-auto drop-shadow-lg  ">
 
-                <div className=" gap-4 bg-[#547362] backdrop-blur-sm bg-white/30 lg:w-full rounded-lg text-white px-16">
+                <div className=" gap-4 bg-[#759a85] backdrop-blur-sm bg-white/30 lg:w-full rounded-lg text-white px-16">
                 <div className='flex items-center justify-center  backdrop-blur-sm bg-white/30 p-20'>
                         <div className='w-5/6'>
                             <h1 className="text-3xl mb-5 mt-10">Exclusive Membership: Unlock a World of Benefits</h1>
                             <p className="mb-5 font-sans">Dive into a realm of unparalleled privileges with our Exclusive Membership section. Elevate your experience and gain access to a curated selection of premium content, personalized services, and extraordinary offers</p>
+                            <Link to="/paid-members">
                             <button className="font-semibold bg-white text-[#84a98c] px-3 py-2 rounded-sm transition duration-700 ease-in-out ">Show All</button>
+                            </Link>
 
                         </div>
                     </div>
