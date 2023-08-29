@@ -5,14 +5,17 @@ import DisplayNewsFeed from "../DisplayNewsFeed/DisplayNewsFeed";
 import NewsForm from "../NewsForm/NewsForm";
 import UserDetails from "../UserDetails/UserDetails";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import Search from "../Search/Search";
+import SearchAndCategory from "../SearchAndCategory/SearchAndCategory";
+import TopPosts from "../TopPosts/TopPosts";
 
 
 const NewsFeed = () => {
 
     const { info } = useAuth();
     const { theme } = useContext(ThemeContext);
+
     const [searchText, setSearchText] = useState("");
 
     return (
@@ -20,36 +23,33 @@ const NewsFeed = () => {
 
             <div className="min-h-screen w-10/12 mx-auto ">
 
-                <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-4 w-full">
+                <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-4">
 
-                    <div className="border border-spacing-4 ">
+                    {/* left section */}
 
-                        {/* Search Field */}
-                        {/* <div className='fixed h-[calc(100%+0px)] flex items-center w-11/12 mx-auto mt-10 md:mt-0'>
-                            <input onChange={(e) => setSearchText(e.target.value)} type="text" name="text" placeholder='Search by Post' className='my-2 border-2 border-black focus:border-[#84a98c] focus:outline-0 rounded-lg md:p-2 p-1' />
-                            <span className='relative right-10'><FaSearch></FaSearch></span>
-                        </div> */}
-
-                        <div className="relative w-11/12 mx-auto">
-                            <div className='fixed '>
-                                <input onChange={(e) => setSearchText(e.target.value)} type="text" name="text" placeholder='Search by Post' className='my-2 border-2 border-black focus:border-[#84a98c] focus:outline-0 rounded-lg md:p-2 p-1 w-full' />
-                                <span className='absolute right-5 top-5 text-xl'><FaSearch></FaSearch></span>
-                            </div>
-                        </div>
-
-                        {/* Search Field */}
-
-                        <Categories></Categories>
-
+                    <div className="">
+                        <SearchAndCategory></SearchAndCategory>
                     </div>
+
+                    {/* middle section */}
 
                     {/* Post start*/}
-                    <div className="lg:col-span-2">
+                    <div className="md:col-span-2 px-4">
                         <NewsForm></NewsForm>
-                        <div>
-                            <DisplayNewsFeed query={searchText}></DisplayNewsFeed>
-                        </div>
+                        {/* <div>
+                            <DisplayNewsFeed
+                            // query={searchText}
+                            ></DisplayNewsFeed>
+                        </div> */}
                     </div>
+
+
+                    {/* right section */}
+
+                    <div className="mt-5">
+                        <TopPosts></TopPosts>
+                    </div>
+
                     {/* Field start */}
                     <div className="border border-spacing-4 pt-8">
                         {info && <UserDetails></UserDetails>}

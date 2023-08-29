@@ -25,7 +25,7 @@ const Categories = () => {
     }, [checkedCategories, posts, dispatch])
 
     return (
-        <div className="fixed">
+        <div>
             <div className="px-4 py-4">
                 <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
             </div>
