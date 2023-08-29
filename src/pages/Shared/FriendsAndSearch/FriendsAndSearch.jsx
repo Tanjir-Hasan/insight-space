@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useMyFriends from '../../../Hooks/useMyFriends';
 
 
 const FriendsAndSearch = () => {
@@ -7,7 +8,8 @@ const FriendsAndSearch = () => {
     const [userDetails, setUserDetails] = useState(null);
     const [receivedRequests, setReceivedRequests] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [friends, setFriends] = useState([]);
+    const [friends] = useMyFriends();
+    console.log(friends);
     const [axiosSecure] = useAxiosSecure();
 
     // User search function (similar to SearchUser component)
@@ -61,8 +63,6 @@ const FriendsAndSearch = () => {
             .catch(err => console.log(err.message))
     };
 
-
-
     const handleDenyRequest = (requestId) => {
         axiosSecure.delete(`/friendRequests/deny/${requestId}`)
             .then(data => {
@@ -72,21 +72,8 @@ const FriendsAndSearch = () => {
             .catch(err => console.log(err.message))
     };
 
-
-    const fetchFriends = async () => {
-        try {
-            const response = await axiosSecure.get('/friends');
-            setFriends(response.data);
-            setIsLoading(false);
-        } catch (error) {
-            console.error('Error fetching friends:', error);
-            setIsLoading(false);
-        }
-    };
-
     useEffect(() => {
         fetchReceivedRequests();
-        fetchFriends();
     }, [axiosSecure]);
 
 
