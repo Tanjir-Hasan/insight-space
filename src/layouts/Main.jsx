@@ -3,8 +3,26 @@ import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
 import GoogleTranslator from "../components/GoogleTranslator";
 import Welcome from "../pages/Shared/Welcome/Welcome";
+import React, { useState } from 'react';
+import Modal from './Modal';
+import useAuth from "../Hooks/UseAuth";
+
 
 const Main = () => {
+    const{user} = useAuth();
+    
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => {
+        setIsModalOpen(true);
+        document.body.style.overflow = 'hidden';
+
+    };
+
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        document.body.style.overflow = '';
+    }
 
     return (
         <>
@@ -17,14 +35,23 @@ const Main = () => {
                     <Welcome></Welcome>
                 </div>
 
+                {
+                    user? (<div className="fixed bottom-4 right-6">
+                    <img className='animate-pulse hover:animate-none rounded-full w-24' onClick={openModal} src="https://i.ibb.co/b2JRtnf/uctyn-QJ7r-D7i.png" alt="" />
+                    <Modal isOpen={isModalOpen} onClose={closeModal}>
+                    </Modal>
+                </div>) : ""
+                }
+
+                
+
 
                 {/* <div className="flex justify-between w-10/12 mx-auto my-5">
-                <GoogleTranslator />
-                <Link to="/group-conversations">
-                    <img src="https://i.ibb.co/LtKQ9c9/send-1.png" alt="send-image"
-                        className="h-16" />
-                </Link>
-            </div> */}
+                    <Link to="/group-conversations">
+                        <img src="https://i.ibb.co/LtKQ9c9/send-1.png" alt="send-image"
+                            className="h-16" />
+                    </Link>
+                </div> */}
 
                 {/* <div className="flex justify-between w-10/12 mx-auto my-5">
                 <GoogleTranslator />

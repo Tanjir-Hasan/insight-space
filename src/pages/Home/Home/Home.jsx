@@ -10,6 +10,7 @@ import FeaturedPosts from "../FeaturedPosts/FeaturedPosts";
 import Testimonial from "../Testimonial/Testimonial";
 import { Link } from "react-router-dom";
 import GoogleTranslator from "../../../components/GoogleTranslator";
+import Membership from "../Membership/Membership";
 
 
 
@@ -24,6 +25,7 @@ const Home = () => {
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>
+            <Membership></Membership>
             <CommunityGuidelines></CommunityGuidelines>
             <Testimonial></Testimonial>
             <ContactForm></ContactForm>
