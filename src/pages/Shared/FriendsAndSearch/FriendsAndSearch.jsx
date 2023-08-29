@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import axios from 'axios';
+
 
 const FriendsAndSearch = () => {
     const [searchValue, setSearchValue] = useState('');
-    const [searchEmail, setSearchEmail] = useState("");
     const [userDetails, setUserDetails] = useState(null);
     const [receivedRequests, setReceivedRequests] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [friends, setFriends] = useState([]);
-
     const [axiosSecure] = useAxiosSecure();
 
     // User search function (similar to SearchUser component)
@@ -36,75 +34,44 @@ const FriendsAndSearch = () => {
         }
     };
 
-    // const sendFriendRequest = async () => {
-    //     try {
-    //         await axiosSecure.post('/friendRequests/send', {
-    //             receiverId: userDetails.email, // Use the correct identifier for the receiver
-    //         });
-    //         console.log('Friend request sent successfully');
-    //     } catch (error) {
-    //         console.error('Error sending friend request:', error);
-    //     }
-    // };
 
-    // Fetch received friend requests (similar to FriendSection component)
-
-
-    // Accept friend request function (similar to FriendSection component)
-    // const handleAcceptRequest = async (requestId) => {
-    //     try {
-    //         await axiosSecure.put(`/friendRequests/accept/${requestId}`);
-    //         fetchReceivedRequests(); // Refresh friend requests after accepting
-    //     } catch (error) {
-    //         console.error('Error accepting friend request:', error);
-    //     }
-    // };
-
-
-
-    const sendFriendRequest = async () => {
-        try {
-            await axiosSecure.post('/friendRequests/send', {
-                receiverId: userDetails.email,
-            });
-            console.log('Friend request sent successfully');
-        } catch (error) {
-            console.error('Error sending friend request:', error);
-        }
+    const sendFriendRequest = () => {
+        axiosSecure.post(`/friendRequests/send?email=${userDetails.email}`)
+            .then(data => {
+                console.log(data.data);
+                fetchReceivedRequests();
+            })
+            .catch(error => console.log(error.message))
     };
 
 
     const fetchReceivedRequests = async () => {
-        try {
-            const response = await axiosSecure.get('/friendRequests/received');
-            setReceivedRequests(response.data);
-            setIsLoading(false);
-        } catch (error) {
-            console.error('Error fetching received friend requests:', error);
-            setIsLoading(false);
-        }
+        axiosSecure.get(`/friendRequests/received`)
+            .then(data => setReceivedRequests(data.data))
+            .catch(error => console.log(error))
     };
 
 
-    const handleAcceptRequest = async (requestId) => {
-        try {
-            await axiosSecure.put(`/friend-requests/accept/${requestId}`)
-            fetchReceivedRequests(); // Refresh friend requests after accepting
-        } catch (error) {
-            console.error('Error accepting friend request:', error);
-        }
+    const handleAcceptRequest = (requestId) => {
+        axiosSecure.patch(`/friendRequests/accept/${requestId}`)
+            .then(data => {
+                console.log(data.data)
+                fetchReceivedRequests();
+            })
+            .catch(err => console.log(err.message))
     };
 
 
 
-    const handleDenyRequest = async (requestId) => {
-        try {
-            await axiosSecure.put(`/friendRequests/deny/${requestId}`);
-            fetchReceivedRequests();
-        } catch (error) {
-            console.error('Error denying friend request:', error);
-        }
+    const handleDenyRequest = (requestId) => {
+        axiosSecure.delete(`/friendRequests/deny/${requestId}`)
+            .then(data => {
+                console.log(data.data);
+                fetchReceivedRequests();
+            })
+            .catch(err => console.log(err.message))
     };
+
 
     const fetchFriends = async () => {
         try {
