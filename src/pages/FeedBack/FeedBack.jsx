@@ -111,7 +111,7 @@ const FeedBack = () => {
 
                                 <div className="md:w-25  mt-10">
                                     <Link to="/usersfeedback">
-                                        <Button heading="Feedback Submisiions"></Button>
+                                        <Button heading="Feedback Submisions"></Button>
                                     </Link>
                                 </div>
                             </div>
