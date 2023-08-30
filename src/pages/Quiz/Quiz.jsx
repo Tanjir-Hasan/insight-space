@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { useContext } from 'react';
 import { ThemeContext } from '../../providers/ThemeProvider';
 
 
 const Quiz = () => {
-
   const { theme } = useContext(ThemeContext);
-
-  const [categoryHovered, setCategoryHovered] = useState(false);
-
-
-
   const [quizes, setQuizes] = useState([])
   const [quiz, setQuiz] = useState(quizes)
   const [userAnswers, setUserAnswers] = useState(Array(quiz.length).fill(''));
   const [showResult, setShowResult] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeId, setActiveId] = useState(false);
+  
 
   const openModal = () => {
     setIsModalOpen(true);

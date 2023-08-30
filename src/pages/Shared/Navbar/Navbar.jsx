@@ -77,6 +77,8 @@ const Navbar = () => {
                                 {isAdmin ? <ActiveLink to="/allPosts">All Posts</ActiveLink> : <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
                                 {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
                                 {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
+                                <ActiveLink to="/paid-members">Subscription</ActiveLink>
+                                
                                 <ActiveLink to="/about-us">About</ActiveLink>
                                 {
                                     user ?
@@ -92,7 +94,7 @@ const Navbar = () => {
 
 
                     </button>
-                    <img onClick={() => setIsModalOpen(!isModalOpen)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 rounded-full' />
+                    <img onClick={() => setIsModalOpen(!isModalOpen)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 w-8 rounded-full' />
 
                 </div>
             </div>

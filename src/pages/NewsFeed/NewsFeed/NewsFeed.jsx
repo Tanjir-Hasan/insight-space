@@ -28,10 +28,6 @@ const NewsFeed = () => {
                         <div>
                         <div className="block lg:hidden">
                         <Categories></Categories>
-                        <div className="block md:hidden">
-                        <TopPosts></TopPosts>
-                        </div>
-                        
                         </div>
                             <DisplayNewsFeed
                                 query={searchText}
