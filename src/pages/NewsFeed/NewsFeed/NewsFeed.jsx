@@ -25,9 +25,9 @@ const NewsFeed = () => {
                     <div className="md:col-span-2 px-4">
                         <NewsForm></NewsForm>
                         <div>
-                            {/* <DisplayNewsFeed
+                            <DisplayNewsFeed
                                 query={searchText}
-                            ></DisplayNewsFeed> */}
+                            ></DisplayNewsFeed>
                         </div>
                     </div>
                     {/* right section */}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useMyFriends from '../../../Hooks/useMyFriends';
+import MyFriends from '../MyFriends/MyFriends';
 
 
 const FriendsAndSearch = () => {
@@ -113,7 +114,13 @@ const FriendsAndSearch = () => {
             <br />
 
             {/* Display received friend requests */}
-            <h2>Friend Requests</h2>
+            <div className='flex justify-between'>
+
+                <h2>Friend Requests</h2>
+                <p>see more</p>
+
+            </div>
+            
             {isLoading ? (
                 <p>Loading...</p>
             ) : receivedRequests?.length > 0 ? (
@@ -132,7 +139,7 @@ const FriendsAndSearch = () => {
 
             <br />
 
-            <div>
+            {/* <div>
                 <h2>My Friends</h2>
                 {isLoading ? (
                     <p>Loading...</p>
@@ -145,7 +152,9 @@ const FriendsAndSearch = () => {
                 ) : (
                     <p>No friends found.</p>
                 )}
-            </div>
+            </div> */}
+
+            {/* <MyFriends></MyFriends> */}
 
         </div>
     );
