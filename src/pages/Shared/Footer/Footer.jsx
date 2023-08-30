@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import { BsArrowUpSquare } from 'react-icons/bs';
+import ScrollToTopButton from "./ScrollToTopButton";
 
 const Footer = () => {
 
@@ -20,9 +21,7 @@ const Footer = () => {
                     <Link>Privacy Policy</Link>
                     <Link>Cookie Policy</Link>
                     <Link to="/about-us">About Us</Link>
-                    <a href="#move-to-top">
-                        <BsArrowUpSquare className="text-2xl font-bold hover:text-[#84a98c] duration-700" />
-                    </a>
+                    <ScrollToTopButton></ScrollToTopButton>
                 </div>
 
                 {/* <div className="font-[Poppins] flex flex-col lg:mr-4 md:ml-0 ml-4">
