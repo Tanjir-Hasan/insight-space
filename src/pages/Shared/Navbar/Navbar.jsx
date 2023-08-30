@@ -73,13 +73,13 @@ const Navbar = () => {
                         {isOpen && (
                             <div className='flex justify-between gap-3 md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-5  duration-1000'>
                                 <ActiveLink to="/">Home</ActiveLink>
-                                {isAdmin ? <ActiveLink to="/AdminHome">All Users</ActiveLink> : <ActiveLink to="/news-feed">News Feed</ActiveLink>}
-                                {isAdmin ? <ActiveLink to="/allPosts">All Posts</ActiveLink> : <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/news-feed">News Feed</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
                                 {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
                                 {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
-                                <ActiveLink to="/paid-members">Subscription</ActiveLink>
-                                
-                                <ActiveLink to="/about-us">About</ActiveLink>
+                                {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/about-us">About</ActiveLink>}
+                                {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
                                 {
                                     user ?
                                         <button onClick={handleLogOut}>Logout</button>

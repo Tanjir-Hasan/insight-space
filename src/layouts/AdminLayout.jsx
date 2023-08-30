@@ -1,45 +1,53 @@
 import React, { useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import ActiveLink from '../components/ActiveLink';
+import AdminHome from '../pages/AdminDeshBoard/AdminHome/AdminHome';
+import { FaArrowCircleLeft, FaArrowCircleRight, FaHome } from 'react-icons/fa';
 
 const AdminLayout = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleDrawer = () => {
-        setIsOpen(!isOpen);
-    };
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+    const location = useLocation();
 
     return (
-        <div className="app">
-            <div className="relative">
-                {/* Button to toggle the drawer */}
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-md" onClick={toggleDrawer}>
-                    Toggle Drawer
-                </button>
-                {/* Drawer content */}
-                <div className={`fixed inset-y-0 left-0 z-50 w-64 transform transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                    <div className="absolute top-0 left-0 h-full bg-white shadow-lg">
-                        <div className="p-4">
-                            <h2 className="text-lg font-semibold mb-2">Drawer Content</h2>
-                            <p>This is the content of the drawer.</p>
-                        </div>
-                        <button
-                            className="block w-full text-center py-2 bg-gray-200 hover:bg-gray-300"
-                            onClick={toggleDrawer}
-                        >
-                            Close Drawer
-                        </button>
-                    </div>
-                    {isOpen && (
-                        <div>
-                        </div>
-                    )}
+        <div className="flex">
+            {/* Navigation Bar */}
+            <div className={`${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out fixed top-0 left-0 w-80 bg-[#F0EFEB] px-6 py-4  min-h-screen`}>
+                {/* Navigation Content */}
+                <nav>
+                    <ul className="space-y-4 border-b-4 border-[#84a98c] py-10">
+                        <li><ActiveLink to="/admin-dashboard/adminHome">Admin Home</ActiveLink></li>
+                        <li><ActiveLink to="/admin-dashboard/all-users">All Users</ActiveLink></li>
+                        <li><ActiveLink to="/admin-dashboard/all-posts">All Posts</ActiveLink></li>
+                        <li><ActiveLink to="/add-quiz">Add Quiz</ActiveLink></li>
+                    </ul>
+                    <ul className='space-y-4 py-10'>
+                        <li><ActiveLink to="/">Home</ActiveLink></li>
+                        <li><ActiveLink to="/news-feed">News Feed</ActiveLink></li>
+                        <li><ActiveLink to="/blog-feed">Blog</ActiveLink></li>
+                        <li><ActiveLink to="/paid-members">Subscription</ActiveLink></li>
+                        <li><ActiveLink to="/about-us">About</ActiveLink></li>
+                    </ul>
+                </nav>
+                <div>
+                    <button className="w-full border-b-4 border-[#84a98c] text-black font-bold rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out flex items-center justify-center" onClick={() => setIsDrawerOpen(!isDrawerOpen)}><FaArrowCircleLeft className='me-2 text-lg'></FaArrowCircleLeft> Close Drawer</button>
+                </div>
+            </div>
+            {/* Content Outlet */}
+            <div
+                className={`${isDrawerOpen ? 'ml-80 pl-8' : 'ml-0'
+                    } transition-all duration-300 ease-in-out flex-grow p-4`}
+            >
+                <Outlet></Outlet>
+                <div hidden={location.pathname !== "/admin-dashboard"}>
+                    <AdminHome></AdminHome>
                 </div>
             </div>
 
-            <div className="main-content ps-64">
-                {/* Your main content goes here */}
-                <h1>Main Content</h1>
-                <p>This is the main content of your layout.</p>
-            </div>
+            {/* Button to open/close drawer */}
+            {!isDrawerOpen && <button onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+                className="fixed top-6 left-2  flex items-center border-b-4 border-[#84a98c] text-black font-bold rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">
+                Open Drawer <FaArrowCircleRight className='ms-2 text-lg'></FaArrowCircleRight>
+            </button>}
         </div>
     );
 };
