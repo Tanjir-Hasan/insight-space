@@ -1,5 +1,6 @@
 import React from 'react';
 import { SlClose } from 'react-icons/sl';
+import Payment from '../Payment/Payment';
 
 const PayModal = ({ isOpen, onClose, children }) => {
     return (
@@ -55,7 +56,7 @@ const PayModal = ({ isOpen, onClose, children }) => {
                                 <input type="radio" name="" value="" id="" />
                                 <p>Check Out with a Credit Card Here</p>
                             </form>
-                            <div className='flex items-center gap-5 mt-2 px-5'>
+                            <div className='flex flex-wrap items-center gap-5 mt-2 px-5'>
                                 <img className='w-20 h-12 rounded-xl' src="https://i.ibb.co/028QMk6/visa-payment-card1873.jpg" alt="" />
                                 <img className='w-20 h-12 rounded-xl' src="https://i.ibb.co/x3nB9YH/Mastercard-Download-PNG.png" alt="" />
                                 <img className='w-20 h-12 rounded-xl' src="https://i.ibb.co/6BjcDVR/Pay-Pal-Card.jpg" alt="" />
@@ -66,6 +67,8 @@ const PayModal = ({ isOpen, onClose, children }) => {
 
                         <div>
                             <h2 className=' border-y-2 text-2xl font-bold bg-slate-100 p-1 mt-8 mb-2'>Payment Information</h2>
+
+                            <Payment></Payment>
 
                         </div>
 

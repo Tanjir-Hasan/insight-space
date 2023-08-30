@@ -67,7 +67,7 @@ const Membership = () => {
                     }}
                     transition={{ duration: 0.9 }}
                     className="relative  justify-end gap-10 items-center mb-5 md:w-[100%] rounded-lg" >
-                        <div class=" z-10 absolute -top-5 ">
+                        <div className=" z-10 absolute -top-5 ">
                         <img className="w-15 h-10" src={free}></img>
                         </div>
             
@@ -91,7 +91,7 @@ const Membership = () => {
                     }}
                     transition={{ duration: 0.9 }}
                     className="relative left-20 justify-end gap-10 items-center mb-5 md:w-[100%]  rounded-lg" >
-                        <div class=" z-10 absolute -top-5 ">
+                        <div className=" z-10 absolute -top-5 ">
                         <img className="w-15 h-10" src={info}></img>
                         </div>
             
@@ -115,7 +115,7 @@ const Membership = () => {
                     }}
                     transition={{ duration: 0.9 }}
                     className="relative  justify-end -left-5 gap-10 items-center ml-48 md:w-[100%] h-[80%] rounded-lg" >
-                        <div class=" z-10 absolute -top-5">
+                        <div className=" z-10 absolute -top-5">
                         <img className="w-15 h-10" src={vip}></img>
                         </div>
             
