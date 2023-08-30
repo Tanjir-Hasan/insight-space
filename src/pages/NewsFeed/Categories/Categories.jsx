@@ -27,11 +27,11 @@ const Categories = () => {
     }, [checkedCategories, posts, dispatch])
 
     return (
-        <div className="fixed left-0 px-5">
+        <div className="lg:w-3/12 lg:fixed mb-5 left-0 px-5">
             <Search></Search>           
                 <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
            
-            <div>
+            <div className="flex flex-wrap lg:block">
                 {
                     Categories && Categories.map(c =>
                         <div key={c._id} className="px-4 hover:scale-105 duration-700 mb-2 font-[Cinzel]">

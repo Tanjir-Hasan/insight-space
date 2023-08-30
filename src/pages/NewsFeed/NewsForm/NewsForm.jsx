@@ -89,7 +89,7 @@ const NewsForm = () => {
     }
 
     return (
-        <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-4 mt-5 border border-[#84a98c] rounded-lg`}>
+        <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' : 'bg-[#5f8768]'} py-4 mt-5 border border-[#84a98c] rounded-lg`}>
 
             {/* main form  */}
 

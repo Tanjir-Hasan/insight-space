@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 import usePopularPost from '../../../Hooks/usePopularPost';
@@ -7,7 +7,8 @@ const TopPosts = () => {
     const controls = useAnimation();
     const [refs, inView] = useInView();
     const [popularPost] = usePopularPost();
-    console.log(popularPost)
+    const [activeId, setActiveId] = useState(null);
+    // console.log(popularPost)
 
 
     useEffect(() => {
@@ -18,12 +19,15 @@ const TopPosts = () => {
         }
     }, [controls, inView]);
 
-
+    const handleTopPost = (_id)=>{
+        setActiveId(activeId === _id ? null : _id);
+    }
+   
     return (
         <div className="">
 
             {/* top videos section start */}
-            <div className="w-3/12 mt-20 mb-20 p-3 border-2  min-h-screen fixed top-0 right-0">
+            <div className="lg:w-3/12 md:w-5/12 mb-5 md:mt-20 md:mb-20 p-3 border-2  block md:fixed top-0 right-0">
                 <motion.div
                     ref={refs}
                     initial="hidden"
@@ -38,16 +42,17 @@ const TopPosts = () => {
 
                         {
                             popularPost && popularPost.map(top => <div key={top._id}>
-                                <div className='flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 hover:bg-[#84a98c]  duration-700'>
+
+                                <div onClick={()=> handleTopPost(top._id)} className={`flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 hover:bg-[#84a98c]  duration-700 ${activeId === top._id ? "bg-[#84a98c]" : ""}`}>
                                     <div className='w-[20%]'>
                                         <img className='h-full w-full' src={top?.imgURL} alt="" />
                                     </div>
 
                                     <div className='w-[80%] p-1'>
-                                        <h2 className='font-[Cinzel]'>{top.text.substring(0, 50)}... {"  "}
+                                        <h2 className=''>{top.text.substring(0, 50)}... {"  "}
                                             <span className='text-[#023e8a] hover:font-semibold cursor-pointer'>Read more</span>
                                         </h2>
-                                        <h2 className='font-[Cinzel]'>Posted by: {top.userName}</h2>
+                                        <h2 className=' font-semibold'>Posted by: {top.userName}</h2>
                                     </div>
 
                                 </div>
