@@ -21,7 +21,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
     return (
         <div
-            className={`fixed inset-0 z-50 bg-white flex items-center justify-center ${isOpen ? 'visible' : 'hidden'
+            className={`fixed inset-0 z-50 mt-20 bg-white flex items-center justify-center ${isOpen ? 'visible' : 'hidden'
                 }`}
         >
             <div className="fixed inset-0 bg-black opacity-50"></div>
@@ -37,7 +37,7 @@ const Modal = ({ isOpen, onClose, children }) => {
                 <h2 className='font-bold'>Group Conversition</h2>
                 <div
                     ref={contentRef}
-                    className="max-h-[70vh] overflow-y-auto mt-6 border-t-4 pb-5 "
+                    className="max-h-[70vh] overflow-y-auto mt-6 border-t-4 border-[#0e6ba8] pb-5 "
                     style={{ maxHeight: '[70vh]' }}>
                     {children}
                     <Chat></Chat>

@@ -4,7 +4,7 @@ import { SlClose } from 'react-icons/sl';
 const PayModal = ({ isOpen, onClose, children }) => {
     return (
         <div
-            className={`fixed w-10/12 mx-auto  inset-0 z-50 flex items-center justify-center ${isOpen ? 'visible' : 'hidden'
+            className={`fixed w-10/12 mx-auto text-black inset-0 z-50 flex items-center justify-center ${isOpen ? 'visible' : 'hidden'
                 }`}>
             <div className="fixed inset-0  bg-black opacity-50"></div>
             <div className="relative bg-white p-10 border-2 border-cyan-500 rounded-lg  ">

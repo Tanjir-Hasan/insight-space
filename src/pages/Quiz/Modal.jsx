@@ -31,9 +31,9 @@ const Modal = ({ quiz, isOpen, onClose }) => {
     return (
 
         <div>
-            <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="fixed inset-0 flex text-black   items-center justify-center z-50">
                 <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="bg-white rounded-lg p-6 z-10 md:w-[70%] w-[90%] max-h-[80vh] overflow-y-auto relative">
+                <div className=" bg-white rounded-lg p-6 z-10 md:w-[70%] w-[90%] max-h-[80vh] overflow-y-auto relative">
                     <button
                         onClick={onClose}
                         className="absolute top-2 right-2 p-2 bg-gray-300 rounded-full hover:bg-gray-400 focus:outline-none">
