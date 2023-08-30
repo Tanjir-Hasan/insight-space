@@ -32,7 +32,7 @@ const AboutUs = () => {
             <div className={`${theme === 'dark' ? 'dark' : ''}`}>
 
                 <div className="Insight-space justify-center items-center">
-                    
+
                     <div className='bg-fixed bg-[url("https://images.pexels.com/photos/724994/pexels-photo-724994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")] bg-no-repeat bg-cover'>
                         <div className="lg:flex justify-between rounded-lg">
 
@@ -40,12 +40,14 @@ const AboutUs = () => {
 
                                 <div className="space-y-5 md:px-0 px-6 ml-10">
 
-                                    <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">About Us</h1>
+                                  <div className={`${theme === 'dark' ? ' bg-slate-400 p-5 rounded-lg' : ''}`}>
+                                  <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">About Us</h1>
                                     <ul className="font-[Cinzel]">
                                         <li className="list-[upper-roman] list-inside mb-2">Open Exchange of Ideas: Insight Space facilitate the open sharing of information.</li>
                                         <li className="list-[upper-roman] list-inside mb-2">Continuous Learning: We provide accessible resources for ongoing learning.</li>
                                         <li className="list-[upper-roman] list-inside mb-2">Community Engagement: Insight Space platforms foster communities <br></br> where users can connect, discuss, and network with peers.</li>
                                     </ul>
+                                  </div>
 
                                     <div className="md:w-8/12 md:mx-0 w-11/12 mx-auto">
                                         <Link to="/feedback">
@@ -133,7 +135,7 @@ const AboutUs = () => {
                                             <div>
                                                 <img className="w-40 h-16 ml-5" src={tick}></img>
                                             </div>
-                                            <div>
+                                            <div >
                                                 <p className=" font-[Cinzel] text-justify">Group Study and Q&A Interaction:It allows users to form study groups and collaborative learning environments. Additionally, the question and answer functionality enables users to ask queries, seek advice, and engage in discussions.</p>
                                             </div>
                                         </div>
@@ -175,12 +177,12 @@ const AboutUs = () => {
                     </div>
                 </div>
 
+
+                <FAQQuestion></FAQQuestion>
+
+                {/* <OurTeam></OurTeam> */}
+                <OurTeam></OurTeam>
             </div>
-
-            <FAQQuestion></FAQQuestion>
-
-            {/* <OurTeam></OurTeam> */}
-            <OurTeam></OurTeam>
         </div>
 
     );
