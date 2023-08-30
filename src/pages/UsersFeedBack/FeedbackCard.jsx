@@ -21,7 +21,7 @@ const FeedbackCard = ({ feedbacks, handleDelete, handleUpdate }) => {
                             <th className='m-4'>Rating</th>
                             <th className='m-4'>Date & Time</th>
                             <th className='m-4'>Remove</th>
-                            <th className='m-4'>History</th>
+                            {/* <th className='m-4'>History</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -37,8 +37,8 @@ const FeedbackCard = ({ feedbacks, handleDelete, handleUpdate }) => {
                                 <td><p className='font-[Cinzel] m-4'>{f.rating}</p></td>
                                 <td><p className='font-[Cinzel] m-4'>{moment(f.date).format('LLL')}</p></td>
                                 <td><div className="justify-center items-center ml-3"><button onClick={() => handleDelete(f._id)} className="text-center font-semibold text-white mt-2"><img className="w-8 h-8" src={Bin}></img></button></div></td>
-                                <td>
-                                    <div className="justify-center items-center ml-5 w-40 h-25 rounded-xl text-white text-center bg-neutral-700"> {status === 'confirm' ? <span className='font-bold'>Recorded</span> : <button onClick={() => handleUpdate(f._id)} >Put on record</button>}</div></td>
+                                {/* <td>
+                                    <div className="justify-center items-center ml-5 w-40 h-25 rounded-xl text-white text-center bg-neutral-700"> {status === 'confirm' ? <span className='font-bold'>Recorded</span> : <button onClick={() => handleUpdate(f._id)} >Put on record</button>}</div></td> */}
                             </tr>)
                         }
                     </tbody>
