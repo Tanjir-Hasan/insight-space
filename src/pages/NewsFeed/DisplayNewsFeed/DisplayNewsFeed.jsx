@@ -47,8 +47,7 @@ const DisplayNewsFeed = ({ query }) => {
         <div>
             {
                 allPosts && allPosts.filter(post => post.text.toLowerCase().includes(query.toLowerCase())).map(p => <div key={p._id}
-                    className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
-                >
+                    className={`mb-3 ${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} rounded-lg border border-[#84a98c]`}>
                     <div className="p-4">
                         <div className="flex justify-between">
                             <div className="flex space-x-2 mb-4">

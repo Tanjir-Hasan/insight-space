@@ -30,7 +30,7 @@ const Chat = () => {
   return (
     <div className={`${theme === 'dark' ? 'dark' : ''} py-8`}>
 
-      <div className="mt-10 w-10/12 md:w-8/12 lg:w-8/12 mx-auto">
+      <div className="mt-10  mx-auto">
 
         <div className='grid'>
 

@@ -6,10 +6,11 @@ import ExploreContent from "../ExploreContent/ExploreContent";
 import PeerToPeer from "../PeerToPeer/PeerToPeer";
 import PopularPost from "../PopularPost/PopularPost";
 import ContactForm from "../Support/ContactForm";
-import FeaturedPosts from "../FeaturedPosts/FeaturedPosts";
+
 import Testimonial from "../Testimonial/Testimonial";
 import { Link } from "react-router-dom";
 import GoogleTranslator from "../../../components/GoogleTranslator";
+import Membership from "../Membership/Membership";
 
 
 
@@ -20,10 +21,11 @@ const Home = () => {
             <Banner></Banner>
             <PopularPost></PopularPost>
             <ExploreContent></ExploreContent>
-            <FeaturedPosts></FeaturedPosts>
+
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>
+            <Membership></Membership>
             <CommunityGuidelines></CommunityGuidelines>
             <Testimonial></Testimonial>
             <ContactForm></ContactForm>

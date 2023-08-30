@@ -46,30 +46,17 @@ const MyFriends = () => {
     }, [controls, inView]);
 
     return (
-        <div className='flex'>
+        <div className={`${theme === 'dark' ? 'bg-[#1d2d44] text-white' : 'bg-[#f0efeb]'} rounded-lg py-5`}>
 
-            <div className='w-1/3 bg-rose-200'>
-                <div>
-                    <h1>Pending Request</h1>
-                </div>
-                <div>
-                    <h1>My Friends</h1>
-                </div>
-            </div>
+            <div className='w-10/12 mx-auto'>
 
-
-
-            <div className='w-2/3 bg-cyan-200'>
-
-                <div>
-                    <h1>All friend request</h1>
-                </div>
+                <h1 className='font-[Poppins] text-2xl text-center'>All friends</h1>
 
                 <Carousel
                     responsive={responsive}
                     swipeable
                     draggable
-                    arrows={false}
+                    arrows={true}
                     showDots={true}
                     infinite={true}
                     autoPlay={true}
@@ -79,19 +66,23 @@ const MyFriends = () => {
                     dotListClass="custom-dot-list-style"
                 >
                     {
-                        friends?.map((friend) => (
-                            <div key={friend?._id} className="bg-white text-black sm:rounded-lg p-6 h-48 my-10 shadow-xl m-3 overflow-hidden">
-                                <div className="flex flex-col items-center justify-center space-y-3 mb-4">
+                        friends?.length > 0 ? (
+                            friends?.map((friend) => (
+                                <div key={friend?._id} className={`sm:rounded-lg p-6 h-48 my-10 shadow-xl m-3 overflow-hidden ${theme === 'dark' ? 'bg-[#001427] text-white' : 'bg-white'}`}>
+                                    <div className="flex flex-col items-center justify-center space-y-3 mb-4">
 
-                                    <img className="w-20 rounded-full" src={friend?.photoURL} alt={friend?.displayName} />
+                                        <img className="w-20 rounded-full" src={friend?.photoURL} alt={friend?.displayName} />
 
-                                    <h3 className="capitalize text-lg font-medium text-gray-900 font-[Cinzel]">{friend?.displayName}</h3>
+                                        <h3 className="capitalize text-lg font-medium font-[Cinzel]">{friend?.displayName}</h3>
 
-                                    <h3 className="capitalize text-lg font-medium text-gray-900 font-[Cinzel]">{friend?.email}</h3>
+                                        <h3 className="capitalize text-lg font-medium font-[Cinzel]">{friend?.email}</h3>
 
+                                    </div>
                                 </div>
-                            </div>
-                        ))
+                            ))
+                        )
+                            :
+                            <p className='font-[Cinzel] text-center'>No friends found.</p>
                     }
                 </Carousel>
 

@@ -122,7 +122,7 @@ const Login = () => {
                 </div>
 
                 <div className="w-full md:w-1/2 mt-5 md:mt-0">
-                    <img src="./login.jpg" alt="" />
+                    <img src="https://i.ibb.co/64r4kyH/login-removebg-preview.png" alt="" />
                 </div>
             </div>
         </div>

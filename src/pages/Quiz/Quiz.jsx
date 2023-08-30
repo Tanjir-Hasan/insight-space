@@ -1,24 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { useContext } from 'react';
 import { ThemeContext } from '../../providers/ThemeProvider';
 
 
 const Quiz = () => {
-
   const { theme } = useContext(ThemeContext);
-
-  const [categoryHovered, setCategoryHovered] = useState(false);
-
-
-
   const [quizes, setQuizes] = useState([])
   const [quiz, setQuiz] = useState(quizes)
   const [userAnswers, setUserAnswers] = useState(Array(quiz.length).fill(''));
   const [showResult, setShowResult] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -159,7 +153,7 @@ const Quiz = () => {
 
                   </div>
 
-                  <p className='bg-slate-200 p-2 rounded-md text-xl font-semibold font-[Cinzel]'>Your score: <span className='text-[#0e6ba8] text-xl'>{calculateScore()}</span> out of <span className=' text-[#d90427f6]'>{quiz.length}</span> points</p>
+                  <p className='bg-gray-500  text-white p-2 rounded-md text-2xl font-semibold font-[Cinzel]'>Your score: <span className='text-cyan-300 text-3xl'>{calculateScore()}</span> out of <span className=' text-[#d90427f6] text-3xl'>{quiz.length}</span> points</p>
 
                 </div>
 
