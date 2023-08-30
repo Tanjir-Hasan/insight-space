@@ -19,15 +19,16 @@ const TopPosts = () => {
         }
     }, [controls, inView]);
 
-    const handleTopPost = (_id)=>{
+    const handleTopPost = (_id) => {
         setActiveId(activeId === _id ? null : _id);
     }
-   
+
     return (
         <div className="">
 
             {/* top videos section start */}
-            <div className="lg:w-3/12 md:w-5/12 mb-5 md:mt-20 md:mb-20 p-3 border-2  block md:fixed top-0 right-0">
+            <div className="lg:w-3/12 md:w-5/12 mb-5 md:mt-20 md:mb-20 p-3 block md:fixed top-3 right-0">
+                <h2 className="text-center text-3xl uppercase mb-5 font-bold  font-[Poppins] border-b-2 border-[#84a98c] md:py-0 py-8">Top Post</h2>
                 <motion.div
                     ref={refs}
                     initial="hidden"
@@ -37,22 +38,27 @@ const TopPosts = () => {
                         hidden: { opacity: 0, x: 100 },
                     }}
                     transition={{ duration: 0.9 }} className=" mx-auto overflow-y-auto" style={{ maxHeight: 'calc(65vh - 100px)' }}>
-                    <h2 className="  text-center text-3xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#84a98c] md:py-0 py-8">Top Post</h2>
+
                     <div className=''>
 
                         {
                             popularPost && popularPost.map(top => <div key={top._id}>
 
-                                <div onClick={()=> handleTopPost(top._id)} className={`flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 hover:bg-[#84a98c]  duration-700 ${activeId === top._id ? "bg-[#84a98c]" : ""}`}>
-                                    <div className='w-[20%]'>
-                                        <img className='h-full w-full' src={top?.imgURL} alt="" />
-                                    </div>
+                                <div onClick={() => handleTopPost(top._id)} className={`flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 p-2 hover:bg-[#84a98c] duration-700 ${activeId === top._id ? "bg-[#84a98c]" : ""}`}>
+
+                                    {
+                                        top?.imgURL &&
+                                        <div className='w-[20%]'>
+                                            <img className='h-full w-full' src={top?.imgURL} alt="" />
+                                        </div>
+                                    }
+
 
                                     <div className='w-[80%] p-1'>
                                         <h2 className=''>{top.text.substring(0, 50)}... {"  "}
                                             <span className='text-[#023e8a] hover:font-semibold cursor-pointer'>Read more</span>
                                         </h2>
-                                        <h2 className=' font-semibold'>Posted by: {top.userName}</h2>
+                                        <h2 className=' font-semibold'>Author: {top.userName}</h2>
                                     </div>
 
                                 </div>
@@ -98,13 +104,6 @@ const TopPosts = () => {
                         } */}
                 </motion.div>
             </div>
-
-
-
-
-
-
-
 
         </div>
     );

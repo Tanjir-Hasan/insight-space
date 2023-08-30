@@ -21,7 +21,6 @@ import Videos from "../pages/Videos/Videos";
 import Chat from "../pages/Message/Chat";
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
 import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
-import SearchUser from "../pages/Shared/SearchUser/SearchUser";
 import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
 import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
@@ -97,12 +96,12 @@ const router = createBrowserRouter([
                 path: "about-us",
                 element: <AboutUs></AboutUs>
             },
-            {
+            {   
                 path: "paid-members",
                 element: <PaidMembers></PaidMembers>
             },
             {
-                path: "friends",
+                path: "connections",
                 element: <FriendsAndSearch></FriendsAndSearch>
             },
         ]

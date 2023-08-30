@@ -1,15 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useMyFriends from '../../../Hooks/useMyFriends';
+import MyFriends from '../MyFriends/MyFriends';
+import { ThemeContext } from '../../../providers/ThemeProvider';
+import { PiCardholderLight } from 'react-icons/pi';
+import { FaHandHolding } from 'react-icons/fa';
+import { FaUserFriends } from 'react-icons/fa';
 
 
 const FriendsAndSearch = () => {
+
+    const { theme } = useContext(ThemeContext);
+
     const [searchValue, setSearchValue] = useState('');
+
     const [userDetails, setUserDetails] = useState(null);
+
     const [receivedRequests, setReceivedRequests] = useState([]);
+
     const [isLoading, setIsLoading] = useState(false);
+
     const [friends] = useMyFriends();
+
     console.log(friends);
+
     const [axiosSecure] = useAxiosSecure();
 
     // User search function (similar to SearchUser component)
@@ -77,68 +93,217 @@ const FriendsAndSearch = () => {
     }, [axiosSecure]);
 
 
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1
+        }
+    };
+
+
     return (
-        <div className='min-h-screen p-10'>
-            {/* User search input and search button */}
-            <input
-                type="text"
-                className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-blue-500"
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                placeholder="Enter email"
-            />
-            <button className='text-center text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41]duration-700 py-2 rounded-lg w-32 mx-2' onClick={handleSearch}>Search</button>
+        <div className={`${theme === 'dark' ? 'bg-[#001427] text-white' : ''} min-h-screen p-10`}>
 
-            {/* Display user details (if found) */}
-            {userDetails ? (
-                <div>
-                    <h2>User Details</h2>
-                    <p>Name: {userDetails.name}</p>
-                    <p>Email: {userDetails.email}</p>
-                    <button onClick={sendFriendRequest}>Send Friend Request</button>
-                    {/* Display other user details */}
+            <div className='lg:w-11/12 mx-auto space-y-6'>
+
+                <div className='flex flex-col justify-center space-y-3'>
+
+                    {/* User search input and search button */}
+                    <input
+                        type="text"
+                        className="text-black border border-black p-2 rounded-md lg:w-5/12 w-10/12 mx-auto focus:outline-none focus:border-[#0096c7]"
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        placeholder="Enter email"
+                    />
+
+                    <div className='flex justify-center'>
+
+                        <button
+                            className='text-xl text-black hover:text-white font-[Poppins] lg:w-2/12 w-1/2 mx-auto bg-[#ade8f4] hover:bg-[#0096c7] px-8 py-2 rounded-lg hover:rounded-2xl duration-700'
+                            onClick={handleSearch}>Search</button>
+                    </div>
+
+
+                    {/* Display user details (if found) */}
+
+                    {userDetails ? (
+                        <div>
+
+                            <div className={`rounded-lg p-5 w-1/2 mx-auto ${theme === 'dark' ? 'bg-[#1d2d44] text-white' : 'bg-[#f0efeb]'}`}>
+
+                                <div className='flex justify-between items-center'>
+
+                                    <div className='inline-flex gap-3 items-center'>
+
+                                        <img src={userDetails.photoURL} alt={userDetails.displayName} className='rounded-full h-20 w-20' />
+
+                                        <p className='font-[Cinzel]'>Name: {userDetails.displayName}</p>
+
+                                    </div>
+
+
+                                    <button className='border text-[#0096c7] hover:text-white border-[#0096c7] hover:border font-[Poppins] hover:bg-[#0096c7] px-8 py-2 rounded-lg hover:rounded-2xl duration-700'
+                                        onClick={sendFriendRequest}>Send Friend Request</button>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    ) : (
+                        <p className='font-[Cinzel] text-center'></p>
+                    )}
+
                 </div>
-            ) : (
-                <p>No user details found.</p>
-            )}
 
-            <br />
+                <div className='lg:flex gap-10'>
 
-            {/* Display received friend requests */}
-            <h2>Friend Requests</h2>
-            {isLoading ? (
-                <p>Loading...</p>
-            ) : receivedRequests?.length > 0 ? (
-                <ul>
-                    {receivedRequests.map(request => (
-                        <li className='space-x-5' key={request._id}>
-                            {request.sender}
-                            <button className='bg-green-700 p-2' onClick={() => handleAcceptRequest(request._id)}>Accept</button>
-                            <button className='bg-rose-700 p-2' onClick={() => handleDenyRequest(request._id)}>Deny</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No friend requests received.</p>
-            )}
+                    <div className={`lg:w-1/3 flex flex-col rounded-lg p-5 lg:mb-0 mb-3 ${theme === 'dark' ? 'bg-[#1d2d44] text-white' : 'bg-[#f0efeb]'}`}>
 
-            <br />
+                        <h1 className='font-[Poppins] text-2xl mb-5'>Manage my network</h1>
 
-            <div>
+                        <div className='inline-flex gap-3'>
+                            <p className='font-[Cinzel] text-lg'>Pending Request</p>
+                            <FaHandHolding className='text-xl' />
+                        </div>
+
+                        <div className='inline-flex items-center gap-3'>
+                            <p className='font-[Cinzel] text-lg'>My Friends</p>
+                            <FaUserFriends className='text-xl' />
+                        </div>
+
+                    </div>
+
+                    <div className={`lg:w-2/3 flex flex-col rounded-lg p-5 ${theme === 'dark' ? 'bg-[#1d2d44] text-white' : 'bg-[#f0efeb]'}`}>
+
+                        {/* Display received friend requests */}
+                        <div className='flex justify-between mb-5'>
+
+                            <h2 className='text-xl font-[Cinzel]'>Friend Requests</h2>
+                            <p className='text-xl font-[Cinzel] cursor-pointer hover:text-[#0096c7] duration-700'>See All</p>
+
+                        </div>
+
+                        {isLoading ? (
+                            <p>Loading...</p>
+                        ) : receivedRequests?.length > 0 ? (
+                            <ul>
+                                {receivedRequests?.map(request => (
+                                    <li className='space-x-5 lg:flex justify-between gap-5 items-center' key={request._id}>
+
+                                        <p className='text-lg font-serif'>{request.sender}</p>
+
+                                        <div className='flex gap-2 lg:my-0 my-2'>
+
+                                            <button
+                                                className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700'
+                                                onClick={() => handleAcceptRequest(request._id)}>Accept</button>
+
+                                            <button className='border text-[#0096c7] hover:text-white border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700'
+                                                onClick={() => handleDenyRequest(request._id)}>Ignore</button>
+
+                                        </div>
+
+                                        {/* <button className='bg-green-700 p-2' onClick={() => handleAcceptRequest(request._id)}>Accept</button>
+                            <button className='bg-rose-700 p-2' onClick={() => handleDenyRequest(request._id)}>Deny</button> */}
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p className='font-[Cinzel]'>Locking for someone! Start making friends.</p>
+                        )}
+
+                    </div>
+
+                </div>
+
+                {/* <div>
                 <h2>My Friends</h2>
                 {isLoading ? (
                     <p>Loading...</p>
                 ) : friends?.length > 0 ? (
                     <ul>
-                        {friends.map((friend) => (
-                            <li key={friend._id}>
-                                {friend.name} - {friend.email}
-                            </li>
+                        {friends.map((friend, index) => (
+                            <li key={index}>{friend.email}</li>
                         ))}
                     </ul>
                 ) : (
                     <p>No friends found.</p>
                 )}
+            </div> */}
+
+                {/* <div className='flex'>
+
+                <div className='w-1/3 bg-rose-200'>
+                    <div>
+                        <h1>Pending Request</h1>
+                    </div>
+                    <div>
+                        <h1>My Friends</h1>
+                    </div>
+                </div>
+
+
+
+                <div className='w-2/3 bg-cyan-200'>
+
+                    <div>
+                        <h1>All friend request</h1>
+                    </div>
+
+                    <Carousel
+                        responsive={responsive}
+                        swipeable
+                        draggable
+                        arrows={false}
+                        showDots={true}
+                        infinite={true}
+                        autoPlay={true}
+                        autoPlaySpeed={3000}
+                        keyBoardControl
+                        containerClass="carousel-container"
+                        dotListClass="custom-dot-list-style"
+                    >
+                        {
+                            friends?.length > 0 ? (
+                                friends?.map((friend) => (
+                                    <div key={friend?._id} className="bg-white text-black sm:rounded-lg p-6 h-48 my-10 shadow-xl m-3 overflow-hidden">
+                                        <div className="flex flex-col items-center justify-center space-y-3 mb-4">
+
+                                            <img className="w-20 rounded-full" src={friend?.photoURL} alt={friend?.displayName} />
+
+                                            <h3 className="capitalize text-lg font-medium text-gray-900 font-[Cinzel]">{friend?.displayName}</h3>
+
+                                            <h3 className="capitalize text-lg font-medium text-gray-900 font-[Cinzel]">{friend?.email}</h3>
+
+                                        </div>
+                                    </div>
+                                ))
+                            )
+                                :
+                                <p>No friends found.</p>
+                        }
+                    </Carousel>
+
+                </div>
+
+            </div> */}
+
+                <MyFriends></MyFriends>
+
             </div>
 
         </div>

@@ -6,7 +6,7 @@ const AdminHome = () => {
     const { photoURL, _id, displayName, email, date } = userDetails;
 
     return (
-        <div className="border border-spacing-14 rounded-xl shadow-xl border-yellow-600 shadow-red-50 my-20 py-8">
+        <div className="border-2 border-spacing-14 rounded-xl shadow-xl border-[#84a98c] shadow-red-50 my-20 py-8 px-8">
             <div className="lg:flex justify-start">
                 <div className="space-y-3 p-4 lg:w-1/2">
                     <div>
@@ -19,7 +19,7 @@ const AdminHome = () => {
                     </div>
                 </div>
                 <div className="lg:w-1/2 p-4">
-                    <p className="text-center text-4xl font-semibold border-b-4 pb-2 border-yellow-500">Your Details</p>
+                    <p className="text-center text-4xl font-semibold border-b-4 pb-2 border-[#84a98c]">Your Details</p>
                     <div className="md:text-2xl text-base mt-5">
                         <h4 className="grid">
                             <span className="text-xl" >User ID:</span>

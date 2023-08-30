@@ -53,7 +53,7 @@ const ChoiceUs = () => {
 
                     {/* right side card for large device*/}
 
-                    <div className="relative w-10/12 md:mr-20 hidden sm:block py-24">
+                    <div className="relative w-10/12 md:mr-20 hidden md:block py-24">
 
                         {/* <!-- banner top card --> */}
 

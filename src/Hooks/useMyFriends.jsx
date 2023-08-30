@@ -13,6 +13,6 @@ const useMyFriends = () => {
                 return data.data;
             })
     })
-  return [friends , refetch]
+    return [friends, refetch]
 };
 export default useMyFriends;

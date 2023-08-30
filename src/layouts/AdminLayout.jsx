@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import ActiveLink from '../components/ActiveLink';
 import AdminHome from '../pages/AdminDeshBoard/AdminHome/AdminHome';
-import { FaArrowCircleLeft, FaArrowCircleRight, FaHome } from 'react-icons/fa';
+import { FaArrowCircleLeft, FaArrowCircleRight, FaEdit, FaHome, FaThList, FaUsers } from 'react-icons/fa';
 
 const AdminLayout = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
@@ -15,13 +15,13 @@ const AdminLayout = () => {
                 {/* Navigation Content */}
                 <nav>
                     <ul className="space-y-4 border-b-4 border-[#84a98c] py-10">
-                        <li><ActiveLink to="/admin-dashboard/adminHome">Admin Home</ActiveLink></li>
-                        <li><ActiveLink to="/admin-dashboard/all-users">All Users</ActiveLink></li>
-                        <li><ActiveLink to="/admin-dashboard/all-posts">All Posts</ActiveLink></li>
-                        <li><ActiveLink to="/add-quiz">Add Quiz</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/admin-dashboard/adminHome">Admin Home</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/admin-dashboard/all-users">All Users</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/admin-dashboard/all-posts">All Posts</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaEdit></FaEdit><ActiveLink to="/add-quiz">Add Quiz</ActiveLink></li>
                     </ul>
                     <ul className='space-y-4 py-10'>
-                        <li><ActiveLink to="/">Home</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/">Home</ActiveLink></li>
                         <li><ActiveLink to="/news-feed">News Feed</ActiveLink></li>
                         <li><ActiveLink to="/blog-feed">Blog</ActiveLink></li>
                         <li><ActiveLink to="/paid-members">Subscription</ActiveLink></li>
