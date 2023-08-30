@@ -1,28 +1,25 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
-import GoogleTranslator from "../components/GoogleTranslator";
 import Welcome from "../pages/Shared/Welcome/Welcome";
-import React, { useState } from 'react';
-import Modal from './Modal';
-import useAuth from "../Hooks/UseAuth";
+
 
 
 const Main = () => {
-    const{user} = useAuth();
+    // const{user} = useAuth();
     
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const openModal = () => {
-        setIsModalOpen(true);
-        document.body.style.overflow = 'hidden';
+    // const [isModalOpen, setIsModalOpen] = useState(false);
+    // const openModal = () => {
+    //     setIsModalOpen(true);
+    //     document.body.style.overflow = 'hidden';
 
-    };
+    // };
 
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-        document.body.style.overflow = '';
-    }
+    // const closeModal = () => {
+    //     setIsModalOpen(false);
+    //     document.body.style.overflow = '';
+    // }
 
     return (
         <>
@@ -35,13 +32,13 @@ const Main = () => {
                     <Welcome></Welcome>
                 </div>
 
-                {
+                {/* {
                     user? (<div className="fixed bottom-2 right-2 md:bottom-3 md:right-3 ">
                     <img className='animate-pulse hover:animate-none rounded-full w-16 md:h-20 md:w-20' onClick={openModal} src="https://i.ibb.co/b2JRtnf/uctyn-QJ7r-D7i.png" alt="" />
                     <Modal isOpen={isModalOpen} onClose={closeModal}>
                     </Modal>
                 </div>) : ""
-                }
+                } */}
 
                 
 
