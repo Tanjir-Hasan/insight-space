@@ -91,9 +91,9 @@ const Navbar = () => {
                                 {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
 
                                 {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
-                                {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
-                                {!isAdmin && <ActiveLink to="/about-us">About</ActiveLink>}
                                 {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
+                                <ActiveLink to="/about-us">About</ActiveLink>
 
                                 {
                                     user ?

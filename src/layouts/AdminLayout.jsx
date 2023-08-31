@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import ActiveLink from '../components/ActiveLink';
 import AdminHome from '../pages/AdminDeshBoard/AdminHome/AdminHome';
-import { FaArrowCircleLeft, FaArrowCircleRight, FaEdit, FaHome, FaThList, FaUsers } from 'react-icons/fa';
+import { FaAlignLeft, FaArrowCircleLeft, FaArrowCircleRight, FaDollarSign, FaEdit, FaHome, FaThList, FaUsers } from 'react-icons/fa';
 
 const AdminLayout = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
@@ -22,10 +22,10 @@ const AdminLayout = () => {
                     </ul>
                     <ul className='space-y-4 py-10'>
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/">Home</ActiveLink></li>
-                        <li><ActiveLink to="/news-feed">News Feed</ActiveLink></li>
-                        <li><ActiveLink to="/blog-feed">Blog</ActiveLink></li>
-                        <li><ActiveLink to="/paid-members">Subscription</ActiveLink></li>
-                        <li><ActiveLink to="/about-us">About</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaAlignLeft></FaAlignLeft><ActiveLink to="/news-feed">News Feed</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaAlignLeft></FaAlignLeft><ActiveLink to="/blog-feed">Blog</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaDollarSign></FaDollarSign><ActiveLink to="/paid-members">Subscription</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/about-us">About</ActiveLink></li>
                     </ul>
                 </nav>
                 <div>

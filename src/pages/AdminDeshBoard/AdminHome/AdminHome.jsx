@@ -15,7 +15,7 @@ const AdminHome = () => {
                     <div className="py-4 space-y-3">
                         <p className="text-3xl font-semibold">Hi
                             <span className="uppercase font-bold text-4xl text-yellow-600"> {displayName}</span></p>
-                        <h2 className="text-3xl font-semibold">Welcome to Your Dashboard</h2>
+                        <h2 className="text-3xl font-semibold px-4">Welcome to Your Dashboard</h2>
                     </div>
                 </div>
                 <div className="lg:w-1/2 p-4">
