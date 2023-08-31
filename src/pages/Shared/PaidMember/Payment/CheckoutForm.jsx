@@ -89,6 +89,7 @@ console.log(clientSecret)
 
           // save payment information to the server
           const payment = {
+            UserName : user?.displayName,
             email: user?.email,
             transactionId: paymentIntent.id,
             price,

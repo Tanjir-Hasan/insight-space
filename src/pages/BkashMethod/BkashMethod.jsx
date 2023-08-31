@@ -12,15 +12,17 @@ const BkashMethod = () => {
     console.log(user);
 
     const [axiosSecure] = useAxiosSecure();
-    const { register, handleSubmit } = useForm();
+    // const { register, handleSubmit } = useForm();
 
 
 
-    const onSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         const postcode = form.postcode.value;
-        console.log(postcode)
+        const phonenumber = form.phonenumber.value;
+        const address = form.address.value;
+        console.log(postcode, phonenumber, address)
         // const imgInput = form.fileInput;
         
         const bkashmethod = {
@@ -48,7 +50,7 @@ const BkashMethod = () => {
                     <div className="space-y-5 md:px-0 px-6">
 
 
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={handleSubmit}>
                             {/* name */}
                             <label htmlFor="message" className="block font-semibold mb-2">
                                 Name:
@@ -78,18 +80,18 @@ const BkashMethod = () => {
                                 Address:
                             </label>
                             <textarea
-                                required name="address" id=""
+                                 name="address" id=""
                                 className="w-full h-24 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" 
-                                {...register("message")} cols="30" rows="5">
+                                 cols="30" rows="5">
                             </textarea>
                             {/* Phone Number */}
                             <label htmlFor="phonenumber" className="block font-semibold mb-2 mt-4">
                                Phone Number:
                             </label>
                             <input
-                                required name="phonenumber" id=""
+                                name="phonenumber" id=""
                                 className="w-full h-10 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" 
-                                {...register("message")} cols="30" rows="5">
+                                 cols="30" rows="5">
                             </input>
 
                             {/* Post Code */}
@@ -98,9 +100,9 @@ const BkashMethod = () => {
                             </label>
                             
                             <input
-                                required name="postcode" id=""
+                                 name="postcode" id="postcode"
                                 className="w-full h-10 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" 
-                                {...register("message")} cols="30" rows="5">
+                               cols="30" rows="5">
                             </input>
 
                             
