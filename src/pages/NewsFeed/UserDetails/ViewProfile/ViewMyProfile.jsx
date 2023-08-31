@@ -20,6 +20,26 @@ const ViewMyProfile = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [axiosSecure] = useAxiosSecure();
 
+    // update function
+    const updateProfile = (updateData) => {
+        axiosSecure.patch('/update_profile', updateData)
+        .then(data => {
+            setBtnLoading(false);
+            reset();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your Profile Update Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
+        .catch(err => {
+            setErrorMsg(err.message)
+            setBtnLoading(false);
+        })
+    };
+
     const onSubmit = (data) => {
         setErrorMsg("")
         setBtnLoading(true);
@@ -38,23 +58,7 @@ const ViewMyProfile = () => {
                         email: email,
                         lastUpdate: date
                     };
-                    console.log(update_profile_data);
-                    axiosSecure.patch('/update_profile', update_profile_data)
-                        .then(data => {
-                            setBtnLoading(false);
-                            reset();
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'success',
-                                title: 'Your Profile Update Successfully',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                        })
-                        .catch(err => {
-                            setErrorMsg(err.message)
-                            setBtnLoading(false);
-                        })
+                    updateProfile(update_profile_data);
                 })
                 .catch(err => {
                     setErrorMsg(err.message)
@@ -89,23 +93,7 @@ const ViewMyProfile = () => {
                                     email: email,
                                     lastUpdate: date
                                 };
-                                console.log(update_profile_data);
-                                axiosSecure.patch('/update_profile', update_profile_data)
-                                    .then(data => {
-                                        setBtnLoading(false);
-                                        reset();
-                                        Swal.fire({
-                                            position: 'center',
-                                            icon: 'success',
-                                            title: 'Your Profile Update Successfully',
-                                            showConfirmButton: false,
-                                            timer: 1500
-                                        })
-                                    })
-                                    .catch(err => {
-                                        setErrorMsg(err.message)
-                                        setBtnLoading(false);
-                                    })
+                                updateProfile(update_profile_data)
                             })
                             .catch(err => {
                                 setErrorMsg(err.message)
