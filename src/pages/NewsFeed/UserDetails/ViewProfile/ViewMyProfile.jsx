@@ -13,7 +13,7 @@ import { FaRegWindowClose } from "react-icons/fa";
 
 
 const ViewMyProfile = () => {
-    const [userDetails] = useUser();
+    const [userDetails, refetch] = useUser();
     const { errorMsg, setErrorMsg, updateUserProfile, btnLoading, setBtnLoading } = useAuth();
     const [isEdit, setIsEdit] = useState(false);
     const { displayName, photoURL, email, _id, date } = userDetails;
@@ -23,21 +23,22 @@ const ViewMyProfile = () => {
     // update function
     const updateProfile = (updateData) => {
         axiosSecure.patch('/update_profile', updateData)
-        .then(data => {
-            setBtnLoading(false);
-            reset();
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Your Profile Update Successfully',
-                showConfirmButton: false,
-                timer: 1500
+            .then(data => {
+                setBtnLoading(false);
+                reset();
+                refetch();
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your Profile Update Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
-        })
-        .catch(err => {
-            setErrorMsg(err.message)
-            setBtnLoading(false);
-        })
+            .catch(err => {
+                setErrorMsg(err.message)
+                setBtnLoading(false);
+            })
     };
 
     const onSubmit = (data) => {
