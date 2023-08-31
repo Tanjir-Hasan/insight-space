@@ -7,7 +7,7 @@ const BenifitMember = () => {
         <div className='mb-28 font-[Poppins]'>
             <div className=' w-10/12 pt-5 mx-auto'>
                 <h2 className='md:text-5xl text-4xl '>Benefits of Member-Ship</h2>
-                <p className='border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8 text-[#036919]'>
+                <p className={`  ${theme === 'dark' ? 'dark text-white' : ''} border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8 text-[#036919]`}>
                     "Membership isn't just access; it's an invitation to a world of possibilities. Unlock exclusive benefits that illuminate your path, connect you with experts, and empower your journey towards excellence."</p>
             </div>
             <div className='w-8/12 mx-auto'>

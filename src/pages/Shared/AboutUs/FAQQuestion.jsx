@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import { ThemeContext } from '../../../providers/ThemeProvider';
 
 
 const FAQQuestion = () => {
-
+    const { theme } = useContext(ThemeContext);
     const [question, setQuestion] = useState([])
     const controls = useAnimation();
     const [refs, inView] = useInView();
@@ -42,7 +43,7 @@ const FAQQuestion = () => {
     }
 
     return (
-        <div className='w-10/12 mx-auto my-32 font-[Cinzel]'>
+        <div className={`w-10/12 mx-auto my-32 p-5 rounded-lg font-[Cinzel] ${theme === 'dark' ? 'dark' : ''}`}>
             <div className=' pt-5 mx-auto'>
                 <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8'>FAQ Question</h2>
             </div>

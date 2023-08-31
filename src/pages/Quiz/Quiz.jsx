@@ -12,7 +12,7 @@ const Quiz = () => {
   const [showResult, setShowResult] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -46,7 +46,7 @@ const Quiz = () => {
 
 
 
-  const url = '/quiz.json'
+  const url = 'https://insight-space-server.vercel.app/quiz'
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -102,39 +102,41 @@ const Quiz = () => {
 
 
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''} py-10`}>
+    <div className={`${theme === 'dark' ? 'dark' : ''}`}>
 
-      <div className='w-10/12 mx-auto'>
+      <div className=''>
 
-        <div className="md:flex gap-5 mt-10">
-          <div className='md:w-[calc(20%-20px)] w-11/12 mx-auto'>
+        <div className="md:flex gap-5 ">
+          <div className={` ${ showResult ? " " : `md:w-4/12 lg:w-3/12   ${theme === 'dark' ? 'dark text-white bg-black' : 'bg-[#f0efeb] '} `} `}>
             {
               showResult ?
                 "" :
                 <>
-                  <div>
-                    <h2 className='bg-[#f0efeb] text-2xl text-black font-[Poppins] p-2 mb-3 rounded-t-xl'>Select Your category</h2>
-                  </div>
+                  <div className='md:fixed p-10'>
+                    <div>
+                      <h2 className='text-2xl  font-[Poppins] border-b-2 border-[#84a98c] rounded-t-xl'>Select Your category</h2>
+                    </div>
 
-                  <div className="cursor-pointer font-light text-xl bg-[#f0efeb] rounded-b-xl py-3">
+                    <div className="cursor-pointer  font-light text-xl  rounded-b-xl py-3">
 
-                    <h3 onClick={() => handleEducation()} className='quiz-category-effect'>Educational</h3>
-                    <h3 onClick={() => handleScience()} className='quiz-category-effect'>Science</h3>
-                    <h3 onClick={() => handleHealth()} className='quiz-category-effect'>Health</h3>
-                    <h3 onClick={() => handleTechnology()} className='quiz-category-effect'>Technology</h3>
-                    <h3 onClick={() => handleFood()} className='quiz-category-effect'>Food</h3>
-                    <h3 onClick={() => handleBooks()} className='quiz-category-effect'>Books</h3>
-                    <h3 onClick={() => handleFashion()} className='quiz-category-effect'>Fashion</h3>
-                    <h3 onClick={() => handleSports()} className='quiz-category-effect'>Sports</h3>
+                      <h3 onClick={() => handleEducation()} className='quiz-category-effect'>Educational</h3>
+                      <h3 onClick={() => handleScience()} className='quiz-category-effect'>Science</h3>
+                      <h3 onClick={() => handleHealth()} className='quiz-category-effect'>Health</h3>
+                      <h3 onClick={() => handleTechnology()} className='quiz-category-effect'>Technology</h3>
+                      <h3 onClick={() => handleFood()} className='quiz-category-effect'>Food</h3>
+                      <h3 onClick={() => handleBooks()} className='quiz-category-effect'>Books</h3>
+                      <h3 onClick={() => handleFashion()} className='quiz-category-effect'>Fashion</h3>
+                      <h3 onClick={() => handleSports()} className='quiz-category-effect'>Sports</h3>
 
+                    </div>
                   </div>
                 </>
             }
           </div>
 
-          <div className='md:w-[calc(80%-20px)] w-11/12 mx-auto py-5 md:px-8'>
+          <div className=' md:w-8/12 lg:w-9/12'>
             {showResult ? (
-              <div className='border-2 p-5'>
+              <div className=' p-5 max-h-[100vh]'>
 
                 <div className='space-y-3'>
 
@@ -175,7 +177,7 @@ const Quiz = () => {
 
               <div>
 
-                <div className='text-center font-[Poppins] text-lg border-b-2 border-[#84a98c] font-bold pb-2'>
+                <div className='text-center font-[Poppins] mt-5 text-lg border-b-2 border-[#84a98c] font-bold pb-2'>
                   <h2>"Test Your General Knowledge: Take on Our Ultimate Quiz Challenge!"</h2>
                 </div>
 
@@ -183,14 +185,14 @@ const Quiz = () => {
                   showResults ?
 
                     (
-                      <div className='grid md:grid-cols-2 gap-10 mt-10'>
+                      <div className='grid lg:grid-cols-2 gap-10 mt-5  p-10 md:p-5'>
 
                         {
                           quiz.map((question, index) => (
 
                             <div key={index} className="question mt-5">
 
-                              <p className='text-xl  font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
+
                               <p className='text-xl font-[Cinzel] font-semibold'>{index + 1}. {question.question}</p>
                               {question.options.map((option, optionIndex) => (
                                 <div key={optionIndex} className="option flex gap-5  ">
@@ -199,6 +201,7 @@ const Quiz = () => {
                                     id={`q${index}o${optionIndex}`}
                                     name={`q${index}`}
                                     value={option}
+                                    required
                                     onChange={() => handleAnswerChange(index, option)}
                                     checked={userAnswers[index] === option} />
 
@@ -217,7 +220,7 @@ const Quiz = () => {
                     )
                     :
                     (
-                      <div>
+                      <div className='p-10'>
                         <h2 className='font-bold font-[Poppins] text-xl mt-4'>Here are some rules and regulations to keep in mind when attending a quiz:</h2>
                         <h2 className='text-xl font-[Cinzel] font-semibold mt-2'> Preparation:</h2>
                         <div className='list-disc'>
