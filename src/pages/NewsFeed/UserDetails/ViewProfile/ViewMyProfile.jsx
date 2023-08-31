@@ -21,56 +21,102 @@ const ViewMyProfile = () => {
     const [axiosSecure] = useAxiosSecure();
 
     const onSubmit = (data) => {
-
         setErrorMsg("")
         setBtnLoading(true);
-
-        const formData = new FormData();
-
-        // image hosting function 
-        formData.append('image', data.photo[0]);
-        const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
-        const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
-        fetch(image_hosting_url, {
-            method: "POST",
-            body: formData
-        })
-            .then(res => res.json())
-            .then(imageResponse => {
-                if (imageResponse.success) {
-                    // image url 
-                    const imgURL = imageResponse.data.display_url;
-                    //  update function
-                    const { name } = data;
-                    const date = new Date();
-                    updateUserProfile(name, imgURL)
-                        .then(() => {
-                            const update_profile_data = { displayName: name || displayName, photoURL: imgURL || photoURL, email: email, lastUpdate: date };
-                            axiosSecure.patch('/update_profile', update_profile_data)
-                                .then(data => {
-                                    setBtnLoading(false);
-                                    reset();
-                                    Swal.fire({
-                                        position: 'center',
-                                        icon: 'success',
-                                        title: 'Your Profile Update Successfully',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
-                                })
-                                .catch(err => {
-                                    setErrorMsg(err.message)
-                                    setBtnLoading(false);
-                                })
+        let updatedImgUrl = "";
+        if (!data.photo[0]) {
+            updatedImgUrl = photoURL;
+            console.log(updatedImgUrl);
+            //  update function
+            const { name } = data;
+            const date = new Date();
+            updateUserProfile(name, updatedImgUrl)
+                .then(() => {
+                    const update_profile_data = {
+                        displayName: name || displayName,
+                        photoURL: updatedImgUrl,
+                        email: email,
+                        lastUpdate: date
+                    };
+                    console.log(update_profile_data);
+                    axiosSecure.patch('/update_profile', update_profile_data)
+                        .then(data => {
+                            setBtnLoading(false);
+                            reset();
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your Profile Update Successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
                         })
                         .catch(err => {
                             setErrorMsg(err.message)
                             setBtnLoading(false);
                         })
+                })
+                .catch(err => {
+                    setErrorMsg(err.message)
+                    setBtnLoading(false);
+                })
+        } else {
+            setErrorMsg("")
+            setBtnLoading(true);
+            const formData = new FormData();
 
-                }
+            // image hosting function 
+            formData.append('image', data.photo[0]);
+            const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
+            const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+            fetch(image_hosting_url, {
+                method: "POST",
+                body: formData
             })
-    };
+                .then(res => res.json())
+                .then(imageResponse => {
+                    if (imageResponse.success) {
+                        // image url 
+                        updatedImgUrl = imageResponse.data.display_url;
+                        console.log(updatedImgUrl);
+                        //  update function
+                        const { name } = data;
+                        const date = new Date();
+                        updateUserProfile(name, updatedImgUrl)
+                            .then(() => {
+                                const update_profile_data = {
+                                    displayName: name || displayName, photoURL: updatedImgUrl,
+                                    email: email,
+                                    lastUpdate: date
+                                };
+                                console.log(update_profile_data);
+                                axiosSecure.patch('/update_profile', update_profile_data)
+                                    .then(data => {
+                                        setBtnLoading(false);
+                                        reset();
+                                        Swal.fire({
+                                            position: 'center',
+                                            icon: 'success',
+                                            title: 'Your Profile Update Successfully',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
+                                    })
+                                    .catch(err => {
+                                        setErrorMsg(err.message)
+                                        setBtnLoading(false);
+                                    })
+                            })
+                            .catch(err => {
+                                setErrorMsg(err.message)
+                                setBtnLoading(false);
+                            })
+                    }
+                });
+        }
+
+    }
+
     return (
         <div className="relative border md:p-10 p-4 rounded-xl shadow-xl">
             {
@@ -99,7 +145,7 @@ const ViewMyProfile = () => {
                                         id="image"
                                         name="fileInput"
                                         {...register("photo")}
-                                        className="absolute inset-0 opacity-0 hover:cursor-pointer" required />
+                                        className="absolute inset-0 opacity-0 hover:cursor-pointer" />
                                 </label>
                             </div>
                         </div>
@@ -138,7 +184,6 @@ const ViewMyProfile = () => {
                             </div>
                             <ButtonWithLoading icon={<BsSend />} loading={btnLoading} width={"lg:w-1/2 md:w-3/4 sm:w-3/4 w-full"}>Update Now!</ButtonWithLoading>
                         </div>
-
                     </form>
                 </>
                     : <div className="md:flex gap-14 items-center mt-14 mx-10">
