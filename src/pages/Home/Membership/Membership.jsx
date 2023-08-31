@@ -6,6 +6,7 @@ import free from "../../../assets/images/icons/free-gift.png";
 import info from "../../../assets/images/icons/info.png";
 import vip from "../../../assets/images/icons/vip.png";
 import { Link } from 'react-router-dom';
+import BkashMethod from '../../BkashMethod/BkashMethod';
 
 
 
@@ -54,8 +55,8 @@ const Membership = () => {
                     
 
                    
-        <div className=" relative w-10/12 md:mr-20 hidden sm:block  py-10">
-            <div className='grid grid-cols-1 lg:grid-cols-3'>
+        <div className="relative w-10/12 md:mr-20 hidden md:block py-24">
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
              
                 <motion.div
                     ref={ref}
@@ -72,7 +73,7 @@ const Membership = () => {
                         </div>
             
                         <div
-                            className="bg-white h-48 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
+                            className="bg-white h-52 p-4 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
                             >
                             <div className="relative group">    
                             <h2 className='mt-5 font-[Cinzel] text-black text-center'>Free Membership</h2>
@@ -96,7 +97,7 @@ const Membership = () => {
                         </div>
             
                         <div
-                            className="bg-white h-48 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
+                            className="bg-white h-52 p-4 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
                             >
                             <div className="relative group">    
                             <h2 className='mt-5 font-[Cinzel] text-black text-center'>Basic Membership</h2>
@@ -120,7 +121,7 @@ const Membership = () => {
                         </div>
             
                         <div
-                            className="bg-white h-48 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
+                            className="bg-white h-52 p-4 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
                             >
                             <div className="relative group">     
                             <h2 className='mt-5 font-[Cinzel] text-black text-center' >Pro Membership</h2>
@@ -133,36 +134,38 @@ const Membership = () => {
 
                 </div>
                     
-
-
-                    
-
-                </div>
-
                 <div className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
 
                         <div
-                            className="bg-white h-36 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
+                            className="bg-white h-46 rounded-lg  border-2 backdrop-blur-sm bg-white/30 p-4 "
                             >
                             <h2 className=' text-black text-center '>Free Membership</h2>
                             <p className=' text-black text-center '>Dip your toes into our community with our no-cost Free Membership, offering you a taste of our content and a glimpse into the possibilities that await.</p>
                         </div> 
 
                         <div
-                            className="bg-white h-36 rounded-lg  border-2 backdrop-blur-sm bg-white/30 "
+                            className="bg-white h-46 rounded-lg  border-2 backdrop-blur-sm bg-white/30 p-4 "
                             >
                             <h2 className=' text-black text-center '>Basic Membership</h2>
                             <p className=' text-black text-center '>Unlock the door to a range of essential features with our Basic Membership, designed to provide you with foundational benefits and a solid starting point for your journey with us.</p>
                         </div> 
 
                         <div
-                            className="bg-white h-36 rounded-lg border-2 backdrop-blur-sm bg-white/30 "
+                            className="bg-white h-46 rounded-lg border-2 backdrop-blur-sm bg-white/30 p-4 "
                             >
                             <h2 className=' text-black text-center ' >Pro Membership</h2>
                             <p className=' text-black  text-justify '>Step up your game and take full advantage of our Pro Membership, offering advanced perks, exclusive access, and a premium experience that caters to your aspirations and needs.</p>
                         </div> 
 
                     </div>
+
+                    
+
+                </div>
+
+                <BkashMethod></BkashMethod>
+
+                
 
                 {/* </div>        */}
 

@@ -13,7 +13,7 @@ const Payment = () => {
 
     return (
         <div className='mb-20'>
-            <h2 className='text-center mb-10 text-3xl font-bold'>Stripe Payment Methood</h2>
+            <h2 className='text-center mb-10 text-3xl font-bold'>Provide Valid Information</h2>
           
             <div className=' w-10/12 mx-auto border-2 p-2 pt-10 rounded-md'>
             <Elements stripe={stripePromise}>

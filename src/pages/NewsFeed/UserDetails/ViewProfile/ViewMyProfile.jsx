@@ -79,16 +79,20 @@ const ViewMyProfile = () => {
             {
                 isEdit ? <>
                     <form
-                        onSubmit={handleSubmit(onSubmit)} className="md:flex gap-14 items-center mt-14 mx-10">
+                        onSubmit={handleSubmit(onSubmit)}
+                        className="md:flex gap-14 items-center mt-14 mx-10">
                         <div className="grid items-center gap-5">
-                            <img className="w-48 h-48 rounded-full mx-auto" src={photoURL} alt="" />
+                            <img className="w-48 h-48 rounded-full mx-auto" src={photoURL} alt="Photo" />
                             {/* photoUrl  */}
-                            <div className="mb-1">
-                                <input type="file"
-                                    id="image"
-                                    name="fileInput"
-                                    {...register("photo")}
-                                    className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" required defaultValue={photoURL} />
+                            <div className="mb-1 flex justify-center">
+                                <label htmlFor="photo" className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#84a98c] to-[#344e41] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer">
+                                    <span className="hover:cursor-pointer">Upload Photo</span>
+                                    <input type="file"
+                                        id="image"
+                                        name="fileInput"
+                                        {...register("photo")}
+                                        className="absolute inset-0 opacity-0 hover:cursor-pointer" required />
+                                </label>
                             </div>
                         </div>
                         <div className="md:text-2xl text-base mt-5 w-full md:w-1/2">
@@ -104,7 +108,6 @@ const ViewMyProfile = () => {
                                     id="name"
                                     {...register("name")}
                                     placeholder="Your Name"
-                                    required
                                     defaultValue={displayName}
                                 />
                             </div>
