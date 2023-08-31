@@ -37,7 +37,7 @@ const TopPosts = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: 100 },
                     }}
-                    transition={{ duration: 0.9 }} className=" mx-auto overflow-y-auto" style={{ maxHeight: 'calc(65vh - 100px)' }}>
+                    transition={{ duration: 0.9 }} className=" mx-auto overflow-y-auto" style={{ maxHeight: 'calc(72vh - 100px)' }}>
 
                     <div className=''>
 

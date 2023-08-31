@@ -17,7 +17,7 @@ import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 import Quiz from "../pages/Quiz/Quiz";
-import Videos from "../pages/Videos/Videos";
+
 import Chat from "../pages/Message/Chat";
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
 import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
@@ -91,10 +91,7 @@ const router = createBrowserRouter([
                 path: 'group-conversations',
                 element: <Chat></Chat>
             },
-            {
-                path: "videos",
-                element: <Videos></Videos>
-            },
+           
             {
                 path: "quiz",
                 element: <Quiz></Quiz>
