@@ -82,18 +82,17 @@ const Navbar = () => {
 
                                 <ActiveLink to="/">Home</ActiveLink>
 
-                                {isAdmin ? <ActiveLink to="/AdminHome">All Users</ActiveLink> : <ActiveLink to="/news-feed">News Feed</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/news-feed">News Feed</ActiveLink>}
 
-                                <ActiveLink to="/connections">Connections</ActiveLink>
+                                {!isAdmin && <ActiveLink to="/connections">Connections</ActiveLink>}
 
-                                {isAdmin ? <ActiveLink to="/allPosts">All Posts</ActiveLink> : <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
 
                                 {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
 
                                 {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
-                                
-                                <ActiveLink to="/paid-members">Subscription</ActiveLink>
-
+                                {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
+                                {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
                                 <ActiveLink to="/about-us">About</ActiveLink>
 
                                 {
@@ -115,7 +114,7 @@ const Navbar = () => {
                 </div>
 
             </div>
-            
+
             {/* modal start  */}
 
             <div>
@@ -129,7 +128,7 @@ const Navbar = () => {
             </div>
 
             {/* modal end  */}
-            
+
         </div>
     );
 };

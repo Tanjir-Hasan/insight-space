@@ -2,9 +2,7 @@ import { useContext } from "react";
 import useAuth from "../../../Hooks/UseAuth";
 import DisplayNewsFeed from "../DisplayNewsFeed/DisplayNewsFeed";
 import NewsForm from "../NewsForm/NewsForm";
-import UserDetails from "../UserDetails/UserDetails";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import SearchAndCategory from "../SearchAndCategory/SearchAndCategory";
 import TopPosts from "../TopPosts/TopPosts";
 import Categories from "../Categories/Categories";
 

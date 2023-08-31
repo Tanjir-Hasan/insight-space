@@ -17,12 +17,12 @@ import AdminRoute from "../Routes/AdminRoute";
 import AllUsers from "../pages/AdminDeshBoard/AllUsers/AllUsers";
 import AllPosts from "../pages/AdminDeshBoard/AllPosts/AllPosts";
 import Quiz from "../pages/Quiz/Quiz";
-
 import Chat from "../pages/Message/Chat";
 import AboutUs from "../pages/Shared/AboutUs/AboutUs";
 import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
-import SearchUser from "../pages/Shared/SearchUser/SearchUser";
 import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
+import AdminLayout from "../layouts/AdminLayout";
+import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import BkashMethod from "../pages/BkashMethod/BkashMethod";
 
 
@@ -81,14 +81,6 @@ const router = createBrowserRouter([
                 element: <UsersFeedBack></UsersFeedBack>
             },
             {
-                path: 'AdminHome',
-                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            },
-            {
-                path: "allPosts",
-                element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
-            },
-            {
                 path: 'group-conversations',
                 element: <Chat></Chat>
             },
@@ -98,12 +90,12 @@ const router = createBrowserRouter([
                 element: <Quiz></Quiz>
             },
             {
-                path:"about-us",
+                path: "about-us",
                 element: <AboutUs></AboutUs>
             },
             {   
                 path: "paid-members",
-                element : <PaidMembers></PaidMembers>
+                element: <PaidMembers></PaidMembers>
             },
             {
                 path: "connections",
@@ -115,6 +107,24 @@ const router = createBrowserRouter([
             }         
         ]
     },
+    {
+        path: "admin-dashboard",
+        element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
+        children: [
+            {
+              path : "adminHome",
+              element : <AdminHome></AdminHome>
+            },
+            {
+                path: 'all-users',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: "all-posts",
+                element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
+            },
+        ]
+    }
 ]);
 
 export default router;
