@@ -1,16 +1,14 @@
 import moment from "moment";
 import useUser from "../../../../Hooks/useUser";
-import OutlineButton from "../../../../components/outlineButton";
 import Button from "../../../../components/Button";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 import { BsSend } from "react-icons/bs";
 import useAuth from "../../../../Hooks/UseAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
-import axios from "axios";
 import Swal from "sweetalert2";
+import { FaRegWindowClose } from "react-icons/fa";
 
 
 
@@ -47,7 +45,7 @@ const ViewMyProfile = () => {
                     const date = new Date();
                     updateUserProfile(name, imgURL)
                         .then(() => {
-                            const update_profile_data = { displayName: name, photoURL: imgURL, email: email, lastUpdate: date };
+                            const update_profile_data = { displayName: name || displayName, photoURL: imgURL || photoURL, email: email, lastUpdate: date };
                             axiosSecure.patch('/update_profile', update_profile_data)
                                 .then(data => {
                                     setBtnLoading(false);
@@ -74,7 +72,18 @@ const ViewMyProfile = () => {
             })
     };
     return (
-        <div className="border p-10 rounded-xl shadow-xl">
+        <div className="relative border p-10 rounded-xl shadow-xl">
+            {
+                isEdit &&
+                <button
+                    onClick={() => setIsEdit(!isEdit)}
+                    className="absolute right-4 top-4">
+                    <FaRegWindowClose
+                        size={26}
+                        className="text-2xl font-bold hover:text-[#84a98c] duration-700"
+                    />
+                </button>
+            }
             <h1 className="text-3xl font-semibold">My Profile</h1>
             {
                 isEdit ? <>
