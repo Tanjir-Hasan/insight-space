@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/UseAuth';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
-import { useForm } from 'react-hook-form';
+// import useAxiosSecure from '../../Hooks/useAxiosSecure';
+// import { useForm } from 'react-hook-form';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
+import { useParams } from 'react-router-dom';
+import { data } from 'autoprefixer';
 
 const BkashMethod = () => {
     
@@ -11,8 +13,20 @@ const BkashMethod = () => {
     const { user, btnLoading } = useAuth()
     console.log(user);
 
-    const [axiosSecure] = useAxiosSecure();
-    // const { register, handleSubmit } = useForm();
+    const [bkash, setBkash] = useState({});
+    const { id } = useParams();
+
+    // const [axiosSecure] = useAxiosSecure();
+    // // const { register, handleSubmit } = useForm();
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/bkashmethod/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            setBkash(data)
+        })
+    }, [id])
 
 
 
@@ -23,7 +37,15 @@ const BkashMethod = () => {
         const phonenumber = form.phonenumber.value;
         const address = form.address.value;
         console.log(postcode, phonenumber, address)
-        // const imgInput = form.fileInput;
+
+        fetch("http://localhost:5000/bkash", {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body:JSON.stringify(data)
+        })
+        
+
+        // axiosSecure.post("/bkashmethod", {e})
         
         const bkashmethod = {
             userName: user?.displayName,
@@ -34,12 +56,12 @@ const BkashMethod = () => {
             address
         }
         console.log(bkashmethod)
-        axiosSecure.post("/bkashmethod", bkashmethod)
-            .then(data => {
-                if (data.data) {
-                    alert('Information has been recorded')
-                }
-            })
+        // axiosSecure.post("/bkashmethod", bkashmethod)
+        //     .then(data => {
+        //         if (data.data) {
+        //             alert('Information has been recorded')
+        //         }
+        //     })
     };
 
     return (
