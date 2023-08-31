@@ -14,9 +14,9 @@ const ViewProfile = () => {
                     <div className="py-10">
                         <ViewMyProfile></ViewMyProfile>
                     </div>
-                    <div className="border border-spacing-4 pt-8">
+                    {/* <div className="border border-spacing-4 pt-8">
                         {info && <UserDetails></UserDetails>}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
