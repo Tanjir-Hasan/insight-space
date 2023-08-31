@@ -72,15 +72,14 @@ const ViewMyProfile = () => {
             })
     };
     return (
-        <div className="relative border p-10 rounded-xl shadow-xl">
+        <div className="relative border md:p-10 p-4 rounded-xl shadow-xl">
             {
                 isEdit &&
                 <button
                     onClick={() => setIsEdit(!isEdit)}
                     className="absolute right-4 top-4">
                     <FaRegWindowClose
-                        size={26}
-                        className="text-2xl font-bold hover:text-[#84a98c] duration-700"
+                        className="md:text-2xl text-xl font-bold hover:text-[#84a98c] duration-700"
                     />
                 </button>
             }
