@@ -95,6 +95,7 @@ console.log(clientSecret)
             price,
             date: new Date(),
           }
+          console.log(payment)
           axiosSecure.post('/payments', payment)
           .then(res => {
             console.log(res.data);
