@@ -2,12 +2,13 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
 import Welcome from "../pages/Shared/Welcome/Welcome";
+import GoogleTranslator from "../pages/Shared/GoogleTranslator/GoogleTranslator";
 
 
 
 const Main = () => {
     // const{user} = useAuth();
-    
+
     // const [isModalOpen, setIsModalOpen] = useState(false);
     // const openModal = () => {
     //     setIsModalOpen(true);
@@ -28,6 +29,7 @@ const Main = () => {
 
 
                 <div className="mt-[72px]">
+                {/* <GoogleTranslator></GoogleTranslator> */}
                     <Outlet />
                     <Welcome></Welcome>
                 </div>
@@ -40,7 +42,7 @@ const Main = () => {
                 </div>) : ""
                 } */}
 
-                
+
 
 
                 {/* <div className="flex justify-between w-10/12 mx-auto my-5">

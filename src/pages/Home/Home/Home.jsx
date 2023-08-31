@@ -9,8 +9,8 @@ import ContactForm from "../Support/ContactForm";
 
 import Testimonial from "../Testimonial/Testimonial";
 import { Link } from "react-router-dom";
-import GoogleTranslator from "../../../components/GoogleTranslator";
 import Membership from "../Membership/Membership";
+import VideoUpload from "../../NewsFeed/VideoUpload/VideoUpload";
 
 
 
@@ -21,7 +21,6 @@ const Home = () => {
             <Banner></Banner>
             <PopularPost></PopularPost>
             <ExploreContent></ExploreContent>
-
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
             <AdvancedCapabilities></AdvancedCapabilities>
@@ -29,22 +28,17 @@ const Home = () => {
             <CommunityGuidelines></CommunityGuidelines>
             <Testimonial></Testimonial>
             <ContactForm></ContactForm>
-            <div className="flex justify-between w-10/12 mx-auto my-5">
+
+            <VideoUpload></VideoUpload>
+
+            {/* <div className="flex justify-between w-10/12 mx-auto my-5">
                 <GoogleTranslator />
                 <Link to="/group-conversations">
                     <img src="https://i.ibb.co/LtKQ9c9/send-1.png" alt="send-image"
                         className="h-16" />
                 </Link>
-            </div>
-            {/* <div className="">
-                <Link to="/group-conversations">
-                    <img
-                        src="https://i.ibb.co/tQvLsdd/send.png"
-                        alt="send-image"
-                        className="h-16"
-                    />
-                </Link>
             </div> */}
+
         </>)
 
 

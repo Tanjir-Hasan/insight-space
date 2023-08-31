@@ -47,18 +47,43 @@
 }
 
 
-
-
-/* .translated-ltr{
-    margin-top: -40px;
+/* .goog-te-gadget-icon {
+    display:none;
 }
-.goog-te-banner-frame{
-    display: none;
-    margin-top: -20px;
+  
+  
+.goog-te-gadget-simple {
+      background-color: #ecebf0 !important;
+      border:0 !important;
+      font-size: 10pt;
+     font-weight:800;
+      display: inline-block;
+      padding:10px 10px !important;
+      cursor: pointer;
+      zoom: 1;
 }
-.goog-logo-link{
-    display: none !important;
-}
-.goog-te-gadget{
-    color: transparent !important;
+  
+.goog-te-gadget-simple  span {
+     color:#3e3065 !important;
 } */
+
+#google_translate_element select{
+    background-color:#f0efeb;
+    color: black;
+    border: none;
+    border-radius:3px;
+    padding: 0;
+}
+
+.goog-logo-link{
+    display:none !important;
+}
+
+.goog-te-gadget{
+  color:transparent!important;
+}
+
+
+
+
+

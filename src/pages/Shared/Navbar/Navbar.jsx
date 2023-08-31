@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
 import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 import useUser from '../../../Hooks/useUser';
+import GoogleTranslator from '../GoogleTranslator/GoogleTranslator';
 
 
 const Navbar = () => {
@@ -63,9 +64,17 @@ const Navbar = () => {
             {/* bg-[#001427] */}
             <div className='flex justify-between items-center'>
 
-                <Link to="/">
-                    <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-16' />
-                </Link>
+                <div className='flex'>
+
+                    <Link to="/">
+                        <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-16' />
+                    </Link>
+
+                    <GoogleTranslator></GoogleTranslator>
+
+                </div>
+
+
 
                 <div className='flex items-center gap-3'>
                     <div>
@@ -91,7 +100,7 @@ const Navbar = () => {
                                 {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
 
                                 {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
-                                
+
                                 <ActiveLink to="/paid-members">Subscription</ActiveLink>
 
                                 <ActiveLink to="/about-us">About</ActiveLink>
@@ -115,7 +124,7 @@ const Navbar = () => {
                 </div>
 
             </div>
-            
+
             {/* modal start  */}
 
             <div>
@@ -129,7 +138,7 @@ const Navbar = () => {
             </div>
 
             {/* modal end  */}
-            
+
         </div>
     );
 };
