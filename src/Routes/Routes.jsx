@@ -23,7 +23,8 @@ import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
 import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
 import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
-import BkashMethod from "../pages/BkashMethod/BkashMethod";
+import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
+
 
 
 
@@ -102,8 +103,8 @@ const router = createBrowserRouter([
                 element: <FriendsAndSearch></FriendsAndSearch>
             },
             {
-                path:"bkashmethod",
-                element: <BkashMethod></BkashMethod>
+                path:"ssl-commerz",
+                element: <SSLCommerz></SSLCommerz>
             }         
         ]
     },

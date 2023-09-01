@@ -6,7 +6,6 @@ import free from "../../../assets/images/icons/free-gift.png";
 import info from "../../../assets/images/icons/info.png";
 import vip from "../../../assets/images/icons/vip.png";
 import { Link } from 'react-router-dom';
-import BkashMethod from '../../BkashMethod/BkashMethod';
 
 
 
