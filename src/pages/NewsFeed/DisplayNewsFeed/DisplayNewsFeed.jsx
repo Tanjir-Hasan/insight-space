@@ -66,8 +66,8 @@ const DisplayNewsFeed = ({ query }) => {
                             <span hidden={id === p._id}>{p.text?.slice(0, 300)}</span>
                             <span hidden={p.text?.length < 300}>
                                 <span hidden={id !== p._id}>{p.text}</span>
-                                <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See More</span>
-                                <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See Less</span>
+                                <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-green-600 cursor-pointer">See More</span>
+                                <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-green-600 cursor-pointer">See Less</span>
                             </span>
                         </div>
                     </div>
@@ -80,7 +80,7 @@ const DisplayNewsFeed = ({ query }) => {
 
                     <div className="w-full flex items-center py-6 px-8">
                         <div className="w-full flex space-x-8">
-                            <button onClick={() => handleReact(p._id, userDetails.email)} className="flex items-center"><FaHeart className={p.react.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {p.react.length}</button>
+                            <button onClick={() => handleReact(p._id, userDetails.email)} className="flex items-center"><FaHeart className={p.react.includes(userDetails.email) ? "text-2xl text-red-600 me-2" : "text-2xl me-2"}></FaHeart> {p.react.length}</button>
                             <button onClick={() => setHide(p._id)} className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {p.comment.length}</button>
                         </div>
                         <div>

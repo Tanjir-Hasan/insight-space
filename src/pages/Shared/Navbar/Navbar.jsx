@@ -70,7 +70,7 @@ const Navbar = () => {
                         <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-16' />
                     </Link>
 
-                    <GoogleTranslator></GoogleTranslator>
+                    {/* <GoogleTranslator></GoogleTranslator> */}
 
                 </div>
 
@@ -104,7 +104,7 @@ const Navbar = () => {
                                 {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
 
                                 {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
-                                
+
                                 <ActiveLink to="/about-us">About</ActiveLink>
 
                                 {

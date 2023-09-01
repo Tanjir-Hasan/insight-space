@@ -32,7 +32,7 @@ const Home = () => {
 
             {/* <VideoUpload></VideoUpload> */}
 
-            <SSLPayment></SSLPayment>
+            {/* <SSLPayment></SSLPayment> */}
 
             {/* <div className="flex justify-between w-10/12 mx-auto my-5">
                 <GoogleTranslator />
