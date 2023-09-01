@@ -27,6 +27,7 @@ import BkashMethod from "../pages/BkashMethod/BkashMethod";
 
 
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -123,6 +124,7 @@ const router = createBrowserRouter([
                 path: "all-posts",
                 element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
             },
+           
         ]
     }
 ]);
