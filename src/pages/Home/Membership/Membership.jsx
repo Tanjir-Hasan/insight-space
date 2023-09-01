@@ -35,7 +35,7 @@ const Membership = () => {
             <div className="space-y-5 md:px-0 px-6">
 
                  
-                  <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] w-1/2 mx-auto lg:pt-20 pt-10'>
+                  <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 mx-auto lg:pt-20 pt-10'>
                   Exclusive Membership
                         <br />
                         <span className='text-xl'>- Taking it to the Next Level -</span>

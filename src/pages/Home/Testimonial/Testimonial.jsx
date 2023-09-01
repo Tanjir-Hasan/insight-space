@@ -66,14 +66,14 @@ const Testimonial = () => {
 
                 className='md:w-10/12 w-11/12 mx-auto '>
 
-                <h1 className='md:text-5xl text-4xl flex md:flex-row flex-col items-baseline gap-3 font-[Poppins] border-b-2 border-[#84a98c] md:w-5/12 lg:pt-20 pt-10 '>
+                <h1 className='md:text-5xl text-4xl flex md:flex-row flex-col items-baseline gap-3 font-[Poppins] border-b-2 border-[#84a98c] lg:w-5/12 md:w-9/12 lg:pt-20 pt-10 '>
                     <span>Testimonials</span>
                     <span className='text-xl'>- Our user's saying -</span>
                 </h1>
 
             </motion.div>
 
-            <div className="md:w-9/12 w-11/12 mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="lg:w-9/12 md:w-10/12 w-11/12 mx-auto px-4 sm:px-6 lg:px-8">
 
                 <Carousel
                     responsive={responsive}

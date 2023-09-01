@@ -11,6 +11,7 @@ import Testimonial from "../Testimonial/Testimonial";
 import { Link } from "react-router-dom";
 import Membership from "../Membership/Membership";
 import VideoUpload from "../../NewsFeed/VideoUpload/VideoUpload";
+import SSLPayment from "../../Shared/PaidMember/SSLPayment/SSLPayment";
 
 
 
@@ -29,7 +30,9 @@ const Home = () => {
             <Testimonial></Testimonial>
             <ContactForm></ContactForm>
 
-            <VideoUpload></VideoUpload>
+            {/* <VideoUpload></VideoUpload> */}
+
+            <SSLPayment></SSLPayment>
 
             {/* <div className="flex justify-between w-10/12 mx-auto my-5">
                 <GoogleTranslator />

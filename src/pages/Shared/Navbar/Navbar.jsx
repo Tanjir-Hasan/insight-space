@@ -87,7 +87,7 @@ const Navbar = () => {
                         </span>
 
                         {isOpen && (
-                            <div className={`flex flex-col md:flex-row  justify-between gap-4 md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-1 duration-1000 ${isOpen === true && theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb] text-black'}`}>
+                            <div className={`flex flex-col lg:flex-row justify-between gap-4 md:pb-0 pb-2 lg:px-0 px-3 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-1 duration-1000 ${isOpen === true && theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb] text-black'}`}>
 
                                 <ActiveLink to="/">Home</ActiveLink>
 
