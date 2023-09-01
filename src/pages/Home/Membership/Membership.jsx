@@ -6,6 +6,7 @@ import free from "../../../assets/images/icons/free-gift.png";
 import info from "../../../assets/images/icons/info.png";
 import vip from "../../../assets/images/icons/vip.png";
 import { Link } from 'react-router-dom';
+import BkashMethod from '../../BkashMethod/BkashMethod';
 
 
 
@@ -54,8 +55,8 @@ const Membership = () => {
                     
 
                    
-        <div className=" relative w-10/12 md:mr-20 hidden sm:block md:block  py-10">
-            <div className='grid grid-cols-1 lg:grid-cols-3'>
+        <div className="relative w-10/12 md:mr-20 hidden md:block py-24">
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
              
                 <motion.div
                     ref={ref}
@@ -133,12 +134,6 @@ const Membership = () => {
 
                 </div>
                     
-
-
-                    
-
-                </div>
-
                 <div className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
 
                         <div
@@ -163,6 +158,14 @@ const Membership = () => {
                         </div> 
 
                     </div>
+
+                    
+
+                </div>
+
+                <BkashMethod></BkashMethod>
+
+                
 
                 {/* </div>        */}
 
