@@ -162,11 +162,6 @@ const Membership = () => {
                     
 
                 </div>
-
-                <BkashMethod></BkashMethod>
-
-                
-
                 {/* </div>        */}
 
 
