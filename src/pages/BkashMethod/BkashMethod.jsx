@@ -20,7 +20,7 @@ const BkashMethod = () => {
     // // const { register, handleSubmit } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bkashmethod/${id}`)
+        fetch(`/bkashmethod/${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
@@ -65,8 +65,8 @@ const BkashMethod = () => {
     };
 
     return (
-        <div>
-            <div className="pb-40">
+        <div className='min-h-screen'>
+            <div className="py-40">
                 <div className="flex items-center justify-center md:w-10/12 w-11/12 mx-auto ">
 
                     <div className="space-y-5 md:px-0 px-6">
