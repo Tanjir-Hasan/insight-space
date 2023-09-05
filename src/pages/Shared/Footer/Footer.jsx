@@ -21,6 +21,7 @@ const Footer = () => {
                     <Link>Privacy Policy</Link>
                     <Link>Cookie Policy</Link>
                     <Link to="/about-us">About Us</Link>
+                    <Link to="/addquiz">Add Quiz</Link>
                     <ScrollToTopButton></ScrollToTopButton>
                 </div>
 

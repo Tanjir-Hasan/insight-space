@@ -6,7 +6,7 @@ import free from "../../../assets/images/icons/free-gift.png";
 import info from "../../../assets/images/icons/info.png";
 import vip from "../../../assets/images/icons/vip.png";
 import { Link } from 'react-router-dom';
-import BkashMethod from '../../BkashMethod/BkashMethod';
+
 
 
 
@@ -27,7 +27,7 @@ const Membership = () => {
 
     return (
         <div className={`${theme === 'dark' ? 'dark' : 'w-11/12 my-14 mx-auto'}`}>
-        <div className=" items-center justify-center  md:w-10/12 w-full mx-auto drop-shadow-lg  ">
+        <div className=" items-center justify-center  md:w-10/12 w-full mx-auto drop-shadow-lg">
 
             {/* <div className=" gap-4 bg-[#689079] items-center justify-center  lg:w-full rounded-lg text-white px-16"> */}
         <div className="justify-between rounded-lg">
@@ -163,7 +163,7 @@ const Membership = () => {
 
                 </div>
 
-                <BkashMethod></BkashMethod>
+                
 
                 
 

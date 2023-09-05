@@ -24,6 +24,8 @@ import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch"
 import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
+import Addquiz from "../Addquiz/Addquiz";
+
 
 
 
@@ -106,7 +108,12 @@ const router = createBrowserRouter([
             {
                 path:"ssl-commerz",
                 element: <SSLCommerz></SSLCommerz>
-            }         
+            },
+            {
+                path:"addquiz",
+                element:<Addquiz></Addquiz>
+            },
+                 
         ]
     },
     {
