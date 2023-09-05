@@ -36,6 +36,27 @@ const useNewsFeedFunctionality = () => {
             })
             .catch(err => console.log(err.message))
     };
+
+    // update posts 
+    const handleUpdatePost = (t, id, setIsOpenModal, isOpenModal) => {
+        const text = t.current.value;
+        const data = { text, id }
+        axiosSecure.patch('/update-post', data)
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    refetch();
+                    setIsOpenModal(!isOpenModal)
+
+                }
+            })
+            .catch(err => console.log(err.message))
+    }
+
+
+
+
+
+
     // for add comments 
     const handleAddComment = (p, user, ref) => {
         const comment = ref.current.value;
@@ -98,7 +119,14 @@ const useNewsFeedFunctionality = () => {
     const handleDeletePost = (post) => {
         if (user?.email === post.userEmail) {
             axiosSecure.delete(`/deletePost/${post._id}`)
-                .then(data => console.log(data.data))
+                .then(data => {
+                    refetch();
+                    Swal.fire(
+                        'Deleted!',
+                        'Your Post has been deleted.',
+                        'success'
+                    )
+                })
                 .catch(err => console.log(err.message))
         }
         else {
@@ -106,12 +134,17 @@ const useNewsFeedFunctionality = () => {
                 .then(data => {
                     if (data.data.deletedCount > 0) {
                         setReload(!reload)
+                        Swal.fire(
+                            'Deleted!',
+                            'Your Bookmark has been deleted.',
+                            'success'
+                        )
                     };
                 })
                 .catch(err => console.log(err.message))
         }
     }
-    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete, handleDeletePost]
+    return [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete, handleDeletePost, handleUpdatePost]
 };
 
 export default useNewsFeedFunctionality;

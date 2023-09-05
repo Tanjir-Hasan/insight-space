@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .dark {
-    background-color: #011627;
-    color: #fff;
+  background-color: #011627;
+  color: #fff;
 }
 
 /* 
@@ -13,42 +13,41 @@
 */
 
 .active {
-    @apply text-[#84a98c] underline underline-offset-8;
+  @apply text-[#84a98c] underline underline-offset-8;
 }
 
 .default {
-    @apply no-underline;
+  @apply no-underline;
 }
 
 .input-field {
-    @apply w-full border-b-2 border-[#84a98c] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#344e41] focus:bg-[#f8f9fa]
+  @apply w-full border-b-2 border-[#84a98c] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#344e41] focus:bg-[#f8f9fa];
 }
 
 /* carousel */
 .carousel .thumbs-wrapper {
-    display: none;
+  display: none;
 }
 
 .grayscale {
-    filter: grayscale(95%);
-    transition: filter 0.3s ease-in-out;
+  filter: grayscale(95%);
+  transition: filter 0.3s ease-in-out;
 }
 
 .group:hover .grayscale {
-    filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 
 .quiz-category-effect {
-    @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700  hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl
+  @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700  hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
 }
 
 .quiz-category-effects {
-    @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700 hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl
+  @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700 hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
 }
 
-
-/* .goog-te-gadget-icon {
-    display:none;
+/* .translated-ltr{
+    margin-top: -40px;
 }
   
   
@@ -75,15 +74,31 @@
     padding: 0;
 }
 
-.goog-logo-link{
+/* .goog-logo-link{
     display:none !important;
 }
 
 .goog-te-gadget{
-  color:transparent!important;
+    color: transparent !important;
+}  */
+
+.secondary-button {
+  width: 100%;
+  margin-bottom: 8px;
+  border-bottom-width: 4px;
+  border-bottom-color: #84a98c;
+  border-bottom-style: solid;
+  color: #84a98c;
+  border-radius: 0.25rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 
-
-
-
-
+/* Hover styles */
+.secondary-button:hover {
+  background-color: #84a98c;
+  color: white;
+}
