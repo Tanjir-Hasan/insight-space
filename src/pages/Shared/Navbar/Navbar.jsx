@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
 import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 import useUser from '../../../Hooks/useUser';
+import GoogleTranslator from '../GoogleTranslator/GoogleTranslator';
 
 
 const Navbar = () => {
@@ -63,9 +64,17 @@ const Navbar = () => {
             {/* bg-[#001427] */}
             <div className='flex justify-between items-center'>
 
-                <Link to="/">
-                    <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-16' />
-                </Link>
+                <div className='flex'>
+
+                    <Link to="/">
+                        <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-16' />
+                    </Link>
+
+                    {/* <GoogleTranslator></GoogleTranslator> */}
+
+                </div>
+
+
 
                 <div className='flex items-center gap-3'>
                     <div>
@@ -78,7 +87,7 @@ const Navbar = () => {
                         </span>
 
                         {isOpen && (
-                            <div className={`flex flex-col md:flex-row  justify-between gap-4 md:pb-0 pb-2 md:px-0 px-2 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-1 duration-1000 ${isOpen === true && theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb] text-black'}`}>
+                            <div className={`flex flex-col lg:flex-row justify-between gap-4 md:pb-0 pb-2 lg:px-0 px-3 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-1 duration-1000 ${isOpen === true && theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb] text-black'}`}>
 
                                 <ActiveLink to="/">Home</ActiveLink>
 
@@ -91,8 +100,11 @@ const Navbar = () => {
                                 {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
 
                                 {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
+
                                 {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
+
                                 {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
+
                                 <ActiveLink to="/about-us">About</ActiveLink>
 
                                 {

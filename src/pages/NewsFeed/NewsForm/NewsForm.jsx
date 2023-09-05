@@ -70,7 +70,7 @@ const NewsForm = () => {
                     const status = ref.current.value;
                     const react = [];
                     const comment = [];
-                    const newPost = { imgURL, category: "blog", status, date, text: blogText, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName };
+                    const newPost = { imgURL, category: "Blog", status, date, text: blogText, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName };
                     axiosSecure.post('/posts', newPost)
                         .then(data => {
                             if (data) {
@@ -90,7 +90,6 @@ const NewsForm = () => {
 
     return (
         <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-4 mt-5 border border-[#84a98c] rounded-lg my-5`}>
-
             {/* main form  */}
 
             <div className="mt-2 py-4 rounded-lg">
@@ -104,11 +103,9 @@ const NewsForm = () => {
 
             {isModalOpen && (
                 <div className={`${theme === 'dark' ? 'bg-[#001427]' : 'bg-[#f0efeb]'} fixed top-1/3 mt-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#84a98c] sm:w-full lg:w-2/5`}>
-
                     <button onClick={() => setIsModalOpen(false)} className="px-3 py-1 rounded absolute right-3 top-2">
                         <SlClose className="text-2xl hover:text-[#ad2831]" />
                     </button>
-
                     {/* modal two sections start  */}
 
                     <div className="flex my-5 gap-5">
@@ -141,12 +138,20 @@ const NewsForm = () => {
                         <div className="my-2 w-1/2 font-[Poppins]">
                             <p className="text-md font-semibold mb-2">Select Category: </p>
                             <select required {...register("category")} className="text-black w-full border rounded-md">
-                                <option>Educational</option>
-                                <option>Science</option>
-                                <option>Health</option>
-                                <option>Technology</option>
-                                <option>Food</option>
-                                <option>Books</option>
+                                <option>News & Updates</option>
+                                <option>Creative Arts</option>
+                                <option>Lifestyle & Hobbies</option>
+                                <option>Wellness & Self-Care</option>
+                                <option>Technology & Innovation</option>
+                                <option>Entertainment Buzz</option>
+                                <option>Science & Exploration</option>
+                                <option>Travel & Adventure</option>
+                                <option>Food & Cuisine</option>
+                                <option>Personal Stories</option>
+                                <option>Fashion & Style</option>
+                                <option>Sports & Fitness</option>
+                                <option>Parenting & Family</option>
+                                <option>Education & Learning</option>
                             </select>
                         </div>
                         <textarea rows="4" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?" required></textarea><br />

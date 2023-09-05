@@ -9,12 +9,19 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 
 const Login = () => {
+    
     const { theme } = useContext(ThemeContext);
+
     const { signIn, errorMsg, setErrorMsg, btnLoading, setBtnLoading } = useAuth();
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
     const location = useLocation()
+
     const navigate = useNavigate();
+
     let from = location.state?.from?.pathname || "/";
+    
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
@@ -43,11 +50,12 @@ const Login = () => {
                 console.log(err);
             })
 
-    }
+    };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+
     return (
         <div className={`${theme === 'dark' ? 'dark' : ''} pb-8`}>
 

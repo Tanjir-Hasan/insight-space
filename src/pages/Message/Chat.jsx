@@ -30,9 +30,9 @@ const Chat = () => {
   return (
     <div className={`${theme === 'dark' ? 'dark' : ''} py-8`}>
 
-      <div className="mt-10  mx-auto">
+      <div className="mt-10 w-8/12 mx-auto">
 
-        <div className='grid'>
+        <div className='grid mb-5'>
 
           {
             messages &&
@@ -42,7 +42,9 @@ const Chat = () => {
           }
 
         </div>
+
         <SendMessage scroll={scroll} />
+
         <span ref={scroll}></span>
 
       </div>
