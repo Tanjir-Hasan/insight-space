@@ -141,12 +141,20 @@ const NewsForm = () => {
                         <div className="my-2 w-1/2 font-[Poppins]">
                             <p className="text-md font-semibold mb-2">Select Category: </p>
                             <select required {...register("category")} className="text-black w-full border rounded-md">
-                                <option>Educational</option>
-                                <option>Science</option>
-                                <option>Health</option>
-                                <option>Technology</option>
-                                <option>Food</option>
-                                <option>Books</option>
+                                <option>News & Updates</option>
+                                <option>Creative Arts</option>
+                                <option>Lifestyle & Hobbies</option>
+                                <option>Wellness & Self-Care</option>
+                                <option>Technology & Innovation</option>
+                                <option>Entertainment Buzz</option>
+                                <option>Science & Exploration</option>
+                                <option>Travel & Adventure</option>
+                                <option>Food & Cuisine</option>
+                                <option>Personal Stories</option>
+                                <option>Fashion & Style</option>
+                                <option>Sports & Fitness</option>
+                                <option>Parenting & Family</option>
+                                <option>Education & Learning</option>
                             </select>
                         </div>
                         <textarea rows="4" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?" required></textarea><br />

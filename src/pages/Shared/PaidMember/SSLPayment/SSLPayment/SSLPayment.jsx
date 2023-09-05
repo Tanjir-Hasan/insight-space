@@ -12,7 +12,7 @@ const SSLPayment = (formData) => {
         fetch("http://localhost:5000/ssl-payment", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json" // Corrected header field name
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ ...data, total_amount: formData.number })
         })
@@ -25,8 +25,6 @@ const SSLPayment = (formData) => {
         console.log(data)
     };
 
-
-    // console.log(watch("example")); // watch input value by passing the name of it
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

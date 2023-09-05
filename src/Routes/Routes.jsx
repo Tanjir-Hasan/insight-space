@@ -23,9 +23,8 @@ import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
 import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
 import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
-import BkashMethod from "../pages/BkashMethod/BkashMethod";
 import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
-
+import SSLPaymentFail from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentFail/SSLPaymentFail";
 
 
 
@@ -86,7 +85,7 @@ const router = createBrowserRouter([
                 path: 'group-conversations',
                 element: <Chat></Chat>
             },
-           
+
             {
                 path: "quiz",
                 element: <Quiz></Quiz>
@@ -95,7 +94,7 @@ const router = createBrowserRouter([
                 path: "about-us",
                 element: <AboutUs></AboutUs>
             },
-            {   
+            {
                 path: "paid-members",
                 element: <PaidMembers></PaidMembers>
             },
@@ -103,15 +102,15 @@ const router = createBrowserRouter([
                 path: "connections",
                 element: <FriendsAndSearch></FriendsAndSearch>
             },
-            {
-                path:"bkashmethod",
-                element: <BkashMethod></BkashMethod>
-            },
             //ssl payment
             {
                 path: "/payment/success/:transaction_Id",
                 element: <SSLPaymentSuccess></SSLPaymentSuccess>
-            }  
+            },
+            {
+                path: "/payment/fail/:transaction_Id",
+                element: <SSLPaymentFail></SSLPaymentFail>
+            }
         ]
     },
     {
@@ -119,8 +118,8 @@ const router = createBrowserRouter([
         element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
         children: [
             {
-              path : "adminHome",
-              element : <AdminHome></AdminHome>
+                path: "adminHome",
+                element: <AdminHome></AdminHome>
             },
             {
                 path: 'all-users',
@@ -130,7 +129,7 @@ const router = createBrowserRouter([
                 path: "all-posts",
                 element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
             },
-           
+
         ]
     }
 ]);

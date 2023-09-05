@@ -7,9 +7,7 @@ import { BsSend } from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
 import { data } from 'autoprefixer';
 
-const BkashMethod = () => {
-    
-
+const SSLCommerz = () => {
     const { user, btnLoading } = useAuth()
     console.log(user);
 
@@ -20,12 +18,7 @@ const BkashMethod = () => {
     // // const { register, handleSubmit } = useForm();
 
     useEffect(() => {
-        fetch(`/bkashmethod/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            setBkash(data)
-        })
+        
     }, [id])
 
 
@@ -149,4 +142,4 @@ const BkashMethod = () => {
     );
 };
 
-export default BkashMethod;
+export default SSLCommerz;
