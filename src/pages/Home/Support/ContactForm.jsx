@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
 import { BsSend } from "react-icons/bs";
-import { BiLoaderAlt } from "react-icons/bi";
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2'
-import { ColorRing } from "react-loader-spinner";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import ButtonWithLoading from "../../../components/ButtonWithLoading";
 import useAuth from "../../../Hooks/UseAuth";
@@ -66,7 +64,7 @@ const ContactForm = () => {
     };
     
     return (
-        <div id="contact" className={`${theme === 'dark' ? 'dark' : ''} pt-10 pb-20`}>
+        <div id="contact" className={` ${theme === 'dark' ? 'dark' : ''} pt-40 pb-20`}>
 
                 <div className='md:w-10/12 w-11/12 mx-auto'>
                     <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8'>Help Desk

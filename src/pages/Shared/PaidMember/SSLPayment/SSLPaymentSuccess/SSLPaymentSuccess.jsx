@@ -51,7 +51,7 @@ const SSLPaymentSuccess = () => {
                         className={`${theme === 'dark' ? '' : ''} bg-transparent text-2xl font-[Poppins]`}
                     />
 
-                    <button onClick={handleCopy} className='text-xl font-[Cinzel] text-white mr-5 px-20 rounded-lg border-0 text-md font-semibold bg-gradient-to-r from-[#84a98c] to-[#344e41] hover:cursor-pointer hover:opacity-90 duration-500 py-2 '>Copy</button>
+                    <button onClick={handleCopy} className='text-xl font-[Cinzel] text-white mr-5 px-20 rounded-lg border-0 text-md font-semibold bg-gradient-to-r from-[#84a98c] to-[#344e41] hover:cursor-pointer hover:opacity-90 duration-500 py-2'>Copy</button>
 
                 </div>
 

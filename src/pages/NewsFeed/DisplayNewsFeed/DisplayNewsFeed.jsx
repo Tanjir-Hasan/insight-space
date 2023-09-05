@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */ //
 import { useContext, useEffect, useState } from "react";
-import { FaComment, FaEllipsisH, FaHeart, FaHistory } from 'react-icons/fa';
+import { FaComment, FaEllipsisH, FaHistory } from 'react-icons/fa';
+import { AiFillHeart } from 'react-icons/ai';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
@@ -198,7 +199,7 @@ const DisplayNewsFeed = ({ query }) => {
 
                             <div className="w-full flex space-x-8 p-6">
 
-                                <button className="flex items-center"><FaHeart className={editPost.react.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {editPost.react.length}</button>
+                                <button className="flex items-center"><AiFillHeart className={editPost.react.includes(userDetails.email) ? "text-2xl text-red-600 me-2" : "text-2xl me-2"}></AiFillHeart> {editPost.react.length}</button>
 
                                 <button className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {editPost.comment.length}</button>
 

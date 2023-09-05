@@ -46,25 +46,9 @@
   @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700 hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
 }
 
-/* .translated-ltr{
-    margin-top: -40px;
+.testimonial {
+  clip-path: polygon(100% 0%, 0% 0% , 0.00% 74.60%, 20.00% 139.64%, 40.00% 193.34%, 60.00% 228.16%, 80.00% 239.20%, 100.00% 224.91%);
 }
-  
-  
-.goog-te-gadget-simple {
-      background-color: #ecebf0 !important;
-      border:0 !important;
-      font-size: 10pt;
-     font-weight:800;
-      display: inline-block;
-      padding:10px 10px !important;
-      cursor: pointer;
-      zoom: 1;
-}
-  
-.goog-te-gadget-simple  span {
-     color:#3e3065 !important;
-} */
 
 #google_translate_element select{
     background-color:#f0efeb;
@@ -73,14 +57,6 @@
     border-radius:3px;
     padding: 0;
 }
-
-/* .goog-logo-link{
-    display:none !important;
-}
-
-.goog-te-gadget{
-    color: transparent !important;
-}  */
 
 .secondary-button {
   width: 100%;
