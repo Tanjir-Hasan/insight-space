@@ -7,12 +7,12 @@ import { ThemeContext } from '../../providers/ThemeProvider';
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaThList } from 'react-icons/fa';
 import moment from "moment";
-import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
 import useAuth from '../../Hooks/UseAuth';
 import Swal from 'sweetalert2';
 import useBlog from '../../Hooks/useBlog';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
+import useNewsFeedFunctionality from '../../Hooks/useNewsFeedFunctionality';
 
 
 const BlogFeed = () => {
@@ -70,7 +70,7 @@ const BlogFeed = () => {
                     const status = ref.current.value;
                     const react = [];
                     const comment = [];
-                    const newPost = { imgURL, category: "blog", status, date, text: blogText, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName };
+                    const newPost = { imgURL, category: "Blog", status, date, text: blogText, userEmail: user.email, react, comment, userPhoto: userDetails?.photoURL, userName: userDetails?.displayName };
                     axiosSecure.post('/posts', newPost)
                         .then(data => {
                             if (data) {

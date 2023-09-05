@@ -66,9 +66,11 @@ const UserDetails = ({ userDetails }) => {
                     <hr className="underline underline-offset-8"></hr>
                 </div>
                 <div className="my-4 space-y-2">
-                    <Link to="/news-feed"> <button onClick={handleMyPosts} className="w-full border-b-4 border-[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">My posts </button></Link>
-                    <Link to="/news-feed"><button onClick={handleBookmarks} className="w-full border-b-4 border-[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out"> Book Marks </button></Link>
-                    <button onClick={handleLogOut} className="w-full border-b-4 border-[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">Log out</button>
+                    <Link to="/news-feed"> <button onClick={handleMyPosts} className="secondary-button">My posts </button></Link>
+
+                    <Link to="/news-feed"><button onClick={handleBookmarks} className="secondary-button"> Book Marks </button></Link>
+                    
+                    <button onClick={handleLogOut} className="secondary-button">Log out</button>
                 </div>
             </div>}
         </div>
