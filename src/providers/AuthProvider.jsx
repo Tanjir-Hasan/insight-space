@@ -11,12 +11,12 @@ export const AuthContext = createContext(null);
 
 
 const AuthProvider = ({ children }) => {
-    const [info, setInfo] = useState(false);
     const [user, setUser] = useState(null);
     const [searchText, setSearchText] = useState("");
     const [loading, setLoading] = useState(true);
     const [btnLoading, setBtnLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
+    const [checkedCategories, setCheckedCategories] = useState([]);
 
     // google provider
     const googleProvider = new GoogleAuthProvider();
@@ -100,10 +100,10 @@ const AuthProvider = ({ children }) => {
         logOut,
         resetPassword,
         updateUserProfile,
-        info,
-        setInfo,
         searchText,
-        setSearchText
+        setSearchText,
+        checkedCategories,
+        setCheckedCategories
     }
 
     return (
