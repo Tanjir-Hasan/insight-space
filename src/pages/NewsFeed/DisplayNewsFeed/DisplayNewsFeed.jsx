@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */ //
 import { useContext, useEffect, useState } from "react";
-import { FaBookDead, FaComment, FaEllipsisH, FaHeart, FaHistory } from 'react-icons/fa';
+import { FaBookDead, FaComment, FaEllipsisH, FaHeart, FaHistory, FaLock, FaUserFriends } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
@@ -9,8 +9,7 @@ import { ThemeContext } from "../../../providers/ThemeProvider";
 import { useSelector } from "react-redux";
 import NewsFooter from "./NewsFooter";
 import { useRef } from "react";
-import { SlClose } from 'react-icons/sl';
-
+import { SlClose, SlGlobe } from 'react-icons/sl';
 
 
 
@@ -76,23 +75,39 @@ const DisplayNewsFeed = ({ query }) => {
     return (
         <div className="min-h-screen">
             {
-                allPosts && allPosts.filter(post => post.text.toLowerCase().includes(query.toLowerCase())).map(p => <div key={p._id}
-                    className={`mb-3 ${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} rounded-lg border border-[#84a98c]`}>
-                    <div className="p-4">
-                        <div className="flex justify-between">
-                            <div className="flex space-x-2 mb-4">
-                                <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
-                                <div>
-                                    <p className="text-lg font-semibold pt-1">{p.userName}</p>
-                                    <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
+                allPosts && allPosts.filter(post => post.text.toLowerCase().includes(query.toLowerCase())).map(p =>
+                    <div
+                        key={p._id}
+                        className={`mb-3 ${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} rounded-lg border border-[#84a98c]`}>
+
+                        <div className="p-4">
+
+                            <div className="flex justify-between">
+
+                                <div className="flex space-x-2 mb-4">
+                                    <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                    <div>
+                                        <p className="text-lg font-semibold pt-1">{p.userName}</p>
+                                        <div className="flex space-x-2">
+                                            <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
+                                            <button>{p.status === "Public" && <SlGlobe></SlGlobe>}{p.status === "Friends" && <FaUserFriends></FaUserFriends>}{p.status === "Only me" && <FaLock></FaLock>}</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            {/* posts action  */}
-                            <div className="px-2 flex items-baseline">
-                                {isOpen === p._id &&
-                                    <div className="relative">
-                                        <ul className="p-4 space-y-2 w-72 bg-white rounded-lg absolute top-0 right-0">
-                                            <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="hover:underline underline-offset-4 hover:scale-110" onClick={() => handleBookMark(p._id, userDetails?.email)} >Bookmark</button></li>
+
+                                {/* posts action  */}
+
+                                <div className="px-2 flex items-baseline">
+
+                                    {isOpen === p._id &&
+
+                                        <div className="relative">
+
+                                            <ul className="p-4 space-y-2 w-72 bg-white text-black rounded-lg absolute top-0 right-0">
+
+                                                <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleBookMark(p._id, userDetails?.email)} >Bookmark</button></li>
+
+                                                <li><button hidden={p.userEmail !== userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleDeletePost(p)}>Delete</button></li>
 
                                                 <li><button hidden={p.userEmail !== userDetails.email} onClick={() => EditPostModalOpen(p)} className="hover:underline underline-offset-4 hover:scale-110 duration-700">Edit Posts</button></li>
 
