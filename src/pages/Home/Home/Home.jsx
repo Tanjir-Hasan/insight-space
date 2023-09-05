@@ -11,7 +11,7 @@ import Testimonial from "../Testimonial/Testimonial";
 import { Link } from "react-router-dom";
 import Membership from "../Membership/Membership";
 import VideoUpload from "../../NewsFeed/VideoUpload/VideoUpload";
-import SSLPayment from "../../Shared/PaidMember/SSLPayment/SSLPayment";
+import SSLPayment from "../../Shared/PaidMember/SSLPayment/SSLPayment/SSLPayment";
 
 
 
@@ -24,6 +24,12 @@ const Home = () => {
             <ExploreContent></ExploreContent>
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
+
+            <Link to="/group-conversations">
+                <img src="https://i.ibb.co/bzywHzS/mail.png" alt="" className="fixed top-[calc(100vh - 0)] bottom-2 right-10 w-12" />
+            </Link>
+
+
             <AdvancedCapabilities></AdvancedCapabilities>
             <Membership></Membership>
             <CommunityGuidelines></CommunityGuidelines>
@@ -32,7 +38,7 @@ const Home = () => {
 
             {/* <VideoUpload></VideoUpload> */}
 
-            {/* <SSLPayment></SSLPayment> */}
+            <SSLPayment></SSLPayment>
 
             {/* <div className="flex justify-between w-10/12 mx-auto my-5">
                 <GoogleTranslator />

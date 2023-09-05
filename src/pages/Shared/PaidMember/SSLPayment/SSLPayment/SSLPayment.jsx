@@ -6,13 +6,22 @@ const SSLPayment = (formData) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
+
+        event.preventDefault();
+
         fetch("http://localhost:5000/ssl-payment", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json" // Corrected header field name
             },
-            body: JSON.stringify({ ...data, total_amount: formData.number }) // Use formData.number directly
+            body: JSON.stringify({ ...data, total_amount: formData.number })
         })
+            .then(res => res.json())
+            .then(result => {
+                window.location.replace(result.url);
+                console.log(result)
+            });
+
         console.log(data)
     };
 
@@ -46,6 +55,7 @@ const SSLPayment = (formData) => {
             />
 
             <input type="submit" />
+            
         </form>
     );
 };

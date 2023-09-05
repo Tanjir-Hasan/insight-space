@@ -83,7 +83,7 @@ const Testimonial = () => {
                     showDots={true}
                     infinite={true}
                     autoPlay={true}
-                    autoPlaySpeed={3000}
+                    autoPlaySpeed={2000}
                     keyBoardControl
                     containerClass="carousel-container"
                     dotListClass="custom-dot-list-style"

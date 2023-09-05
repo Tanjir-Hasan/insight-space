@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../../providers/ThemeProvider";
-import { BsArrowUpSquare } from 'react-icons/bs';
 import ScrollToTopButton from "./ScrollToTopButton";
 
 const Footer = () => {
@@ -9,7 +8,7 @@ const Footer = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div className={`${theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb]'} py-4`}>
+        <div className={`${theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb]'} border-b-8 border-[#6b9080] py-4`}>
 
             <div className="md:flex justify-between px-10 items-center">
                 <div>

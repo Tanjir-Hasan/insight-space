@@ -24,6 +24,7 @@ import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch"
 import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import BkashMethod from "../pages/BkashMethod/BkashMethod";
+import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
 
 
 
@@ -105,7 +106,12 @@ const router = createBrowserRouter([
             {
                 path:"bkashmethod",
                 element: <BkashMethod></BkashMethod>
-            }         
+            },
+            //ssl payment
+            {
+                path: "/payment/success/:transaction_Id",
+                element: <SSLPaymentSuccess></SSLPaymentSuccess>
+            }  
         ]
     },
     {
