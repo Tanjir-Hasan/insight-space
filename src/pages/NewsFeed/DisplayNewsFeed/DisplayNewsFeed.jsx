@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */ //
 import { useContext, useEffect, useState } from "react";
-import { FaComment, FaEllipsisH, FaHistory } from 'react-icons/fa';
 import { AiFillHeart } from 'react-icons/ai';
+import { FaComment, FaEllipsisH, FaHistory, FaLock, FaUserFriends } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
@@ -10,7 +10,7 @@ import { ThemeContext } from "../../../providers/ThemeProvider";
 import { useSelector } from "react-redux";
 import NewsFooter from "./NewsFooter";
 import { useRef } from "react";
-import { SlClose } from 'react-icons/sl';
+import { SlClose, SlGlobe } from 'react-icons/sl';
 
 
 const DisplayNewsFeed = ({ query }) => {
@@ -38,10 +38,8 @@ const DisplayNewsFeed = ({ query }) => {
     const [, handleBookMark, , , , handleDeletePost, handleUpdatePost] = useNewsFeedFunctionality();
     // redux state 
     const categoriesData = useSelector(state => state?.categories);
-
-    const bookMarks = useSelector(state => state?.bookMarks);
-
-    const myPosts = useSelector(state => state?.myPosts);
+    const bookMarks = useSelector(state => state?.bookMarks)
+    const myPosts = useSelector(state => state?.myPosts)
 
     useEffect(() => {
         if (categoriesData.length > 0) {
@@ -90,7 +88,10 @@ const DisplayNewsFeed = ({ query }) => {
                                     <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                                     <div>
                                         <p className="text-lg font-semibold pt-1">{p.userName}</p>
-                                        <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
+                                        <div className="flex space-x-2">
+                                            <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
+                                            <button>{p.status === "Public" && <SlGlobe></SlGlobe>}{p.status === "Friends" && <FaUserFriends></FaUserFriends>}{p.status === "Only me" && <FaLock></FaLock>}</button>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -223,3 +224,12 @@ const DisplayNewsFeed = ({ query }) => {
 };
 
 export default DisplayNewsFeed;
+
+
+
+
+{/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    {allData.filter((item) => item.category === 'sports').map((item) => (
+        <Card item={item} key={item._id}></Card>
+    ))}
+</div> */}

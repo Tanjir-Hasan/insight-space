@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import usePosts from "../../../Hooks/usePosts";
 import { useDispatch } from "react-redux";
 import { setCategories } from "../../../StateManagment/Posts/categoriesSlice";
 import Search from "../Search/Search";
+import useAuth from "../../../Hooks/UseAuth";
 
 
 
 const Categories = () => {
     const [posts] = usePosts();
+    const { checkedCategories, setCheckedCategories } = useAuth();
     const dispatch = useDispatch();
-    const [checkedCategories, setCheckedCategories] = useState([]);
     const Categories = posts?.filter((post, index, self) =>
         index === self.findIndex((p) => p.category === post.category)
     );
@@ -28,9 +29,9 @@ const Categories = () => {
 
     return (
         <div className="lg:w-3/12 lg:fixed mb-5 left-0 px-5">
-            <Search></Search>           
-                <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
-           
+            <Search></Search>
+            <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
+
             <div className="flex flex-wrap lg:block">
                 {
                     Categories && Categories.map(c =>
