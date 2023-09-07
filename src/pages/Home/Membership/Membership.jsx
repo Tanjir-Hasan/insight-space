@@ -26,9 +26,9 @@ const Membership = () => {
 
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : 'w-11/12 mx-auto'}`}>
+        <div className={`${theme}`}>
 
-            <div className=" items-center justify-center  md:w-10/12 w-full mx-auto drop-shadow-lg  ">
+            <div className=" items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg  ">
 
                 {/* <div className=" gap-4 bg-[#689079] items-center justify-center  lg:w-full rounded-lg text-white px-16"> */}
                 <div className="justify-between rounded-lg">
@@ -37,14 +37,14 @@ const Membership = () => {
 
                         <div className="space-y-5 md:px-0 px-6">
 
-                            <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 mx-auto lg:pt-20 pt-10'>
+                            <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 mx-auto lg:pt-20 pt-10'>
                                 Exclusive Membership
                                 <br />
                                 <span className='text-xl'>- Taking it to the Next Level -</span>
                             </h1>
                             <p className="mb-10 font-sans">Dive into a realm of unparalleled privileges with our Exclusive Membership section. Elevate your experience and gain access to a curated selection of premium content, personalized services, and extraordinary offers</p>
                             <Link to="/paid-members">
-                                <button className="font-semibold  mt-5 bg-white text-[#84a98c] px-3 py-2 rounded-sm transition duration-700 ease-in-out ">Show All</button>
+                                <button className="font-semibold  mt-5 bg-white text-[#3c6e71] px-3 py-2 rounded-sm transition duration-700 ease-in-out ">Show All</button>
                             </Link>
 
                         </div>
@@ -74,7 +74,7 @@ const Membership = () => {
                                 >
                                     <div className="relative group">
                                         <h2 className='mt-5 font-[Cinzel] text-center'>Free Membership</h2>
-                                        <span className="absolute -bottom-1 w-9/12 left-10 h-0.5 bg-[#84a98c] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></span>
+                                        <span className="absolute -bottom-1 w-9/12 left-10 h-0.5 bg-[#3c6e71] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></span>
                                     </div>
                                     <p className='mt-5 font-[Cinzel] text-center'>Dip your toes into our community with our no-cost Free Membership, offering you a taste of our content and a glimpse into the possibilities that await.</p>
                                 </div>
@@ -100,7 +100,7 @@ const Membership = () => {
                                 >
                                     <div className="relative group">
                                         <h2 className='mt-5 font-[Cinzel] text-center'>Basic Membership</h2>
-                                        <span className="absolute -bottom-1 w-9/12 left-10 h-0.5 bg-[#84a98c] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></span>
+                                        <span className="absolute -bottom-1 w-9/12 left-10 h-0.5 bg-[#3c6e71] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></span>
                                     </div>
                                     <p className='mt-5 font-[Cinzel] text-center'>Unlock the door to a range of essential features with our Basic Membership, designed to provide you with foundational benefits and a solid starting point for your journey with us.</p>
                                 </div>
@@ -125,7 +125,7 @@ const Membership = () => {
                                 >
                                     <div className="relative group">
                                         <h2 className='mt-5 font-[Cinzel] text-center' >Pro Membership</h2>
-                                        <span className="absolute -bottom-1 w-9/12 left-10 h-0.5 bg-[#84a98c] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></span>
+                                        <span className="absolute -bottom-1 w-9/12 left-10 h-0.5 bg-[#3c6e71] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></span>
                                     </div>
                                     <p className='mt-5 font-[Cinzel] text-center'>Step up your game and take full advantage of our Pro Membership, offering advanced perks, exclusive access, and a premium experience that caters to your aspirations and needs.</p>
                                 </div>

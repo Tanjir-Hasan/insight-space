@@ -9,7 +9,7 @@ const Footer = () => {
 
     return (
         <>
-            <div className={`${theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb]'} border-b-8 border-[#6b9080] py-4`}>
+            <div className={`${theme}`}>
 
                 <div className="md:flex justify-between px-10 items-center">
                     <div>
@@ -17,10 +17,10 @@ const Footer = () => {
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-5 items-center font-[Poppins] pl-4 pt-5 md:pl-0 md:pt-0 md:w-1/2 lg:w-1/3">
-                        <Link className="hover:text-[#84a98c] hover:underline underline-offset-2 duration-700">Terms & Conditions</Link>
-                        <Link className="hover:text-[#84a98c] hover:underline underline-offset-2 duration-700">Privacy Policy</Link>
-                        <Link className="hover:text-[#84a98c] hover:underline underline-offset-2 duration-700">Cookie Policy</Link>
-                        <Link className="hover:text-[#84a98c] hover:underline underline-offset-2 duration-700" to="/about-us">About Us</Link>
+                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700">Terms & Conditions</Link>
+                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700">Privacy Policy</Link>
+                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700">Cookie Policy</Link>
+                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700" to="/about-us">About Us</Link>
                         <ScrollToTopButton></ScrollToTopButton>
                     </div>
 

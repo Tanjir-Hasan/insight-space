@@ -78,7 +78,7 @@ const DisplayNewsFeed = ({ query }) => {
                 allPosts && allPosts.filter(post => post.text.toLowerCase().includes(query.toLowerCase())).map(p =>
                     <div
                         key={p._id}
-                        className={`mb-3 ${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} rounded-lg border border-[#84a98c]`}>
+                        className={`mb-3 ${theme} rounded-lg border border-[#3c6e71]`}>
 
                         <div className="p-4">
 
@@ -135,9 +135,9 @@ const DisplayNewsFeed = ({ query }) => {
 
                                     <span hidden={id !== p._id}>{p.text}</span>
 
-                                    <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See More</span>
+                                    <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-[#48cae4] cursor-pointer">See More</span>
 
-                                    <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See Less</span>
+                                    <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-[#48cae4] cursor-pointer">See Less</span>
 
                                 </span>
 

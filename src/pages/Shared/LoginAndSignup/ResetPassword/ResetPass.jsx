@@ -45,7 +45,7 @@ const ResetPass = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </p>
-                        {/* <button className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-24 py-2 rounded-lg' onClick={handleReset}>Send Password Reset Email</button> */}
+                        {/* <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 px-24 py-2 rounded-lg' onClick={handleReset}>Send Password Reset Email</button> */}
 
                         <Link onClick={handleReset}>
                             <Button heading="Send Password Reset Email">

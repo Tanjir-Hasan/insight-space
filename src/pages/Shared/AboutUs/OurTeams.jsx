@@ -20,7 +20,7 @@ const OurTeams = () => {
             <div className='justify-center items-center mt-40 mb-40'>
 
             <div className='md:w-10/12 w-11/12 mx-auto'>
-                <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8'>Our Team</h2>
+                <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12 mb-8'>Our Team</h2>
             </div>
 
                 <div className='grid grid-cols-1 lg:grid-cols-5 gap-20 ml-20 md: w-5/6 justify-center items-center'>

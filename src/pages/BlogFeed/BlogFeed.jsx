@@ -88,14 +88,13 @@ const BlogFeed = () => {
     }
 
     return (
-        <div
-            className={`${theme === 'dark' ? 'dark' : ''}`}>
+        <div className={`${theme}`}>
 
             <div className='w-10/12 mx-auto font-[Poppins]'>
 
                 <form onSubmit={handleBlogSubmit}>
 
-                    <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#84a98c] border-spacing-4 mt-2 py-5 rounded-lg`}>
+                    <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#3c6e71] border-spacing-4 mt-2 py-5 rounded-lg`}>
 
                         <div className="flex space-x-2 mx-4 px-2">
                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
@@ -112,7 +111,7 @@ const BlogFeed = () => {
                             <input type="file"
                                 id="fileInput"
                                 name="fileInput"
-                                className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
+                                className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#3c6e71] file:to-[#335c67] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
                         </label>
 
                         <div className="px-6">
@@ -141,7 +140,7 @@ const BlogFeed = () => {
                                 hidden: { opacity: 0, x: -100 },
                             }}
                             transition={{ duration: 0.9 }}>
-                            <div className='border rounded-lg border-[#84a98c]'>
+                            <div className='border rounded-lg border-[#3c6e71]'>
                                 <div className="p-4">
                                     <div className="flex space-x-2 mb-4">
                                         <img src={singleData?.userPhoto ? singleData?.userPhoto : "https://i.ibb.co/tbpwNBs/shamim-removebg-preview.png"} alt="user photo" className="w-12 h-12 rounded-full" />
@@ -156,14 +155,14 @@ const BlogFeed = () => {
                                                 <p>
                                                     {singleData.text}
                                                 </p>
-                                                <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read Less</span>
+                                                <span className='font-semibold text-[#3c6e71] cursor-pointer' onClick={() => setShow(!show)}>Read Less</span>
                                             </>
                                             :
                                             <>
                                                 <p className='text-slate-500'>
                                                     {singleData.text.substring(0, 250)} ......
                                                 </p>
-                                                <span className='font-semibold text-[#84a98c] cursor-pointer' onClick={() => setShow(!show)}>Read More</span>
+                                                <span className='font-semibold text-[#3c6e71] cursor-pointer' onClick={() => setShow(!show)}>Read More</span>
                                             </>
                                         :
                                         "In the digital age, blogs have become a powerful medium for sharing knowledge, experiences, and perspectives. The blog section on our platform is a dynamic space where thought-provoking ideas, expert insights, and personal narratives come together to create a tapestry of inspiration. Whether you're seeking guidance, entertainment, or a fresh perspective on various aspects of life, our blog section is here to be your companion on this exciting journey."} </p>
@@ -221,12 +220,12 @@ const BlogFeed = () => {
                             hidden: { opacity: 0, x: 100 },
                         }}
                         transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
-                        <h2 className=" text-center text-4xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#84a98c] md:py-0 py-8">Blog heading</h2>
+                        <h2 className=" text-center text-4xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#3c6e71] md:py-0 py-8">Blog heading</h2>
 
                         {
                             blogs && blogs.map(p => <div key={p._id}  >
 
-                                <div onClick={() => haldleClick(p._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md shadow-[#84a98c] m-5 hover:bg-[#84a98c]  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""}`}>
+                                <div onClick={() => haldleClick(p._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md shadow-[#3c6e71] m-5 hover:bg-[#3c6e71]  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""}`}>
                                     <div>
                                         <img className='w-14 h-14 rounded-md' src={p?.imgURL} alt="" />
                                     </div>

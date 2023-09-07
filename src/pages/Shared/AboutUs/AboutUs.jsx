@@ -76,7 +76,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className="w-full md:w-5/6 hover:bg-[#84a98c] bg-slate-400  duration-500 rounded-3xl mb-5">
+                                    className="w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-400  duration-500 rounded-3xl mb-5">
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
                                         <div className='flex'>
@@ -102,7 +102,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className=" w-full md:w-5/6 hover:bg-[#84a98c] bg-slate-400 duration-500 rounded-3xl mb-5">
+                                    className=" w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-400 duration-500 rounded-3xl mb-5">
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
                                         <div className='flex'>
@@ -128,7 +128,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className=" w-full md:w-5/6 hover:bg-[#84a98c] bg-slate-400 duration-500 rounded-3xl">
+                                    className=" w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-400 duration-500 rounded-3xl">
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
                                         <div className='flex'>
@@ -150,21 +150,21 @@ const AboutUs = () => {
 
                                 className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
 
-                                <div className="hover:bg-[#84a98c] duration-500 rounded-3xl p-5">
+                                <div className="hover:bg-[#3c6e71] duration-500 rounded-3xl p-5">
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon2} alt="" /> */}
                                     </div>
                                     <p className="mt-5 font-[Cinzel] text-justify">Feedback and Continuous Improvement: Users can seek feedback on their work, ideas, or projects, leading to refinement and improvement. Constructive criticism and suggestions can be shared in a supportive environment.</p>
                                 </div>
 
-                                <div className="hover:bg-[#84a98c] duration-500 rounded-3xl p-5">
+                                <div className="hover:bg-[#3c6e71] duration-500 rounded-3xl p-5">
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon3} alt="" /> */}
                                     </div>
                                     <p className="mt-5 font-[Cinzel] text-justify">Preservation of Institutional Knowledge: As employees come and go, organizations risk losing valuable institutional knowledge. Knowledge sharing platforms help preserve this knowledge by capturing it in a format that can be passed on to new employees.</p>
                                 </div>
 
-                                <div className="hover:bg-[#84a98c] duration-500 rounded-3xl p-5">
+                                <div className="hover:bg-[#3c6e71] duration-500 rounded-3xl p-5">
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon1} alt="" /> */}
                                     </div>
