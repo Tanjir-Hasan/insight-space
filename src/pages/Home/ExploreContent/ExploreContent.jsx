@@ -45,7 +45,7 @@ const ExploreContent = () => {
                     }}
                     transition={{ duration: 0.9 }}
 
-                    className="md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12">
+                    className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
                     Explore Content
                 </motion.h1>
 
@@ -60,7 +60,7 @@ const ExploreContent = () => {
                     transition={{ duration: 0.9 }} className="md:w-11/12 mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 300px)' }}>
 
                     <div className="p-8" onClick={() => handleHomeCategory("News & Updates")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">News & Updates</h2>
                                 <p className="font-[Cinzel] text-black">
@@ -72,7 +72,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Creative Arts")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Creative Arts </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -84,7 +84,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Lifestyle & Hobbies")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Lifestyle & Hobbies </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -96,7 +96,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Wellness & Self-Care")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Wellness & Self-Care </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -108,7 +108,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Technology & Innovation")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Technology & Innovation </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -120,7 +120,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Entertainment Buzz")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Entertainment Buzz </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -132,7 +132,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Science & Exploration")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Science & Exploration </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -144,7 +144,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Travel & Adventure")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Travel & Adventure </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -157,7 +157,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Food & Cuisine")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Food & Cuisine </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -170,7 +170,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Personal Stories")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Personal Stories </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -183,7 +183,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Fashion & Style")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Fashion & Style </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -196,7 +196,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Social Causes")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Social Causes </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -209,7 +209,7 @@ const ExploreContent = () => {
 
 
                     <div className="p-8" onClick={() => handleHomeCategory("Sports & Fitness")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Sports & Fitness </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -221,7 +221,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Parenting & Family")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Parenting & Family </h2>
                                 <p className="font-[Cinzel] text-black">
@@ -233,7 +233,7 @@ const ExploreContent = () => {
                     </div>
 
                     <div className="p-8" onClick={() => handleHomeCategory("Education & Learning")}>
-                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#3c6e71]">
+                        <div className="flex justify-between items-center rounded-lg shadow-md p-6 transition duration-300 bg-[#f0efeb] text-black hover:text-[#48cae4]">
                             <div>
                                 <h2 className="text-xl font-[Poppins] font-semibold mb-4">Education & Learning</h2>
                                 <p className="font-[Cinzel] text-black">

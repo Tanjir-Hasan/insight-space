@@ -55,7 +55,7 @@ const Navbar = () => {
 
     return (
         <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#011627]' :
-            theme === 'night' ? 'bg-[#343a40]' :
+            theme === 'night' ? 'bg-[#0d1b2a]' :
                 theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
             {/* {theme === 'dark' ? 'bg-[#011627]' :
@@ -136,7 +136,7 @@ const Navbar = () => {
 
                 <div className='hidden sm:hidden md:hidden lg:block xl:block'>
 
-                    <div className={`flex gap-3 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#343a40] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                    <div className={`flex gap-3 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                         <ActiveLink to="/">Home</ActiveLink>
 
@@ -178,14 +178,14 @@ const Navbar = () => {
 
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
-                                <BiMenuAltRight className='h-8 w-6 cursor-pointer text-[#48cae4]' />
+                                <BiMenuAltRight className='h-8 w-6 cursor-pointer text-[#3c6e71]' />
                             ) : (
-                                <BiMenu className='h-8 w-6 cursor-pointer text-[#48cae4]' />
+                                <BiMenu className='h-8 w-6 cursor-pointer text-[#3c6e71]' />
                             )}
                         </span>
 
                         {isOpen &&
-                            <div className={`flex flex-col gap-3 absolute top-16 right-0 px-5 duration-1000 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#343a40] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                            <div className={`flex flex-col gap-3 absolute top-16 right-0 px-5 duration-1000 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                                 <ActiveLink to="/">Home</ActiveLink>
 
