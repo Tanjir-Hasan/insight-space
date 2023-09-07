@@ -92,7 +92,7 @@ const OurTeam = () => {
         <div className={`${theme === 'dark' ? 'dark' : 'w-11/12 my-14 mx-auto'}`}>
             <div>
                 <div className='md:w-10/12 w-11/12 pt-5 mx-auto'>
-                    <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8'>Our Team</h2>
+                    <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12 mb-8'>Our Team</h2>
                 </div>
             </div>
 
@@ -120,7 +120,7 @@ const OurTeam = () => {
                         <hr className='border-[#0def3e] border h-[20px] absolute -top-2 right-16' />
                         <div className=' text-right  '>
                             <h3>{teamData.tanjir.teamName}</h3>
-                            <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#84a98c]'>{teamData.tanjir.position}</h2>
+                            <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#3c6e71]'>{teamData.tanjir.position}</h2>
                             <div className='flex justify-end gap-3 mt-2  '>
                                 <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[0]} alt="" />
                                 <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[1]} alt="" />
@@ -161,7 +161,7 @@ const OurTeam = () => {
                     </div>
                     <div className=' '>
                         <h3>{teamData.shamim.teamName}</h3>
-                        <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#84a98c]'>{teamData.shamim.position}</h2>
+                        <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#3c6e71]'>{teamData.shamim.position}</h2>
                         <div className='flex  gap-3 mt-1 '>
                             <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[0]} alt="" />
                             <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[1]} alt="" />
@@ -197,7 +197,7 @@ const OurTeam = () => {
                     className="relative text-right" >
                    
                         <h2>{teamData.sumaiya.teamName}</h2>
-                        <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#84a98c]'>{teamData.sumaiya.position}</h2>
+                        <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#3c6e71]'>{teamData.sumaiya.position}</h2>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-[#0def3e] w-6 h-6 -right-6 absolute top-3">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                         </svg>
@@ -260,7 +260,7 @@ const OurTeam = () => {
                     <hr className='border-[#0def3e] border h-[20px] absolute -bottom-2 right-16' />
                     <div className='text-right '>
                         <h3>{teamData.jahirul.teamName}</h3>
-                        <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#84a98c]'>{teamData.jahirul.position}</h2>
+                        <h2 className='text-xl text-slate-400 font font-semibold border-b border-[#3c6e71]'>{teamData.jahirul.position}</h2>
                         <div className='flex justify-end gap-3 mt-1'>
                             <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[0]} alt="" />
                             <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[1]} alt="" />
@@ -303,7 +303,7 @@ const OurTeam = () => {
                     </div>
                     <div className=''>
                         <h3>{teamData.kakan.teamName}</h3>
-                        <h2 className='text-xl text-slate-400 font-semibold border-b border-[#84a98c]'>{teamData.kakan.position}</h2>
+                        <h2 className='text-xl text-slate-400 font-semibold border-b border-[#3c6e71]'>{teamData.kakan.position}</h2>
                         <div className='flex  gap-3 mt-1'>
                             <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[0]} alt="" />
                             <img className='w-5 h-5 rounded-full' src={teamData.SocialImg[1]} alt="" />

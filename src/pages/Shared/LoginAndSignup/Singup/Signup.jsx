@@ -96,7 +96,7 @@ const Signup = () => {
 
         <div className="lg:w-2/3 w-full lg:px-0 px-6">
 
-          <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#344e41] rounded-md md:p-12 p-6">
+          <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#335c67] rounded-md md:p-12 p-6">
             {/* signup form  */}
             {/* signup form  */}
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -155,7 +155,7 @@ const Signup = () => {
                   id="image"
                   name="fileInput"
                   {...register("photo")}
-                  className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" required />
+                  className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#3c6e71] file:to-[#335c67] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" required />
               </div>
 
               {/* <input {...register("exampleRequired", { required: true })} /> */}
@@ -169,7 +169,7 @@ const Signup = () => {
               </div>
 
               <div className="text-center mt-4">
-                <span>Already have an account? <Link to="/login"><span className="text-[#84a98c] hover:text-[#344e41] duration-1000">Login</span></Link></span>
+                <span>Already have an account? <Link to="/login"><span className="text-[#3c6e71] hover:text-[#335c67] duration-1000">Login</span></Link></span>
               </div>
 
             </form>

@@ -12,7 +12,7 @@ const NewsFeed = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : ''} py-5`}>
+        <div className={`${theme} py-5`}>
 
             <div className="w-[95%] mx-auto font-[Cinzel]">
 

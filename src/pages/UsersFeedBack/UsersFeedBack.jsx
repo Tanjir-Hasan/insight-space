@@ -50,7 +50,7 @@ const UsersFeedBack = () => {
 
             <div className="md:w-10/12 w-11/12 mx-auto">
 
-                <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:pt-20 pt-10 '>
+                <h1 className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:pt-20 pt-10 '>
                     Submitted FeedBacks
                 </h1>
 
@@ -62,7 +62,7 @@ const UsersFeedBack = () => {
                     feedbacks ={feedbacks}
                     handleDelete={handleDelete}
                     handleUpdate={handleUpdate}
-                    className='hover:bg-[#84a98c] duration-500 rounded-b-xl p-5 border-double border-4 border-sky-500 hover:text-white'> 
+                    className='hover:bg-[#3c6e71] duration-500 rounded-b-xl p-5 border-double border-4 border-sky-500 hover:text-white'> 
                 </FeedbackCard>
                 }
             </div>
@@ -76,7 +76,7 @@ export default UsersFeedBack;
 // grid grid-cols-1 lg:grid-cols-3 gap-4 p-20
 
 
-// hover:bg-[#84a98c] duration-500 rounded-b-xl p-20 border-double border-4 border-sky-500 hover:text-white
+// hover:bg-[#3c6e71] duration-500 rounded-b-xl p-20 border-double border-4 border-sky-500 hover:text-white
 
 
 // <div key={f._id} className=''>

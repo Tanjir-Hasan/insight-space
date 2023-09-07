@@ -2,9 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-.dark {
+/* .dark {
   background-color: #011627;
   color: #fff;
+} */
+
+.dark {
+  @apply bg-gradient-to-l from-gray-700 via-gray-900 to-black text-white
+}
+
+.night {
+  @apply bg-gradient-to-l from-[#495057] via-[#000000] to-[#6c757d] text-white
+}
+
+.disabled-button:hover {
+  cursor: not-allowed; 
+}
+
+.disable-icon {
+  margin-right: 4px; 
 }
 
 /* 
@@ -13,7 +29,7 @@
 */
 
 .active {
-  @apply text-[#84a98c] underline underline-offset-8;
+  @apply text-[#48cae4] underline underline-offset-8;
 }
 
 .default {
@@ -21,7 +37,7 @@
 }
 
 .input-field {
-  @apply w-full border-b-2 border-[#84a98c] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#344e41] focus:bg-[#f8f9fa];
+  @apply w-full border-b-2 border-[#3c6e71] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#335c67] focus:bg-[#f8f9fa];
 }
 
 /* carousel */
@@ -39,32 +55,16 @@
 }
 
 .quiz-category-effect {
-  @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700  hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
+  @apply font-[Cinzel] hover:bg-[#335c67] hover:w-[calc(100%+20px)] duration-700  hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
 }
 
 .quiz-category-effects {
-  @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700 hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
+  @apply font-[Cinzel] hover:bg-[#335c67] hover:w-[calc(100%+20px)] duration-700 hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
 }
 
-/* .translated-ltr{
-    margin-top: -40px;
+.testimonial {
+  clip-path: polygon(100% 0%, 0% 0% , 0.00% 74.60%, 20.00% 139.64%, 40.00% 193.34%, 60.00% 228.16%, 80.00% 239.20%, 100.00% 224.91%);
 }
-  
-  
-.goog-te-gadget-simple {
-      background-color: #ecebf0 !important;
-      border:0 !important;
-      font-size: 10pt;
-     font-weight:800;
-      display: inline-block;
-      padding:10px 10px !important;
-      cursor: pointer;
-      zoom: 1;
-}
-  
-.goog-te-gadget-simple  span {
-     color:#3e3065 !important;
-} */
 
 #google_translate_element select{
     background-color:#f0efeb;
@@ -74,21 +74,13 @@
     padding: 0;
 }
 
-/* .goog-logo-link{
-    display:none !important;
-}
-
-.goog-te-gadget{
-    color: transparent !important;
-}  */
-
 .secondary-button {
   width: 100%;
   margin-bottom: 8px;
   border-bottom-width: 4px;
-  border-bottom-color: #84a98c;
+  border-bottom-color: #3c6e71;
   border-bottom-style: solid;
-  color: #84a98c;
+  color: #3c6e71;
   border-radius: 0.25rem;
   padding: 8px 16px;
   border-radius: 8px;
@@ -99,6 +91,6 @@
 
 /* Hover styles */
 .secondary-button:hover {
-  background-color: #84a98c;
+  background-color: #3c6e71;
   color: white;
 }

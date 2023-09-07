@@ -11,7 +11,7 @@ const ScrollToTopButton = () => {
 
   return (
     <button onClick={scrollToTop} className="scroll-to-top-button">
-      <BsArrowUpSquare className="text-2xl font-bold hover:text-[#84a98c] duration-700" />
+      <BsArrowUpSquare className="text-2xl font-bold hover:text-[#48cae4] duration-700" />
     </button>
   );
 };

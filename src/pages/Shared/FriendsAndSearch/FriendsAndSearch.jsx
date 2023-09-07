@@ -113,7 +113,7 @@ const FriendsAndSearch = () => {
 
 
     return (
-        <div className={`${theme === 'dark' ? 'bg-[#001427] text-white' : ''} min-h-screen p-10`}>
+        <div className={`${theme} min-h-screen p-10`}>
 
             <div className='lg:w-11/12 mx-auto space-y-6'>
 
@@ -171,7 +171,9 @@ const FriendsAndSearch = () => {
 
                 <div className='lg:flex gap-10'>
 
-                    <div className={`lg:w-1/3 flex flex-col rounded-lg p-5 lg:mb-0 mb-3 ${theme === 'dark' ? 'bg-[#1d2d44] text-white' : 'bg-[#f0efeb]'}`}>
+                    <div className={`lg:w-1/3 flex flex-col rounded-lg p-5 lg:mb-0 mb-3 ${theme === 'dark' ? 'dark' :
+                        theme === 'night' ? 'night' :
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                         <h1 className='font-[Poppins] text-2xl mb-5'>Manage my network</h1>
 
@@ -187,7 +189,9 @@ const FriendsAndSearch = () => {
 
                     </div>
 
-                    <div className={`lg:w-2/3 flex flex-col rounded-lg p-5 ${theme === 'dark' ? 'bg-[#1d2d44] text-white' : 'bg-[#f0efeb]'}`}>
+                    <div className={`lg:w-2/3 flex flex-col rounded-lg p-5 ${theme === 'dark' ? 'dark' :
+                        theme === 'night' ? 'night' :
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                         {/* Display received friend requests */}
                         <div className='flex justify-between mb-5'>
@@ -217,8 +221,6 @@ const FriendsAndSearch = () => {
 
                                         </div>
 
-                                        {/* <button className='bg-green-700 p-2' onClick={() => handleAcceptRequest(request._id)}>Accept</button>
-                            <button className='bg-rose-700 p-2' onClick={() => handleDenyRequest(request._id)}>Deny</button> */}
                                     </li>
                                 ))}
                             </ul>
@@ -229,78 +231,6 @@ const FriendsAndSearch = () => {
                     </div>
 
                 </div>
-
-                {/* <div>
-                <h2>My Friends</h2>
-                {isLoading ? (
-                    <p>Loading...</p>
-                ) : friends?.length > 0 ? (
-                    <ul>
-                        {friends.map((friend, index) => (
-                            <li key={index}>{friend.email}</li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p>No friends found.</p>
-                )}
-            </div> */}
-
-                {/* <div className='flex'>
-
-                <div className='w-1/3 bg-rose-200'>
-                    <div>
-                        <h1>Pending Request</h1>
-                    </div>
-                    <div>
-                        <h1>My Friends</h1>
-                    </div>
-                </div>
-
-
-
-                <div className='w-2/3 bg-cyan-200'>
-
-                    <div>
-                        <h1>All friend request</h1>
-                    </div>
-
-                    <Carousel
-                        responsive={responsive}
-                        swipeable
-                        draggable
-                        arrows={false}
-                        showDots={true}
-                        infinite={true}
-                        autoPlay={true}
-                        autoPlaySpeed={3000}
-                        keyBoardControl
-                        containerClass="carousel-container"
-                        dotListClass="custom-dot-list-style"
-                    >
-                        {
-                            friends?.length > 0 ? (
-                                friends?.map((friend) => (
-                                    <div key={friend?._id} className="bg-white text-black sm:rounded-lg p-6 h-48 my-10 shadow-xl m-3 overflow-hidden">
-                                        <div className="flex flex-col items-center justify-center space-y-3 mb-4">
-
-                                            <img className="w-20 rounded-full" src={friend?.photoURL} alt={friend?.displayName} />
-
-                                            <h3 className="capitalize text-lg font-medium text-gray-900 font-[Cinzel]">{friend?.displayName}</h3>
-
-                                            <h3 className="capitalize text-lg font-medium text-gray-900 font-[Cinzel]">{friend?.email}</h3>
-
-                                        </div>
-                                    </div>
-                                ))
-                            )
-                                :
-                                <p>No friends found.</p>
-                        }
-                    </Carousel>
-
-                </div>
-
-            </div> */}
 
                 <MyFriends></MyFriends>
 

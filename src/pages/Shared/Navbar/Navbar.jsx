@@ -1,7 +1,5 @@
 import { useContext, useState } from 'react';
 import { BiMenuAltRight, BiMenu } from 'react-icons/bi';
-import { BsSun } from 'react-icons/bs';
-import { MdDarkMode } from 'react-icons/md';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
 import useAuth from '../../../Hooks/UseAuth';
@@ -10,7 +8,7 @@ import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
 import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 import useUser from '../../../Hooks/useUser';
-import GoogleTranslator from '../GoogleTranslator/GoogleTranslator';
+import ThemeButtons from '../../../ThemeButtons/ThemeButtons';
 
 
 const Navbar = () => {
@@ -20,15 +18,11 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(true);
 
-    const { theme, toggleTheme } = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
 
     const navigate = useNavigate();
 
     const [isAdmin] = useAdmin();
-
-    const handleThemeToggle = () => {
-        toggleTheme();
-    };
 
     // for modal 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,34 +54,38 @@ const Navbar = () => {
     }
 
     return (
-        <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb]'}`}>
+        <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#011627]' :
+        theme === 'night' ? 'bg-[#343a40]' :
+        theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
             {/* bg-[#001427] */}
             <div className='flex justify-between items-center'>
 
-                <div className='flex'>
+                <div className='flex items-center gap-5'>
 
                     <Link to="/">
-                        <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-16' />
+                        <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="logo" className='h-14' />
                     </Link>
+
+                    <ThemeButtons></ThemeButtons>
 
                     {/* <GoogleTranslator></GoogleTranslator> */}
 
                 </div>
 
-
-
                 <div className='flex items-center gap-3'>
                     <div>
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
-                                <BiMenuAltRight className='h-8 w-6 cursor-pointer text-[#84a98c]' />
+                                <BiMenuAltRight className='h-8 w-6 cursor-pointer text-[#3c6e71]' />
                             ) : (
-                                <BiMenu className='h-8 w-6 cursor-pointer text-[#84a98c]' />
+                                <BiMenu className='h-8 w-6 cursor-pointer text-[#3c6e71]' />
                             )}
                         </span>
 
                         {isOpen && (
-                            <div className={`flex flex-col lg:flex-row justify-between gap-4 md:pb-0 pb-2 lg:px-0 px-3 rounded-b-lg absolute md:top-7 top-16 md:right-32 right-1 duration-1000 ${isOpen === true && theme === 'dark' ? 'bg-[#051923] text-white' : 'bg-[#f0efeb] text-black'}`}>
+                            <div className={`flex flex-col lg:flex-row justify-between gap-4 md:pb-0 pb-2 lg:px-0 px-3 rounded-b-lg absolute md:top-6 top-16 md:right-20 right-1 duration-1000 ${isOpen === true && theme === 'dark' ? 'bg-[#011627] text-white' :
+                            theme === 'night' ? 'bg-[#343a40] text-white' :
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                                 <ActiveLink to="/">Home</ActiveLink>
 
@@ -116,10 +114,6 @@ const Navbar = () => {
                             </div>
                         )}
                     </div>
-
-                    <button onClick={handleThemeToggle}>
-                        {theme === 'light' ? <MdDarkMode className='h-8 w-6' /> : <BsSun className='h-8 w-6' />}
-                    </button>
 
                     <img onClick={() => setIsModalOpen(!isModalOpen)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 w-8 rounded-full' />
 

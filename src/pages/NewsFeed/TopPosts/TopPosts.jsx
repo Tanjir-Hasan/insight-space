@@ -28,7 +28,7 @@ const TopPosts = () => {
 
             {/* top videos section start */}
             <div className="lg:w-3/12 md:w-5/12 mb-5 md:mt-20 md:mb-20 p-3 block md:fixed top-3 right-0">
-                <h2 className="text-center text-3xl uppercase mb-5 font-bold  font-[Poppins] border-b-2 border-[#84a98c] md:py-0 py-8">Top Post</h2>
+                <h2 className="text-center text-3xl uppercase mb-5 font-bold  font-[Poppins] border-b-2 border-[#3c6e71] md:py-0 py-8">Top Post</h2>
                 <motion.div
                     ref={refs}
                     initial="hidden"
@@ -44,7 +44,7 @@ const TopPosts = () => {
                         {
                             popularPost && popularPost.map(top => <div key={top._id}>
 
-                                <div onClick={() => handleTopPost(top._id)} className={`flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 p-2 hover:bg-[#84a98c] duration-700 ${activeId === top._id ? "bg-[#84a98c]" : ""}`}>
+                                <div onClick={() => handleTopPost(top._id)} className={`flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 p-2 hover:bg-[#3c6e71] duration-700 ${activeId === top._id ? "bg-[#3c6e71]" : ""}`}>
 
                                     {
                                         top?.imgURL &&
@@ -82,7 +82,7 @@ const TopPosts = () => {
 
                     {/* {
                             videos && videos.map(p => <div key={p.id} onClick={openModal}  >
-                                <div onClick={() => haldleClick(p.id)} className={` flex items-center gap-5 mb-7   bg-opacity-40 rounded-md shadow-md shadow-[#84a98c] m-5 hover:bg-[#84a98c]  duration-700 ${activeId === p.id ? 'bg-[#5c9568]' : ''}`}>
+                                <div onClick={() => haldleClick(p.id)} className={` flex items-center gap-5 mb-7   bg-opacity-40 rounded-md shadow-md shadow-[#3c6e71] m-5 hover:bg-[#3c6e71]  duration-700 ${activeId === p.id ? 'bg-[#5c9568]' : ''}`}>
                                     <div>
 
 

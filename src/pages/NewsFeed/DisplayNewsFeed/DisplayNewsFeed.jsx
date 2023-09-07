@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */ //
 import { useContext, useEffect, useState } from "react";
-import { FaBookDead, FaComment, FaEllipsisH, FaHeart, FaHistory, FaLock, FaUserFriends } from 'react-icons/fa';
+import { AiFillHeart } from 'react-icons/ai';
+import { FaComment, FaEllipsisH, FaHistory, FaLock, FaUserFriends } from 'react-icons/fa';
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
@@ -10,7 +11,6 @@ import { useSelector } from "react-redux";
 import NewsFooter from "./NewsFooter";
 import { useRef } from "react";
 import { SlClose, SlGlobe } from 'react-icons/sl';
-
 
 
 const DisplayNewsFeed = ({ query }) => {
@@ -90,7 +90,7 @@ const DisplayNewsFeed = ({ query }) => {
                 allPosts && allPosts.filter(post => post.text.toLowerCase().includes(query.toLowerCase())).map(p =>
                     <div
                         key={p._id}
-                        className={`mb-3 ${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} rounded-lg border border-[#84a98c]`}>
+                        className={`mb-3 ${theme} rounded-lg border border-[#3c6e71]`}>
 
                         <div className="p-4">
 
@@ -149,9 +149,9 @@ const DisplayNewsFeed = ({ query }) => {
 
                                     <span hidden={id !== p._id}>{p.text}</span>
 
-                                    <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See More</span>
+                                    <span hidden={id === p._id} onClick={() => setId(p._id)} className="underline underline-offset-4 ms-2 text-sm text-[#48cae4] cursor-pointer">See More</span>
 
-                                    <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-green-600">See Less</span>
+                                    <span hidden={id !== p._id} onClick={() => setId(0)} className="underline underline-offset-4 ms-2 text-sm text-[#48cae4] cursor-pointer">See Less</span>
 
                                 </span>
 
@@ -214,7 +214,7 @@ const DisplayNewsFeed = ({ query }) => {
 
                             <div className="w-full flex space-x-8 p-6">
 
-                                <button className="flex items-center"><FaHeart className={editPost.react.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {editPost.react.length}</button>
+                                <button className="flex items-center"><AiFillHeart className={editPost.react.includes(userDetails.email) ? "text-2xl text-red-600 me-2" : "text-2xl me-2"}></AiFillHeart> {editPost.react.length}</button>
 
                                 <button className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {editPost.comment.length}</button>
 

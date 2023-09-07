@@ -1,7 +1,10 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import useAuth from '../../../../../Hooks/UseAuth';
 
 const SSLPayment = (formData) => {
+
+    const { user } = useAuth();
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
@@ -29,31 +32,30 @@ const SSLPayment = (formData) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
 
-            <label htmlFor="name" className="text-md block">
-                Name
-            </label>
-            <input
-                className="input-field"
-                type="text"
-                id="name"
-                {...register("name")}
-                placeholder="Your Name"
-                required
-            />
+            <p className='font-[Cinzel] py-1'>{user.displayName}</p>
 
-            <label htmlFor="number" className="text-md block">
-                Amount
-            </label>
-            <input
-                className="input-field"
-                type="number"
-                {...register("number")}
-                placeholder="Amount"
-                required
-            />
+            <div className='flex gap-3 items-center my-5 px-2'>
 
-            <input type="submit" />
-            
+                <label htmlFor="number" className="text-md block">
+                    Amount
+                </label>
+
+                <input
+                    className="input-field"
+                    type="number"
+                    {...register("number")}
+                    placeholder="Enter Support Amount"
+                    required
+                />
+
+            </div>
+
+
+            {/* <input type="submit" /> */}
+            <button type='submit'
+                className='text-xl font-[Cinzel] text-white mr-5 rounded-lg border-0 text-md font-semibold bg-gradient-to-r from-[#3c6e71] to-[#335c67] hover:cursor-pointer hover:opacity-90 duration-500 py-2 w-full'
+            >Send Support</button>
+
         </form>
     );
 };

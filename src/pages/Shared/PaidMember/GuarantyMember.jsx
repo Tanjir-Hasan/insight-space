@@ -8,7 +8,7 @@ const GuarantyMember = () => {
         <div className='mb-36 font-[Poppins]'>
             <div className=' w-10/12 pt-5 mx-auto'>
                 <h2 className='md:text-5xl text-4xl font-[Poppins]  lg:w-1/2 w-11/12 '>Why Choose Our Plan?</h2>
-                <p className={`  ${theme === 'dark' ? 'dark text-white' : ''} border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8 pb-2 text-[#036919] `}>"Backed by a 30-day money back Guarantee - no questions asked"</p>
+                <p className={`  ${theme === 'dark' ? 'dark text-white' : ''} border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12 mb-8 pb-2 text-[#036919] `}>"Backed by a 30-day money back Guarantee - no questions asked"</p>
             </div>
             <div className='w-8/12 mx-auto md:grid gap-5 lg:grid-cols-3 md:grid-cols-2'>
 
