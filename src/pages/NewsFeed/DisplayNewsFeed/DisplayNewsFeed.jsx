@@ -114,19 +114,17 @@ const DisplayNewsFeed = ({ query }) => {
                                     {isOpen === p._id &&
 
                                         <div className="relative">
+                                            <ul className="p-4 space-y-2 w-72 bg-[#F0EFEB] text-black rounded-lg absolute top-0 right-0">
 
-                                            <ul className="p-4 space-y-2 w-72 bg-white text-black rounded-lg absolute top-0 right-0">
+                                                <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="posts-action-btn" onClick={() => handleBookMark(p._id, userDetails?.email)} >Bookmark</button></li>
 
-                                                <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleBookMark(p._id, userDetails?.email)} >Bookmark</button></li>
+                                                <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="posts-action-btn" onClick={() => handleCopyClick(p._id)} >Copy Link</button></li>
 
-                                                <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleCopyClick(p._id)} >Copy Link</button></li>
+                                                <li><button hidden={p.userEmail !== userDetails.email} className="posts-action-btn" onClick={() => handleDeletePost(p)}>Delete</button></li>
 
-                                                <li><button hidden={p.userEmail !== userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleDeletePost(p)}>Delete</button></li>
+                                                <li><button hidden={p.userEmail !== userDetails.email} onClick={() => EditPostModalOpen(p)} className="posts-action-btn">Edit Posts</button></li>
 
-                                                <li><button hidden={p.userEmail !== userDetails.email} onClick={() => EditPostModalOpen(p)} className="hover:underline underline-offset-4 hover:scale-110 duration-700">Edit Posts</button></li>
-
-                                                <li> {bookMarks.length === allPosts.length && <button className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleDeletePost(p)}>Delete Bookmark</button>}</li>
-
+                                                <li> {bookMarks.length === allPosts.length && <button className="posts-action-btn" onClick={() => handleDeletePost(p)}>Delete Bookmark</button>}</li>
                                             </ul>
 
                                         </div>}
