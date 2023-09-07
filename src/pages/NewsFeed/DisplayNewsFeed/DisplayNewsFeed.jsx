@@ -71,6 +71,18 @@ const DisplayNewsFeed = ({ query }) => {
         setEditPost(post);
     };
 
+    // copy url function
+    const handleCopyClick = (id) => {
+        const currentURL = window.location.href;
+        const tempInput = document.createElement('input');
+        document.body.appendChild(tempInput);
+        tempInput.value = `${currentURL}/${id}`;
+        tempInput.select();
+        document.execCommand('copy');
+        alert("Link copy done")
+    };
+
+    //   end  copy url
 
     return (
         <div className="min-h-screen">
@@ -90,7 +102,7 @@ const DisplayNewsFeed = ({ query }) => {
                                         <p className="text-lg font-semibold pt-1">{p.userName}</p>
                                         <div className="flex space-x-2">
                                             <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
-                                            <button>{p.status === "Public" && <SlGlobe></SlGlobe>}{p.status === "Friends" && <FaUserFriends></FaUserFriends>}{p.status === "Only me" && <FaLock></FaLock>}</button>
+                                            <button>{p.status === "Public" && <SlGlobe title={p.status}></SlGlobe>}{p.status === "Friends" && <FaUserFriends title={p.status}></FaUserFriends>}{p.status === "Only me" && <FaLock title={p.status}></FaLock>}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -106,6 +118,8 @@ const DisplayNewsFeed = ({ query }) => {
                                             <ul className="p-4 space-y-2 w-72 bg-white text-black rounded-lg absolute top-0 right-0">
 
                                                 <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleBookMark(p._id, userDetails?.email)} >Bookmark</button></li>
+
+                                                <li><button hidden={bookMarks.length === allPosts.length || p.userEmail === userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleCopyClick(p._id)} >Copy Link</button></li>
 
                                                 <li><button hidden={p.userEmail !== userDetails.email} className="hover:underline underline-offset-4 hover:scale-110 duration-700" onClick={() => handleDeletePost(p)}>Delete</button></li>
 
