@@ -114,7 +114,7 @@ const ViewMyProfile = () => {
                     onClick={() => setIsEdit(!isEdit)}
                     className="absolute right-4 top-4">
                     <FaRegWindowClose
-                        className="md:text-2xl text-xl font-bold hover:text-[#84a98c] duration-700"
+                        className="md:text-2xl text-xl font-bold hover:text-[#3c6e71] duration-700"
                     />
                 </button>
             }
@@ -128,7 +128,7 @@ const ViewMyProfile = () => {
                             <img className="w-48 h-48 rounded-full mx-auto" src={photoURL} alt="Photo" />
                             {/* photoUrl  */}
                             <div className="mb-1 flex justify-center">
-                                <label htmlFor="photo" className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#84a98c] to-[#344e41] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer">
+                                <label htmlFor="photo" className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#3c6e71] to-[#335c67] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer">
                                     <span className="hover:cursor-pointer">Upload Photo</span>
                                     <input type="file"
                                         id="image"

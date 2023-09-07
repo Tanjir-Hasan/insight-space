@@ -53,9 +53,11 @@ const Testimonial = () => {
 
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : ''}`}>
+        <div className={`${theme}`}>
 
-            <div className={`${theme === 'dark' ? 'testimonial bg-[#1d2d44]' : 'bg-wave bg-[#f0efeb]'}  pb-10`}>
+            <div className={`${theme === 'dark' ? 'bg-[#001427]' :
+                theme === 'night' ? 'bg-[#212529]' :
+                    theme === 'light' ? 'bg-[#f0efeb]' : ''} testimonial pb-10`}>
 
                 <motion.div
                     ref={ref}
@@ -69,7 +71,7 @@ const Testimonial = () => {
 
                     className='md:w-10/12 w-11/12 mx-auto '>
 
-                    <h1 className='md:text-5xl text-4xl flex md:flex-row flex-col items-baseline gap-3 font-[Poppins] border-b-2 border-[#84a98c] lg:w-5/12 md:w-9/12 lg:pt-20 pt-10 '>
+                    <h1 className='md:text-5xl text-4xl flex md:flex-row flex-col items-baseline gap-3 font-[Poppins] border-b-2 border-[#3c6e71] lg:w-5/12 md:w-9/12 lg:pt-20 pt-10 '>
                         <span>Testimonials</span>
                         <span className='text-xl'>- Our user's saying -</span>
                     </h1>

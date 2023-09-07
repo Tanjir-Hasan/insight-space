@@ -156,15 +156,15 @@ const CheckoutForm = ({ getMember }) => {
             },
           }}
         />
-        {
-          cardError && <p className='text-red-500'>{cardError}</p>
-        }
-        {
-          transactionId && <p className='text-green-500'>Transaction complete with
-            transaction_id: <span className='text-red-500'>{transactionId}</span>
-          </p>
-        }
-        <button className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 py-2 rounded-lg' type="submit" disabled={!stripe || !clientSecret || processing}>
+         {
+        cardError && <p className='text-red-500'>{cardError}</p>
+      }
+      {
+        transactionId && <p className='text-green-500'>Transaction complete with
+          transaction_id: <span className='text-red-500'>{transactionId}</span>
+        </p>
+      }
+        <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg' type="submit" disabled={!stripe || !clientSecret || processing}>
           Pay Now
         </button>
       </form>

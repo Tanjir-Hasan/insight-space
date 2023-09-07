@@ -114,7 +114,7 @@ const Quiz = () => {
                 <>
                   <div className='md:fixed p-10'>
                     <div>
-                      <h2 className='text-2xl  font-[Poppins] border-b-2 border-[#84a98c] rounded-t-xl'>Select Your category</h2>
+                      <h2 className='text-2xl  font-[Poppins] border-b-2 border-[#3c6e71] rounded-t-xl'>Select Your category</h2>
                     </div>
 
                     <div className="cursor-pointer  font-light text-xl  rounded-b-xl py-3">
@@ -161,11 +161,11 @@ const Quiz = () => {
 
                 <div className='grid md:grid-cols-3 gap-5 text-center justify-items-center mt-5  '>
 
-                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700  py-2 rounded-lg'>Back to Quiz</button>
+                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700  py-2 rounded-lg'>Back to Quiz</button>
 
                   <button onClick={openModal} type="submit" className='text-xl text-white font-[Poppins] bg-[#0e6ba8] hover:bg-[#0e6aa8d1] w-full duration-700  py-2 rounded-lg'>Correct Answesr</button>
 
-                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700  py-2 rounded-lg'>Continue</button>
+                  <button onClick={() => setShowResult(false)} type="submit" className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700  py-2 rounded-lg'>Continue</button>
 
                 </div>
                 <div className="">
@@ -177,7 +177,7 @@ const Quiz = () => {
 
               <div>
 
-                <div className='text-center font-[Poppins] mt-5 text-lg border-b-2 border-[#84a98c] font-bold pb-2'>
+                <div className='text-center font-[Poppins] mt-5 text-lg border-b-2 border-[#3c6e71] font-bold pb-2'>
                   <h2>"Test Your General Knowledge: Take on Our Ultimate Quiz Challenge!"</h2>
                 </div>
 
@@ -214,7 +214,7 @@ const Quiz = () => {
                           ))
                         }
                         <div className="px-6 mt-5 ">
-                          <button onClick={handleSubmitQuiz} type="submit" className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-16 md:px-24 py-2 rounded-lg'>Submit Quiz</button>
+                          <button onClick={handleSubmitQuiz} type="submit" className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 px-16 md:px-24 py-2 rounded-lg'>Submit Quiz</button>
                         </div>
                       </div>
                     )

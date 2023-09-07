@@ -6,7 +6,7 @@ const ButtonWithLoading = ({ loading, children, icon, width }) => {
     return (
         <button
             type="submit"
-            className={`bg-[#84a98c] hover:bg-[#344e41] text-white py-2 rounded duration-700 flex justify-center items-center gap-3 text-xl font-[Poppins]  md:mx-0 mx-auto ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#84a98c]"} ${width ? width : "md:w-1/3 w-11/12"}`}
+            className={`bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 rounded duration-700 flex justify-center items-center gap-3 text-xl font-[Poppins]  md:mx-0 mx-auto ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#3c6e71]"} ${width ? width : "md:w-1/3 w-11/12"}`}
             disabled={loading}
         >
             {children} {loading ? <>
