@@ -82,7 +82,7 @@ const Signup = () => {
   };
 
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''} font-[Cinzel] pb-8`}>
+    <div className={`${theme} font-[Cinzel] pb-8`}>
 
       <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Create a new account</h2>
 
@@ -169,7 +169,7 @@ const Signup = () => {
               </div>
 
               <div className="text-center mt-4">
-                <span>Already have an account? <Link to="/login"><span className="text-[#3c6e71] hover:text-[#335c67] duration-1000">Login</span></Link></span>
+                <span>Already have an account? <Link to="/login"><span className="text-[#ffffff] hover:text-[#335c67] duration-1000">Login</span></Link></span>
               </div>
 
             </form>

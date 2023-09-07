@@ -4,11 +4,12 @@ import { ThemeContext } from '../../../providers/ThemeProvider';
 const PaymentList = () => {
     const { theme } = useContext(ThemeContext);
     return (
-        <div className=' w-10/12  mx-auto font-[Poppins]'>
+        <div className='w-10/12 mx-auto font-[Poppins]'>
             <div className=' '>
             
-                <h2 className=' md:text-5xl text-4xl text-center  '>Accepted Payments</h2>
-                <p className={` ${theme === 'dark' ? 'dark text-white' : ''}  border-b-2 border-[#3c6e71] text-center mb-8 pb-2 text-[#036919]`}>"We offer a range of payment methods, including credit/debit cards, PayPal, bank transfers, and more, to cater to your preferences."</p>
+                <h2 className='md:text-5xl text-4xl text-center '>Accepted Payments</h2>
+                <p className={`${theme === 'dark' ? 'dark text-white' : ''}  border-b-2 border-[#3c6e71] text-center mb-8 pb-2 text-[#036919]`}>"We offer a range of payment methods, including credit/debit cards, PayPal, bank transfers, and more, to cater to your preferences."</p>
+
             </div>
 
             <div className='flex gap-5 justify-center flex-wrap'>

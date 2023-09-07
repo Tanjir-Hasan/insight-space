@@ -57,7 +57,7 @@ const Login = () => {
     };
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : ''} pb-8`}>
+        <div className={`${theme} pb-8`}>
 
             <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Login</h2>
 
@@ -118,7 +118,7 @@ const Login = () => {
                             </div>
 
                             <div className="text-center font-[Cinzel] mt-4">
-                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#3c6e71] hover:text-[#335c67] hover:underline duration-1000">Register Now!</span></Link></span>
+                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#ffffff] hover:text-[#335c67] hover:underline duration-1000">Register Now!</span></Link></span>
                             </div>
 
                         </form>

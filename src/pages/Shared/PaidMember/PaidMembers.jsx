@@ -10,7 +10,7 @@ const PaidMembers = () => {
     const { theme } = useContext(ThemeContext);
     return (
        <div>
-        <div className={`  ${theme === 'dark' ? 'dark pb-20' : 'mb-20'}`}>
+        <div className={`${theme === 'dark' ? 'dark pb-20' : 'mb-20'}`}>
         <MemberCard></MemberCard>
         <GuarantyMember></GuarantyMember>
         <BenifitMember></BenifitMember>

@@ -13,6 +13,7 @@ import FAQQuestion from './FAQQuestion';
 
 
 const AboutUs = () => {
+    
     const { theme } = useContext(ThemeContext);
 
     const controls = useAnimation();
@@ -29,7 +30,7 @@ const AboutUs = () => {
 
     return (
         <div>
-            <div className={`${theme === 'dark' ? 'dark' : ''}`}>
+            <div className={`${theme}`}>
 
                 <div className="Insight-space justify-center items-center">
 
