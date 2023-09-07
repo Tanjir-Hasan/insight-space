@@ -63,7 +63,7 @@ const Login = () => {
 
             <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Login</h2>
 
-            <div className="flex lg:flex-row flex-col justify-between items-center">
+            <div className="flex lg:flex-row-reverse flex-col justify-between items-center">
 
                 <div className="w-5/12 rounded-full">
                     {/* <img src="https://i.ibb.co/64r4kyH/login-removebg-preview.png" alt="" /> */}
