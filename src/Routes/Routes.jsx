@@ -23,8 +23,8 @@ import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
 import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
 import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
-import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
-import SSLPaymentFail from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentFail/SSLPaymentFail";
+import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
+import Addquiz from "../Addquiz/Addquiz";
 
 
 
@@ -101,16 +101,21 @@ const router = createBrowserRouter([
             {
                 path: "connections",
                 element: <FriendsAndSearch></FriendsAndSearch>
-            },
-            //ssl payment
-            {
-                path: "/payment/success/:transaction_Id",
-                element: <SSLPaymentSuccess></SSLPaymentSuccess>
-            },
-            {
-                path: "/payment/fail/:transaction_Id",
-                element: <SSLPaymentFail></SSLPaymentFail>
             }
+            ,
+            // //ssl payment
+            // {
+            //     path: "/payment/success/:transaction_Id",
+            //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
+            // },
+            {
+                path:"ssl-commerz",
+                element: <SSLCommerz></SSLCommerz>
+            },
+            {
+                path:"addquiz",
+                element: <Addquiz></Addquiz>
+            }        
         ]
     },
     {

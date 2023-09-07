@@ -94,7 +94,9 @@ const BlogFeed = () => {
 
                 <form onSubmit={handleBlogSubmit}>
 
-                    <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#3c6e71] border-spacing-4 mt-2 py-5 rounded-lg`}>
+                    <div className={`${theme === 'dark' ? 'dark' :
+                            theme === 'night' ? 'night' :
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''} border border-[#3c6e71] border-spacing-4 mt-2 py-5 rounded-lg`}>
 
                         <div className="flex space-x-2 mx-4 px-2">
                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full my-2" />
@@ -129,7 +131,9 @@ const BlogFeed = () => {
                 <div className='md:flex gap-20 py-8'>
 
                     <div
-                        className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} md:w-8/12 rounded-lg  `}>
+                        className={`${theme === 'dark' ? 'bg-[#011627] text-white' :
+                        theme === 'night' ? 'bg-[#343a40] text-white' :
+                        theme === 'light' ? 'bg-[#f0efeb]' : ''} md:w-8/12 rounded-lg  `}>
 
                         <motion.div
                             ref={refs}
@@ -174,13 +178,19 @@ const BlogFeed = () => {
                                     }
                                 </div>
                                 <div className="w-full flex items-center py-6 px-8">
+                                    
                                     <div className="w-full flex space-x-8">
+
                                         <button onClick={() => handleReact(singleData?._id, userDetails.email)} className="flex items-center"><FaHeart className={singleData?.react?.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {singleData?.react?.length}</button>
+
                                         <button onClick={() => setHide(singleData?._id)} className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {singleData?.comment?.length}</button>
+
                                     </div>
+
                                     <div>
                                         <button><FaBookmark onClick={() => handleBookMark(singleData?._id, userDetails?.email)} className="text-2xl me-2"></FaBookmark></button>
                                     </div>
+
                                 </div>
                                 {/* comment body  */}
                                 {

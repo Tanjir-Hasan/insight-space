@@ -8,6 +8,7 @@ import vip from "../../../assets/images/icons/vip.png";
 import { Link } from 'react-router-dom';
 
 
+
 const Membership = () => {
 
     const { theme } = useContext(ThemeContext);
@@ -26,9 +27,11 @@ const Membership = () => {
 
 
     return (
+
         <div className={`${theme}`}>
 
-            <div className=" items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg  ">
+            <div className="items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
+
 
                 {/* <div className=" gap-4 bg-[#689079] items-center justify-center  lg:w-full rounded-lg text-white px-16"> */}
                 <div className="justify-between rounded-lg">
@@ -158,6 +161,11 @@ const Membership = () => {
                     </div>
 
                 </div>
+
+                
+
+                
+
                 {/* </div>        */}
 
             </div>

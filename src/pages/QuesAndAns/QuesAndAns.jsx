@@ -79,11 +79,13 @@ const QuesAndAns = () => {
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : ''} pt-4 pb-8`}>
+        <div className={`${theme} pt-4 pb-8`}>
 
             <div className='md:w-8/12 w-11/12 mx-auto'>
 
-                <div className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} border border-[#3c6e71] mt-2 py-5 rounded-lg`}>
+                <div className={`${theme === 'dark' ? 'dark' :
+                            theme === 'night' ? 'night' :
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''} border border-[#3c6e71] mt-2 py-5 rounded-lg`}>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="font-[Poppins] ">
 
@@ -131,7 +133,9 @@ const QuesAndAns = () => {
                 <div>
                     {
                         posts && posts.map(p => <div key={p._id}
-                            className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#3c6e71]`}>
+                            className={`${theme === 'dark' ? 'dark' :
+                            theme === 'night' ? 'night' :
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''} my-6 rounded-lg border border-[#3c6e71]`}>
                             <div className="p-4">
                                 <div className="flex space-x-2 mb-4">
                                     <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
