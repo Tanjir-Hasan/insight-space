@@ -57,7 +57,12 @@ const Navbar = () => {
         <div className={`font-[Poppins] py-2 pr-1 fixed z-50 left-0 top-0 right-0 ${theme === 'dark' ? 'bg-[#011627]' :
             theme === 'night' ? 'bg-[#343a40]' :
                 theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+
+            {/* {theme === 'dark' ? 'bg-[#011627]' :
+            theme === 'night' ? 'bg-[#343a40]' :
+                theme === 'light' ? 'bg-[#f0efeb]' : ''} */}
             {/* bg-[#001427] */}
+            
             <div className='flex justify-between items-center'>
 
                 <div className='flex items-center gap-5'>
