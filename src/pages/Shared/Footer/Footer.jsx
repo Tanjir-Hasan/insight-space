@@ -12,10 +12,17 @@ const Footer = () => {
             <div className={`${theme}`}>
 
                 <div className="md:flex justify-between px-10 items-center">
-                    
-                    <div>
-                        <img src="https://i.ibb.co/Kj8scz6/logo2.png" alt="" className='h-20' />
-                    </div>
+
+                    <Link to="/">
+                        <img
+                            src={theme === 'dark' ? "https://i.ibb.co/0Kz4d2x/inside-space-logo.png"
+                                : theme === 'light' ? 'https://i.ibb.co/jrz53Ch/inside-space.png'
+                                    : theme === 'night' ? 'https://i.ibb.co/0Kz4d2x/inside-space-logo.png'
+                                        : ""}
+                            alt="logo"
+                            className='h-24 w-full'
+                        />
+                    </Link>
 
                     <div className="flex flex-col md:flex-row gap-5 items-center font-[Poppins] pl-4 pt-5 md:pl-0 md:pt-0 md:w-1/2 lg:w-1/3">
                         <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700">Terms & Conditions</Link>
