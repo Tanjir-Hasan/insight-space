@@ -25,6 +25,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
+import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
 
 
 
@@ -115,7 +116,11 @@ const router = createBrowserRouter([
             {
                 path:"addquiz",
                 element: <Addquiz></Addquiz>
-            }        
+            }  ,
+            {
+                path : 'payments-history',
+                element: <PaymentHistory></PaymentHistory>
+            }      
         ]
     },
     {

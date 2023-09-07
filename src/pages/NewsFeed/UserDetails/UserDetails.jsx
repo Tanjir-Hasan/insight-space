@@ -69,6 +69,7 @@ const UserDetails = ({ userDetails }) => {
                     <Link to="/news-feed"> <button onClick={handleMyPosts} className="secondary-button">My posts </button></Link>
 
                     <Link to="/news-feed"><button onClick={handleBookmarks} className="secondary-button"> Book Marks </button></Link>
+                    <Link to="/payments-history"><button onClick={handleBookmarks} className="secondary-button"> My Payments </button></Link>
                     
                     <button onClick={handleLogOut} className="secondary-button">Log out</button>
                 </div>
