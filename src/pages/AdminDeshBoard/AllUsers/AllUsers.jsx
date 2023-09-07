@@ -118,8 +118,8 @@ const AllUsers = () => {
                                 <td className={u.role === "admin" ? "py-2 px-4 text-center font-semibold text-red-600" : "py-2 px-4 text-center font-semibold"}>{u.role}</td>
                                 <td className="py-2 px-4 text-center font-semibold">
                                     <div className="space-x-2">
-                                        <button onClick={() => handleUserRole(u)} className="border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out"><span hidden={u.role === "admin"}>Make Admin</span><span hidden={u.role === "regular"}>Make Regular</span></button>
-                                        <button onClick={() => handleDeleteUser(u._id)} className="border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-red-600 transition duration-300 ease-in-out">Remove User</button>
+                                        <button onClick={() => handleUserRole(u)} className="border-b-4 border[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-white transition duration-300 ease-in-out"><span hidden={u.role === "admin"}>Make Admin</span><span hidden={u.role === "regular"}>Make Regular</span></button>
+                                        <button onClick={() => handleDeleteUser(u._id)} className="border-b-4 border[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-red-600 transition duration-300 ease-in-out">Remove User</button>
                                     </div>
                                 </td>
                             </tr>
@@ -134,8 +134,8 @@ const AllUsers = () => {
                     <p className="my-1">Join Date : {moment(u.date).format('lll')}</p>
                     <p className="my-1 capitalize">Role : {u.role}</p>
                     <div className="space-x-2 my-2">
-                        <button onClick={() => handleUserRole(u)} className="border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out"><span hidden={u.role === "admin"}>Make Admin</span><span hidden={u.role === "regular"}>Make Regular</span></button>
-                        <button onClick={() => handleDeleteUser(u._id)} className="border-b-4 border[#84a98c] text-[#84a98c] rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-red-600 transition duration-300 ease-in-out">Remove User</button>
+                        <button onClick={() => handleUserRole(u)} className="border-b-4 border[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-white transition duration-300 ease-in-out"><span hidden={u.role === "admin"}>Make Admin</span><span hidden={u.role === "regular"}>Make Regular</span></button>
+                        <button onClick={() => handleDeleteUser(u._id)} className="border-b-4 border[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-red-600 transition duration-300 ease-in-out">Remove User</button>
                     </div>
                 </div>)}
             </div>

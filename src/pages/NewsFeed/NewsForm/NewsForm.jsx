@@ -89,7 +89,9 @@ const NewsForm = () => {
     }
 
     return (
-        <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} py-4 mt-5 border border-[#84a98c] rounded-lg my-5`}>
+        <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' :
+            theme === 'night' ? 'night' :
+                theme === 'light' ? 'bg-[#f0efeb]' : ''} py-4 mt-5 border border-[#3c6e71] rounded-lg my-5`}>
             {/* main form  */}
 
             <div className="mt-2 py-4 rounded-lg">
@@ -102,7 +104,9 @@ const NewsForm = () => {
             {/* modal body  */}
 
             {isModalOpen && (
-                <div className={`${theme === 'dark' ? 'bg-[#001427]' : 'bg-[#f0efeb]'} fixed top-1/3 mt-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#84a98c] sm:w-full lg:w-2/5`}>
+                <div className={`${theme === 'dark' ? 'dark' :
+                    theme === 'night' ? 'night' :
+                        theme === 'light' ? 'bg-[#f0efeb]' : ''} fixed top-1/3 mt-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#3c6e71] sm:w-full lg:w-2/5`}>
                     <button onClick={() => setIsModalOpen(false)} className="px-3 py-1 rounded absolute right-3 top-2">
                         <SlClose className="text-2xl hover:text-[#ad2831]" />
                     </button>
@@ -110,9 +114,9 @@ const NewsForm = () => {
 
                     <div className="flex my-5 gap-5">
 
-                        <button onClick={() => setIsOpen("questions")} className="text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-16 py-2 rounded-lg">Ask a Questions</button>
+                        <button onClick={() => setIsOpen("questions")} className="text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 px-16 py-2 rounded-lg">Ask a Questions</button>
 
-                        <button onClick={() => setIsOpen("blogs")} className="text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 px-16 py-2 rounded-lg">Create a Blog</button>
+                        <button onClick={() => setIsOpen("blogs")} className="text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 px-16 py-2 rounded-lg">Create a Blog</button>
 
                     </div>
 
@@ -167,7 +171,7 @@ const NewsForm = () => {
                                 <input type="file"
                                     id="fileInput"
                                     name="fileInput"
-                                    className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-black file:bg-gradient-to-r file:from-[#84a98c] file:to-[#344e41] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
+                                    className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-black file:bg-gradient-to-r file:from-[#3c6e71] file:to-[#335c67] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
                             </div>
                             <div className="mt-8">
                                 {/* fix submit button */}

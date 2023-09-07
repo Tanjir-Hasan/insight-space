@@ -57,7 +57,7 @@ const Login = () => {
     };
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : ''} pb-8`}>
+        <div className={`${theme} pb-8`}>
 
             <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Login</h2>
 
@@ -65,7 +65,7 @@ const Login = () => {
 
                 <div className="lg:w-2/3 w-full lg:px-0 px-6">
 
-                    <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#344e41] rounded-md md:p-12 p-6">
+                    <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#335c67] rounded-md md:p-12 p-6">
                         {/* signup form  */}
                         <form onSubmit={handleSubmit(onSubmit)}>
                             {/* name */}
@@ -110,7 +110,7 @@ const Login = () => {
                             {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
 
                             {/* Password reset button */}
-                            <Link to={"/resetPassword"} className="font-[Cinzel] text-[#84a98c] hover:text-[#344e41] duration-1000 hover:underline">Reset Password</Link>
+                            <Link to={"/resetPassword"} className="font-[Cinzel] text-[#3c6e71] hover:text-[#335c67] duration-1000 hover:underline">Reset Password</Link>
 
                             {/* submit button */}
                             <div className="mt-4 flex justify-center">
@@ -118,7 +118,7 @@ const Login = () => {
                             </div>
 
                             <div className="text-center font-[Cinzel] mt-4">
-                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#84a98c] hover:text-[#344e41] hover:underline duration-1000">Register Now!</span></Link></span>
+                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#ffffff] hover:text-[#335c67] hover:underline duration-1000">Register Now!</span></Link></span>
                             </div>
 
                         </form>

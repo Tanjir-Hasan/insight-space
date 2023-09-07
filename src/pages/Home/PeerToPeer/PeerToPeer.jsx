@@ -25,10 +25,10 @@ const PeerToPeer = () => {
 
 
     return (
-        <div className={`${theme === 'dark' ? 'dark' : ''}`}>
+        <div className={`${theme}`}>
 
             <div className='md:w-10/12 w-11/12 mx-auto'>
-                <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#84a98c] lg:w-1/2 w-11/12 mb-8'>Peer To Peer learning</h2>
+                <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12 mb-8'>Peer To Peer learning</h2>
             </div>
 
             <div className='bg-fixed bg-[url("https://i.ibb.co/WpR71T2/connection.jpg")] bg-no-repeat bg-cover'>

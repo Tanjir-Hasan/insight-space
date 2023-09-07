@@ -80,7 +80,7 @@ const MemberCard = () => {
                             </div>
 
                             <p className=' mt-5 mb-2'><span className=' font-extrabold text-4xl'>$00 USD </span><span>/ month (ex. VAT)</span></p>
-                            <button className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 py-2 rounded-lg'>Get Free</button>
+                            <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Free</button>
                         </div>
                     </div>
 
@@ -140,7 +140,7 @@ const MemberCard = () => {
                         </div>
 
                         <p className=' mt-5 mb-2'><span className=' font-extrabold text-4xl'>$28 USD </span><span>/ month (ex. VAT)</span></p>
-                        <button   onClick={openModal} className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 py-2 rounded-lg'>Get Basic</button>
+                        <button   onClick={openModal} className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Basic</button>
 
                     </div>
 
@@ -203,7 +203,7 @@ const MemberCard = () => {
 
 
                             <p className=' mt-5 mb-2'><span className=' font-extrabold text-4xl'>$44 USD </span><span>/ month (ex. VAT)</span></p>
-                            <button className='text-xl text-white font-[Poppins] bg-[#84a98c] hover:bg-[#344e41] w-full duration-700 py-2 rounded-lg'>Get Pro</button>
+                            <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Pro</button>
                         </div>
                     </div>
 

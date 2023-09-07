@@ -49,7 +49,7 @@ const AllPosts = () => {
         <div className="sm:w-full sm:mx-4 md:w-4/5 md:mx-auto lg:w-4/6 lg:mx-auto py-4">
             {
                 posts?.map(p => <div key={p._id}
-                    className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#84a98c]`}
+                    className={`${theme === 'dark' ? 'dark' : 'bg-[#f0efeb]'} my-6 rounded-lg border border-[#3c6e71]`}
                 >
                     <div className="p-4">
                         <div className="flex justify-between">
@@ -60,7 +60,7 @@ const AllPosts = () => {
                                     <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
                                 </div>
                             </div>
-                            <button onClick={() => handleDeletePost(p._id)} className="text-[#84a98c] text-2xl hover:text-red-700 transition duration-300" title="remove this post"><FaTrashAlt></FaTrashAlt></button>
+                            <button onClick={() => handleDeletePost(p._id)} className="text-[#3c6e71] text-2xl hover:text-red-700 transition duration-300" title="remove this post"><FaTrashAlt></FaTrashAlt></button>
                         </div>
                         <div className="my-4">
                             <span hidden={id === p._id}>{p.text?.slice(0, 300)}</span>

@@ -14,7 +14,7 @@ const AdminLayout = () => {
             <div className={`${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out fixed top-0 left-0 w-80 bg-[#F0EFEB] px-6 py-4  min-h-screen`}>
                 {/* Navigation Content */}
                 <nav>
-                    <ul className="space-y-4 border-b-4 border-[#84a98c] py-10">
+                    <ul className="space-y-4 border-b-4 border-[#3c6e71] py-10">
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/admin-dashboard/adminHome">Admin Home</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/admin-dashboard/all-users">All Users</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/admin-dashboard/all-posts">All Posts</ActiveLink></li>
@@ -29,7 +29,7 @@ const AdminLayout = () => {
                     </ul>
                 </nav>
                 <div>
-                    <button className="w-full border-b-4 border-[#84a98c] text-black font-bold rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out flex items-center justify-center" onClick={() => setIsDrawerOpen(!isDrawerOpen)}><FaArrowCircleLeft className='me-2 text-lg'></FaArrowCircleLeft> Close Drawer</button>
+                    <button className="w-full border-b-4 border-[#3c6e71] text-black font-bold rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-white transition duration-300 ease-in-out flex items-center justify-center" onClick={() => setIsDrawerOpen(!isDrawerOpen)}><FaArrowCircleLeft className='me-2 text-lg'></FaArrowCircleLeft> Close Drawer</button>
                 </div>
             </div>
             {/* Content Outlet */}
@@ -45,7 +45,7 @@ const AdminLayout = () => {
 
             {/* Button to open/close drawer */}
             {!isDrawerOpen && <button onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-                className="fixed top-6 left-2  flex items-center border-b-4 border-[#84a98c] text-black font-bold rounded-lg px-4 py-2 hover:bg-[#84a98c] hover:text-white transition duration-300 ease-in-out">
+                className="fixed top-6 left-2  flex items-center border-b-4 border-[#3c6e71] text-black font-bold rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-white transition duration-300 ease-in-out">
                 Open Drawer <FaArrowCircleRight className='ms-2 text-lg'></FaArrowCircleRight>
             </button>}
         </div>

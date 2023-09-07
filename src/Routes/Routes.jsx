@@ -102,12 +102,13 @@ const router = createBrowserRouter([
             {
                 path: "connections",
                 element: <FriendsAndSearch></FriendsAndSearch>
-            },
-            //ssl payment
-            {
-                path: "/payment/success/:transaction_Id",
-                element: <SSLPaymentSuccess></SSLPaymentSuccess>
-            },
+            }
+            ,
+            // //ssl payment
+            // {
+            //     path: "/payment/success/:transaction_Id",
+            //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
+            // },
             {
                 path:"ssl-commerz",
                 element: <SSLCommerz></SSLCommerz>
