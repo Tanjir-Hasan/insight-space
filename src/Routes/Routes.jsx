@@ -112,7 +112,7 @@ const router = createBrowserRouter([
         element: <PaidMembers></PaidMembers>
       },
       {
-        path: 'payments-history',
+        path: "payments-history",
         element: <PaymentHistory></PaymentHistory>
       },
       {
