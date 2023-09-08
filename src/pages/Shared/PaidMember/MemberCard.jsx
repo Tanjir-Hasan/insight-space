@@ -1,20 +1,39 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaCheck, FaCheckSquare, FaRegWindowClose } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import PayModal from './PayModal/PayModal';
 
 const MemberCard = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { theme } = useContext(ThemeContext);
+    const [memberShip, setMemberShip] = useState([])
+    const [getMember, setGetMember] = useState([])
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
- 
+    const url = 'memberShip.json'
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setMemberShip(data))
+    }, [url])
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+
+    const getMemberShip = id => {
+        const findData = memberShip.find(data => data._id === id)
+        setGetMember(findData)
+       
+    }
+   
+
     return (
         <div className=' font-[Poppins] mb-32'>
             <div className=''>
@@ -80,7 +99,8 @@ const MemberCard = () => {
                             </div>
 
                             <p className=' mt-5 mb-2'><span className=' font-extrabold text-4xl'>$00 USD </span><span>/ month (ex. VAT)</span></p>
-                            <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Free</button>
+                           <Link to='/'> <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Free</button></Link>
+                           
                         </div>
                     </div>
 
@@ -140,8 +160,10 @@ const MemberCard = () => {
                         </div>
 
                         <p className=' mt-5 mb-2'><span className=' font-extrabold text-4xl'>$28 USD </span><span>/ month (ex. VAT)</span></p>
-                        <button   onClick={openModal} className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Basic</button>
-
+                        <div onClick={() => getMemberShip(1)}>
+                            <button onClick={openModal} className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Basic</button>
+                        </div>
+                        
                     </div>
 
 
@@ -203,7 +225,10 @@ const MemberCard = () => {
 
 
                             <p className=' mt-5 mb-2'><span className=' font-extrabold text-4xl'>$44 USD </span><span>/ month (ex. VAT)</span></p>
-                            <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Pro</button>
+                           <div onClick={() => getMemberShip(2)}>
+                           <button onClick={openModal} className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Pro</button>
+                           </div>
+                           
                         </div>
                     </div>
 
@@ -211,7 +236,7 @@ const MemberCard = () => {
                 </div>
 
             </div>
-            <PayModal isOpen={isModalOpen} onClose={closeModal}></PayModal>
+            <PayModal getMember={getMember} isOpen={isModalOpen} onClose={closeModal}></PayModal>
 
         </div>
     );

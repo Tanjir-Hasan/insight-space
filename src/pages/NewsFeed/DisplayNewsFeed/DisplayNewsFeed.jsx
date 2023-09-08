@@ -169,7 +169,7 @@ const DisplayNewsFeed = ({ query }) => {
                         <NewsFooter p={p} hide={hide} setHide={setHide}></NewsFooter>
 
                     </div>)
-            };
+            }
 
             {/* modal for update post  */}
 

@@ -26,6 +26,7 @@ import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
 import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
+import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {

@@ -224,10 +224,10 @@ const Navbar = () => {
             <div>
                 {isModalOpen && (
                     <div className='absolute top-20 right-0 rounded-xl'>
-                        <div className="bg-white p-6  rounded-xl">
+                        <div className={` p-6  rounded-xl ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-white'}`}>
                             <UserDetails userDetails={userDetails}></UserDetails>
                         </div>
-                    </div>
+                    </div> 
                 )}
             </div>
 

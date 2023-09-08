@@ -3,7 +3,7 @@ import { SlClose } from 'react-icons/sl';
 import { AuthContext } from '../../../../providers/AuthProvider';
 import Payment from '../Payment/Payment';
 
-const PayModal = ({ isOpen, onClose, children }) => {
+const PayModal = ({ isOpen, onClose, children, getMember }) => {
     const {user} = useContext(AuthContext)
     return (
         <div
@@ -23,9 +23,9 @@ const PayModal = ({ isOpen, onClose, children }) => {
                     <div>
                         <h2 className='border-y-2 text-2xl font-bold bg-slate-100 p-1'>Membership Level</h2>
                         <div className='space-y-3 border-b'>
-                            <p>you have selected Basic membership level.</p>
+                            <p>you have selected <span className='text-xl font-bold text-red-700'>{getMember.memberShip}</span> membership level.</p>
                             <p>If you are serious beacomeva Professional member today. We are ready to provide an interactive that will help you to become basic membership.</p>
-                            <p>The price for membership is $50 per month.</p>
+                            <p>The price for membership is <span className='text-xl font-bold text-red-700'>${getMember.price}</span> per month.</p>
                         </div>
 
 
@@ -72,7 +72,7 @@ const PayModal = ({ isOpen, onClose, children }) => {
                         <div>
                             <h2 className=' border-y-2 text-2xl font-bold bg-slate-100 p-1 mt-8 mb-2'>Payment Information</h2>
 
-                            <Payment></Payment>
+                            <Payment getMember={getMember}></Payment>
 
                         </div>
 
