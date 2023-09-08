@@ -98,57 +98,57 @@ const router = createBrowserRouter([
         element: <Chat></Chat>,
       },
 
-            {
-                path: "quiz",
-                element: <Quiz></Quiz>
-            },
-            {
-                path: "about-us",
-                element: <AboutUs></AboutUs>
-            },
-            {
-                path: "paid-members",
-                element: <PaidMembers></PaidMembers>
-            },
-            {
-                path: "connections",
-                element: <FriendsAndSearch></FriendsAndSearch>
-            }
-            ,
-            // //ssl payment
-            // {
-            //     path: "/payment/success/:transaction_Id",
-            //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
-            // },
-            {
-                path:"ssl-commerz",
-                element: <SSLCommerz></SSLCommerz>
-            },
-            {
-                path:"addquiz",
-                element: <Addquiz></Addquiz>
-            }        
-        ]
-    },
-    {
-        path: "admin-dashboard",
-        element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
-        children: [
-            {
-                path: "adminHome",
-                element: <AdminHome></AdminHome>
-            },
-            {
-                path: 'all-users',
-                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            },
-            {
-                path: "all-posts",
-                element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
-            },
+      {
+        path: "quiz",
+        element: <Quiz></Quiz>
+      },
+      {
+        path: "about-us",
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: "paid-members",
+        element: <PaidMembers></PaidMembers>
+      },
+      {
+        path: "connections",
+        element: <FriendsAndSearch></FriendsAndSearch>
+      }
+      ,
+      // //ssl payment
+      // {
+      //     path: "/payment/success/:transaction_Id",
+      //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
+      // },
+      {
+        path: "ssl-commerz",
+        element: <SSLCommerz></SSLCommerz>
+      }
+    ]
+  },
+  {
+    path: "admin-dashboard",
+    element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
+    children: [
+      {
+        path: "adminHome",
+        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+      },
+      {
+        path: 'all-users',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: "all-posts",
+        element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
+      },
+      {
+        path: "add-quiz",
+        element: <AdminRoute><Addquiz></Addquiz></AdminRoute>
+      }
 
-        ]
-    }
+    ]
+  }
 ]);
 
 export default router;

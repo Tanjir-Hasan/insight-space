@@ -13,7 +13,6 @@ import ThemeButtons from '../../../ThemeButtons/ThemeButtons';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-
     const [userDetails] = useUser();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +47,7 @@ const Navbar = () => {
                         )
                         navigate("/")
                     })
-                    .catch(error => { })
+                    .catch(error => console.log(error.message))
             }
         })
     }
@@ -62,7 +61,7 @@ const Navbar = () => {
             theme === 'night' ? 'bg-[#343a40]' :
                 theme === 'light' ? 'bg-[#f0efeb]' : ''} */}
             {/* bg-[#001427] */}
-            
+
             <div className='flex justify-between items-center'>
 
                 <div className='flex items-center gap-5'>
@@ -170,7 +169,7 @@ const Navbar = () => {
 
                     <ThemeButtons></ThemeButtons>
 
-                    <img onClick={() => setIsModalOpen(!isModalOpen)} src={user ? user?.photoURL : "https://i.ibb.co/txZTzJB/user-1.png"} alt="user-image" className='h-8 w-8 rounded-full' />
+                    {user ? <img onClick={() => setIsModalOpen(!isModalOpen)} src={user?.photoURL} alt="user-image" className='h-8 w-8 rounded-full' /> : <Link to="/login"><img src="https://i.ibb.co/txZTzJB/user-1.png" alt="user-image" className='h-8 w-8 rounded-full' /></Link>}
 
                     {/* show on small device */}
 
