@@ -1,14 +1,21 @@
-import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { ThemeContext } from '../providers/ThemeProvider';
 
 const ActiveLink = ({ to, children }) => {
-    const { t } = useTranslation();
+
+    const location = useLocation();
+
+    const { theme } = useContext(ThemeContext);
+    
+    const isActive = location.pathname === to;
+
     return (
         <NavLink
             to={to}
-            className={({ isActive }) => isActive ? "active" : "default"}
+            className={theme === 'light' ? (isActive ? 'light-active' : 'default') : (isActive ? 'active' : 'default')}
         >
-            {t(children)}
+            {children}
         </NavLink>
     );
 };

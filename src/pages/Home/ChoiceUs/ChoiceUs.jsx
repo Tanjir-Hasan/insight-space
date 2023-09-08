@@ -90,7 +90,7 @@ const ChoiceUs = () => {
                             }}
                             transition={{ duration: 0.9 }}
 
-                            className="md:-left-20 w-full md:w-5/6 hover:bg-[#3c6e71] duration-500 rounded-3xl">
+                            className="md:-left-20 w-full md:w-5/6 hover:bg-[#3c6e71] hover:text-white duration-500 rounded-3xl">
                             <div className="relative h-40 rounded-lg flex px-5 items-center">
                                 <div className="absolute -top-10 left-12">
                                     <img className="h-16" src={icon3}></img>

@@ -102,12 +102,12 @@ const Quiz = () => {
 
 
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''}`}>
+    <div className={`${theme}`}>
 
       <div className=''>
 
         <div className="md:flex gap-5 ">
-          <div className={` ${ showResult ? " " : `md:w-4/12 lg:w-3/12   ${theme === 'dark' ? 'dark text-white bg-black' : 'bg-[#f0efeb] '} `} `}>
+          <div className={` ${showResult ? " " : `md:w-4/12 lg:w-3/12 `} `}>
             {
               showResult ?
                 "" :
@@ -134,9 +134,9 @@ const Quiz = () => {
             }
           </div>
 
-          <div className=' md:w-8/12 lg:w-9/12'>
+          <div className='md:w-8/12 lg:w-9/12 mx-auto pt-28'>
             {showResult ? (
-              <div className=' p-5 max-h-[100vh]'>
+              <div className=' p-5 min-h-[80vh]'>
 
                 <div className='space-y-3'>
 
@@ -262,6 +262,7 @@ const Quiz = () => {
 
             )}
           </div>
+
         </div>
 
       </div>

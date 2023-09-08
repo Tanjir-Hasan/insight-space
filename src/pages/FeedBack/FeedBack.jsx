@@ -6,9 +6,14 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useForm } from 'react-hook-form';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
+import { useContext } from 'react';
+import { ThemeContext } from '../../providers/ThemeProvider';
 
 
 const FeedBack = () => {
+
+    const { theme } = useContext(ThemeContext);
+
     const { user, btnLoading } = useAuth()
     console.log(user);
     const [axiosSecure] = useAxiosSecure();
@@ -33,7 +38,7 @@ const FeedBack = () => {
     };
 
     return (
-        <div>
+        <div className={`${theme}`}>
             <div className="pb-40">
                 <div className="flex items-center justify-center md:w-10/12 w-11/12 mx-auto ">
 
@@ -88,7 +93,7 @@ const FeedBack = () => {
                             {/* <label for="">Select a comment</label> */}
                             <div className='flex'>
                                 <p className='text-lg font-semibold me-2'>select : </p>
-                                <select className='border border-spacing-3 px-10 py-1 border-gray-300 rounded-lg' defaultValue={5} {...register("rating")} name="rating" id="rating">
+                                <select className='text-black border border-spacing-3 px-10 py-1 border-gray-300 rounded-lg' defaultValue={5} {...register("rating")} name="rating" id="rating">
                                     <option value="1">1.0</option>
                                     <option value="2">2.0</option>
                                     <option value="3">3.0</option>

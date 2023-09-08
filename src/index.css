@@ -12,7 +12,7 @@
 }
 
 .night {
-  @apply bg-gradient-to-l from-[#495057] via-[#000000] to-[#6c757d] text-white
+  @apply bg-gradient-to-l from-[#0d1b2a] via-[#778da9] to-[#03071e] text-white
 }
 
 .disabled-button:hover {
@@ -30,6 +30,10 @@
 
 .active {
   @apply text-[#48cae4] underline underline-offset-8;
+}
+
+.light-active {
+  @apply text-[#3c6e71] underline underline-offset-8;
 }
 
 .default {

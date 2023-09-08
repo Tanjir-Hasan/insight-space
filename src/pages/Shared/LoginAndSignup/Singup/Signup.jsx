@@ -6,7 +6,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
-import Button from "../../../../components/Button";
+import Lottie from "lottie-react";
+import animation from '../../../../../public/spining.json';
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 
 const Signup = () => {
@@ -82,19 +83,18 @@ const Signup = () => {
   };
 
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''} font-[Cinzel] pb-8`}>
+    <div className={`${theme} font-[Cinzel] py-16`}>
 
       <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Create a new account</h2>
 
-      <div className="flex flex-col md:flex-row justify-center items-center pt-5">
+      <div className="flex lg:flex-row flex-col justify-between items-center pt-5">
 
-        <div className="w-full  md:w-1/2 mt-5 md:mt-0">
-
-          <img className="mx-auto" src="https://i.ibb.co/64r4kyH/login-removebg-preview.png" alt="" />
-
+        <div className="w-5/12 rounded-full">
+          {/* <img src="https://i.ibb.co/64r4kyH/login-removebg-preview.png" alt="" /> */}
+          <Lottie animationData={animation} loop={true} className="w-10/12 mx-auto" />
         </div>
 
-        <div className="lg:w-2/3 w-full lg:px-0 px-6">
+        <div className="lg:w-7/12 w-11/12 mx-auto">
 
           <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#335c67] rounded-md md:p-12 p-6">
             {/* signup form  */}
@@ -169,7 +169,7 @@ const Signup = () => {
               </div>
 
               <div className="text-center mt-4">
-                <span>Already have an account? <Link to="/login"><span className="text-[#3c6e71] hover:text-[#335c67] duration-1000">Login</span></Link></span>
+                <span>Already have an account? <Link to="/login"><span className={`hover:underline duration-1000 font-[Cinzel] ${theme === 'light' ? "text-[#3c6e71] hover:text-[#335c67]" : "text-[#48cae4]"}`}>Login</span></Link></span>
               </div>
 
             </form>

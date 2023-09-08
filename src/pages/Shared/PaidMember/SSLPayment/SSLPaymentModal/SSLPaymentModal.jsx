@@ -50,7 +50,7 @@ const SSLPaymentModal = () => {
 
     return (
         <div>
-            <div className='flex gap-3' onClick={openModal}>
+            <div className='flex gap-3 cursor-pointer hover:text-[#3c6e71] duration-500' onClick={openModal}>
 
                 <p className='font-[Cinzel]'>Give</p>
                 <PiShootingStarBold className="text-2xl" />
