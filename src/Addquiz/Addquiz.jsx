@@ -30,15 +30,6 @@ const Addquiz = () => {
         }
     }, [controls, inView]);
 
-    // const { id } = useParams();
-
-    // useEffect(() => {
-    //     fetch("http://localhost:5000/addquiz", {
-    //         method: "POST",
-    //         headers: {"content-type": "application/json"},
-    //         body:JSON.stringify(data)
-    //     })
-    // }, [])
 
     const handleQuiz = (e) => {
         e.preventDefault();
@@ -71,7 +62,6 @@ const Addquiz = () => {
 
             })
             .catch(error => console.log(error.massage))
-        console.log(makeQuiz)
         
     };
 
