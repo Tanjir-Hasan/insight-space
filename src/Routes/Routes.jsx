@@ -25,66 +25,78 @@ import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
-
-
+import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
         path: "/",
-        element: <Main></Main>,
-        errorElement: <ErrorPage></ErrorPage>,
-        children: [
-            {
-                path: "/",
-                element: <Home></Home>
-            },
-            {
-                path: "news-feed",
-                element: <PrivateRoute><NewsFeed></NewsFeed> </PrivateRoute>
-            },
-            {
-                path: "ques-ans",
-                element: <PrivateRoute><QuesAndAns></QuesAndAns></PrivateRoute>
-            },
-            {
-                path: "blog-feed",
-                element: <PrivateRoute><BlogFeed></BlogFeed></PrivateRoute>
-            },
-            {
-                path: "login",
-                element: <Login></Login>
-            },
-            {
-                path: "resetPassword",
-                element: <ResetPass></ResetPass>
-            },
-            {
-                path: "sign-up",
-                element: <Signup></Signup>
-            },
-            {
-                path: "view-Profile",
-                element:
-                    <PrivateRoute>
-                        <ViewProfile></ViewProfile>
-                    </PrivateRoute>
-            },
-            {
-                path: "support",
-                element: <ContactForm></ContactForm>
-            },
-            {
-                path: "feedback",
-                element: <FeedBack></FeedBack>
-            },
-            {
-                path: "usersfeedback",
-                element: <UsersFeedBack></UsersFeedBack>
-            },
-            {
-                path: 'group-conversations',
-                element: <Chat></Chat>
-            },
+        element: <Home></Home>,
+      },
+      {
+        path: "news-feed",
+        element: (
+          <PrivateRoute>
+            <NewsFeed></NewsFeed>{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "ques-ans",
+        element: (
+          <PrivateRoute>
+            <QuesAndAns></QuesAndAns>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "blog-feed",
+        element: (
+          <PrivateRoute>
+            <BlogFeed></BlogFeed>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "resetPassword",
+        element: <ResetPass></ResetPass>,
+      },
+      {
+        path: "sign-up",
+        element: <Signup></Signup>,
+      },
+      {
+        path: "view-Profile",
+        element: (
+          <PrivateRoute>
+            <ViewProfile></ViewProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "support",
+        element: <ContactForm></ContactForm>,
+      },
+      {
+        path: "feedback",
+        element: <FeedBack></FeedBack>,
+      },
+      {
+        path: "usersfeedback",
+        element: <UsersFeedBack></UsersFeedBack>,
+      },
+      {
+        path: "group-conversations",
+        element: <Chat></Chat>,
+      },
 
             {
                 path: "quiz",
@@ -101,12 +113,13 @@ const router = createBrowserRouter([
             {
                 path: "connections",
                 element: <FriendsAndSearch></FriendsAndSearch>
-            },
-            //ssl payment
-            {
-                path: "/payment/success/:transaction_Id",
-                element: <SSLPaymentSuccess></SSLPaymentSuccess>
-            },
+            }
+            ,
+            // //ssl payment
+            // {
+            //     path: "/payment/success/:transaction_Id",
+            //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
+            // },
             {
                 path:"ssl-commerz",
                 element: <SSLCommerz></SSLCommerz>

@@ -36,7 +36,7 @@ const PopularPost = () => {
                     }}
                     transition={{ duration: 0.9 }}
 
-                    className='text-center md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/3 md:w-1/2 w-10/12 mx-auto lg:pt-20 pt-10'>
+                    className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} text-center md:text-5xl text-4xl font-[Poppins] border-b-2 lg:w-1/3 md:w-1/2 w-10/12 mx-auto lg:pt-20 pt-10`}>
                     Trending Posts
                 </motion.h1>
                 

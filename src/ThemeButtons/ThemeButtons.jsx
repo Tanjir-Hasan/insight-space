@@ -22,11 +22,11 @@ const ThemeButtons = () => {
         <div className='mt-3'>
 
             <button onClick={handleLightButtonClick} disabled={theme === 'light'} className={theme === 'light' ? 'disabled-button' : ''}>
-                {theme === 'light' ? <BsFillCircleFill className='text-[#48cae4]' /> : <BsFillCircleFill className='text-white' />}
+                {theme === 'light' ? <BsFillCircleFill className='text-[#3c6e71]' /> : <BsFillCircleFill className='text-white' />}
             </button>
 
             <button onClick={handleDarkButtonClick} disabled={theme === 'dark'} className={`px-2 ${theme === 'dark' ? 'disabled-button' : ''}`}>
-                <BsFillCircleFill className={theme === 'dark' ? 'text-[#48cae4] rounded-full' : 'text-[#011627]'} />
+                <BsFillCircleFill className={theme === 'dark' ? 'text-[#48cae4] rounded-full' : theme === 'light' ? 'text-[#001219]' : 'text-[#507dbc]'} />
             </button> 
 
             <button onClick={handleBlueButtonClick} disabled={theme === 'night'} className={theme === 'night' ? 'disabled-button' : ''}>
