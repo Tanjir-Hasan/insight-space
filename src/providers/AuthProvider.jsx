@@ -71,15 +71,16 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 setUser(currentUser);
+                setLoading(false);
                 axios.post('https://insight-space-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         localStorage.setItem('access-token', data.data.token)
-                        setLoading(false);
                     })
             }
             else {
                 localStorage.removeItem('access-token')
                 setUser(null);
+                setLoading(false);
             }
         });
 
