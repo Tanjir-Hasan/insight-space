@@ -26,6 +26,7 @@ import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
 import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
+import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -100,65 +101,59 @@ const router = createBrowserRouter([
 
       {
         path: "quiz",
-        element: <Quiz></Quiz>,
+        element: <Quiz></Quiz>
       },
       {
         path: "about-us",
-        element: <AboutUs></AboutUs>,
+        element: <AboutUs></AboutUs>
       },
       {
         path: "paid-members",
-        element: <PaidMembers></PaidMembers>,
+        element: <PaidMembers></PaidMembers>
+      },
+      {
+        path: "payments-history",
+        element: <PaymentHistory></PaymentHistory>
       },
       {
         path: "connections",
-        element: <FriendsAndSearch></FriendsAndSearch>,
-      },
-      //ssl payment
-      {
-        path: "/payment/success/:transaction_Id",
-        element: <SSLPaymentSuccess></SSLPaymentSuccess>
-      },
+        element: <FriendsAndSearch></FriendsAndSearch>
+      }
+      ,
+      // //ssl payment
+      // {
+      //     path: "/payment/success/:transaction_Id",
+      //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
+      // },
       {
         path: "ssl-commerz",
-        element: <SSLCommerz></SSLCommerz>,
+        element: <SSLCommerz></SSLCommerz>
       },
       {
         path: "addquiz",
-        element: <Addquiz></Addquiz>,
-      },
-    ],
+        element: <Addquiz></Addquiz>
+      }
+    ]
   },
   {
     path: "admin-dashboard",
-    element: (
-      <AdminRoute>
-        <AdminLayout></AdminLayout>
-      </AdminRoute>
-    ),
+    element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
     children: [
       {
         path: "adminHome",
-        element: <AdminHome></AdminHome>,
+        element: <AdminHome></AdminHome>
       },
       {
-        path: "all-users",
-        element: (
-          <AdminRoute>
-            <AllUsers></AllUsers>
-          </AdminRoute>
-        ),
+        path: 'all-users',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path: "all-posts",
-        element: (
-          <AdminRoute>
-            <AllPosts></AllPosts>
-          </AdminRoute>
-        ),
+        element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
       },
-    ],
-  },
+
+    ]
+  }
 ]);
 
 export default router;

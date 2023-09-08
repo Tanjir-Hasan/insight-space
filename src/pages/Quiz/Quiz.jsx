@@ -136,7 +136,7 @@ const Quiz = () => {
 
           <div className='md:w-8/12 lg:w-9/12 mx-auto pt-28'>
             {showResult ? (
-              <div className=' p-5 max-h-[100vh]'>
+              <div className=' p-5 min-h-[80vh]'>
 
                 <div className='space-y-3'>
 

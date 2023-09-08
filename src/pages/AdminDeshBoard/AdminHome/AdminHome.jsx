@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import useUser from "../../../Hooks/useUser";
 
 
+
 const AdminHome = () => {
-    const [UserDetails] = useUser();
+    const [userDetails] = useUser();
     const [ref, inView] = useInView();
-    const { photoURL, _id, displayName, email, date } = UserDetails;
     const controls = useAnimation();
 
     useEffect(() => {
@@ -34,21 +34,21 @@ const AdminHome = () => {
 
                             <p className=" md:text-5xl text-2xl font-[Poppins] border-b-2 gap-4 border-[#535d55] w-1/2  lg:pt-20 pt-5">Hi
                             </p>
-                            <p className="uppercase font-bold text-3xl text-white-500"> {displayName}</p>
+                            <p className="uppercase font-bold text-3xl text-white-500"> {userDetails?.displayName}</p>
                             <h2 className="text-xl text-center font-semibold px-4">Welcome to Your Dashboard</h2>
                             <div className='flex text-xl gap-4'>
                                 <div>
-                                    <img style={{ borderRadius: '80px 80px 80px 80px' }} className="w-34 h-34" src={photoURL} alt="user photo" />
+                                    <img src={userDetails?.photoURL} alt="user photo" className="w-36 h-36 rounded-full"/>
                                 </div>
                                 <div>
                                     <p><span className="font-[Cinzel] text-gray-700" >User ID:    </span>
-                                        <span className="font-[Cinzel] text-gray-700">{_id}</span></p>
+                                        <span className="font-[Cinzel] text-gray-700">{userDetails?._id}</span></p>
                                     <p><span className="font-[Cinzel] text-xl text-gray-700">Name:    </span>
-                                        <span className="font-[Cinzel] text-gray-700">{displayName}</span></p>
+                                        <span className="font-[Cinzel] text-gray-700">{userDetails?.displayName}</span></p>
                                     <p><span className=" font-[Cinzel]text-xl gap-4 text-gray-700">Email Address:    </span>
-                                        <span className="font-[Cinzel] text-gray-700">{email}</span></p>
+                                        <span className="font-[Cinzel] text-gray-700">{userDetails?.email}</span></p>
                                     <p><span className=" font-[Cinzel] text-xl text-gray-700">Join Date:   </span>
-                                        <span className="font-[Cinzel] text-gray-700">{moment(date).format('lll')}</span></p>
+                                        <span className="font-[Cinzel] text-gray-700">{moment(userDetails?.date).format('lll')}</span></p>
                                 </div>
 
 
@@ -75,7 +75,7 @@ const AdminHome = () => {
                                             Content Management: Manage and edit website/app content.Approve or reject user-generated content (e.g., comments, posts).Schedule content publication or removal.
                                             </p>
                                             <div>
-                                                <h4 className="font-bold">{displayName}</h4>
+                                                <h4 className="font-bold">{userDetails?.displayName}</h4>
 
                                                 <small>Admin</small>
                                             </div>
