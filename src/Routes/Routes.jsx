@@ -25,7 +25,6 @@ import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
-import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
 
 
 
@@ -102,13 +101,12 @@ const router = createBrowserRouter([
             {
                 path: "connections",
                 element: <FriendsAndSearch></FriendsAndSearch>
-            }
-            ,
-            // //ssl payment
-            // {
-            //     path: "/payment/success/:transaction_Id",
-            //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
-            // },
+            },
+            //ssl payment
+            {
+                path: "/payment/success/:transaction_Id",
+                element: <SSLPaymentSuccess></SSLPaymentSuccess>
+            },
             {
                 path:"ssl-commerz",
                 element: <SSLCommerz></SSLCommerz>
