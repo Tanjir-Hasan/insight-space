@@ -8,7 +8,7 @@ const SSLPaymentSuccess = () => {
 
     const { theme } = useContext(ThemeContext);
 
-    const { transaction_Id } = useParams();
+    const { transaction_Id } = useParams(); 
 
     const handleCopy = () => {
         navigator.clipboard.writeText(transaction_Id);
