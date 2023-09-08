@@ -16,6 +16,10 @@
   @apply text-[#84a98c] underline underline-offset-8;
 }
 
+.light-active {
+  @apply text-[#3c6e71] underline underline-offset-8;
+}
+
 .default {
   @apply no-underline;
 }

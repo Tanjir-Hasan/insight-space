@@ -29,7 +29,7 @@ const ProfileInfo = () => {
         <ActiveLink to={""}>
           {" "}
           <button
-            className="btn px-4 py-1 rounded-full bg-[#344e41] duration-500 text-white font-semibold :hover hover:bg-[#84a98c]"
+            className="btn px-4 py-1 rounded-full bg-[#344e41] duration-500 text-white font-semibold :hover hover:bg-[#84a98c] "
             onClick={() => window.my_modal_5.showModal()}
           >
             Contact Info
@@ -41,7 +41,7 @@ const ProfileInfo = () => {
 
       <dialog
         id="my_modal_5"
-        className="modal modal-bottom w-1/3 sm:modal-middle rounded-2xl"
+        className="modal modal-bottom w-1/3 sm:modal-middle rounded-2xl shadow-[0px_0px_500px_600px_#000000a8] "
       >
         <div className="modal-box p-5 ">
           <div className="flex justify-between  mb-2">

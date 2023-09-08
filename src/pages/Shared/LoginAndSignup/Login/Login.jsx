@@ -7,9 +7,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
+import Lottie from "lottie-react";
+import animation from '../../../../../public/spining.json';
 
 const Login = () => {
-    
+
     const { theme } = useContext(ThemeContext);
 
     const { signIn, errorMsg, setErrorMsg, btnLoading, setBtnLoading } = useAuth();
@@ -21,7 +23,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     let from = location.state?.from?.pathname || "/";
-    
+
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
@@ -57,13 +59,18 @@ const Login = () => {
     };
 
     return (
-        <div className={`${theme} pb-8`}>
+        <div className={`${theme} py-16 h-screen`}>
 
             <h2 className="text-center font-[Poppins] lg:text-4xl text-3xl font-semibold py-8">Login</h2>
 
-            <div className="flex flex-col md:flex-row justify-center items-center">
+            <div className="flex lg:flex-row-reverse flex-col justify-between items-center">
 
-                <div className="lg:w-2/3 w-full lg:px-0 px-6">
+                <div className="w-5/12 rounded-full">
+                    {/* <img src="https://i.ibb.co/64r4kyH/login-removebg-preview.png" alt="" /> */}
+                    <Lottie animationData={animation} loop={true} className="w-10/12 mx-auto" />
+                </div>
+
+                <div className="lg:w-7/12 w-11/12 mx-auto">
 
                     <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#335c67] rounded-md md:p-12 p-6">
                         {/* signup form  */}
@@ -110,7 +117,7 @@ const Login = () => {
                             {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
 
                             {/* Password reset button */}
-                            <Link to={"/resetPassword"} className="font-[Cinzel] text-[#3c6e71] hover:text-[#335c67] duration-1000 hover:underline">Reset Password</Link>
+                            <Link to={"/resetPassword"} className={`hover:underline duration-1000 font-[Cinzel] ${theme === 'light' ? "text-[#3c6e71] hover:text-[#335c67]" : "text-[#48cae4]"}`}>Reset Password</Link>
 
                             {/* submit button */}
                             <div className="mt-4 flex justify-center">
@@ -118,7 +125,10 @@ const Login = () => {
                             </div>
 
                             <div className="text-center font-[Cinzel] mt-4">
-                                <span>New to InSight Space! <Link to="/sign-up"><span className="text-[#ffffff] hover:text-[#335c67] hover:underline duration-1000">Register Now!</span></Link></span>
+                                <span>New to InSight Space! <Link to="/sign-up">
+                                    <span className={`hover:underline duration-1000 ${theme === 'light' ? "text-[#3c6e71] hover:text-[#335c67]" : "text-[#48cae4]"}`}>Register Now!
+                                    </span></Link>
+                                </span>
                             </div>
 
                         </form>
@@ -129,9 +139,7 @@ const Login = () => {
                     </div>
                 </div>
 
-                <div className="w-full md:w-1/2 mt-5 md:mt-0">
-                    <img src="https://i.ibb.co/64r4kyH/login-removebg-preview.png" alt="" />
-                </div>
+
             </div>
         </div>
     );
