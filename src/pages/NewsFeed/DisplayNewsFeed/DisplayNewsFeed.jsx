@@ -228,7 +228,6 @@ const DisplayNewsFeed = ({ query }) => {
 
                 </div>
             )};
-
             {/* modal for update post end */}
 
         </div>
@@ -236,12 +235,3 @@ const DisplayNewsFeed = ({ query }) => {
 };
 
 export default DisplayNewsFeed;
-
-
-
-
-{/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-    {allData.filter((item) => item.category === 'sports').map((item) => (
-        <Card item={item} key={item._id}></Card>
-    ))}
-</div> */}
