@@ -5,14 +5,13 @@ import ActiveLink from "../../../../components/ActiveLink";
 import Button from "../../../../components/Button";
 import Education from "./Education";
 import {
-  BsEnvelope,
+  BsEnvelopeAtFill,
   BsFillXCircleFill,
   BsGeoAltFill,
-  BsGift,
-  BsLink,
-  BsLinkedin,
+  BsGiftFill,
 } from "react-icons/bs";
 import useUser from "../../../../Hooks/useUser";
+import { FaLink, FaUserCircle } from "react-icons/fa";
 
 const ProfileInfo = () => {
   const [userDetails] = useUser();
@@ -59,16 +58,18 @@ const ProfileInfo = () => {
           <hr />
           <div className="py-4 flex gap-5">
             <span className="text-2xl text-[#344e41]">
-              <BsLinkedin />
+              <FaUserCircle />
             </span>
             <div className="">
               <h3 className="font-bold text-lg text-[#344e41]">Profile</h3>
-              <p className="">email.example@gmail.com</p>
+              <a href="https://insight-space-f2643.web.app/view-Profile">
+                Insight Space
+              </a>
             </div>
           </div>
           <div className="py-4 flex gap-5">
             <span className="text-2xl text-[#344e41]">
-              <BsEnvelope />
+              <BsEnvelopeAtFill />
             </span>
             <div className="">
               <h3 className="font-bold text-lg text-[#344e41]">Email</h3>
@@ -77,7 +78,7 @@ const ProfileInfo = () => {
           </div>
           <div className="py-4 flex gap-5">
             <span className="text-2xl text-[#344e41]">
-              <BsLink />
+              <FaLink />
             </span>
             <div className="">
               <h3 className="font-bold text-lg text-[#344e41]">Portfolio</h3>
@@ -86,11 +87,11 @@ const ProfileInfo = () => {
           </div>
           <div className="py-4 flex gap-5">
             <span className="text-2xl text-[#344e41]">
-              <BsGift />
+              <BsGiftFill />
             </span>
             <div className="">
               <h3 className="font-bold text-lg text-[#344e41]">Birthday</h3>
-              <p className="">email.example@gmail.com</p>
+              <p className="">September 8, 1990</p>
             </div>
           </div>
           <div className="py-4 flex gap-5">
@@ -99,7 +100,7 @@ const ProfileInfo = () => {
             </span>
             <div className="">
               <h3 className="font-bold text-lg text-[#344e41]">Address</h3>
-              <p className="">email.example@gmail.com</p>
+              <p className="">Barisal, Bangladesh</p>
             </div>
           </div>
         </div>
