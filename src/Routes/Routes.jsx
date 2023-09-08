@@ -25,123 +25,135 @@ import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
 import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
+import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
 import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
 
-
-
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
         path: "/",
-        element: <Main></Main>,
-        errorElement: <ErrorPage></ErrorPage>,
-        children: [
-            {
-                path: "/",
-                element: <Home></Home>
-            },
-            {
-                path: "news-feed",
-                element: <PrivateRoute><NewsFeed></NewsFeed> </PrivateRoute>
-            },
-            {
-                path: "ques-ans",
-                element: <PrivateRoute><QuesAndAns></QuesAndAns></PrivateRoute>
-            },
-            {
-                path: "blog-feed",
-                element: <PrivateRoute><BlogFeed></BlogFeed></PrivateRoute>
-            },
-            {
-                path: "login",
-                element: <Login></Login>
-            },
-            {
-                path: "resetPassword",
-                element: <ResetPass></ResetPass>
-            },
-            {
-                path: "sign-up",
-                element: <Signup></Signup>
-            },
-            {
-                path: "view-Profile",
-                element:
-                    <PrivateRoute>
-                        <ViewProfile></ViewProfile>
-                    </PrivateRoute>
-            },
-            {
-                path: "support",
-                element: <ContactForm></ContactForm>
-            },
-            {
-                path: "feedback",
-                element: <FeedBack></FeedBack>
-            },
-            {
-                path: "usersfeedback",
-                element: <UsersFeedBack></UsersFeedBack>
-            },
-            {
-                path: 'group-conversations',
-                element: <Chat></Chat>
-            },
+        element: <Home></Home>,
+      },
+      {
+        path: "news-feed",
+        element: (
+          <PrivateRoute>
+            <NewsFeed></NewsFeed>{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "ques-ans",
+        element: (
+          <PrivateRoute>
+            <QuesAndAns></QuesAndAns>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "blog-feed",
+        element: (
+          <PrivateRoute>
+            <BlogFeed></BlogFeed>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "resetPassword",
+        element: <ResetPass></ResetPass>,
+      },
+      {
+        path: "sign-up",
+        element: <Signup></Signup>,
+      },
+      {
+        path: "view-Profile",
+        element: (
+          <PrivateRoute>
+            <ViewProfile></ViewProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "support",
+        element: <ContactForm></ContactForm>,
+      },
+      {
+        path: "feedback",
+        element: <FeedBack></FeedBack>,
+      },
+      {
+        path: "usersfeedback",
+        element: <UsersFeedBack></UsersFeedBack>,
+      },
+      {
+        path: "group-conversations",
+        element: <Chat></Chat>,
+      },
 
-            {
-                path: "quiz",
-                element: <Quiz></Quiz>
-            },
-            {
-                path: "about-us",
-                element: <AboutUs></AboutUs>
-            },
-            {
-                path: "paid-members",
-                element: <PaidMembers></PaidMembers>
-            },
-            {
-                path: "connections",
-                element: <FriendsAndSearch></FriendsAndSearch>
-            }
-            ,
-            // //ssl payment
-            // {
-            //     path: "/payment/success/:transaction_Id",
-            //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
-            // },
-            {
-                path:"ssl-commerz",
-                element: <SSLCommerz></SSLCommerz>
-            },
-            {
-                path:"addquiz",
-                element: <Addquiz></Addquiz>
-            }  ,
-            {
-                path : 'payments-history',
-                element: <PaymentHistory></PaymentHistory>
-            }      
-        ]
-    },
-    {
-        path: "admin-dashboard",
-        element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
-        children: [
-            {
-                path: "adminHome",
-                element: <AdminHome></AdminHome>
-            },
-            {
-                path: 'all-users',
-                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            },
-            {
-                path: "all-posts",
-                element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
-            },
+      {
+        path: "quiz",
+        element: <Quiz></Quiz>
+      },
+      {
+        path: "about-us",
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: "paid-members",
+        element: <PaidMembers></PaidMembers>
+      },
+      {
+        path: 'payments-history',
+        element: <PaymentHistory></PaymentHistory>
+      },
+      {
+        path: "connections",
+        element: <FriendsAndSearch></FriendsAndSearch>
+      }
+      ,
+      // //ssl payment
+      // {
+      //     path: "/payment/success/:transaction_Id",
+      //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
+      // },
+      {
+        path: "ssl-commerz",
+        element: <SSLCommerz></SSLCommerz>
+      },
+      {
+        path: "addquiz",
+        element: <Addquiz></Addquiz>
+      }
+    ]
+  },
+  {
+    path: "admin-dashboard",
+    element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
+    children: [
+      {
+        path: "adminHome",
+        element: <AdminHome></AdminHome>
+      },
+      {
+        path: 'all-users',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: "all-posts",
+        element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
+      },
 
-        ]
-    }
+    ]
+  }
 ]);
 
 export default router;
