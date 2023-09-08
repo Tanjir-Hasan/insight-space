@@ -98,7 +98,6 @@ const router = createBrowserRouter([
         path: "group-conversations",
         element: <Chat></Chat>,
       },
-
       {
         path: "quiz",
         element: <Quiz></Quiz>

@@ -19,8 +19,8 @@ const SocialLogin = () => {
                 const date = new Date();
                 const newUser = { displayName, email, photoURL, date, role: "regular" }
                 axios.post('https://insight-space-server.vercel.app/add-user', newUser)
-                    .then(data => console.log(data.data))
-                    .catch(err => console.log(err.message))
+                    .then(data => { })
+                    .catch(err => { })
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
