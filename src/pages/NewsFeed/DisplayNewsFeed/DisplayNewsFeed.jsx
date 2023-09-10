@@ -13,6 +13,7 @@ import { useRef } from "react";
 import { SlClose, SlGlobe } from 'react-icons/sl';
 
 
+
 const DisplayNewsFeed = ({ query }) => {
 
     const [id, setId] = useState(null);
@@ -40,6 +41,7 @@ const DisplayNewsFeed = ({ query }) => {
     const categoriesData = useSelector(state => state?.categories);
     const bookMarks = useSelector(state => state?.bookMarks)
     const myPosts = useSelector(state => state?.myPosts)
+   
 
     useEffect(() => {
         if (categoriesData.length > 0) {
@@ -96,8 +98,8 @@ const DisplayNewsFeed = ({ query }) => {
 
                             <div className="flex justify-between">
 
-                                <div className="flex space-x-2 mb-4">
-                                    <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                <div className="flex space-x-2 mb-4">                                 
+                                        <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />                                       
                                     <div>
                                         <p className="text-lg font-semibold pt-1">{p.userName}</p>
                                         <div className="flex space-x-2">
@@ -147,12 +149,12 @@ const DisplayNewsFeed = ({ query }) => {
 
                                     <span hidden={id !== p._id}>{p.text}</span>
 
-                                    <span hidden={id === p._id} onClick={() => setId(p._id)} 
-                                    className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
+                                    <span hidden={id === p._id} onClick={() => setId(p._id)}
+                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
                                     >See More</span>
 
-                                    <span hidden={id !== p._id} onClick={() => setId(0)} 
-                                    className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}>See Less</span>
+                                    <span hidden={id !== p._id} onClick={() => setId(0)}
+                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}>See Less</span>
 
                                 </span>
 

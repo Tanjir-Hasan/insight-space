@@ -111,6 +111,10 @@ const router = createBrowserRouter([
         element: <PaidMembers></PaidMembers>
       },
       {
+        path: "payments-history",
+        element: <PaymentHistory></PaymentHistory>
+      },
+      {
         path: "connections",
         element: <FriendsAndSearch></FriendsAndSearch>
       }
