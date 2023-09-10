@@ -27,6 +27,8 @@ import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
 import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
 import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
+import InstructorLayout from "../layouts/InstructorLayout";
+import InstructorHome from "../pages/InstructorDashBoard/InstructorHome/InstructorHome";
 
 const router = createBrowserRouter([
   {
@@ -151,6 +153,16 @@ const router = createBrowserRouter([
         element: <AdminRoute><Addquiz></Addquiz></AdminRoute>
       }
 
+    ]
+  },
+  {
+    path : "instructor-dashboard",
+    element:<InstructorLayout></InstructorLayout>,
+    children:[
+      {
+        path:"home",
+        element:<InstructorHome></InstructorHome>
+      }
     ]
   }
 ]);

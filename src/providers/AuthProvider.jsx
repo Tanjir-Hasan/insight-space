@@ -3,7 +3,6 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import app from "../firebase/config.firebase";
 import axios from "axios";
 
-
 const auth = getAuth(app);
 
 // auth context
@@ -65,6 +64,21 @@ const AuthProvider = ({ children }) => {
             displayName: name, photoURL: photo
         });
     }
+
+    // const deleteUser = async (email) => {
+    //     try {
+    //         // Retrieve the user record by email
+    //         const userRecord = await admin.auth().getUserByEmail(email);
+    //         // Get the UID of the user
+    //         const uid = userRecord.uid;
+    //         // Delete the user using the UID
+    //         await admin.auth().deleteUser(uid);
+    //         console.log('Successfully deleted user');
+    //     } catch (error) {
+    //         console.error('Error deleting user:', error);
+    //     }
+    // }
+
 
     // unsubscribe from firebase 
     useEffect(() => {
