@@ -76,12 +76,12 @@ const UserDetails = ({ userDetails }) => {
                     <h2 className="text-lg font-bold uppercase">{userDetails?.displayName}</h2>
                     {
                         bages.memberShip === 'Basic' ?
-                           (<h2 className="text-green-700 font-bold">Gold Member</h2>)
+                            (<h2 className="text-green-700 font-bold">Gold Member</h2>)
 
                             :
                             bages.memberShip === 'Pro' ?
-                               (<h2>VIP Member</h2>)
-                            : " "
+                                (<h2>VIP Member</h2>)
+                                : " "
                     }
                     <h2 className="text-lg font-semibold">User ID : {userDetails?._id}</h2>
                     <div className="flex justify-center my-4">
