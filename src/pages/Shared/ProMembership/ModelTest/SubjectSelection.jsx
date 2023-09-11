@@ -8,12 +8,13 @@ function SubjectSelection({ subjects, onSelectSubject }) {
         {subjects.map((subject, index) => (
           <li
             key={index}
-            className="cursor-pointer text-black text-4xl text-center items-center font-bold hover:underline border-2 py-20 bg-slate-300 rounded-md "
+            className="cursor-pointer text-white text-4xl text-center items-center font-bold hover:underline border-2 py-20 bg-[#2d3e3f]  rounded-md "
             onClick={() => onSelectSubject(subject)}
           >
             {subject}
           </li>
         ))}
+        
       </ul>
     </div>
   );

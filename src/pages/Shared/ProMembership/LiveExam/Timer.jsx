@@ -15,7 +15,7 @@ function Timer({ startTime, onComplete }) {
     }
   }, [time, onComplete]);
 
-  return <div>Time Remaining: {time} seconds</div>;
+  return <div className='border-b-2 border-[#3c6e71] mb-10'>Time Remaining: {time} seconds</div>;
 }
 
 export default Timer;
