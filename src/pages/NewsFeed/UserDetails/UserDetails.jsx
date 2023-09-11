@@ -7,8 +7,13 @@ import { useDispatch } from "react-redux";
 import useMyPost from "../../../Hooks/useMyPost";
 import { setBookMarks } from "../../../StateManagment/Posts/bookMarksSlice";
 import { setMyPosts } from "../../../StateManagment/Posts/MyPostsSlice";
+import { useContext } from "react";
+import { ThemeContext } from "../../../providers/ThemeProvider";
 
 const UserDetails = ({ userDetails }) => {
+
+    const { theme } = useContext(ThemeContext);
+
     const [bookmarks] = useBookMarks();
     const [myPost] = useMyPost();
     const navigate = useNavigate();
@@ -17,7 +22,7 @@ const UserDetails = ({ userDetails }) => {
     const handleLogOut = () => {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            // text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -49,8 +54,10 @@ const UserDetails = ({ userDetails }) => {
     }
 
     return (
-        <div className="p-2">
-            {userDetails && <div>
+        <div className={`${theme}`}>
+
+            {userDetails && <div className="p-6">
+
                 <div className="text-center">
                     <div className="flex justify-center my-4">
                         {userDetails?.photoURL && <img className="w-20 h-20 rounded-full" src={userDetails?.photoURL} alt="user image" />}
@@ -60,20 +67,27 @@ const UserDetails = ({ userDetails }) => {
                     <div className="flex justify-center my-4">
                         <Link to="/view-Profile">
                             {/* Add Outline button component */}
-                            <OutlineButton>View Profile</OutlineButton>
+                            {/* <OutlineButton>View Profile</OutlineButton> */}
+                            <button className={`${theme === "light" ? "outline-btn-light" : "outline-btn-dark-night"}`}>View Profile</button>
                         </Link>
                     </div>
                     <hr className="underline underline-offset-8"></hr>
                 </div>
-                <div className="my-4 space-y-2">
-                    <Link to="/news-feed"> <button onClick={handleMyPosts} className="secondary-button">My posts </button></Link>
 
-                    <Link to="/news-feed"><button onClick={handleBookmarks} className="secondary-button"> Book Marks </button></Link>
-                    <Link to="/payments-history"><button onClick={handleBookmarks} className="secondary-button"> My Payments </button></Link>
+                <div className="my-4 space-y-2">
+
+                    <Link to="/news-feed"> <button onClick={handleMyPosts} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>My posts </button></Link>
+
+                    <Link to="/news-feed"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> Book Marks </button></Link>
+
+                    <Link to="/payments-history"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
                     
-                    <button onClick={handleLogOut} className="secondary-button">Log out</button>
+                    <button onClick={handleLogOut} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Log out</button>
+
                 </div>
+
             </div>}
+
         </div>
     );
 };

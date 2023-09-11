@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 .dark {
-  background-color: #011627;
-  color: #fff;
+  @apply bg-gradient-to-l from-gray-700 via-gray-900 to-black text-white
+}
+
+.night {
+  @apply bg-gradient-to-r from-[#415a77] via-[#415a77] to-[#1b263b] text-white
 }
 
 /* 
@@ -13,7 +16,7 @@
 */
 
 .active {
-  @apply text-[#84a98c] underline underline-offset-8;
+  @apply text-[#48cae4] underline underline-offset-8;
 }
 
 .light-active {
@@ -88,25 +91,23 @@
     color: transparent !important;
 }  */
 
-.secondary-button {
-  width: 100%;
-  margin-bottom: 8px;
-  border-bottom-width: 4px;
-  border-bottom-color: #84a98c;
-  border-bottom-style: solid;
-  color: #84a98c;
-  border-radius: 0.25rem;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition-property: background-color, color;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
+
+/* user profile */
+
+.secondary-button-light {
+  @apply w-full mb-2 border-b-2 border-[#3c6e71] border-solid text-[#3c6e71] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#3c6e71] hover:text-white;
 }
 
-/* Hover styles */
-.secondary-button:hover {
-  background-color: #84a98c;
-  color: white;
+.secondary-button-dark-night {
+  @apply w-full mb-2 border-b-2 border-[#48cae4] border-solid text-[#48cae4] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#48cae4] hover:text-black;
+}
+
+.outline-btn-light {
+  @apply border border-[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-black transition duration-300 ease-in-out
+}
+
+.outline-btn-dark-night {
+  @apply border border-[#48cae4] text-[#48cae4] rounded-lg px-4 py-2 hover:bg-[#48cae4] hover:text-black transition duration-300 ease-in-out
 }
 
 .posts-action-btn {
