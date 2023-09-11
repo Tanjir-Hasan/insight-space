@@ -118,7 +118,7 @@ const router = createBrowserRouter([
       },
       {
         path: "connections",
-        element: <FriendsAndSearch></FriendsAndSearch>
+        element: <PrivateRoute><FriendsAndSearch></FriendsAndSearch></PrivateRoute>
       }
       ,
       // //ssl payment
