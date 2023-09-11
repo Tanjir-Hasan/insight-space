@@ -33,6 +33,7 @@ import ProDashboard from "../pages/Shared/ProMembership/MembershipDashboard/ProD
 import MockTest from "../pages/Shared/ProMembership/MockTest/MockTest";
 import LiveExam from "../pages/Shared/ProMembership/LiveExam/LiveExam";
 import ModelTest from "../pages/Shared/ProMembership/ModelTest/ModelTest";
+import SingleChat from "../ChatApplication/SingleChat/SingleChat";
 
 const router = createBrowserRouter([
   {
@@ -151,7 +152,11 @@ const router = createBrowserRouter([
             element: <ModelTest></ModelTest>
           }
         ]
-      }
+      },
+      {
+        path: "singleChat",
+        element: <SingleChat></SingleChat>
+      },
     ]
   },
   {

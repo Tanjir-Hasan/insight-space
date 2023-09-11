@@ -1,5 +1,5 @@
 import axios from "axios";
-import useAuth from "./UseAuth";
+import useAuth from "./useAuth";
 import { useQuery } from "@tanstack/react-query";
 
 const useUser = () => {
