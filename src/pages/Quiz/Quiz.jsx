@@ -12,7 +12,7 @@ const Quiz = () => {
   const [showResult, setShowResult] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+console.log(quiz)
 
   const openModal = () => {
     setIsModalOpen(true);

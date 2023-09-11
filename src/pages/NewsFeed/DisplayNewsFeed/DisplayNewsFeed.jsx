@@ -15,6 +15,7 @@ import useMyPayments from "../../../Hooks/useMyPayments";
 
 
 
+
 const DisplayNewsFeed = ({ query }) => {
 
     const [id, setId] = useState(null);
@@ -36,7 +37,7 @@ const DisplayNewsFeed = ({ query }) => {
     const [userDetails] = useUser();
 
     const [posts] = usePosts();
-    const [, bages] = useMyPayments();
+    const [myPayments, bages] = useMyPayments();
 
     const [, handleBookMark, , , , handleDeletePost, handleUpdatePost] = useNewsFeedFunctionality();
     // redux state 
@@ -111,7 +112,7 @@ const DisplayNewsFeed = ({ query }) => {
                                                     :
                                                     bages.email === p.userEmail && bages.memberShip === "Pro" ?
                                                         (<img className='w-7 h-6 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />)
-                                                        : ""
+                                                    : ""
                                             }
                                         </div>
                                     </div>
