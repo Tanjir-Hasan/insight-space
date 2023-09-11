@@ -5,12 +5,15 @@ import { FaComment, FaEllipsisH, FaHistory, FaLock, FaUserFriends } from 'react-
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
-import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import { useSelector } from "react-redux";
 import NewsFooter from "./NewsFooter";
 import { useRef } from "react";
 import { SlClose, SlGlobe } from 'react-icons/sl';
+import useMyPayments from "../../../Hooks/useMyPayments";
+import useNewsFeedFunctionality from "../../../Hooks/useNewsFeedFunctionality";
+
+
 
 
 const DisplayNewsFeed = ({ query }) => {
@@ -34,12 +37,15 @@ const DisplayNewsFeed = ({ query }) => {
     const [userDetails] = useUser();
 
     const [posts] = usePosts();
+    const [myPayments, bages] = useMyPayments();
 
     const [, handleBookMark, , , , handleDeletePost, handleUpdatePost] = useNewsFeedFunctionality();
     // redux state 
     const categoriesData = useSelector(state => state?.categories);
     const bookMarks = useSelector(state => state?.bookMarks)
     const myPosts = useSelector(state => state?.myPosts)
+
+
 
     useEffect(() => {
         if (categoriesData.length > 0) {
@@ -96,8 +102,20 @@ const DisplayNewsFeed = ({ query }) => {
 
                             <div className="flex justify-between">
 
-                                <div className="flex space-x-2 mb-4">
-                                    <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                <div className="flex gap-2 space-x-2 mb-4">
+                                    <div className="relative">
+                                        <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                        <div className='absolute -bottom-1 -right-2'>
+                                            {
+                                                bages?.email === p.userEmail && bages.memberShip === "Basic" ?
+                                                    (<img className='w-7 h-7 rounded-full' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />)
+                                                    :
+                                                    bages?.email === p.userEmail && bages.memberShip === "Pro" ?
+                                                        (<img className='w-7 h-6 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />)
+                                                    : ""
+                                            }
+                                        </div>
+                                    </div>
                                     <div>
                                         <p className="text-lg font-semibold pt-1">{p.userName}</p>
                                         <div className="flex space-x-2">
@@ -147,12 +165,12 @@ const DisplayNewsFeed = ({ query }) => {
 
                                     <span hidden={id !== p._id}>{p.text}</span>
 
-                                    <span hidden={id === p._id} onClick={() => setId(p._id)} 
-                                    className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
+                                    <span hidden={id === p._id} onClick={() => setId(p._id)}
+                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
                                     >See More</span>
 
-                                    <span hidden={id !== p._id} onClick={() => setId(0)} 
-                                    className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}>See Less</span>
+                                    <span hidden={id !== p._id} onClick={() => setId(0)}
+                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}>See Less</span>
 
                                 </span>
 

@@ -7,13 +7,14 @@ import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import usePosts from '../../Hooks/usePosts';
 import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
-import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory } from 'react-icons/fa';
+import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaMinus, FaPlug, FaPlus } from 'react-icons/fa';
 import moment from "moment";
 import useAuth from '../../Hooks/UseAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { BsSend } from 'react-icons/bs';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { Link } from 'react-router-dom';
+import useMyPayments from '../../Hooks/useMyPayments';
 
 const QuesAndAns = () => {
 
@@ -30,6 +31,9 @@ const QuesAndAns = () => {
     const [, refetch] = usePosts();
 
     const { register, handleSubmit, reset } = useForm();
+    const [, bages] = useMyPayments();
+    console.log(bages)
+
 
     const onSubmit = data => {
         if (!data.text) {
@@ -76,6 +80,7 @@ const QuesAndAns = () => {
 
     const [posts] = usePosts();
 
+
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
 
     return (
@@ -84,8 +89,8 @@ const QuesAndAns = () => {
             <div className='md:w-8/12 w-11/12 mx-auto'>
 
                 <div className={`${theme === 'dark' ? 'dark' :
-                            theme === 'night' ? 'night' :
-                            theme === 'light' ? 'bg-[#f0efeb]' : ''} border border-[#3c6e71] mt-2 py-5 rounded-lg`}>
+                    theme === 'night' ? 'night' :
+                        theme === 'light' ? 'bg-[#f0efeb]' : ''} border border-[#3c6e71] mt-2 py-5 rounded-lg`}>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="font-[Poppins] ">
 
@@ -134,11 +139,23 @@ const QuesAndAns = () => {
                     {
                         posts && posts.map(p => <div key={p._id}
                             className={`${theme === 'dark' ? 'dark' :
-                            theme === 'night' ? 'night' :
-                            theme === 'light' ? 'bg-[#f0efeb]' : ''} my-6 rounded-lg border border-[#3c6e71]`}>
+                                theme === 'night' ? 'night' :
+                                    theme === 'light' ? 'bg-[#f0efeb]' : ''} my-6 rounded-lg border border-[#3c6e71]`}>
                             <div className="p-4">
-                                <div className="flex space-x-2 mb-4">
-                                    <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                <div className="flex gap-3 space-x-2 mb-4">
+                                    <div className='relative'>
+                                        <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                        <div className='absolute -bottom-3 -right-2'>
+                                            {
+                                                bages?.email === p.userEmail && bages?.memberShip === "Basic" ?
+                                                    (<img className='w-8 h-8 rounded-full' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />)
+                                                    :
+                                                    bages?.email === p.userEmail && bages?.memberShip === "Pro" ?
+                                                        (<img className='w-8 h-7 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />)
+                                                        : ""
+                                            }
+                                        </div>
+                                    </div>
                                     <div>
                                         <p className="text-lg font-semibold pt-1">{p.userName}</p>
                                         <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>

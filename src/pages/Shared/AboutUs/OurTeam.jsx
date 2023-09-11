@@ -108,7 +108,7 @@ const OurTeam = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: -100 },
                     }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: 1.5 }}
                     className="relative flex justify-end gap-10 items-center  md:w-[50%]" >
 
                     
@@ -145,7 +145,7 @@ const OurTeam = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: 100 },
                     }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: 1.5 }}
                     className="relative flex  gap-10 items-center mt-7 md:mt-0 md:w-[50%]">
                
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
@@ -193,7 +193,7 @@ const OurTeam = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: -100 },
                     }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: 1.5 }}
                     className="relative text-right" >
                    
                         <h2>{teamData.sumaiya.teamName}</h2>
@@ -202,11 +202,23 @@ const OurTeam = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                         </svg>
                         </motion.div>
+
+                        <motion.div
+                    ref={ref}
+                    initial="hidden"
+                    animate={controls}
+                    variants={{
+                        visible: { opacity: 1, y: 0 },
+                        hidden: { opacity: 0, y: 100 },
+                    }}
+                    transition={{ duration: 1.5 }}>
                     <div
                         className=" bg-slate-500 h-32 w-32 border-2 "
                         style={customClipPathStyle}>
                         <img className='h-30 w-36' src={teamData.sumaiya.memberImg} alt="" />
                     </div>
+                    </motion.div>
+                    
 
                     <motion.div
                     ref={ref}
@@ -216,7 +228,7 @@ const OurTeam = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: 100 },
                     }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: 1.5 }}
                     className="relative" >
                     
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" text-[#0def3e] w-6 h-6 absolute -left-6 bottom-3">
@@ -249,7 +261,7 @@ const OurTeam = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: -100 },
                     }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: 1.5 }}
                     className="relative flex justify-end gap-10 items-center md:w-[50%]" >
               
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
@@ -287,7 +299,7 @@ const OurTeam = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: 100 },
                     }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: 1.5 }}
                     className="relative flex items-center mt-7 md:mt-0  gap-10 md:w-[50%]">
                 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"

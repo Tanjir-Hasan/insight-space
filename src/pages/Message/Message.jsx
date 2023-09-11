@@ -6,7 +6,7 @@ const Message = ({ message }) => {
   const { user } = useAuth();
 
   const messageClass =
-    message.uid === auth.currentUser.uid
+    message?.uid === auth?.currentUser?.uid
       ? 'bg-[#0e6ba8] text-white flex-row-reverse text-end float-right rounded-bl-full'
       : 'bg-[#e5e5ea] text-black float-left rounded-br-full';
 

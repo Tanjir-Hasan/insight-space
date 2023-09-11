@@ -87,6 +87,7 @@ const AllUsers = () => {
         }
     }
 
+
     return (
         <div className="min-h-screen">
             <h2 className='pt-10 pb-2 font-[Pacifico] text-center text-2xl md:text-3xl lg:text-5xl'>Total Users: {users?.length}</h2>

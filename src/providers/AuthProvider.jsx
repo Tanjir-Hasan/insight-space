@@ -3,7 +3,6 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import app from "../firebase/config.firebase";
 import axios from "axios";
 
-
 const auth = getAuth(app);
 
 // auth context
@@ -69,17 +68,17 @@ const AuthProvider = ({ children }) => {
     // unsubscribe from firebase 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
             if (currentUser) {
-                setUser(currentUser);
                 axios.post('https://insight-space-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
-                        localStorage.setItem('access-token', data.data.token)
+                        localStorage.setItem('access-token', data.data.token);
                         setLoading(false);
                     })
             }
             else {
-                localStorage.removeItem('access-token')
-                setUser(null)
+                localStorage.removeItem('access-token');
+                setLoading(false);
             }
         });
 

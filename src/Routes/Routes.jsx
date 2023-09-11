@@ -27,6 +27,12 @@ import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
 import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
 import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
+import InstructorLayout from "../layouts/InstructorLayout";
+import InstructorHome from "../pages/InstructorDashBoard/InstructorHome/InstructorHome";
+import ProDashboard from "../pages/Shared/ProMembership/MembershipDashboard/ProDashboard";
+import MockTest from "../pages/Shared/ProMembership/MockTest/MockTest";
+import LiveExam from "../pages/Shared/ProMembership/LiveExam/LiveExam";
+import ModelTest from "../pages/Shared/ProMembership/ModelTest/ModelTest";
 
 const router = createBrowserRouter([
   {
@@ -111,8 +117,12 @@ const router = createBrowserRouter([
         element: <PaidMembers></PaidMembers>
       },
       {
+        path: "payments-history",
+        element: <PaymentHistory></PaymentHistory>
+      },
+      {
         path: "connections",
-        element: <FriendsAndSearch></FriendsAndSearch>
+        element: <PrivateRoute><FriendsAndSearch></FriendsAndSearch></PrivateRoute>
       }
       ,
       // //ssl payment
@@ -123,6 +133,24 @@ const router = createBrowserRouter([
       {
         path: "ssl-commerz",
         element: <SSLCommerz></SSLCommerz>
+      },
+      {
+        path : 'pro-memberShip',
+        element : <ProDashboard></ProDashboard>,
+        children: [
+          {
+            path : "mock-test",
+            element : <MockTest></MockTest>
+          },
+          {
+            path: "live-exam",
+            element : <LiveExam></LiveExam>
+          },
+          {
+            path: "model-test",
+            element: <ModelTest></ModelTest>
+          }
+        ]
       }
     ]
   },
@@ -147,6 +175,16 @@ const router = createBrowserRouter([
         element: <AdminRoute><Addquiz></Addquiz></AdminRoute>
       }
 
+    ]
+  },
+  {
+    path : "instructor-dashboard",
+    element:<InstructorLayout></InstructorLayout>,
+    children:[
+      {
+        path:"home",
+        element:<InstructorHome></InstructorHome>
+      }
     ]
   }
 ]);
