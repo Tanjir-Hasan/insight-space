@@ -22,6 +22,7 @@ const useMyPayments = () => {
                 setBages(findData)    
                 setReload(true)          
             })
+            .catch(err => console.log(err.message))
     }, [url, reload])
     return [myPayments, bages, reload, setReload]
 
