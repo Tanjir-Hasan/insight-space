@@ -58,7 +58,7 @@ const UserDetails = ({ userDetails }) => {
                     <div className="flex justify-center relative my-4">
                         {userDetails?.photoURL && <img className="w-20 h-20 rounded-full" src={userDetails?.photoURL} alt="user image" />}
 
-                        <div className="absolute bottom-0 ml-10">
+                        {bages && <div className="absolute bottom-0 ml-10">
                             {
                                 bages?.memberShip === 'Basic' ?
                                     (
@@ -71,7 +71,7 @@ const UserDetails = ({ userDetails }) => {
                                         )
                                         : " "
                             }
-                        </div>
+                        </div>}
                     </div>
                     <h2 className="text-lg font-bold uppercase">{userDetails?.displayName}</h2>
                     {

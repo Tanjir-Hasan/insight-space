@@ -5,13 +5,13 @@ import { FaComment, FaEllipsisH, FaHistory, FaLock, FaUserFriends } from 'react-
 import useUser from "../../../Hooks/useUser";
 import moment from "moment";
 import usePosts from "../../../Hooks/usePosts";
-import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import { useSelector } from "react-redux";
 import NewsFooter from "./NewsFooter";
 import { useRef } from "react";
 import { SlClose, SlGlobe } from 'react-icons/sl';
 import useMyPayments from "../../../Hooks/useMyPayments";
+import useNewsFeedFunctionality from "../../../Hooks/useNewsFeedFunctionality";
 
 
 
@@ -107,10 +107,10 @@ const DisplayNewsFeed = ({ query }) => {
                                         <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                                         <div className='absolute -bottom-1 -right-2'>
                                             {
-                                                bages?.email === p.userEmail && bages?.memberShip === "Basic" ?
+                                                bages?.email === p.userEmail && bages.memberShip === "Basic" ?
                                                     (<img className='w-7 h-7 rounded-full' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />)
                                                     :
-                                                    bages?.email === p.userEmail && bages?.memberShip === "Pro" ?
+                                                    bages?.email === p.userEmail && bages.memberShip === "Pro" ?
                                                         (<img className='w-7 h-6 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />)
                                                     : ""
                                             }

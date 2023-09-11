@@ -65,35 +65,20 @@ const AuthProvider = ({ children }) => {
         });
     }
 
-    // const deleteUser = async (email) => {
-    //     try {
-    //         // Retrieve the user record by email
-    //         const userRecord = await admin.auth().getUserByEmail(email);
-    //         // Get the UID of the user
-    //         const uid = userRecord.uid;
-    //         // Delete the user using the UID
-    //         await admin.auth().deleteUser(uid);
-    //         console.log('Successfully deleted user');
-    //     } catch (error) {
-    //         console.error('Error deleting user:', error);
-    //     }
-    // }
-
-
     // unsubscribe from firebase 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
             if (currentUser) {
-                setUser(currentUser);
                 axios.post('https://insight-space-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
-                        localStorage.setItem('access-token', data.data.token)
+                        localStorage.setItem('access-token', data.data.token);
                         setLoading(false);
                     })
             }
             else {
-                localStorage.removeItem('access-token')
-                setUser(null)
+                localStorage.removeItem('access-token');
+                setLoading(false);
             }
         });
 
