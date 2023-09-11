@@ -9,6 +9,7 @@ import useAdmin from '../../../Hooks/useAdmin';
 import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 import useUser from '../../../Hooks/useUser';
 import ThemeButtons from '../../../ThemeButtons/ThemeButtons';
+import useInstructor from '../../../Hooks/useInstructor';
 
 
 const Navbar = () => {
@@ -22,7 +23,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const [isAdmin] = useAdmin();
-
+    const [isInstructor] = useInstructor();
     // for modal 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -151,7 +152,9 @@ const Navbar = () => {
 
                         {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
 
-                        {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
+                        {isInstructor && <ActiveLink to="/instructor-dashboard">Dashboard</ActiveLink>}
+
+                        {!isAdmin || !isInstructor && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
 
                         <ActiveLink to="/about-us">About</ActiveLink>
 
@@ -227,7 +230,7 @@ const Navbar = () => {
                         <div className={` p-6  rounded-xl ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-white'}`}>
                             <UserDetails userDetails={userDetails}></UserDetails>
                         </div>
-                    </div> 
+                    </div>
                 )}
             </div>
 
