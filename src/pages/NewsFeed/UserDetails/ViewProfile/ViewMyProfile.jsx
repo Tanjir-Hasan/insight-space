@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 import { BsSend } from "react-icons/bs";
-import useAuth from "../../../../Hooks/UseAuth";
+import useAuth from "../../../../Hooks/useAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { FaRegWindowClose } from "react-icons/fa";

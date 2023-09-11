@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsArrowUpSquare } from 'react-icons/bs';
+import { ThemeContext } from "../../../providers/ThemeProvider";
 
 const ScrollToTopButton = () => {
+
+  const { theme } = useContext(ThemeContext);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,7 +15,8 @@ const ScrollToTopButton = () => {
 
   return (
     <button onClick={scrollToTop} className="scroll-to-top-button">
-      <BsArrowUpSquare className="text-2xl font-bold hover:text-[#48cae4] duration-700" />
+      <BsArrowUpSquare className={`text-2xl font-bold duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' : theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+          theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`} />
     </button>
   );
 };

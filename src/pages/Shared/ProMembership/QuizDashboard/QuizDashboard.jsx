@@ -5,7 +5,7 @@ const QuizDashboard = () => {
     const [userDetails] = useUser();
     // console.log(userDetails)
     return (
-        <div className='min-h-[70vh]'>
+        <div className='min-h-[65vh]'>
             <div className='grid grid-cols-3 gap-5 text-white'>
                 <div className='h-40 bg-slate-600 rounded-md'>
                     <div className=' text-center p-2'>

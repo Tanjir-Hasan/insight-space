@@ -33,8 +33,9 @@ import ProDashboard from "../pages/Shared/ProMembership/MembershipDashboard/ProD
 import MockTest from "../pages/Shared/ProMembership/MockTest/MockTest";
 import LiveExam from "../pages/Shared/ProMembership/LiveExam/LiveExam";
 import ModelTest from "../pages/Shared/ProMembership/ModelTest/ModelTest";
-import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
+import SingleChat from "../ChatApplication/SingleChat/SingleChat";
 import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashboard";
+import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
 
 const router = createBrowserRouter([
   {
@@ -124,7 +125,7 @@ const router = createBrowserRouter([
       },
       {
         path: "connections",
-        element: <FriendsAndSearch></FriendsAndSearch>
+        element: <PrivateRoute><FriendsAndSearch></FriendsAndSearch></PrivateRoute>
       }
       ,
       // //ssl payment
@@ -161,7 +162,11 @@ const router = createBrowserRouter([
             element: <QuizRules></QuizRules>
           }
         ]
-      }
+      },
+      {
+        path: "singleChat",
+        element: <SingleChat></SingleChat>
+      },
     ]
   },
   {

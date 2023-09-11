@@ -1,7 +1,7 @@
 import usePosts from "./usePosts";
 import Swal from "sweetalert2";
 import useAxiosSecure from "./useAxiosSecure";
-import useAuth from "./UseAuth";
+import useAuth from "./useAuth";
 import useBookMarks from "./useBookMarks";
 
 const useNewsFeedFunctionality = () => {

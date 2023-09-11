@@ -9,7 +9,9 @@ const Footer = () => {
 
     return (
         <>
-            <div className={`${theme}`}>
+            <div className={`${theme === 'dark' ? 'bg-[#011627]' :
+                theme === 'night' ? 'bg-[#1b263b]' :
+                    theme === 'light' ? 'bg-[#f0efeb]' : ''} py-5`}>
 
                 <div className="md:flex justify-between px-10 items-center">
 
@@ -25,10 +27,18 @@ const Footer = () => {
                     </Link>
 
                     <div className="flex flex-col md:flex-row gap-5 items-center font-[Poppins] pl-4 pt-5 md:pl-0 md:pt-0 md:w-1/2 lg:w-1/3">
-                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700">Terms & Conditions</Link>
-                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700">Privacy Policy</Link>
-                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700">Cookie Policy</Link>
-                        <Link className="hover:text-[#48cae4] hover:underline underline-offset-2 duration-700" to="/about-us">About Us</Link>
+                        <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                    theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`}>Terms & Conditions</Link>
+                        <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                    theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`}>Privacy Policy</Link>
+                        <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                    theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`}>Cookie Policy</Link>
+                        <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                    theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`} to="/about-us">About Us</Link>
                         <ScrollToTopButton></ScrollToTopButton>
                     </div>
 
@@ -37,7 +47,7 @@ const Footer = () => {
                 <div className="flex-grow border-t border-gray-400 mx-16 my-4"></div>
 
                 <div>
-                    <p className="text-center font-[Poppins]">Copyright © 2023 - All right reserved.</p>
+                    <p className={`text-center font-[Poppins] ${theme === 'light' ? 'text-black' : 'text-white'}`}>Copyright © 2023 - All right reserved.</p>
                 </div>
 
             </div>

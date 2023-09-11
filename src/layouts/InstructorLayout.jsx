@@ -10,7 +10,7 @@ const InstructorLayout = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
     const location = useLocation();
     const [isInstructor] = useInstructor();
-    console.log(isInstructor);
+    
     return (
         <div className="flex">
             {/* Navigation Bar */}
