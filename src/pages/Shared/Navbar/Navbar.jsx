@@ -147,7 +147,7 @@ const Navbar = () => {
 
                         {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
 
-                        {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
+                        {!isAdmin && <ActiveLink to="/pro-memberShip">Quiz</ActiveLink>}
 
                         {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
 

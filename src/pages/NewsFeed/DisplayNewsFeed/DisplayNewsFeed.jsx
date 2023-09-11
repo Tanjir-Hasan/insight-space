@@ -107,10 +107,10 @@ const DisplayNewsFeed = ({ query }) => {
                                         <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                                         <div className='absolute -bottom-1 -right-2'>
                                             {
-                                                bages.email === p.userEmail && bages.memberShip === "Basic" ?
+                                                bages?.email === p.userEmail && bages?.memberShip === "Basic" ?
                                                     (<img className='w-7 h-7 rounded-full' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />)
                                                     :
-                                                    bages.email === p.userEmail && bages.memberShip === "Pro" ?
+                                                    bages?.email === p.userEmail && bages?.memberShip === "Pro" ?
                                                         (<img className='w-7 h-6 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />)
                                                     : ""
                                             }

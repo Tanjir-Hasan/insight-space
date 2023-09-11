@@ -60,12 +60,12 @@ const UserDetails = ({ userDetails }) => {
 
                         <div className="absolute bottom-0 ml-10">
                             {
-                                bages.memberShip === 'Basic' ?
+                                bages?.memberShip === 'Basic' ?
                                     (
                                         <img className='w-10 h-10 rounded-full' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />
                                     )
                                     :
-                                    bages.memberShip === 'Pro' ?
+                                    bages?.memberShip === 'Pro' ?
                                         (
                                             <img className='w-12 h-10 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />
                                         )
@@ -75,11 +75,11 @@ const UserDetails = ({ userDetails }) => {
                     </div>
                     <h2 className="text-lg font-bold uppercase">{userDetails?.displayName}</h2>
                     {
-                        bages.memberShip === 'Basic' ?
+                        bages?.memberShip === 'Basic' ?
                             (<h2 className="text-green-700 font-bold">Gold Member</h2>)
 
                             :
-                            bages.memberShip === 'Pro' ?
+                            bages?.memberShip === 'Pro' ?
                                 (<h2>VIP Member</h2>)
                                 : " "
                     }
