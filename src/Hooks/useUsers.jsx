@@ -1,23 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import useAxiosSecure from "./useAxiosSecure";
 
-const useUsers = () => {    
+const useUsers = () => {
 
-    const { refetch, isLoading : adminUserLoading, data:allUsers = []} = useQuery({
+    const [axiosSecure] = useAxiosSecure();
+
+    const { refetch, isLoading: adminUserLoading, data: allUsers = [] } = useQuery({
+
         queryKey: ['allUsers'],
-        queryFn: async ()=>{
-            const response = await axios.get(`http://localhost:5000/chat/allUsers`)
-            // console.log("admin all classes",response.data);
+        queryFn: async () => {
+
+            const response = await axiosSecure.get(`/chat/allUsers`);
+
             return response.data;
         }
-      })
+    });
 
-
-      return [
-        allUsers, 
-        refetch,
-        adminUserLoading
-    ]
-}
+    return [allUsers, refetch, adminUserLoading]
+};
 
 export default useUsers;

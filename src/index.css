@@ -15,23 +15,29 @@
 1b1b1e
 */
 
+
 .active {
   @apply text-[#48cae4] underline underline-offset-8;
 }
+
 
 .light-active {
   @apply text-[#3c6e71] underline underline-offset-8;
 }
 
+
 .default {
   @apply no-underline;
 }
+
 
 .input-field {
   @apply w-full border-b-2 border-[#84a98c] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#344e41] focus:bg-[#f8f9fa];
 }
 
+
 /* carousel */
+
 .carousel .thumbs-wrapper {
   display: none;
 }
@@ -41,55 +47,31 @@
   transition: filter 0.3s ease-in-out;
 }
 
+/* carousel */
+
+
 .group:hover .grayscale {
   filter: grayscale(0%);
 }
 
+
 .quiz-category-effect {
   @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700  hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
 }
+
 
 .quiz-category-effects {
   @apply font-[Cinzel] hover:bg-[#344e41] hover:w-[calc(100%+20px)] duration-700 hover:text-white hover:scale-105 p-2 hover:rounded-e-2xl;
 }
 
 
-
-/* .translated-ltr{
-    margin-top: -40px;
-}
-  
-  
-.goog-te-gadget-simple {
-      background-color: #ecebf0 !important;
-      border:0 !important;
-      font-size: 10pt;
-     font-weight:800;
-      display: inline-block;
-      padding:10px 10px !important;
-      cursor: pointer;
-      zoom: 1;
-}
-  
-.goog-te-gadget-simple  span {
-     color:#3e3065 !important;
-} */
-
-#google_translate_element select{
+/* #google_translate_element select{
     background-color:#f0efeb;
     color: black;
     border: none;
     border-radius:3px;
     padding: 0;
-}
-
-/* .goog-logo-link{
-    display:none !important;
-}
-
-.goog-te-gadget{
-    color: transparent !important;
-}  */
+} */
 
 
 /* user profile */
@@ -98,18 +80,63 @@
   @apply w-full mb-2 border-b-2 border-[#3c6e71] border-solid text-[#3c6e71] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#3c6e71] hover:text-white;
 }
 
+
 .secondary-button-dark-night {
   @apply w-full mb-2 border-b-2 border-[#48cae4] border-solid text-[#48cae4] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#48cae4] hover:text-black;
 }
+
 
 .outline-btn-light {
   @apply border border-[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-black transition duration-300 ease-in-out
 }
 
+
 .outline-btn-dark-night {
   @apply border border-[#48cae4] text-[#48cae4] rounded-lg px-4 py-2 hover:bg-[#48cae4] hover:text-black transition duration-300 ease-in-out
 }
 
+
 .posts-action-btn {
   @apply font-[Cinzel] hover:underline underline-offset-4 hover:scale-110 duration-700
 }
+
+/* user profile */
+
+
+/* single message */
+
+.dark-right {
+  @apply bg-gradient-to-l from-gray-700 via-gray-900 to-black text-white
+}
+
+
+.dark-left {
+  @apply bg-gradient-to-l from-black via-gray-900 to-gray-700 text-white
+}
+
+
+.night-left {
+  @apply bg-gradient-to-l from-[#1b263b] via-[#415a77] to-[#415a77] text-white
+}
+
+
+.night-middle {
+  @apply bg-gradient-to-bl from-[#415a77] via-[#415a77] to-[#1b263b] text-white
+}
+
+
+.night-right {
+  @apply bg-gradient-to-r from-[#1b263b] via-[#415a77] to-[#415a77] text-white
+}
+
+
+.message-btn-light {
+  @apply text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] px-6 duration-700 py-2 rounded-lg
+}
+
+
+.message-btn-dark-night {
+  @apply text-xl text-black font-[Poppins] bg-[#48cae4] hover:bg-[#48cae4e6] px-6 duration-700 py-2 rounded-lg
+}
+
+/* single message */

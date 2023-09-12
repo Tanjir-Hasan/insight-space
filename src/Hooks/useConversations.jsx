@@ -1,30 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import useSingleUser from "./useSingleUser";
-
+import useUser from "./useUser";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useConversations = () => {
-    const [singleUser] = useSingleUser();
 
-    const {
-        refetch,
-        isLoading: adminUserLoading,
-        data: conversationData = []
-    } = useQuery({
-        queryKey: ['conversationData', singleUser?._id],
+    const [userDetails] = useUser();
+
+    const [axiosSecure] = useAxiosSecure();
+
+    const { refetch, isLoading: adminUserLoading, data: conversationData = [] } = useQuery({
+
+        queryKey: ['conversationData', userDetails?._id],
         queryFn: async () => {
-            const response = await axios.get(`http://localhost:5000/conversation/${singleUser?._id}`)
-            // console.log("admin all classes",response.data);
+
+            const response = await axiosSecure.get(`/conversation/${userDetails?._id}`);
+
             return response.data;
+
         }
-    })
+    });
 
-
-    return [
-        conversationData,
-        refetch,
-        adminUserLoading
-    ]
-}
+    return [conversationData, refetch, adminUserLoading]
+};
 
 export default useConversations;
