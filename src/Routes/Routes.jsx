@@ -37,6 +37,7 @@ import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashb
 import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
 import SSLPaymentFail from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentFail/SSLPaymentFail";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -161,7 +162,8 @@ const router = createBrowserRouter([
           {
             path: "quiz-rules",
             element: <QuizRules></QuizRules>
-          }
+          },
+         
         ]
       },
       {

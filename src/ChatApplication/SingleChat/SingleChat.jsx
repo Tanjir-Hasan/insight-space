@@ -195,7 +195,6 @@ const SingleChat = () => {
 
                                 <div>
                                     <div className="font-semibold">{user.displayName}</div>
-                                    {/* Other user details... */}
                                 </div>
 
                             </div>

@@ -39,6 +39,7 @@ const Footer = () => {
                         <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
                                 theme === 'night' ? 'hover:text-[#48cae4] text-white' :
                                     theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`} to="/about-us">About Us</Link>
+                                    
                         <ScrollToTopButton></ScrollToTopButton>
                     </div>
 

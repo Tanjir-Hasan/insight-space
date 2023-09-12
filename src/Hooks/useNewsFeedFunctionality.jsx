@@ -1,8 +1,8 @@
 import usePosts from "./usePosts";
 import Swal from "sweetalert2";
 import useAxiosSecure from "./useAxiosSecure";
-import useAuth from "./useAuth";
 import useBookMarks from "./useBookMarks";
+import useAuth from "./UseAuth";
 
 const useNewsFeedFunctionality = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -12,13 +12,15 @@ const useNewsFeedFunctionality = () => {
     //   for react react 
     const handleReact = (id, email) => {
         const addReact = { id, email }
-        axiosSecure.patch("/reacts", addReact)
-            .then(data => {
-                if (data) {
-                    refetch()
-                }
-            })
-            .catch(err => console.log(err.message))
+        if (user) {
+            axiosSecure.patch("/reacts", addReact)
+                .then(data => {
+                    if (data) {
+                        refetch()
+                    }
+                })
+                .catch(err => console.log(err.message))
+        }
     };
     // for add bookmarks
     const handleBookMark = (id, email) => {
