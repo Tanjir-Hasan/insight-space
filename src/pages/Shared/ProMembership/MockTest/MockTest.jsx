@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import { AuthContext } from '../../../../providers/AuthProvider';
 
 
 const MockTest = () => {
@@ -9,7 +11,10 @@ const MockTest = () => {
     const [showResult, setShowResult] = useState(false);
     const [countdown, setCountdown] = useState(3);
     const [subject, setSubject] = useState([])
-
+    const { user } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure();
+  
+console.log(subject)
     const handleOptionSelect = (option, questionIndex) => {
         const updatedAnswers = [...userAnswers];
         updatedAnswers[questionIndex] = option;
@@ -24,19 +29,38 @@ const MockTest = () => {
             .catch((error) => console.error("Error fetching quiz data:", error));
     }, [url]);
 
-    const handleSubmit = () => {
-        setShowResults(true);
-    };
 
     const calculateScore = () => {
         let score = 0;
         userAnswers.forEach((answer, index) => {
             if (answer === quizData[index].correctAnswer) {
                 score++;
+
             }
         });
         return score;
     };
+
+
+
+    const handleSubmit = () => {
+        const date = new Date();
+        const mockTest = {
+            userName: user?.displayName,
+            photo: user?.photoURL,
+            email: user?.email,
+            date,
+            score: calculateScore (),
+            subject : subject,
+        }
+        console.log(mockTest)
+        axiosSecure.post("/mock-test", mockTest)
+            .then(data => console.log(data.data))
+        setShowResults(true);
+    };
+
+   
+   
 
     useEffect(() => {
         let timer;
@@ -103,6 +127,40 @@ const MockTest = () => {
         setShowResult(true)
     }
 
+
+    // const onSubmit = data => {
+    //     const { message, rating } = data;
+    //     const date = new Date();
+    //     const feedback = {
+    //         userName: user?.displayName,
+    //         photo: user?.photoURL,
+    //         email: user?.email,
+    //         rating,
+    //         date,
+    //         message
+    //     }
+    //     axiosSecure.post("/feedback", feedback)
+    //         .then(data => {
+    //             if (data.data) {
+    //                 alert('Your response has been recorded')
+    //             }
+    //         })
+    // };
+    // const handleMocktest = () =>{
+    //     const date = new Date();
+    //     const mockTest = {
+    //         userName: userDetails?.displayName,
+    //         photo: userDetails?.photoURL,
+    //         email: userDetails?.email,        
+    //         date,
+    //         score : 0,
+
+    //     }
+    //     console.log(mockTest)
+    //     axiosSecure.post("/mock-test", mockTest)
+    //     .then(data => console.log(data.data))
+    // }
+
     return (
 
         <div className='min-h-[70vh]'>
@@ -159,12 +217,10 @@ const MockTest = () => {
                                                     </div>
                                                 ))}
                                             </div>
-                                            <button
-                                                onClick={handleSubmit}
-                                                className="mt-4 w-full text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] cursor-pointer"
-                                            >
-                                                Submit Mock Test
-                                            </button>
+                                            <div onClick={() => handleSubmit()} className='mt-4 w-full text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] text-center cursor-pointer'>
+                                                <button  > Submit Mock Test </button>
+                                            </div>
+
                                         </div>
                                     )}
                                 </div>)
