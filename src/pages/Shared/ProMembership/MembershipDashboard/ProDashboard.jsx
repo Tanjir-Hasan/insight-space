@@ -16,11 +16,12 @@ const ProDashboard = () => {
                 <nav>
                     <ul className="space-y-4 border-b-4 border-[#3c6e71] py-10 mt-20">
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-dashboard">DashBoard</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/leader-board">Leaderboard</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/pro-memberShip/mock-test">Mock Test</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/pro-memberShip/live-exam">Live Exam</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/model-test">Model Test</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-rules">Rules & Regulations</ActiveLink></li>
-                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="">Leaderboard</ActiveLink></li>
+                       
 
                     </ul>
 

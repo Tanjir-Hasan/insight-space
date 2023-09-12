@@ -34,8 +34,8 @@ const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
 
 const ReChart = () => {
-    const [quizResult] = useQuizResult();
-    console.log(quizResult)
+    const [quizResult, mockTest, modelTest] = useQuizResult();
+    // console.log(quizResult)
 
 
     return (
@@ -43,11 +43,11 @@ const ReChart = () => {
             {/* chart start 2 */}
 
             <div className='mt-6 p-5 border-2 rounded-md border-[#3c6e71]'>
-                <h2 className='text-2xl font-bold border-b-2 mb-5'>Your live exam test history: </h2>
+                <h2 className='text-2xl font-bold border-b-2 mb-5'>Your Mock test result history: </h2>
                 <ResponsiveContainer width='90%' height={300} className="mx-auto " >
                     <BarChart
                         height={300}
-                        data={quizResult}>
+                        data={mockTest}>
 
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="subject" fill="DarkBlue" />
@@ -65,7 +65,7 @@ const ReChart = () => {
 
             {/* chaet start 2 */}
             <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
-                <h2 className='text-2xl font-bold border-b-2 mb-5'>Your Model test exam history: </h2>
+                <h2 className='text-2xl font-bold border-b-2 mb-5'>Your live exam result history: </h2>
                 <ResponsiveContainer width="90%" height={300} className="mx-auto" >
                     <BarChart
                         width={500}
@@ -95,11 +95,11 @@ const ReChart = () => {
 
             {/* chart start 3 */}
             <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
-                <h2 className='text-2xl font-bold border-b-2 mb-5'>Your Mock test Quiz history: </h2>
+                <h2 className='text-2xl font-bold border-b-2 mb-5'>Your Model test result history: </h2>
                 <ResponsiveContainer width="90%" height={300} className="mx-auto" >
                     <BarChart
                         height={300}
-                        data={quizResult}
+                        data={modelTest}
                         margin={{
                             top: 5,
                             right: 30,

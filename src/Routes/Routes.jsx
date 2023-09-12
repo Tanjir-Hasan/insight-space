@@ -36,6 +36,7 @@ import SingleChat from "../ChatApplication/SingleChat/SingleChat";
 import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashboard";
 import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
 import SSLPaymentFail from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentFail/SSLPaymentFail";
+import LeaderBoard from "../pages/Shared/ProMembership/LeaderBoard/LeaderBoard";
 
 
 const router = createBrowserRouter([
@@ -163,6 +164,10 @@ const router = createBrowserRouter([
             path: "quiz-rules",
             element: <QuizRules></QuizRules>
           },
+          {
+            path : "leader-board",
+            element : <LeaderBoard></LeaderBoard>
+          }
          
         ]
       },

@@ -13,7 +13,7 @@ import ReChart from './ReChart';
 
 const QuizDashboard = () => {
     const [userDetails] = useUser();
-    const [quizResult] = useQuizResult();
+    const [quizResult, mockTest, modelTest] = useQuizResult();
     // console.log(quizResult)
 
 
@@ -30,9 +30,9 @@ const QuizDashboard = () => {
                 <div className='h-40 bg-slate-600 rounded-md'>
                     <h2 className='text-2xl p-2'>Total Exam attend</h2>
                     <div className='p-2'>
-                        <p>Mock test: {quizResult.length}</p>
+                        <p>Mock test: {mockTest.length}</p>
                         <p>Live exam: {quizResult.length}</p>
-                        <p>Model test: {quizResult.length}</p>
+                        <p>Model test: {modelTest.length}</p>
                     </div>
                 </div>
                 <div className='h-40 bg-slate-600 rounded-md'>
