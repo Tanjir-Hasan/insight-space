@@ -22,11 +22,6 @@ const Home = () => {
             <ExploreContent></ExploreContent>
             <ChoiceUs></ChoiceUs>
             <PeerToPeer></PeerToPeer>
-
-            <Link to="/group-conversations">
-                <img src="https://i.ibb.co/bzywHzS/mail.png" alt="" className="fixed top-[calc(100vh - 0)] bottom-2 right-10 w-12" />
-            </Link>
-
             <AdvancedCapabilities></AdvancedCapabilities>
             <Membership></Membership>
             <CommunityGuidelines></CommunityGuidelines>

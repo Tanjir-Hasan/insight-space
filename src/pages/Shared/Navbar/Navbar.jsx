@@ -9,7 +9,7 @@ import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 import useUser from '../../../Hooks/useUser';
 import ThemeButtons from '../../../ThemeButtons/ThemeButtons';
 import useInstructor from '../../../Hooks/useInstructor';
-import useAuth from '../../../Hooks/useAuth';
+import useAuth from '../../../Hooks/UseAuth';
 
 
 const Navbar = () => {

@@ -75,7 +75,7 @@ const SingleChat = () => {
     };
 
     return (
-        <div className={`${theme} h-[calc(100vh-79.99px)]`}>
+        <div className={`${theme} h-[calc(100vh-96px)]`}>
 
             <div className="flex">
 

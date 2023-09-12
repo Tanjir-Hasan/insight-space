@@ -55,9 +55,9 @@ const Testimonial = () => {
     return (
         <div className={`${theme}`}>
 
-            <div className={`${theme === 'dark' ? 'bg-[#0d1b2a]' :
+            <div className={`${theme === 'dark' ? 'bg-[#003049]' :
                 theme === 'night' ? 'bg-[#03071e]' :
-                    theme === 'light' ? 'bg-[#f0efeb]' : ''} testimonial pb-10`}>
+                    theme === 'light' ? 'bg-[#f0efeb]' : ''} testimonial-wave h-[650px]`}>
 
                 <motion.div
                     ref={ref}
