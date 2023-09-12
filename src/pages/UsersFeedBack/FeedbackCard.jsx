@@ -26,7 +26,7 @@ const FeedbackCard = ({ feedbacks, handleDelete, handleUpdate }) => {
                     </thead>
                     <tbody>
                         {
-                            feedbacks?.map(f => <tr key={f._id} className="gap-6">
+                            feedbacks?.map(f => <tr key={f._id} className="gap-6" id="feedbacktable">
                                 <td className="">
                                     <p className='m-4'>{f.userName}</p>
                                 </td>

@@ -37,6 +37,7 @@ import SingleChat from "../ChatApplication/SingleChat/SingleChat";
 import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashboard";
 import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -160,7 +161,8 @@ const router = createBrowserRouter([
           {
             path: "quiz-rules",
             element: <QuizRules></QuizRules>
-          }
+          },
+         
         ]
       },
       {
