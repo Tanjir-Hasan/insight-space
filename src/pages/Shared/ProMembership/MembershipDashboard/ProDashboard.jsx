@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { FaAlignLeft, FaArrowCircleLeft, FaArrowCircleRight, FaDollarSign, FaEdit, FaHome, FaThList, FaUsers } from 'react-icons/fa';
 import ActiveLink from '../../../../components/ActiveLink';
+import QuizRules from '../QuizRules/QuizRules';
 
 const ProDashboard = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
@@ -14,12 +15,15 @@ const ProDashboard = () => {
                 {/* Navigation Content */}
                 <nav>
                     <ul className="space-y-4 border-b-4 border-[#3c6e71] py-10 mt-20">
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-dashboard">DashBoard</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/pro-memberShip/mock-test">Mock Test</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/pro-memberShip/live-exam">Live Exam</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/model-test">Model Test</ActiveLink></li>
-                       
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-rules">Rules & Regulations</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="">Leaderboard</ActiveLink></li>
+
                     </ul>
-                   
+
                 </nav>
                 <div>
                     <button className="w-full border-b-4 border-[#3c6e71] text-black font-bold rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-white transition duration-300 ease-in-out flex items-center justify-center" onClick={() => setIsDrawerOpen(!isDrawerOpen)}><FaArrowCircleLeft className='me-2 text-lg'></FaArrowCircleLeft> Close Drawer</button>
@@ -31,8 +35,9 @@ const ProDashboard = () => {
                     } transition-all duration-300 ease-in-out flex-grow p-4`}
             >
                 <Outlet></Outlet>
-                <div hidden={location.pathname !== "/admin-dashboard"}>
-                   
+
+                <div hidden={location.pathname !== "/pro-memberShip"}>
+                    <QuizRules></QuizRules>
                 </div>
             </div>
 
