@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useUser from '../../../../Hooks/useUser';
 import { BarChart, ResponsiveContainer, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList, } from 'recharts';
 import useAuth from '../../../../Hooks/UseAuth';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 
 
 
@@ -82,14 +83,15 @@ const TriangleBar = (props) => {
 const QuizDashboard = () => {
     const { user } = useAuth();
     const [userDetails] = useUser();
-   const [mockTest, setMockTest] = useState([])
-   console.log(mockTest)
+    const [axiosSecure] = useAxiosSecure();
+    const [mockTest, setMockTest] = useState([])
+  
 
-    const url = `https://insight-space-server.vercel.app/exam-test?email=${user?.email}`
+    const url = `/exam-test?email=${user?.email}`
     useEffect(() => {
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setMockTest(data) )
+        axiosSecure.get(url)
+            .then(data => setMockTest(data.data))
+            .catch(err => console.log(err.message))
     }, [url])
 
     return (
@@ -125,7 +127,7 @@ const QuizDashboard = () => {
                         <YAxis dataKey="score" fill="DarkBlue" />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="score"  fill="DarkBlue" />
+                        <Bar dataKey="score" fill="DarkBlue" />
                         <Bar dataKey="date" fill="Brown" />
                     </BarChart>
                 </ResponsiveContainer>
@@ -152,8 +154,8 @@ const QuizDashboard = () => {
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="subject" />
                         <YAxis />
-                        <Bar dataKey="score"  fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                            {mockTest.map((entry, index) => (
+                        <Bar dataKey="score" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                            {mockTest && mockTest?.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={colors[index % 20]} />
                             ))}
                         </Bar>
