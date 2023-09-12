@@ -3,11 +3,14 @@ import { FaAlignLeft, FaArrowCircleLeft, FaArrowCircleRight, FaDollarSign, FaEdi
 import { Outlet, useLocation } from "react-router";
 import ActiveLink from "../components/ActiveLink";
 import InstructorHome from "../pages/InstructorDashBoard/InstructorHome/InstructorHome";
+import useInstructor from "../Hooks/useInstructor";
 
 
 const InstructorLayout = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
     const location = useLocation();
+    const [isInstructor] = useInstructor();
+    
     return (
         <div className="flex">
             {/* Navigation Bar */}

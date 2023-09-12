@@ -44,7 +44,7 @@ const PopularPost = () => {
                 {
                     popularPost && popularPost.slice(0, 6).map(topPost =>
                         <div key={topPost._id} className='mx-5 my-20'>
-                            <div className=' px-5 py-8 bg-opacity-40 rounded-xl shadow-xl shadow-[#3c6e71] h-32 md:w-[600px] w-[300px] hover:bg-[#3c6e71] hover:text-white duration-700'>
+                            <div className=' px-5 py-8 bg-opacity-40 rounded-xl shadow-xl shadow-[#3c6e71] md:h-32 h-36 md:w-[600px] w-[300px] hover:bg-[#3c6e71] hover:text-white duration-700'>
                                 <div className='flex justify-center'>
                                     <img src={topPost.userPhoto} alt="" className='rounded-full -mt-[61px] h-14' />
                                 </div>

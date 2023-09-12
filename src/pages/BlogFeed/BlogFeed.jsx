@@ -7,7 +7,7 @@ import { ThemeContext } from '../../providers/ThemeProvider';
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaThList } from 'react-icons/fa';
 import moment from "moment";
-import useAuth from '../../Hooks/UseAuth';
+import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import useBlog from '../../Hooks/useBlog';
 import ButtonWithLoading from '../../components/ButtonWithLoading';

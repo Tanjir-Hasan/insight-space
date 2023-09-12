@@ -29,6 +29,14 @@ import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentS
 import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
 import InstructorLayout from "../layouts/InstructorLayout";
 import InstructorHome from "../pages/InstructorDashBoard/InstructorHome/InstructorHome";
+import ProDashboard from "../pages/Shared/ProMembership/MembershipDashboard/ProDashboard";
+import MockTest from "../pages/Shared/ProMembership/MockTest/MockTest";
+import LiveExam from "../pages/Shared/ProMembership/LiveExam/LiveExam";
+import ModelTest from "../pages/Shared/ProMembership/ModelTest/ModelTest";
+import SingleChat from "../ChatApplication/SingleChat/SingleChat";
+import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashboard";
+import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
+
 
 const router = createBrowserRouter([
   {
@@ -118,7 +126,7 @@ const router = createBrowserRouter([
       },
       {
         path: "connections",
-        element: <FriendsAndSearch></FriendsAndSearch>
+        element: <PrivateRoute><FriendsAndSearch></FriendsAndSearch></PrivateRoute>
       }
       ,
       // //ssl payment
@@ -129,7 +137,38 @@ const router = createBrowserRouter([
       {
         path: "ssl-commerz",
         element: <SSLCommerz></SSLCommerz>
-      }
+      },
+      {
+        path: 'pro-memberShip',
+        element: <ProDashboard></ProDashboard>,
+        children: [
+          {
+            path: "quiz-dashboard",
+            element: <QuizDashboard></QuizDashboard>
+          },
+          {
+            path: "mock-test",
+            element: <MockTest></MockTest>
+          },
+          {
+            path: "live-exam",
+            element: <LiveExam></LiveExam>
+          },
+          {
+            path: "model-test",
+            element: <ModelTest></ModelTest>
+          },
+          {
+            path: "quiz-rules",
+            element: <QuizRules></QuizRules>
+          },
+         
+        ]
+      },
+      {
+        path: "singleChat",
+        element: <SingleChat></SingleChat>
+      },
     ]
   },
   {
@@ -156,12 +195,12 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path : "instructor-dashboard",
-    element:<InstructorLayout></InstructorLayout>,
-    children:[
+    path: "instructor-dashboard",
+    element: <InstructorLayout></InstructorLayout>,
+    children: [
       {
-        path:"home",
-        element:<InstructorHome></InstructorHome>
+        path: "home",
+        element: <InstructorHome></InstructorHome>
       }
     ]
   }

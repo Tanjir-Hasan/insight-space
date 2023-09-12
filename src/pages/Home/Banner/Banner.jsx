@@ -18,11 +18,6 @@ const Banner = () => {
             </div>
 
             <div className='lg:h-[720px] group'>
-                <img src="https://i.ibb.co/Wk68yfs/Lifestyle-Hobbies.jpg" className='grayscale' />
-                <p className="legend">Embrace the Good Life, add Excitement to Your Everyday.</p>
-            </div>
-
-            <div className='lg:h-[720px] group'>
                 <img src="https://i.ibb.co/4pVRx58/Wellness-Self-Care.jpg" className='grayscale' />
                 <p className="legend">Explore Mental and Physical Health.</p>
             </div>
