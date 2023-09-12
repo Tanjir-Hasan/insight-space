@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useUser from '../../../../Hooks/useUser';
 import { BarChart, ResponsiveContainer, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList, } from 'recharts';
-import usePosts from '../../../../Hooks/usePosts';
+import useAuth from '../../../../Hooks/UseAuth';
+
 
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
@@ -59,7 +60,7 @@ const renderCustomizedLabel = (props) => {
         <g>
             <circle cx={x + width / 2} cy={y - radius} r={radius} fill="OrangeRed" />
             <text x={x + width / 2} y={y - radius} fill="#fff" textAnchor="middle" dominantBaseline="middle">
-                {value.split(' ')[1]}
+                {value}
             </text>
         </g>
     );
@@ -71,19 +72,26 @@ const getPath = (x, y, width, height) => {
     ${x + width / 2}, ${y}
     C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
     Z`;
-  };
-  const TriangleBar = (props) => {
+};
+const TriangleBar = (props) => {
     const { fill, x, y, width, height } = props;
-  
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-  };
+};
 
 
 const QuizDashboard = () => {
+    const { user } = useAuth();
     const [userDetails] = useUser();
-    const [posts] = usePosts()
-    console.log(posts);
-    // console.log(userDetails)
+   const [mockTest, setMockTest] = useState([])
+   console.log(mockTest)
+
+    const url = `https://insight-space-server.vercel.app/exam-test?email=${user?.email}`
+    useEffect(() => {
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setMockTest(data) )
+    }, [url])
+
     return (
         <div className='min-h-[65vh]'>
             <div className='grid grid-cols-3 gap-5 text-white'>
@@ -103,35 +111,22 @@ const QuizDashboard = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-         
-
-
             {/* chart start 2 */}
 
-            <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
+            <div className='mt-6 p-5 border-2 rounded-md border-[#3c6e71]'>
                 <h2 className='text-2xl font-bold border-b-2 mb-5'>Your live exam test history: </h2>
                 <ResponsiveContainer width='90%' height={300} className="mx-auto " >
                     <BarChart
                         height={300}
-                        data={data}>
+                        data={mockTest}>
 
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis dataKey="pv" />
+                        <XAxis dataKey="subject" fill="DarkBlue" />
+                        <YAxis dataKey="score" fill="DarkBlue" />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="pv" stackId="a" fill="DarkBlue" />
-                        <Bar dataKey="uv" stackId="a" fill="Brown" />
+                        <Bar dataKey="score"  fill="DarkBlue" />
+                        <Bar dataKey="date" fill="Brown" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>
@@ -142,28 +137,28 @@ const QuizDashboard = () => {
             {/* chaet start 2 */}
             <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
                 <h2 className='text-2xl font-bold border-b-2 mb-5'>Your Model test exam history: </h2>
-            <ResponsiveContainer width="90%" height={300} className="mx-auto" >
-            <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                    top: 20,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                }}>
+                <ResponsiveContainer width="90%" height={300} className="mx-auto" >
+                    <BarChart
+                        width={500}
+                        height={300}
+                        data={mockTest}
+                        margin={{
+                            top: 20,
+                            right: 30,
+                            left: 20,
+                            bottom: 5,
+                        }}>
 
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                    {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-                    ))}
-                </Bar>
-            </BarChart>
-            </ResponsiveContainer>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="subject" />
+                        <YAxis />
+                        <Bar dataKey="score"  fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                            {mockTest.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                            ))}
+                        </Bar>
+                    </BarChart>
+                </ResponsiveContainer>
             </div>
 
 
@@ -175,23 +170,23 @@ const QuizDashboard = () => {
                 <ResponsiveContainer width="90%" height={300} className="mx-auto" >
                     <BarChart
                         height={300}
-                        data={data}
+                        data={mockTest}
                         margin={{
                             top: 5,
                             right: 30,
                             left: 20,
-                            bottom: 5,                          
+                            bottom: 5,
                         }}>
 
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
+                        <XAxis dataKey="subject" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="pv" fill="DarkMagenta" minPointSize={5}>
-                            <LabelList dataKey="name" content={renderCustomizedLabel} />
+                        <Bar dataKey="score" fill="DarkMagenta" minPointSize={5}>
+                            <LabelList dataKey="score" content={renderCustomizedLabel} />
                         </Bar>
-                        {/* <Bar dataKey="uv" fill="#82ca9d" minPointSize={10} /> */}
+                        {/* <Bar dataKey="score" fill="#82ca9d" minPointSize={10} /> */}
                     </BarChart>
                 </ResponsiveContainer>
             </div>
