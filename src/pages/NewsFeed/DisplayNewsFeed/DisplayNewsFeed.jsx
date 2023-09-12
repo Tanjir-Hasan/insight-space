@@ -248,7 +248,7 @@ const DisplayNewsFeed = ({ query }) => {
                     </div>
 
                 </div>
-            )};
+            )}
             {/* modal for update post end */}
 
         </div>

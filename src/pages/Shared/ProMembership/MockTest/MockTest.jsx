@@ -52,6 +52,7 @@ console.log(subject)
             date,
             score: calculateScore (),
             subject : subject,
+            examName : 'mockTest'
         }
         console.log(mockTest)
         axiosSecure.post("/mock-test", mockTest)
@@ -128,38 +129,7 @@ console.log(subject)
     }
 
 
-    // const onSubmit = data => {
-    //     const { message, rating } = data;
-    //     const date = new Date();
-    //     const feedback = {
-    //         userName: user?.displayName,
-    //         photo: user?.photoURL,
-    //         email: user?.email,
-    //         rating,
-    //         date,
-    //         message
-    //     }
-    //     axiosSecure.post("/feedback", feedback)
-    //         .then(data => {
-    //             if (data.data) {
-    //                 alert('Your response has been recorded')
-    //             }
-    //         })
-    // };
-    // const handleMocktest = () =>{
-    //     const date = new Date();
-    //     const mockTest = {
-    //         userName: userDetails?.displayName,
-    //         photo: userDetails?.photoURL,
-    //         email: userDetails?.email,        
-    //         date,
-    //         score : 0,
-
-    //     }
-    //     console.log(mockTest)
-    //     axiosSecure.post("/mock-test", mockTest)
-    //     .then(data => console.log(data.data))
-    // }
+   
 
     return (
 
