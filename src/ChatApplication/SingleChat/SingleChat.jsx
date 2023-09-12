@@ -63,10 +63,10 @@ const SingleChat = () => {
                 {conversationData?.map((cUser, index) => (
                     <div key={index} className="cursor-pointer flex items-center mb-4" onClick={() => getConversation(cUser?.conversationId, cUser?.user._id)}>
                         <div className="w-10 h-10 rounded-full overflow-hidden mr-2">
-                            <img src={cUser?.user.photoURL} alt={cUser?.user.displayName} />
+                            <img src={cUser?.user?.photoURL} alt={cUser?.user?.displayName} />
                         </div>
                         <div>
-                            <div className="font-semibold">{cUser?.user.displayName}</div>
+                            <div className="font-semibold">{cUser?.user?.displayName}</div>
                             {/* Other user details... */}
                         </div>
                     </div>

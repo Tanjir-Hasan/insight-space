@@ -17,10 +17,7 @@
     "@stripe/react-stripe-js": "^2.1.2",
     "@stripe/stripe-js": "^2.1.0",
     "@tanstack/react-query": "^4.32.6",
-<<<<<<< HEAD
-=======
     "@testing-library/react": "^14.0.0",
->>>>>>> cbe52c955d4e9f521bea35a65d5e5fd87228ccdf
     "axios": "^1.4.0",
     "emailjs-com": "^3.2.0",
     "firebase": "^10.1.0",
@@ -61,7 +58,6 @@
     "swiper": "^10.2.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.1.3",
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "@testing-library/jest-dom": "^6.1.3",
