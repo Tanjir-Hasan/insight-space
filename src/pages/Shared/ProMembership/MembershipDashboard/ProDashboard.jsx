@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { FaAlignLeft, FaArrowCircleLeft, FaArrowCircleRight, FaDollarSign, FaEdit, FaHome, FaThList, FaUsers } from 'react-icons/fa';
 import ActiveLink from '../../../../components/ActiveLink';
-import QuizRules from '../QuizRules/QuizRules';
+import QuizDashboard from '../QuizDashboard/QuizDashboard';
 
 const ProDashboard = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
@@ -37,7 +37,7 @@ const ProDashboard = () => {
                 <Outlet></Outlet>
 
                 <div hidden={location.pathname !== "/pro-memberShip"}>
-                    <QuizRules></QuizRules>
+                    <QuizDashboard></QuizDashboard>
                 </div>
             </div>
 
