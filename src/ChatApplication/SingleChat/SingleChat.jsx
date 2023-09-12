@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import io from 'socket.io-client';
-import axios from 'axios';
 import useUsers from '../../Hooks/useUsers';
-import useSingleUser from '../../Hooks/useSingleUser';
 import useConversations from '../../Hooks/useConversations';
+import useUser from '../../Hooks/useUser';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 
 const socket = io(`http://localhost:5000`, {
@@ -12,8 +12,9 @@ const socket = io(`http://localhost:5000`, {
 
 const SingleChat = () => {
     const [allUsers] = useUsers();
-    const [conversationData] = useConversations();
-    const [singleUser] = useSingleUser();
+    const [axiosSecure] = useAxiosSecure();
+    const [userDetails] = useUser();
+    const [conversationData, refetch] = useConversations();
 
     const [newMessage, setNewMessage] = useState('');
     const [messages, setMessages] = useState([]);
@@ -24,7 +25,7 @@ const SingleChat = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (newMessage.trim() === '') return;
-        const senderId = singleUser?._id;
+        const senderId = userDetails?._id;
         const postData = {
             conversationId,
             senderId,
@@ -46,25 +47,26 @@ const SingleChat = () => {
 
 
     const addConversation = (senderId, receiverId) => {
-        console.log(senderId, receiverId);
-        axios.post(`http://localhost:5000/conversation`, { senderId, receiverId }).
-            then((res) => console.log(res.data));
+        axiosSecure.post(`/conversation`, { senderId, receiverId })
+            .then((res) => {
+                console.log(res.data)
+                refetch();
+            })
+            .catch(err => console.log(err.message))
     }
 
-
-    console.log(messages);
     return (
         <div className="flex h-screen">
 
             <div className="w-1/4 bg-gray-200 p-4 overflow-y-auto" >
                 <div>Conversation Users:</div>
-                {conversationData.map((cUser, index) => (
+                {conversationData?.map((cUser, index) => (
                     <div key={index} className="cursor-pointer flex items-center mb-4" onClick={() => getConversation(cUser?.conversationId, cUser?.user._id)}>
                         <div className="w-10 h-10 rounded-full overflow-hidden mr-2">
-                            <img src={cUser?.user.image} alt={cUser?.user.name} />
+                            <img src={cUser?.user.photoURL} alt={cUser?.user.displayName} />
                         </div>
                         <div>
-                            <div className="font-semibold">{cUser?.user.name}</div>
+                            <div className="font-semibold">{cUser?.user.displayName}</div>
                             {/* Other user details... */}
                         </div>
                     </div>
@@ -76,18 +78,18 @@ const SingleChat = () => {
                     participant ?
                         <div className='flex items-center gap-3 bg-lime-200 rounded-lg px-5 py-2'>
                             <div>
-                                <img className='w-10 h-10 rounded-full' src={participant.image} alt="" />
+                                <img className='w-10 h-10 rounded-full' src={participant.photoURL} alt="" />
                             </div>
                             <div>
-                                <h3>{participant.name}</h3>
+                                <h3>{participant.displayName}</h3>
                             </div>
                         </div>
                         : "Please Select a Participant For chat"
                 }
                 <div className="h-4/5 bg-white p-4 rounded-lg shadow-md overflow-y-auto">
                     {
-                        messages.length > 0 ? messages.map((message, i) =>
-                            <div key={i} className={`p-2 max-w-[40%] rounded-b-xl mb-2 ${message.senderId === singleUser?._id ? "bg-blue-300 rounded-tl-xl ml-auto" : "bg-slate-300 rounded-b-xl rounded-tr-xl"}`}>
+                        messages.length > 0 ? messages?.map((message, i) =>
+                            <div key={i} className={`p-2 max-w-[40%] rounded-b-xl mb-2 ${message.senderId === userDetails?._id ? "bg-blue-300 rounded-tl-xl ml-auto" : "bg-slate-300 rounded-b-xl rounded-tr-xl"}`}>
                                 <div className='flex'>
                                     <span>{message?.message}</span>
 
@@ -117,17 +119,17 @@ const SingleChat = () => {
             </div>
             <div className="w-1/4 bg-gray-200 p-4 overflow-y-auto" >
                 <div>All Users:</div>
-                {allUsers.filter((u) => u._id !== singleUser?._id).map((user, index) => (
+                {allUsers?.filter((u) => u._id !== userDetails?._id)?.map((user, index) => (
                     <div
                         key={index}
                         className="cursor-pointer flex items-center mb-4"
-                        onClick={() => addConversation(singleUser?._id, user?._id)}
+                        onClick={() => addConversation(userDetails?._id, user?._id)}
                     >
                         <div className="w-10 h-10 rounded-full overflow-hidden mr-2">
-                            <img src={user.image} alt={user.name} />
+                            <img src={user.photoURL} alt={user.displayName} />
                         </div>
                         <div>
-                            <div className="font-semibold">{user.name}</div>
+                            <div className="font-semibold">{user.displayName}</div>
                             {/* Other user details... */}
                         </div>
                     </div>

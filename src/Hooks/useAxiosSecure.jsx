@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import useAuth from "./useAuth";
+import useAuth from "./UseAuth";
+
 
 
 const axiosSecure = axios.create({
-    baseURL: 'https://insight-space-server.vercel.app',
+    baseURL: 'http://localhost:5000',
 });
 
 const useAxiosSecure = () => {
