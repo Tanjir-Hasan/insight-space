@@ -64,7 +64,7 @@ const ContactForm = () => {
     };
     
     return (
-        <div id="contact" className={` ${theme} pt-40 pb-20`}>
+        <div id="contact" className={` ${theme} pb-20`}>
 
                 <div className='md:w-10/12 w-11/12 mx-auto'>
                     <h2 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12 mb-8`}>Help Desk

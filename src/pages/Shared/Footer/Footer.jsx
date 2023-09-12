@@ -11,7 +11,7 @@ const Footer = () => {
         <>
             <div className={`${theme === 'dark' ? 'bg-[#011627]' :
                 theme === 'night' ? 'bg-[#1b263b]' :
-                    theme === 'light' ? 'bg-[#f0efeb]' : ''} py-5`}>
+                    theme === 'light' ? 'bg-[#f0efeb]' : ''} pt-5`}>
 
                 <div className="md:flex justify-between px-10 items-center">
 
