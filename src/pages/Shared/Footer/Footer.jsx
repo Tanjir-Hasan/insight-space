@@ -47,9 +47,9 @@ const Footer = () => {
 
                 <div className="flex-grow border-t border-gray-400 mx-16 my-4"></div>
 
-                <div>
-                    <p className={`text-center font-[Poppins] ${theme === 'light' ? 'text-black' : 'text-white'}`}>Copyright © 2023 - All right reserved.</p>
-                </div>
+                <>
+                    <p className={`text-center font-[Poppins] ${theme === 'light' ? 'text-black' : 'text-white'} pb-4`}>Copyright © 2023 - All right reserved.</p>
+                </>
 
             </div>
         </>
