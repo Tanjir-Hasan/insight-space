@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import useAuth from '../../../../../Hooks/UseAuth';
+import useAuth from '../../../../../Hooks/useAuth';
 
 const SSLPayment = (formData) => {
 
@@ -12,7 +12,7 @@ const SSLPayment = (formData) => {
 
         event.preventDefault();
 
-        fetch("http://localhost:5000/ssl-payment", {
+        fetch("https://insight-space-server.vercel.app/ssl-payment", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

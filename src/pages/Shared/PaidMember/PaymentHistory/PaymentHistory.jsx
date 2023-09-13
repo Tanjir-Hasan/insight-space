@@ -105,7 +105,7 @@ const PaymentHistory = () => {
             <tbody>
 
 
-              {myPayments.map((item, index) => (
+              {myPayments?.map((item, index) => (
                 <tr
                   key={index}
                   className="border-b "
@@ -122,12 +122,12 @@ const PaymentHistory = () => {
 
                     <div>
                       {
-                        item.memberShip === 'Basic' ?
+                        item?.memberShip === 'Basic' ?
                           (
                             <img className='w-10 h-10 rounded-full whitespace-nowrap' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />
                           )
                           :
-                          item.memberShip === 'Pro' ?
+                          item?.memberShip === 'Pro' ?
                             (
                               <img className='w-12 h-10 rounded-full whitespace-nowrap' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />
                             )

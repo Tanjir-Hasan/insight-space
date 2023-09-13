@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useUser from '../../../../Hooks/useUser';
+import useQuizResult from '../../../../Hooks/useQuizResult';
+import ReChart from './ReChart';
+
+
+
+
+
+
+
+
 
 const QuizDashboard = () => {
     const [userDetails] = useUser();
-    // console.log(userDetails)
+    const [quizResult, mockTest, modelTest] = useQuizResult();
+    // console.log(quizResult)
+
+
+
     return (
         <div className='min-h-[65vh]'>
             <div className='grid grid-cols-3 gap-5 text-white'>
@@ -14,12 +28,19 @@ const QuizDashboard = () => {
                     </div>
                 </div>
                 <div className='h-40 bg-slate-600 rounded-md'>
-                    <h2 className='text-2xl p-2'>Rank</h2>
+                    <h2 className='text-2xl p-2'>Total Exam attend</h2>
+                    <div className='p-2'>
+                        <p>Mock test: {mockTest.length}</p>
+                        <p>Live exam: {quizResult.length}</p>
+                        <p>Model test: {modelTest.length}</p>
+                    </div>
                 </div>
                 <div className='h-40 bg-slate-600 rounded-md'>
                     <h2 className='text-2xl p-2'>Exam</h2>
                 </div>
             </div>
+
+            <ReChart></ReChart>
         </div>
     );
 };

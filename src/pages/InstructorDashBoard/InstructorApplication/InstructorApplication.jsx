@@ -34,12 +34,7 @@ const InstructorApplication = () => {
             date,
             message
         }
-        axiosSecure.post("/feedback", feedback)
-            .then(data => {
-                if (data.data) {
-                    alert('Your response has been recorded')
-                }
-            })
+        
     };
 
     return (
@@ -49,15 +44,7 @@ const InstructorApplication = () => {
 
                 <div className="space-y-5 md:px-0 px-6">
 
-                    <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">Give your Valuable Feedback</h1>
-
-                    <ul className="font-[Cinzel]">
-                        <li className="list-[upper-roman] list-inside">your feedback is our compass guiding us towards excellence.</li>
-
-                        <li className="list-[upper-roman] list-inside">We value your insights, opinions, and suggestions as <br></br> they help us shape our products/services to better meet your needs.</li>
-
-                        <li className="list-[upper-roman] list-inside">Our dedicated Feedback section is your direct line to us, where you can share your thoughts and experiences.</li>
-                    </ul>
+                    <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">Apply As Instructor</h1>
 
 
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -169,14 +156,9 @@ const InstructorApplication = () => {
 
                             <div className="md:w-38 md:mx-0  mx-auto mt-10">
                                 {/* fix submit button */}
-                                <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Send Feedback</ButtonWithLoading>
+                                <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Apply</ButtonWithLoading>
                             </div>
 
-                            <div className="md:w-25  mt-10">
-                                <Link to="/usersfeedback">
-                                    <Button heading="Feedback Submisions"></Button>
-                                </Link>
-                            </div>
                         </div>
                     </form>
                 </div>

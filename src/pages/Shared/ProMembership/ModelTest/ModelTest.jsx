@@ -1,32 +1,52 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import SubjectSelection from './SubjectSelection';
 import ModelTests from './ModelTests';
 import { subjects, } from './data';
+import { AuthContext } from '../../../../providers/AuthProvider';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 
 const ModelTest = () => {
 
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [userAnswers, setUserAnswers] = useState([]);
   const [userAnswerss, setUserAnswerss] = useState([]);
-  // console.log(userAnswerss)
   const [showResults, setShowResults] = useState(false);
+  const { user } = useContext(AuthContext)
+  const [axiosSecure] = useAxiosSecure();
+
+
+  const calculateScore = () => {
+    let score = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === userAnswerss[index]?.correctAnswer) {
+        score++;
+      }
+    });
+    return score;
+  };
 
   const handleSubjectSelect = (subject) => {
     setSelectedSubject(subject);
     setShowResults(false);
   };
-  const calculateScore = () => {
-    let score = 0;
-    userAnswers.forEach((answer, index) => {
-        if (answer === userAnswerss[index]?.correctAnswer) {
-            score++;
-        }
-    });
-    return score;
-};
+
 
   const handleSubmitModelTest = (answers) => {
     setUserAnswers(answers);
+
+    const date = new Date();
+    const mockTest = {
+      userName: user?.displayName,
+      photo: user?.photoURL,
+      email: user?.email,
+      date,
+      score: calculateScore(),
+      subject: selectedSubject,
+      examName: 'Model Test'
+    }
+    console.log(mockTest)
+    axiosSecure.post("/mock-test", mockTest)
+      .then(data => console.log(data.data))
     setShowResults(true);
   };
 
@@ -34,12 +54,12 @@ const ModelTest = () => {
   return (
     <div className="min-h-[70vh]">
       <header className="">
-       
+
       </header>
       <main className="">
         {!selectedSubject && (
           <SubjectSelection subjects={subjects} onSelectSubject={handleSubjectSelect} />
-          
+
         )}
         {selectedSubject && !showResults && (
           <ModelTests

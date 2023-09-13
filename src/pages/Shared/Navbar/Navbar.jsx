@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 import { BiMenuAltRight, BiMenu } from 'react-icons/bi';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
-import useAuth from '../../../Hooks/UseAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
@@ -10,10 +9,13 @@ import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 import useUser from '../../../Hooks/useUser';
 import ThemeButtons from '../../../ThemeButtons/ThemeButtons';
 import useInstructor from '../../../Hooks/useInstructor';
+import useAuth from '../../../Hooks/UseAuth';
 
 
 const Navbar = () => {
+
     const { user, logOut } = useAuth();
+
     const [userDetails] = useUser();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +25,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const [isAdmin] = useAdmin();
+    
     const [isInstructor] = useInstructor();
     // for modal 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -101,7 +104,7 @@ const Navbar = () => {
 
                         <ActiveLink to="/about-us">About</ActiveLink>
 
-                        <ActiveLink to="/instructor-application">Application</ActiveLink>
+                        
 
                         {
                             user ?

@@ -4,7 +4,7 @@ function SubjectSelection({ subjects, onSelectSubject }) {
   return (
     <div>
       <h1 className="text-2xl font-semibold">Select a Subject</h1>
-      <ul className="mt-4 grid grid-cols-3 gap-5 rounded-md">
+      <ul className="mt-4 grid lg:grid-cols-3 md:grid-cols-2 gap-5 rounded-md">
         {subjects.map((subject, index) => (
           <li
             key={index}

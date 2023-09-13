@@ -23,7 +23,6 @@ import PaidMembers from "../pages/Shared/PaidMember/PaidMembers";
 import FriendsAndSearch from "../pages/Shared/FriendsAndSearch/FriendsAndSearch";
 import AdminLayout from "../layouts/AdminLayout";
 import AdminHome from "../pages/AdminDeshBoard/AdminHome/AdminHome";
-import SSLCommerz from "../pages/SSLCommerz/SSLCommerz";
 import Addquiz from "../Addquiz/Addquiz";
 import SSLPaymentSuccess from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentSuccess/SSLPaymentSuccess";
 import PaymentHistory from "../pages/Shared/PaidMember/PaymentHistory/PaymentHistory";
@@ -36,6 +35,8 @@ import ModelTest from "../pages/Shared/ProMembership/ModelTest/ModelTest";
 import SingleChat from "../ChatApplication/SingleChat/SingleChat";
 import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashboard";
 import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
+import SSLPaymentFail from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentFail/SSLPaymentFail";
+import LeaderBoard from "../pages/Shared/ProMembership/LeaderBoard/LeaderBoard";
 import InstructorApplication from "../pages/InstructorDashBoard/InstructorApplication/InstructorApplication";
 
 
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
         element: <Quiz></Quiz>
       },
       {
+        path:"instructor-application",
+        element: <InstructorApplication></InstructorApplication>
+      },
+      {
         path: "about-us",
         element: <AboutUs></AboutUs>
       },
@@ -130,19 +135,16 @@ const router = createBrowserRouter([
         element: <PrivateRoute><FriendsAndSearch></FriendsAndSearch></PrivateRoute>
       }
       ,
-      // //ssl payment
-      // {
-      //     path: "/payment/success/:transaction_Id",
-      //     element: <SSLPaymentSuccess></SSLPaymentSuccess>
-      // },
+      //ssl payment
       {
-        path: "ssl-commerz",
-        element: <SSLCommerz></SSLCommerz>
+        path: "/payment/success/:transaction_Id",
+        element: <SSLPaymentSuccess></SSLPaymentSuccess>
       },
       {
-        path:"instructor-application",
-        element: <InstructorApplication></InstructorApplication>
+        path: "/payment/fail/:transaction_Id",
+        element: <SSLPaymentFail></SSLPaymentFail>
       },
+      //ssl payment
       {
         path: 'pro-memberShip',
         element: <ProDashboard></ProDashboard>,
@@ -167,11 +169,15 @@ const router = createBrowserRouter([
             path: "quiz-rules",
             element: <QuizRules></QuizRules>
           },
+          {
+            path : "leader-board",
+            element : <LeaderBoard></LeaderBoard>
+          }
          
         ]
       },
       {
-        path: "singleChat",
+        path: "single-chat",
         element: <SingleChat></SingleChat>
       },
     ]
@@ -206,7 +212,8 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <InstructorHome></InstructorHome>
-      }
+      },
+     
     ]
   }
 ]);

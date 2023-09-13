@@ -31,7 +31,7 @@ const ExploreContent = () => {
 
     return (
 
-        <div className={`${theme} md:pt-20 pt-10`}>
+        <div className={`${theme}`}>
 
             <div className="md:w-10/12 w-11/12 mx-auto space-y-10 md:pb-20 pb-10">
 

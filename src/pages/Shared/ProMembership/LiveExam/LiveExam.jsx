@@ -164,6 +164,7 @@ const LiveExam = () => {
                                     <h1 className="text-2xl font-semibold">
                                         Live Exam - {subject}
                                     </h1>
+                                    <p>Total Question {quizData.length}</p>
                                     {quizData.length > 0 && (
                                         <Timer
                                             startTime={60}

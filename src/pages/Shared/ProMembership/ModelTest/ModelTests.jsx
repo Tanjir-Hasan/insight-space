@@ -82,19 +82,19 @@ function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
                         </div>
                     ))}
                     <button
-                        onClick={handleSubmit}
+                       onClick={() => handleSubmit()}
                         className="mt-4 p-2 rounded w-full bg-[#3c6e71] hover:bg-[#335c67] text-white cursor-pointer"
                     >
                         Submit Model Test
                     </button>
                 </div>
             )}
-            {showResults && (
+            {/* {showResults && (
                 <Results
                     userAnswers={userAnswers}
                     correctAnswers={modelTestData.map((q) => q.correctAnswer)}
                 />
-            )}
+            )} */}
         </div>
     );
 }
