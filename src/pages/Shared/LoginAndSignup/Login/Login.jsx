@@ -9,8 +9,11 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 import Lottie from "lottie-react";
 import animation from '../../../../../public/spining.json';
+import useTitle from "../../../../Hooks/useTitle";
 
 const Login = () => {
+
+    useTitle('Login');
 
     const { theme } = useContext(ThemeContext);
 

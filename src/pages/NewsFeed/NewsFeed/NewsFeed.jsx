@@ -5,10 +5,15 @@ import NewsForm from "../NewsForm/NewsForm";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import TopPosts from "../TopPosts/TopPosts";
 import Categories from "../Categories/Categories";
+import useTitle from "../../../Hooks/useTitle";
 
 
 const NewsFeed = () => {
+
+    useTitle('News Feed');
+
     const { info, searchText } = useAuth();
+
     const { theme } = useContext(ThemeContext);
 
     return (

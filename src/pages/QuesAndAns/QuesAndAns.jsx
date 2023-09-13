@@ -15,8 +15,11 @@ import { BsSend } from 'react-icons/bs';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { Link } from 'react-router-dom';
 import useMyPayments from '../../Hooks/useMyPayments';
+import useTitle from '../../Hooks/useTitle';
 
 const QuesAndAns = () => {
+
+    useTitle('Q&A');
 
     const { theme } = useContext(ThemeContext);
 

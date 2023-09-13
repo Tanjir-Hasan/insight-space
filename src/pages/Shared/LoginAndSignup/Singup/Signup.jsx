@@ -12,6 +12,8 @@ import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 
 const Signup = () => {
 
+  useTitle('Registration');
+
   const { theme } = useContext(ThemeContext);
 
   const { createUser, errorMsg, setErrorMsg, updateUserProfile, btnLoading, setBtnLoading } = useAuth();

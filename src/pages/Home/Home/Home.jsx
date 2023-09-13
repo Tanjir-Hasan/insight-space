@@ -12,9 +12,13 @@ import Membership from "../Membership/Membership";
 import VideoUpload from "../../NewsFeed/VideoUpload/VideoUpload";
 import SSLPayment from "../../Shared/PaidMember/SSLPayment/SSLPayment/SSLPayment";
 import Footer from "../../Shared/Footer/Footer";
+import useTitle from "../../../Hooks/useTitle";
 
 
 const Home = () => {
+
+    useTitle('Home');
+    
     return (
         <>
             <Banner></Banner>
