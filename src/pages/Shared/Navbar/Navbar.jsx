@@ -25,7 +25,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const [isAdmin] = useAdmin();
-    
+
     const [isInstructor] = useInstructor();
     // for modal 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -100,18 +100,12 @@ const Navbar = () => {
 
                         {isInstructor && <ActiveLink to="/instructor-dashboard">Dashboard</ActiveLink>}
 
-                        {!isAdmin && <ActiveLink to="/all-Instructor">All Instructors</ActiveLink>}
-
                         <ActiveLink to="/about-us">About</ActiveLink>
-
-                        
-
                         {
                             user ?
                                 <button onClick={handleLogOut}>Logout</button>
                                 : <ActiveLink to="/login">Login</ActiveLink>
                         }
-
                     </div>
 
                 </div>
@@ -151,7 +145,7 @@ const Navbar = () => {
 
                                 {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
 
-                                {!isAdmin && <ActiveLink to="/paid-members">Subscription</ActiveLink>}
+                                {isInstructor && <ActiveLink to="/instructor-dashboard">Dashboard</ActiveLink>}
 
                                 <ActiveLink to="/about-us">About</ActiveLink>
 
@@ -187,7 +181,7 @@ const Navbar = () => {
 
             {/* modal end  */}
 
-        </div>
+        </div >
     );
 };
 
