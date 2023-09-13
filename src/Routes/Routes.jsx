@@ -118,7 +118,7 @@ const router = createBrowserRouter([
       },
       {
         path:"instructor-application",
-        element: <InstructorApplication></InstructorApplication>
+        element: <PrivateRoute><InstructorApplication></InstructorApplication></PrivateRoute>
       },
       {
         path: "about-us",
@@ -126,15 +126,15 @@ const router = createBrowserRouter([
       },
       {
         path: "all-Instructor",
-        element: <AllInstructor></AllInstructor>
+        element: <PrivateRoute><AllInstructor></AllInstructor></PrivateRoute>
       },
       {
         path:"instructor-payment",
-        element :<PaidMembers></PaidMembers>
+        element :<PrivateRoute><PaidMembers></PaidMembers></PrivateRoute>
       },
       {
         path: "payments-history",
-        element: <PaymentHistory></PaymentHistory>
+        element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
       },
       {
         path: "connections",
