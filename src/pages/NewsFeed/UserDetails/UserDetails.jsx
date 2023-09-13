@@ -107,9 +107,9 @@ const UserDetails = ({ userDetails }) => {
 
                     <Link to="/news-feed"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> Book Marks </button></Link>
 
-                    <Link to="/payments-history"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
+                    <Link to="/payments-history"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
 
-                    <Link to="/payments-history"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
+                    <Link to="/instructor-application"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> Apply for Instructor </button></Link>
 
                     <button onClick={handleLogOut} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Log out</button>
 

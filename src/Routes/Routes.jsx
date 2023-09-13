@@ -40,6 +40,8 @@ import LeaderBoard from "../pages/Shared/ProMembership/LeaderBoard/LeaderBoard";
 import InstructorApplication from "../pages/InstructorDashBoard/InstructorApplication/InstructorApplication";
 import UsersPaymentHistory from "../pages/InstructorDashBoard/PaymentHistory/UsersPaymentHistory";
 import AllInstructor from "../pages/InstructorDashBoard/AllInstructor/AllInstructor";
+import MyQuiz from "../pages/InstructorDashBoard/MyQuiz/MyQuiz";
+import AddQuiz from "../pages/InstructorDashBoard/AddQuiz/AddQuiz";
 
 
 const router = createBrowserRouter([
@@ -222,6 +224,14 @@ const router = createBrowserRouter([
       {
         path : "payment-history",
         element:<UsersPaymentHistory></UsersPaymentHistory>
+      },
+      {
+        path:"my-quiz",
+        element:<MyQuiz></MyQuiz>
+      },
+      {
+        path :"add-quiz",
+        element :<AddQuiz></AddQuiz>
       }
     ]
   }

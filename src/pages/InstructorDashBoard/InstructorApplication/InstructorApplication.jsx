@@ -11,21 +11,21 @@ import { setInstructorData } from '../../../StateManagment/Posts/instructorDataS
 
 const InstructorApplication = () => {
     const { theme } = useContext(ThemeContext);
-    const { user, btnLoading } = useAuth()
+    const { user, btnLoading } = useAuth();
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        const { degreeTitle, educationLevel, instituteName, passingYear, studyPlan, subject } = data;
+        const { degreeTitle, educationLevel, instituteName, passingYear, subject } = data;
         const instructorData = {
+            displayName: user?.displayName,
             email: user?.email,
+            photoURL: user?.photoURL,
             degreeTitle,
             educationLevel,
             instituteName,
             passingYear,
-            studyPlan,
             subject
         }
         dispatch(setInstructorData(instructorData))
