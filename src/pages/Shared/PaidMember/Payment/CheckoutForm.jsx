@@ -1,16 +1,16 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React from 'react';
-import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
-import { AuthContext } from '../../../../providers/AuthProvider';
+import { useSelector } from 'react-redux';
+import useAuth from '../../../../Hooks/UseAuth';
 
 
 const CheckoutForm = ({ getMember }) => {
-  const { user } = useContext(AuthContext)
+  const { user } = useAuth();
   const stripe = useStripe();
   const elements = useElements();
   const [axiosSecure] = useAxiosSecure();
@@ -19,10 +19,9 @@ const CheckoutForm = ({ getMember }) => {
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState('')
   const navigate = useNavigate()
+  const instructorData = useSelector(state => state?.InstructorData)
 
   const { _id, price, memberShip } = getMember;
-  // console.log(price);
-
 
   useEffect(() => {
     if (price > 0) {
@@ -93,7 +92,7 @@ const CheckoutForm = ({ getMember }) => {
 
       // save payment information to the server
       const payment = {
-        UserName: user?.displayName,
+        instructorData,
         email: user?.email,
         transactionId: paymentIntent.id,
         memberShip,
@@ -151,7 +150,7 @@ const CheckoutForm = ({ getMember }) => {
             transaction_id: <span className='text-red-500'>{transactionId}</span>
           </p>
         }
-        <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg' type="submit" disabled={!stripe || !clientSecret || processing}>
+        <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg' type="submit" disabled={!stripe || !clientSecret || processing || !instructorData.email}>
           Pay Now
         </button>
       </form>

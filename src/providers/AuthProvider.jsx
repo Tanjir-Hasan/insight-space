@@ -16,7 +16,6 @@ const AuthProvider = ({ children }) => {
     const [btnLoading, setBtnLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
     const [checkedCategories, setCheckedCategories] = useState([]);
-
     // google provider
     const googleProvider = new GoogleAuthProvider();
 
@@ -105,7 +104,7 @@ const AuthProvider = ({ children }) => {
         searchText,
         setSearchText,
         checkedCategories,
-        setCheckedCategories
+        setCheckedCategories,
     }
 
     return (

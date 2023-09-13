@@ -1,18 +1,28 @@
-const AllInstructorsCard = ({instructor}) => {
+
+const AllInstructorsCard = ({ instructor }) => {
+
+    const { photoURL, email, displayName, educationLevel,
+        instituteName, passingYear, subject, degreeTitle } = instructor;
+
+
     return (
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
             <div className="md:flex">
                 <div>
                     <img
-                        className="h-48 w-full object-cover md:w-48"
-                        src={instructor?.photoURL}
+                        className="h-52 w-full md:w-48 rounded-xl"
+                        src={photoURL}
                         alt="instructor image"
                     />
                 </div>
-                <div className="p-8">
-                    <p className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{instructor?.displayName}</p>
-                    <p className="mt-2 text-gray-500">{instructor?.email}</p>
-                    <p>Join date : {instructor?.date}</p>
+                <div className="px-8 py-4">
+                    <p className="text-2xl font-bold mb-2">{displayName}</p>
+                    <p className="text-md font-semibold">Email : {email}</p>
+                    <p className="text-md font-semibold">Education : {educationLevel}</p>
+                    <p className="text-md font-semibold">Institute Name : {instituteName}</p>
+                    <p className="text-md font-semibold">Passing Year : {passingYear}</p>
+                    <p className="text-md font-semibold">Subject : {subject}</p>
+                    <p className="text-md font-semibold">Degree Title : {degreeTitle}</p>
                 </div>
             </div>
         </div>
