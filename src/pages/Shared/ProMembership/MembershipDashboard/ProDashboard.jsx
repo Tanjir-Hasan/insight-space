@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { FaArrowCircleLeft, FaArrowCircleRight, FaDollarSign, FaEdit, FaHome, FaThList, FaUsers } from 'react-icons/fa';
+import { FaArrowCircleLeft, FaArrowCircleRight, FaHome, FaThList, FaUsers } from 'react-icons/fa';
 import ActiveLink from '../../../../components/ActiveLink';
 import QuizDashboard from '../QuizDashboard/QuizDashboard';
 import { ThemeContext } from '../../../../providers/ThemeProvider';

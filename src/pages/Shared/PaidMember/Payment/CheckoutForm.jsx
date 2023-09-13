@@ -5,11 +5,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
-import { useSelector } from 'react-redux';
-import useAuth from '../../../../Hooks/UseAuth';
+import useAuth from '../../../../Hooks/useAuth';
 
 
-const CheckoutForm = ({ getMember }) => {
+
+const CheckoutForm = ({ getMember, instructorData }) => {
   const { user } = useAuth();
   const stripe = useStripe();
   const elements = useElements();
@@ -19,7 +19,6 @@ const CheckoutForm = ({ getMember }) => {
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState('')
   const navigate = useNavigate()
-  const instructorData = useSelector(state => state?.InstructorData)
 
   const { _id, price, memberShip } = getMember;
 
@@ -87,7 +86,7 @@ const CheckoutForm = ({ getMember }) => {
     }
     // console.log('paymentIntent', paymentIntent)
     setProcessing(false)
-    if (paymentIntent.status === 'succeeded') {
+    if (paymentIntent?.status === 'succeeded') {
       setTransactionId(paymentIntent.id)
 
       // save payment information to the server
@@ -103,8 +102,7 @@ const CheckoutForm = ({ getMember }) => {
       // console.log(payment)
       axiosSecure.post('/payments', payment)
         .then(res => {
-          // console.log(res.data);
-          if (res.data.insertResult.insertedId) {
+          if (res.data) {
             Swal.fire({
               position: 'top-center',
               icon: 'success',
@@ -150,7 +148,7 @@ const CheckoutForm = ({ getMember }) => {
             transaction_id: <span className='text-red-500'>{transactionId}</span>
           </p>
         }
-        <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg' type="submit" disabled={!stripe || !clientSecret || processing || !instructorData.email}>
+        <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg' type="submit" disabled={!stripe || !clientSecret || processing}>
           Pay Now
         </button>
       </form>
