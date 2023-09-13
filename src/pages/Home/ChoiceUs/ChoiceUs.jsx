@@ -53,7 +53,7 @@ const ChoiceUs = () => {
 
                     {/* right side card for large device*/}
 
-                    <div className="relative w-10/12 md:mr-20 hidden md:block py-24">
+                    <div className="relative w-10/12 md:mr-20 py-24 hidden sm:hidden md:hidden lg:block xl:block">
 
                         {/* <!-- banner top card --> */}
 
@@ -128,17 +128,7 @@ const ChoiceUs = () => {
 
                     {/* right side card for small device */}
 
-                    <div
-                        // ref={ref}
-                        // initial="hidden"
-                        // animate={controls}
-                        // variants={{
-                        //     visible: { opacity: 1, x: 0 },
-                        //     hidden: { opacity: 0, x: -100 },
-                        // }}
-                        // transition={{ duration: 0.9 }}
-
-                        className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
+                    <div className="w-11/12 mx-auto py-10 space-y-3 lg:hidden md:block">
 
                         <div className="hover:bg-[#3c6e71] duration-500 rounded-3xl p-5">
                             <div className="flex justify-center">
