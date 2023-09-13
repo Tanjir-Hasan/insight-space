@@ -44,7 +44,6 @@ const ModelTest = () => {
       subject: selectedSubject,
       examName: 'Model Test'
     }
-    console.log(mockTest)
     axiosSecure.post("/mock-test", mockTest)
       .then(data => console.log(data.data))
     setShowResults(true);
