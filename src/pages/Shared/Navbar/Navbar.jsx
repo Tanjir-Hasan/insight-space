@@ -10,6 +10,7 @@ import useUser from '../../../Hooks/useUser';
 import ThemeButtons from '../../../ThemeButtons/ThemeButtons';
 import useInstructor from '../../../Hooks/useInstructor';
 import useAuth from '../../../Hooks/useAuth';
+import { useEffect } from 'react';
 
 
 const Navbar = () => {
@@ -29,6 +30,38 @@ const Navbar = () => {
     const [isInstructor] = useInstructor();
     // for modal 
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+    // modal close  
+    const handleEscapeKey = (event) => {
+        if (event.key === 'Escape') {
+            setIsModalOpen(!isModalOpen);
+        }
+    };
+
+    useEffect(() => {
+        if (isModalOpen) {
+            window.addEventListener('keydown', handleEscapeKey);
+
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            window.removeEventListener('keydown', handleEscapeKey);
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            window.removeEventListener('keydown', handleEscapeKey);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isModalOpen]);
+
+    const handleClickOutside = (event) => {
+        const modal = document.querySelector('.modal');
+
+        if (modal && !modal.contains(event.target)) {
+            setIsModalOpen(!isModalOpen);
+        }
+    };
 
 
     const handleLogOut = () => {
@@ -166,7 +199,7 @@ const Navbar = () => {
 
             {/* modal start  */}
 
-            <div>
+            <div className='modal'>
                 {isModalOpen && (
                     <div className='absolute top-20 right-0 rounded-xl'>
 

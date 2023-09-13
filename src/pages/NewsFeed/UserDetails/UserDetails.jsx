@@ -109,7 +109,7 @@ const UserDetails = ({ userDetails }) => {
 
                     <Link to="/payments-history"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
 
-                    <Link to="/instructor-application"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> Apply for Instructor </button></Link>
+                    <Link to="/instructor-payment"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Premium service </button></Link>
 
                     <button onClick={handleLogOut} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Log out</button>
 

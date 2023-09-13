@@ -4,8 +4,8 @@ import { PiShootingStarBold } from 'react-icons/pi';
 import useUser from '../../../Hooks/useUser';
 import { useState } from 'react';
 import { useRef } from 'react';
-import useNewsFeedFunctionality from '../../../Hooks/useNewsfeedFunctionality';
 import SSLPaymentModal from '../../Shared/PaidMember/SSLPayment/SSLPaymentModal/SSLPaymentModal';
+import useNewsFeedFunctionality from '../../../Hooks/useNewsFeedFunctionality';
 
 const NewsFooter = ({ p, hide, setHide }) => {
 

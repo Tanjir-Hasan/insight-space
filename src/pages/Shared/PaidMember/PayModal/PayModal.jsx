@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { SlClose } from 'react-icons/sl';
-import { AuthContext } from '../../../../providers/AuthProvider';
 import Payment from '../Payment/Payment';
+import useAuth from '../../../../Hooks/useAuth';
 
-const PayModal = ({ isOpen, onClose, children, getMember }) => {
-    const {user} = useContext(AuthContext)
+const PayModal = ({ isOpen, onClose, children, getMember , instructorData }) => {
+    const { user } = useAuth();
+
     return (
         <div
             className={`fixed w-10/12 mx-auto text-black inset-0 z-50 flex items-center justify-center ${isOpen ? 'visible' : 'hidden'
@@ -31,8 +32,8 @@ const PayModal = ({ isOpen, onClose, children, getMember }) => {
 
                         <div>
                             <div className='flex justify-between items-center  border-y-2 bg-slate-100 p-1 mt-5 mb-2 '>
-                            <h2 className=' text-2xl font-bold '>Account Information</h2>
-                            <img className='rounded-full h-10 w-10' src={user?.photoURL} alt="" />
+                                <h2 className=' text-2xl font-bold '>Account Information</h2>
+                                <img className='rounded-full h-10 w-10' src={user?.photoURL} alt="" />
                             </div>
 
                             <form className='space-y-4'>
@@ -72,7 +73,7 @@ const PayModal = ({ isOpen, onClose, children, getMember }) => {
                         <div>
                             <h2 className=' border-y-2 text-2xl font-bold bg-slate-100 p-1 mt-8 mb-2'>Payment Information</h2>
 
-                            <Payment getMember={getMember}></Payment>
+                            <Payment instructorData={instructorData} getMember={getMember}></Payment>
 
                         </div>
 

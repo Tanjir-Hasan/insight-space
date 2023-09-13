@@ -5,15 +5,25 @@ import { useContext } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import ButtonWithLoading from '../../../components/ButtonWithLoading';
 import { ThemeContext } from '../../../providers/ThemeProvider';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setInstructorData } from '../../../StateManagment/Posts/instructorDataSlice';
+import PayModal from '../../Shared/PaidMember/PayModal/PayModal';
+import { useState } from 'react';
+
+
 
 const InstructorApplication = () => {
     const { theme } = useContext(ThemeContext);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const { user, btnLoading } = useAuth();
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const [instructorData, setInstructorData] = useState({})
+    const getMember = { _id: 2, memberShip: 'Pro', price: 99 };
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
@@ -28,9 +38,10 @@ const InstructorApplication = () => {
             passingYear,
             subject
         }
-        dispatch(setInstructorData(instructorData))
-        navigate("/instructor-payment")
+        setInstructorData(instructorData)
+        openModal();
     };
+
 
     return (
         <div className={`${theme}`}>
@@ -132,6 +143,7 @@ const InstructorApplication = () => {
                     </div>
                 </div>
             </div>
+            <PayModal instructorData={instructorData} getMember={getMember} isOpen={isModalOpen} onClose={closeModal}></PayModal>
         </div>
     );
 };
