@@ -7,7 +7,7 @@ const useQuizResult = () => {
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const [quizResult, setQuizeResult] = useState([]);
-    const [mockTest, setMockTest] = useState([])
+    const [mockTests, setMockTests] = useState([])
     const [modelTest, setModelTest] = useState([])
     const [reload, setReload] = useState(false);
 
@@ -17,7 +17,7 @@ const useQuizResult = () => {
         axiosSecure.get(url)
             .then(data => {   
                 const mockData = data?.data?.slice(0, 10).filter(mock => mock.examName === 'Mock Test') 
-                setMockTest(mockData)
+                setMockTests(mockData)
                 const modelTestData = data?.data?.slice(0, 10).filter(model => model.examName === 'Model Test') 
                 setModelTest(modelTestData)
                 setQuizeResult(data.data.slice(0, 10))                   
@@ -25,7 +25,7 @@ const useQuizResult = () => {
             })
             .catch(err => console.log(err.message))
     }, [url, reload])
-    return [quizResult, mockTest, modelTest, reload, setReload]
+    return [quizResult, mockTests, modelTest, reload, setReload]
 };
 
 export default useQuizResult;

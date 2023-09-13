@@ -89,12 +89,7 @@ function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
                     </button>
                 </div>
             )}
-            {/* {showResults && (
-                <Results
-                    userAnswers={userAnswers}
-                    correctAnswers={modelTestData.map((q) => q.correctAnswer)}
-                />
-            )} */}
+          
         </div>
     );
 }

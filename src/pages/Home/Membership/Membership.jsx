@@ -32,20 +32,19 @@ const Membership = () => {
 
             <div className="items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
 
+                <h1 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-10`}>
+                    Exclusive Membership
+                    <br />
+                    <span className='text-xl'>- Taking it to the Next Level -</span>
+                </h1>
 
-                {/* <div className=" gap-4 bg-[#689079] items-center justify-center  lg:w-full rounded-lg text-white px-16"> */}
                 <div className="justify-between rounded-lg">
 
                     <div className="flex items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
 
-                        <div className="space-y-5 md:px-0 px-6">
+                        <div className="md:px-0 px-6">
 
-                            <h1 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-20 pt-10`}>
-                                Exclusive Membership
-                                <br />
-                                <span className='text-xl'>- Taking it to the Next Level -</span>
-                            </h1>
-                            <p className="mb-10 font-sans">Dive into a realm of unparalleled privileges with our Exclusive Membership section. Elevate your experience and gain access to a curated selection of premium content, personalized services, and extraordinary offers</p>
+                            <p className="my-10 font-sans">Dive into a realm of unparalleled privileges with our Exclusive Membership section. Elevate your experience and gain access to a curated selection of premium content, personalized services, and extraordinary offers</p>
                             <Link to="/paid-members">
                                 <button className="font-semibold mt-5 bg-white text-[#3c6e71] hover:bg-[#48cae4] hover:text-black px-3 py-2 rounded-sm duration-700">Show All</button>
                             </Link>
@@ -54,7 +53,9 @@ const Membership = () => {
 
                     </div>
 
-                    <div className="relative w-10/12 md:mr-20 hidden md:block py-24">
+                    {/* show large device only */}
+
+                    <div className="relative w-10/12 md:mr-20 py-24 hidden sm:hidden md:hidden lg:block xl:block">
 
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
@@ -138,7 +139,11 @@ const Membership = () => {
 
                     </div>
 
-                    <div className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
+                    {/* show large device only */}
+
+                    {/* show small and medium device only */}
+
+                    <div className="w-11/12 mx-auto py-10 space-y-3 lg:hidden md:block">
 
                         <div className="bg-white h-46 rounded-lg border-2 backdrop-blur-sm bg-white/30 p-4"
                         >
@@ -160,16 +165,12 @@ const Membership = () => {
 
                     </div>
 
+                    {/* show small and medium device only */}
+
                 </div>
 
-                
-
-                
-
-                {/* </div>        */}
-
             </div>
-            
+
         </div>
     );
 };
