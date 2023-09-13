@@ -36,6 +36,7 @@ import ModelTest from "../pages/Shared/ProMembership/ModelTest/ModelTest";
 import SingleChat from "../ChatApplication/SingleChat/SingleChat";
 import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashboard";
 import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
+import InstructorApplication from "../pages/InstructorDashBoard/InstructorApplication/InstructorApplication";
 
 
 const router = createBrowserRouter([
@@ -137,6 +138,10 @@ const router = createBrowserRouter([
       {
         path: "ssl-commerz",
         element: <SSLCommerz></SSLCommerz>
+      },
+      {
+        path:"instructor-application",
+        element: <InstructorApplication></InstructorApplication>
       },
       {
         path: 'pro-memberShip',

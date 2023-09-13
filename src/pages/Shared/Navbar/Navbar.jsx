@@ -101,6 +101,8 @@ const Navbar = () => {
 
                         <ActiveLink to="/about-us">About</ActiveLink>
 
+                        <ActiveLink to="/instructor-application">Application</ActiveLink>
+
                         {
                             user ?
                                 <button onClick={handleLogOut}>Logout</button>
