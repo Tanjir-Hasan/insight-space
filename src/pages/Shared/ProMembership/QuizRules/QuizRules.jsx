@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import useTitle from '../../../../Hooks/useTitle';
+import { ThemeContext } from '../../../../providers/ThemeProvider';
 
 const QuizRules = () => {
+    useTitle('Quiz Rules');
+    const { theme } = useContext(ThemeContext);
   
     return (
-        <div className='p-10'>
+        <div className={` min-h-[85vh] p-10`}>
             <h2 className='font-bold font-[Poppins] text-2xl mt-1 border-b-2'>Here are some rules and regulations to keep in mind when attending a quiz:</h2>
             <h2 className='text-xl font-[Cinzel] font-semibold mt-2'> Preparation:</h2>
             <div className='list-disc'>

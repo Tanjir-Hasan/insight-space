@@ -4,6 +4,8 @@ import ModelTests from './ModelTests';
 import { subjects, } from './data';
 import { AuthContext } from '../../../../providers/AuthProvider';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import useTitle from '../../../../Hooks/useTitle';
+import { ThemeContext } from '../../../../providers/ThemeProvider';
 
 const ModelTest = () => {
 
@@ -13,6 +15,9 @@ const ModelTest = () => {
   const [showResults, setShowResults] = useState(false);
   const { user } = useContext(AuthContext)
   const [axiosSecure] = useAxiosSecure();
+
+  useTitle('Model Test');
+    const { theme } = useContext(ThemeContext);
 
 
   const calculateScore = () => {
@@ -51,7 +56,7 @@ const ModelTest = () => {
 
 
   return (
-    <div className="min-h-[70vh]">
+    <div className={`min-h-[70vh] `}>
       <header className="">
 
       </header>
@@ -73,7 +78,7 @@ const ModelTest = () => {
         )}
 
         {showResults && (
-          <div>
+          <div className='p-3'>
             <h1 className="text-2xl font-semibold">Quiz Results</h1>
             <p className='border-b-2 border-[#3c6e71]'>Your Score: {calculateScore()} / {userAnswerss.length}</p>
             <ul className="mt-4 space-y-2 grid lg:grid-cols-2 gap-10 ">
@@ -85,7 +90,7 @@ const ModelTest = () => {
                     : 'text-red-500'
                     }`}
                 >
-                  <p className='text-xl text-black font-semibold'>{index + 1}. {question.question}</p>
+                  <p className='text-xl  font-semibold'>{index + 1}. {question.question}</p>
                   <p>Your Answer: {userAnswers[index]}</p>
                   <p>Correct Answer: {question.correctAnswer}</p>
                 </li>

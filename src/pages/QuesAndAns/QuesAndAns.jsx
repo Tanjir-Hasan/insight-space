@@ -1,8 +1,6 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import useUser from '../../Hooks/useUser';
-import Button from '../../components/Button';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import usePosts from '../../Hooks/usePosts';
@@ -13,31 +11,37 @@ import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { BsSend } from 'react-icons/bs';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
-import { Link } from 'react-router-dom';
 import useMyPayments from '../../Hooks/useMyPayments';
 import useTitle from '../../Hooks/useTitle';
 
 const QuesAndAns = () => {
 
     useTitle('Q&A');
-
     const { theme } = useContext(ThemeContext);
-
     const ref = useRef();
-
     const [userDetails] = useUser();
-
-    const { user, btnLoading, setBtnLoading } = useAuth();
-
+    const { user, btnLoading, setBtnLoading } = useAuth()
     const [axiosSecure] = useAxiosSecure();
-
-    const [, refetch] = usePosts();
-
+    const [posts, refetch] = usePosts();
     const { register, handleSubmit, reset } = useForm();
     const [, bages] = useMyPayments();
-    console.log(bages)
+    const [hide, setHide] = useState(false);
+    const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
+    const [qna, setQna] = useState([]);
+    console.log(qna)
 
 
+
+
+    useEffect(() => {
+        // Fetch quiz data from the API when the component mounts
+        axiosSecure.get("/posts")
+            .then(data => {
+                const findQNA = data?.data.filter(QNAS => QNAS.category !== "Blog")
+                setQna(findQNA)
+            })
+            .catch((error) => console.error("Error fetching quiz data:", error));
+    }, []);
     const onSubmit = data => {
         if (!data.text) {
             alert("Please enter a text");
@@ -74,17 +78,9 @@ const QuesAndAns = () => {
                     setBtnLoading(false);
                 });
         }
-
     };
 
-    // show post functionality
 
-    const [hide, setHide] = useState(false);
-
-    const [posts] = usePosts();
-
-
-    const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
 
     return (
         <div className={`${theme} pt-4 pb-8`}>
@@ -140,7 +136,7 @@ const QuesAndAns = () => {
 
                 <div>
                     {
-                        posts && posts.map(p => <div key={p._id}
+                        qna && qna?.map(p => <div key={p._id}
                             className={`${theme === 'dark' ? 'dark' :
                                 theme === 'night' ? 'night' :
                                     theme === 'light' ? 'bg-[#f0efeb]' : ''} my-6 rounded-lg border border-[#3c6e71]`}>

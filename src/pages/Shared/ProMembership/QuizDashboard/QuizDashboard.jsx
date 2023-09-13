@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useUser from '../../../../Hooks/useUser';
 import useQuizResult from '../../../../Hooks/useQuizResult';
 import ReChart from './ReChart';
-
-
-
-
-
-
+import { ThemeContext } from '../../../../providers/ThemeProvider';
+import useTitle from '../../../../Hooks/useTitle';
 
 
 
 const QuizDashboard = () => {
     const [userDetails] = useUser();
     const [quizResult, mockTest, modelTest] = useQuizResult();
-    // console.log(quizResult)
-
-
+   
+    useTitle('Quiz Dashboard');
+    const { theme } = useContext(ThemeContext);
 
     return (
-        <div className='min-h-[65vh]'>
-            <div className='grid grid-cols-3 gap-5 text-white'>
+        <div className={`${theme}`}>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 text-white'>
                 <div className='h-40 bg-slate-600 rounded-md'>
                     <div className=' text-center p-2'>
                         <img className='mx-auto rounded-full h-20 w-20' src={userDetails?.photoURL} alt="" />

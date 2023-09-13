@@ -3,18 +3,11 @@ import { useReactToPrint } from 'react-to-print';
 
 
 const Certificate = ({certificateInf, user, subject}) => {
-   
+   console.log(certificateInf)
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-
-
-
-
-
-
-
 
 
     const certificatBg = {
@@ -29,8 +22,7 @@ const Certificate = ({certificateInf, user, subject}) => {
         <div>
                 <button onClick={handlePrint} className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] px-12 duration-700 py-3 rounded-lg my-5' >Download Certificate</button>
 
-                <div ref={componentRef} className=' border-4 p-5 ' style={certificatBg} >
-                  
+                <div ref={componentRef} className=' border-4 p-5 text-black' style={certificatBg} >                
                    <div className='text-center'>
                         <img className='h-16 inline border-r-4 mr-2 border-[#3c6e71]' src="https://i.ibb.co/WFCHpYD/the-int-schl-advisory-board-removebg-preview.png" alt="" />
                         <img className='h-16 inline' src="https://i.ibb.co/bm10NLR/4-1.png" alt="" />
@@ -53,7 +45,6 @@ const Certificate = ({certificateInf, user, subject}) => {
 
 
                     <div className='flex justify-between items-end mt-8 '>
-
                         <div>
                             <p>{certificateInf?.date}</p>
                             <h2 className='border-t-2 border-[#3c6e71] text-xl font-semibold italic mt-1'>Date Awarded</h2>

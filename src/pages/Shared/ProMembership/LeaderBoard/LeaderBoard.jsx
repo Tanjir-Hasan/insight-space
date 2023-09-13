@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BarChart, ResponsiveContainer, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList, } from 'recharts';
 import useQuizResult from '../../../../Hooks/useQuizResult';
+import useTitle from '../../../../Hooks/useTitle';
+import { ThemeContext } from '../../../../providers/ThemeProvider';
 
 const LeaderBoard = () => {
     const [quizResult, mockTest, modelTest] = useQuizResult();
+    useTitle('Quiz Leaderboard');
+    const { theme } = useContext(ThemeContext);
     return (
-        <div>
+        <div className={`${theme}`}>
             {/* chart start 2 */}
 
             <div className='mt-6 p-5 border-2 rounded-md border-[#3c6e71]'>

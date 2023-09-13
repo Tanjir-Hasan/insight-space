@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Timer from './Timer';
+import { ThemeContext } from "../../../../providers/ThemeProvider";
+import useTitle from "../../../../Hooks/useTitle";
 
 
 const LiveExam = () => {
@@ -15,6 +17,9 @@ const LiveExam = () => {
     const [subject, setSubject] = useState([])
     const timerRef = useRef(null);
     const startTimeRef = useRef(0);
+
+    useTitle('Live Exam');
+    const { theme } = useContext(ThemeContext);
 
 
     const url = "/mockTest.json"
@@ -123,9 +128,9 @@ const LiveExam = () => {
 
     return (
 
-        <div className='min-h-[70vh]'>
+        <div className={`min-h-[70vh] `}>
 
-            <div className="flex flex-wrap gap-3 justify-center  ">
+            <div className="flex flex-wrap gap-3 md:justify-center  ">
                 <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-4 rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
                 <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-4 rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
                 <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-4 rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
@@ -157,7 +162,7 @@ const LiveExam = () => {
                         </ul>
                     </div>
                 ) : (
-                    <div>
+                    <div className="min-h-[70vh]">
                         {
                             showResult ?
                                 (<div>
@@ -181,8 +186,8 @@ const LiveExam = () => {
                                                 <li
                                                     key={index}
                                                     className={`p-2 cursor-pointer ${selectedOption === option
-                                                        ? "bg-violet-800 text-white"
-                                                        : "bg-gray-200 hover:bg-gray-300"
+                                                        ? "bg-violet-800 text-black "
+                                                        : "bg-gray-100 text-black hover:bg-gray-300"
                                                         }`}
                                                     onClick={() => handleOptionSelect(option)}
                                                 >

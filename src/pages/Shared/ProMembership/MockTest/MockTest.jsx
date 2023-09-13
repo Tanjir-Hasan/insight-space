@@ -3,6 +3,8 @@ import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import useQuizResult from '../../../../Hooks/useQuizResult';
 import { AuthContext } from '../../../../providers/AuthProvider';
 import Certificate from '../Certificate/Certificate';
+import useTitle from '../../../../Hooks/useTitle';
+import { ThemeContext } from '../../../../providers/ThemeProvider';
 
 
 const MockTest = () => {
@@ -17,6 +19,9 @@ const MockTest = () => {
     const [axiosSecure] = useAxiosSecure();
     const [quizResult, mockTests, modelTest] = useQuizResult();
     const [certificateInf , setCertificateInf] = useState([])
+
+    useTitle('Mock Test');
+    const { theme } = useContext(ThemeContext);
 
    
     const handleOptionSelect = (option, questionIndex) => {
@@ -38,7 +43,6 @@ const MockTest = () => {
         userAnswers.forEach((answer, index) => {
             if (answer === quizData[index].correctAnswer) {
                 score++;
-
             }
         });
         return score;
@@ -47,6 +51,7 @@ const MockTest = () => {
 
 
     const handleSubmit = () => {
+        setShowResults(true);
         const date = new Date();
         const mockTest = {
             userName: user?.displayName,
@@ -64,8 +69,8 @@ const MockTest = () => {
 
         const infoData = mockTests?.find(test => test.email === user?.email)
         setCertificateInf(infoData)
-        console.log(infoData);
-        setShowResults(true);
+        // console.log(infoData);
+        
 
     };
 
@@ -142,8 +147,8 @@ const MockTest = () => {
 
     return (
 
-        <div className='min-h-[70vh]'>
-            <div className="flex flex-wrap gap-3 justify-center  ">
+        <div className={`min-h-[70vh] `}>
+            <div className="flex flex-wrap gap-3 md:justify-center  ">
                 <h3 className="font-[Poppins]  bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
                 <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
                 <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
@@ -160,7 +165,7 @@ const MockTest = () => {
                         <h1 className="text-4xl font-bold text-center text-red-800">Quiz Starting in {countdown} seconds...</h1>
                     </div>
                 )}
-                <div>
+                <div className=''>
                     {
                         showResult ?
                             (
@@ -242,7 +247,7 @@ const MockTest = () => {
                                         : 'text-red-500'
                                         }`}
                                 >
-                                    <p className='text-xl text-black font-semibold'>{index + 1}. {question.question}</p>
+                                    <p className='text-xl font-semibold'>{index + 1}. {question.question}</p>
                                     <p>Your Answer: {userAnswers[index]}</p>
                                     <p>Correct Answer: {question.correctAnswer}</p>
                                 </li>

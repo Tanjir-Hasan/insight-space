@@ -12,8 +12,10 @@ import Swal from 'sweetalert2';
 import useBlog from '../../Hooks/useBlog';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
-import useNewsFeedFunctionality from '../../Hooks/useNewsFeedFunctionality';
+
 import useTitle from '../../Hooks/useTitle';
+import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
+import LatestBlog from './LatestBlog';
 
 
 const BlogFeed = () => {
@@ -34,6 +36,7 @@ const BlogFeed = () => {
     const [blogs, refetch] = useBlog();
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
     const [activeId, setActiveId] = useState(null);
+    // console.log(blogs)
 
     useEffect(() => {
         if (inView) {
@@ -99,7 +102,7 @@ const BlogFeed = () => {
                 <form onSubmit={handleBlogSubmit}>
 
                     <div className={`${theme === 'dark' ? 'dark' :
-                            theme === 'night' ? 'night' :
+                        theme === 'night' ? 'night' :
                             theme === 'light' ? 'bg-[#f0efeb]' : ''} border border-[#3c6e71] border-spacing-4 mt-2 py-5 rounded-lg`}>
 
                         <div className="flex space-x-2 mx-4 px-2">
@@ -136,8 +139,8 @@ const BlogFeed = () => {
 
                     <div
                         className={`${theme === 'dark' ? 'bg-[#011627] text-white' :
-                        theme === 'night' ? 'bg-[#343a40] text-white' :
-                        theme === 'light' ? 'bg-[#f0efeb]' : ''} md:w-8/12 rounded-lg  `}>
+                            theme === 'night' ? 'bg-[#343a40] text-white' :
+                                theme === 'light' ? 'bg-[#f0efeb]' : ''} md:w-8/12 rounded-lg  `}>
 
                         <motion.div
                             ref={refs}
@@ -182,7 +185,7 @@ const BlogFeed = () => {
                                     }
                                 </div>
                                 <div className="w-full flex items-center py-6 px-8">
-                                    
+
                                     <div className="w-full flex space-x-8">
 
                                         <button onClick={() => handleReact(singleData?._id, userDetails.email)} className="flex items-center"><FaHeart className={singleData?.react?.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {singleData?.react?.length}</button>
@@ -234,18 +237,18 @@ const BlogFeed = () => {
                             hidden: { opacity: 0, x: 100 },
                         }}
                         transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
-                        <h2 className=" text-center text-4xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#3c6e71] md:py-0 py-8">Blog heading</h2>
+                        <h2 className=" text-center text-4xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#3c6e71] md:py-0 py-8">Top Blogs </h2>
 
                         {
-                            blogs && blogs.map(p => <div key={p._id}  >
+                            blogs && blogs?.map(p => <div key={p?._id}  >
 
-                                <div onClick={() => haldleClick(p._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md shadow-[#3c6e71] m-5 hover:bg-[#3c6e71]  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""}`}>
+                                <div onClick={() => haldleClick(p?._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md shadow-[#3c6e71] m-5 hover:bg-[#3c6e71]  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""}`}>
                                     <div>
                                         <img className='w-14 h-14 rounded-md' src={p?.imgURL} alt="" />
                                     </div>
                                     <div>
-                                        <h2 className='font-[Cinzel] font-semibold'>Posted by: {p.userName}</h2>
-                                        <h2 className='font-[Cinzel]'>{p.text.substring(0, 70)}... {"  "}
+                                        <h2 className='font-[Cinzel] font-semibold'>Posted by: {p?.userName}</h2>
+                                        <h2 className='font-[Cinzel]'>{p?.text.substring(0, 70)}... {"  "}
                                             <span className='text-[#023e8a] hover:font-semibold cursor-pointer'>Read more</span>
                                         </h2>
 
@@ -257,11 +260,20 @@ const BlogFeed = () => {
                         }
 
                     </motion.div>
-
                 </div>
 
-            </div>
 
+
+
+                <div className='mt-20'>
+                    <h2 className='text-6xl border-b-2 border-[#335c67] mb-10'>Latest News</h2>
+                    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10'>
+                        {
+                            blogs?.map(latest => <LatestBlog key={latest?._id} latest={latest}></LatestBlog>
+                            )}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function SubjectSelection({ subjects, onSelectSubject }) {
   return (
-    <div>
+    <div className='p-5'>
       <h1 className="text-2xl font-semibold">Select a Subject</h1>
       <ul className="mt-4 grid lg:grid-cols-3 md:grid-cols-2 gap-5 rounded-md">
         {subjects.map((subject, index) => (

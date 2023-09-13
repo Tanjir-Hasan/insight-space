@@ -1,22 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import useTitle from '../../../../Hooks/useTitle';
+import { ThemeContext } from '../../../../providers/ThemeProvider';
 
 
 function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
     const [modelTestData, setModelTestData] = useState([])
     const [questions, setQuestions] = useState([]);
+    const [axiosSecure] = useAxiosSecure();
     const [userAnswers, setUserAnswers] = useState(Array(modelTestData.length).fill(''));
     const [showQuestions, setShowQuestions] = useState(false);
     const [showResults, setShowResults] = useState(false);
+
+    useTitle('Model Test');
+    const { theme } = useContext(ThemeContext);
    
 
-    const url = "/mockTest.json";
+   
+
     useEffect(() => {
         // Fetch quiz data from the API when the component mounts
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => setModelTestData(data))
+        axiosSecure.get("/quiz")
+            .then(data => setModelTestData(data.data))
             .catch((error) => console.error("Error fetching quiz data:", error));
-    }, [url]);
+    }, []);
     const filteredQuestions = modelTestData.filter(
         (question) => question.subject === selectedSubject
     );
@@ -43,7 +50,7 @@ function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
     };
 
     return (
-        <div>
+        <div className='p-3'>
             <div>
                 <button ><img className='h-10 w-12 cursor-pointer' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHzZOmexylo5sAAToZvwE9l7GRiz3sNatyJ52vztwOnPX1E45XDbRdV8sH0wrPwO9_B0&usqp=CAU" alt="" /></button>
                 <h1 className="text-2xl font-semibold">Model Test - {selectedSubject}</h1>

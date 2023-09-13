@@ -44,7 +44,7 @@ const ReChart = () => {
 
             <div className='mt-6 p-5 border-2 rounded-md border-[#3c6e71]'>
                 <h2 className='text-2xl font-bold border-b-2 mb-5'>Your Mock test result history: </h2>
-                <ResponsiveContainer width='90%' height={300} className="mx-auto " >
+                <ResponsiveContainer width='98%' height={300} className="mx-auto " >
                     <BarChart
                         height={300}
                         data={mockTest}>
@@ -66,7 +66,7 @@ const ReChart = () => {
             {/* chaet start 2 */}
             <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
                 <h2 className='text-2xl font-bold border-b-2 mb-5'>Your live exam result history: </h2>
-                <ResponsiveContainer width="90%" height={300} className="mx-auto" >
+                <ResponsiveContainer width="98%" height={300} className="mx-auto" >
                     <BarChart
                         width={500}
                         height={300}
@@ -96,7 +96,7 @@ const ReChart = () => {
             {/* chart start 3 */}
             <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
                 <h2 className='text-2xl font-bold border-b-2 mb-5'>Your Model test result history: </h2>
-                <ResponsiveContainer width="90%" height={300} className="mx-auto" >
+                <ResponsiveContainer width="98%" height={300} className="mx-auto" >
                     <BarChart
                         height={300}
                         data={modelTest}
