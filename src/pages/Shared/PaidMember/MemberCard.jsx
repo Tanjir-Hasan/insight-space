@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaCheck, FaCheckSquare, FaRegWindowClose } from 'react-icons/fa';
+import { FaCheck, FaRegWindowClose } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import PayModal from './PayModal/PayModal';

@@ -37,6 +37,9 @@ import QuizDashboard from "../pages/Shared/ProMembership/QuizDashboard/QuizDashb
 import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
 import SSLPaymentFail from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentFail/SSLPaymentFail";
 import LeaderBoard from "../pages/Shared/ProMembership/LeaderBoard/LeaderBoard";
+import InstructorApplication from "../pages/InstructorDashBoard/InstructorApplication/InstructorApplication";
+import UsersPaymentHistory from "../pages/InstructorDashBoard/PaymentHistory/UsersPaymentHistory";
+import AllInstructor from "../pages/InstructorDashBoard/AllInstructor/AllInstructor";
 
 
 const router = createBrowserRouter([
@@ -114,12 +117,20 @@ const router = createBrowserRouter([
         element: <Quiz></Quiz>
       },
       {
+        path:"instructor-application",
+        element: <InstructorApplication></InstructorApplication>
+      },
+      {
         path: "about-us",
         element: <AboutUs></AboutUs>
       },
       {
-        path: "paid-members",
-        element: <PaidMembers></PaidMembers>
+        path: "all-Instructor",
+        element: <AllInstructor></AllInstructor>
+      },
+      {
+        path:"instructor-payment",
+        element :<PaidMembers></PaidMembers>
       },
       {
         path: "payments-history",
@@ -207,6 +218,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <InstructorHome></InstructorHome>
+      },
+      {
+        path : "payment-history",
+        element:<UsersPaymentHistory></UsersPaymentHistory>
       }
     ]
   }

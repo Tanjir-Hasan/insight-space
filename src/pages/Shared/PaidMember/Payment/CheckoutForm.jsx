@@ -101,28 +101,15 @@ const CheckoutForm = ({ getMember }) => {
         date: new Date(),
       }
 
-      // if(paymentIntent.status === 'succeeded'){
-      //   Swal.fire({
-      //     position: 'top-center',
-      //     icon: 'success',
-      //     title: 'Payment Successfull',
-      //     showConfirmButton: false,
-      //     timer: 1500
-      //   })
-      //   navigate('/paid-members')
-
-
-      // }
-
       // console.log(payment)
       axiosSecure.post('/payments', payment)
         .then(res => {
           // console.log(res.data);
-          if (res.data.insertedId) {
+          if (res.data.insertResult.insertedId) {
             Swal.fire({
               position: 'top-center',
               icon: 'success',
-              title: 'Payment Successfull',
+              title: 'Payment Successfully',
               showConfirmButton: false,
               timer: 1500
             })
@@ -156,14 +143,14 @@ const CheckoutForm = ({ getMember }) => {
             },
           }}
         />
-         {
-        cardError && <p className='text-red-500'>{cardError}</p>
-      }
-      {
-        transactionId && <p className='text-green-500'>Transaction complete with
-          transaction_id: <span className='text-red-500'>{transactionId}</span>
-        </p>
-      }
+        {
+          cardError && <p className='text-red-500'>{cardError}</p>
+        }
+        {
+          transactionId && <p className='text-green-500'>Transaction complete with
+            transaction_id: <span className='text-red-500'>{transactionId}</span>
+          </p>
+        }
         <button className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg' type="submit" disabled={!stripe || !clientSecret || processing}>
           Pay Now
         </button>

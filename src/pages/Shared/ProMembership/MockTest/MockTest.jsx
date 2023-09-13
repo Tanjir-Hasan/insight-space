@@ -24,14 +24,13 @@ const MockTest = () => {
         updatedAnswers[questionIndex] = option;
         setUserAnswers(updatedAnswers);
     };
-    const url = "/mockTest.json";
+
     useEffect(() => {
         // Fetch quiz data from the API when the component mounts
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => setQuizDatas(data))
+        axiosSecure.get("/quiz")
+            .then(data => setQuizDatas(data.data))
             .catch((error) => console.error("Error fetching quiz data:", error));
-    }, [url]);
+    }, []);
 
 
     const calculateScore = () => {
