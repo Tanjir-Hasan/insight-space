@@ -38,6 +38,7 @@ import QuizRules from "../pages/Shared/ProMembership/QuizRules/QuizRules";
 import SSLPaymentFail from "../pages/Shared/PaidMember/SSLPayment/SSLPaymentFail/SSLPaymentFail";
 import LeaderBoard from "../pages/Shared/ProMembership/LeaderBoard/LeaderBoard";
 import AllInstructor from "../pages/InstructorDashBoard/AllInstructor/AllInstructor";
+import UsersPaymentHistory from "../pages/InstructorDashBoard/PaymentHistory/UsersPaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -212,6 +213,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <InstructorHome></InstructorHome>
+      },
+      {
+        path:"payment-history",
+        element:<UsersPaymentHistory></UsersPaymentHistory>
       }
     ]
   }
