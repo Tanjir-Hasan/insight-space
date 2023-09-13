@@ -9,14 +9,17 @@ import usePosts from '../../Hooks/usePosts';
 import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaMinus, FaPlug, FaPlus } from 'react-icons/fa';
 import moment from "moment";
-import useAuth from '../../Hooks/UseAuth';
+import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { BsSend } from 'react-icons/bs';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { Link } from 'react-router-dom';
 import useMyPayments from '../../Hooks/useMyPayments';
+import useTitle from '../../Hooks/useTitle';
 
 const QuesAndAns = () => {
+
+    useTitle('Q&A');
 
     const { theme } = useContext(ThemeContext);
 

@@ -5,6 +5,7 @@ import useConversations from '../../Hooks/useConversations';
 import useUser from '../../Hooks/useUser';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { ThemeContext } from '../../providers/ThemeProvider';
+import useTitle from '../../Hooks/useTitle';
 
 
 const socket = io(`http://localhost:5000`, {
@@ -12,6 +13,8 @@ const socket = io(`http://localhost:5000`, {
 });
 
 const SingleChat = () => {
+
+    useTitle('Message');
 
     const { theme } = useContext(ThemeContext);
 

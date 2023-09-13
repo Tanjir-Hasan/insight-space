@@ -1,6 +1,6 @@
 // for my post shamim
 import React, { useEffect, useState } from 'react';
-import useAuth from './UseAuth';
+import useAuth from './useAuth';
 import useAxiosSecure from './useAxiosSecure';
 
 

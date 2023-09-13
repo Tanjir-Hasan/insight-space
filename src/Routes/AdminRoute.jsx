@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import useAuth from "../Hooks/UseAuth";
+import useAuth from "../Hooks/useAuth";
 import useAdmin from "../Hooks/useAdmin";
 import Loading from "../components/Loading";
 

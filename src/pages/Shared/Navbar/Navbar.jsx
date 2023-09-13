@@ -9,7 +9,7 @@ import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
 import useUser from '../../../Hooks/useUser';
 import ThemeButtons from '../../../ThemeButtons/ThemeButtons';
 import useInstructor from '../../../Hooks/useInstructor';
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 
 const Navbar = () => {
@@ -82,7 +82,7 @@ const Navbar = () => {
 
                 <div className='hidden sm:hidden md:hidden lg:block xl:block'>
 
-                    <div className={`flex gap-3 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                    <div className={`flex gap-5 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                         <ActiveLink to="/">Home</ActiveLink>
 

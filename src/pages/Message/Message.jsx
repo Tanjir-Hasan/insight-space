@@ -1,6 +1,6 @@
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { auth } from '../../firebase/config.firebase';
-import useAuth from '../../Hooks/UseAuth';
+import useAuth from '../../Hooks/useAuth';
 
 const Message = ({ message }) => {
   const { user } = useAuth();

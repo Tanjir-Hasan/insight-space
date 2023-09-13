@@ -41,9 +41,10 @@ const SSLPayment = (formData) => {
                 </label>
 
                 <input
-                    className="input-field"
+                    className="input-field-ssl"
                     type="number"
                     {...register("number")}
+                    min="1"
                     placeholder="Enter Support Amount"
                     required
                 />
@@ -51,7 +52,6 @@ const SSLPayment = (formData) => {
             </div>
 
 
-            {/* <input type="submit" /> */}
             <button type='submit'
                 className='text-xl font-[Cinzel] text-white mr-5 rounded-lg border-0 text-md font-semibold bg-gradient-to-r from-[#3c6e71] to-[#335c67] hover:cursor-pointer hover:opacity-90 duration-500 py-2 w-full'
             >Send Support</button>

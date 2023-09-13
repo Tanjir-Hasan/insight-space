@@ -1,4 +1,4 @@
-import useAuth from "./UseAuth";
+import useAuth from "./useAuth";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAxiosSecure from "./useAxiosSecure";

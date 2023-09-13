@@ -1,5 +1,5 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import useAuth from "../../../../Hooks/UseAuth";
+import useAuth from "../../../../Hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";

@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { BsSend } from 'react-icons/bs';
 import { useContext } from 'react';
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../../../Hooks/useAuth';
 import ButtonWithLoading from '../../../components/ButtonWithLoading';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import { useNavigate } from 'react-router-dom';

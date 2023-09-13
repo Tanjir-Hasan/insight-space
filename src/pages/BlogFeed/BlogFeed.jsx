@@ -13,9 +13,13 @@ import useBlog from '../../Hooks/useBlog';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
 import useNewsFeedFunctionality from '../../Hooks/useNewsFeedFunctionality';
+import useTitle from '../../Hooks/useTitle';
 
 
 const BlogFeed = () => {
+
+    useTitle('Blog');
+
     const [posts] = usePosts();
     const [show, setShow] = useState(false);
     const [singleData, setSingleData] = useState("");

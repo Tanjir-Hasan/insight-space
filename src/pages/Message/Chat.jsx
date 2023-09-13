@@ -5,13 +5,17 @@ import { db } from '../../firebase/config.firebase';
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import useTitle from '../../Hooks/useTitle';
 
 
 const Chat = () => {
 
+  useTitle('Group Chat');
+
   const { theme } = useContext(ThemeContext);
 
   const [messages, setMessages] = useState([]);
+
   const scroll = useRef();
 
   useEffect(() => {

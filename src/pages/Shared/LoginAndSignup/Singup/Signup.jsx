@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
-import useAuth from "../../../../Hooks/UseAuth";
+import useAuth from "../../../../Hooks/useAuth";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -11,6 +11,8 @@ import animation from '../../../../../public/spining.json';
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 
 const Signup = () => {
+
+  useTitle('Registration');
 
   const { theme } = useContext(ThemeContext);
 

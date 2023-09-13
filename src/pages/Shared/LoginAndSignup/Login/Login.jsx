@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
-import useAuth from "../../../../Hooks/UseAuth";
+import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,8 +9,11 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
 import Lottie from "lottie-react";
 import animation from '../../../../../public/spining.json';
+import useTitle from "../../../../Hooks/useTitle";
 
 const Login = () => {
+
+    useTitle('Login');
 
     const { theme } = useContext(ThemeContext);
 

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import useAuth from "../../../../Hooks/UseAuth";
+import useAuth from "../../../../Hooks/useAuth";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import LinkedInProfile from "./LinkedInProfile";
 

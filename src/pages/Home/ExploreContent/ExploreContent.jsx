@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from "react";
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 const ExploreContent = () => {
     const { theme } = useContext(ThemeContext);

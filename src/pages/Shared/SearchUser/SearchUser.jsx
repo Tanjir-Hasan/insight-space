@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../../../Hooks/useAuth';
 import { useEffect } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 

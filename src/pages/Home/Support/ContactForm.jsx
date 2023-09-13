@@ -4,7 +4,7 @@ import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2'
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import ButtonWithLoading from "../../../components/ButtonWithLoading";
-import useAuth from "../../../Hooks/UseAuth";
+import useAuth from "../../../Hooks/useAuth";
 
 const ContactForm = () => {
 

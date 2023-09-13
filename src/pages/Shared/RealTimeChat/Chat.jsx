@@ -3,7 +3,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 const Chat = ({ socket, userName, room, searchEmail, userDetails }) => {
     const {user} = useAuth();

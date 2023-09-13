@@ -7,7 +7,7 @@ const MessagesIcon = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div className={`${theme}`}>
+        <div className={`${theme}`} style={{height: "0px"}}>
 
             <button onClick={() => setIsOpen(!isOpen)}>
                 <img src="https://i.ibb.co/bzywHzS/mail.png" alt="" className="fixed bottom-2 right-10 w-12" />
