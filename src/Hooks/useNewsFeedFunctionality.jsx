@@ -2,7 +2,7 @@ import usePosts from "./usePosts";
 import Swal from "sweetalert2";
 import useAxiosSecure from "./useAxiosSecure";
 import useBookMarks from "./useBookMarks";
-import useAuth from "./UseAuth";
+import useAuth from "./useAuth";
 
 const useNewsFeedFunctionality = () => {
     const [axiosSecure] = useAxiosSecure();

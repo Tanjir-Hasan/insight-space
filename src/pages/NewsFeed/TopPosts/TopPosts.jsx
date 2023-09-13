@@ -47,9 +47,9 @@ const TopPosts = () => {
         <div className="">
 
             {/* top post section start */}
-            <div className="lg:w-3/12 md:w-5/12 mb-5 md:mt-20 md:mb-20 p-3 block md:fixed top-3 right-0">
+            <div className="lg:w-3/12 md:w-5/12 mb-5 md:mt-20 md:mb-20 p-3 md:fixed top-0 right-0 hidden md:block lg:block xl">
 
-                <h2 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 text-center text-3xl uppercase mb-5 font-bold  font-[Poppins] md:py-0 py-8`}>Top Post</h2>
+                <h2 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 text-center text-3xl uppercase mb-5 font-bold font-[Poppins] md:py-0 py-8`}>Top Post</h2>
 
                 <motion.div
                     ref={refs}
@@ -59,7 +59,7 @@ const TopPosts = () => {
                         visible: { opacity: 1, x: 0 },
                         hidden: { opacity: 0, x: 100 },
                     }}
-                    transition={{ duration: 0.9 }} className=" mx-auto overflow-y-auto" style={{ maxHeight: 'calc(72vh - 100px)' }}>
+                    transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(72vh - 100px)' }}>
 
                     <div className=''>
                         {

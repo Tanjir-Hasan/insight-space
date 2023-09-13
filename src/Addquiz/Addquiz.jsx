@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import ButtonWithLoading from '../components/ButtonWithLoading';
-import useAuth from '../Hooks/UseAuth';
+import useAuth from '../Hooks/useAuth';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 

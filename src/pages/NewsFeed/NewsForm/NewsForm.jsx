@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useUser from "../../../Hooks/useUser";
 import usePosts from "../../../Hooks/usePosts";
-import useAuth from "../../../Hooks/UseAuth";
+import useAuth from "../../../Hooks/useAuth";
 import { useContext } from "react";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import { SlClose } from 'react-icons/sl';
@@ -91,7 +91,7 @@ const NewsForm = () => {
     return (
         <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' :
             theme === 'night' ? 'night' :
-                theme === 'light' ? 'bg-[#f0efeb]' : ''} py-4 mt-5 border border-[#3c6e71] rounded-lg my-5`}>
+                theme === 'light' ? 'bg-[#f0efeb]' : ''} py-3 lg:mt-2 mt-0 border border-[#3c6e71] rounded-lg lg:my-3`}>
             {/* main form  */}
 
             <div className="mt-2 py-4 rounded-lg">

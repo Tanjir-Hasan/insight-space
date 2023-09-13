@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogIn/SocialLogin";
-import useAuth from "../../../../Hooks/UseAuth";
+import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from "react-router-dom";

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { BsSend } from 'react-icons/bs';
 import { useContext } from 'react';
 import Button from '../../../components/Button';
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import ButtonWithLoading from '../../../components/ButtonWithLoading';
 import { ThemeContext } from '../../../providers/ThemeProvider';

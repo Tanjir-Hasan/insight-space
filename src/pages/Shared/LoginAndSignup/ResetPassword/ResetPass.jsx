@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useAuth from '../../../../Hooks/UseAuth';
+import useAuth from '../../../../Hooks/useAuth';
 import Navbar from '../../Navbar/Navbar';
 import Button from '../../../../components/Button';
 import { Link } from 'react-router-dom';

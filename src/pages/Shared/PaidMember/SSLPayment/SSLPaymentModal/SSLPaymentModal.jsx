@@ -50,11 +50,16 @@ const SSLPaymentModal = () => {
 
     return (
         <div>
-            <div className='flex gap-3 cursor-pointer hover:text-[#3c6e71] duration-500' onClick={openModal}>
+            <div
+                className={`flex gap-3 cursor-pointer duration-500
+            ${theme === 'dark' ? 'hover:text-[#48cae4]' :
+                        theme === 'night' ? 'hover:text-[#48cae4]' :
+                            theme === 'light' ? 'hover:text-[#3c6e71]' : ''}`}
+                onClick={openModal}>
 
-                <p className='font-[Cinzel]'>Give</p>
+                <p className='font-[Cinzel] font-bold'>Give</p>
                 <PiShootingStarBold className="text-2xl" />
-                
+
             </div>
 
             {isModalOpen && (
@@ -62,9 +67,9 @@ const SSLPaymentModal = () => {
 
                     <div className="relative">
 
-                        <div className={`${theme === 'dark' ? 'dark' :
-                        theme === 'night' ? 'night' :
-                        theme === 'light' ? 'bg-[#f0efeb]' : ''} absolute -top-56 lg:right-24 -right-2 lg:w-[500px] w-[320px] mx-auto rounded-lg p-2`}>
+                        <div className={`${theme === 'dark' ? 'bg-[#003049]' :
+                            theme === 'night' ? 'bg-[#03071e]' :
+                                theme === 'light' ? 'bg-[#f0efeb]' : ''} absolute -top-56 lg:right-24 -right-2 lg:w-[500px] w-[320px] mx-auto rounded-lg p-2`}>
 
                             <div className='flex justify-end'>
                                 <button onClick={closeModal} className='text-sm font-[Cinzel] text-white rounded-lg border-0 text-md font-semibold bg-gradient-to-r from-[#3c6e71] to-[#335c67] hover:cursor-pointer hover:opacity-90 duration-500 py-2 px-2'>Close</button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { FaSearch } from "react-icons/fa";
-import useAuth from '../../../Hooks/UseAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 const Search = () => {
     const { setSearchText } = useAuth();

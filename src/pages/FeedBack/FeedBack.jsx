@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
-import useAuth from '../../Hooks/UseAuth';
+import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useForm } from 'react-hook-form';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
