@@ -104,6 +104,8 @@ const Navbar = () => {
 
                         <ActiveLink to="/about-us">About</ActiveLink>
 
+                        
+
                         {
                             user ?
                                 <button onClick={handleLogOut}>Logout</button>
