@@ -8,7 +8,7 @@ import { ThemeContext } from '../../providers/ThemeProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const serverUrl = `https://insight-space-server.onrender.com`;
-// const serverUrl = `http://localhost:5000`;
+// const serverUrl = `https://insight-space-server.onrender.com`;
 const socket = io(serverUrl, {
     transports: ['websocket']
 });

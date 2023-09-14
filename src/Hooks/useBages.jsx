@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const useBages = () => {
     const [memberBages, setMemberBages] = useState([])
-    const url = "http://localhost:5000/membership-bages"
+    const url = "https://insight-space-server.onrender.com/membership-bages"
     useEffect(() => {
         axios.get(url)
             .then(data => setMemberBages(data.data))
