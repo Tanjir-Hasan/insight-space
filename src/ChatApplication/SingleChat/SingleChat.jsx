@@ -25,10 +25,6 @@ const SingleChat = () => {
 
     const [axiosSecure] = useAxiosSecure();
 
-    // const [userDetails] = useUser();
-
-    // const [conversationData, refetch] = useConversations();
-
     const [newMessage, setNewMessage] = useState('');
 
     const [messages, setMessages] = useState([]);
@@ -197,7 +193,7 @@ const SingleChat = () => {
                                     {
                                         messages.length > 0 ? messages?.map((message, i) =>
 
-                                            <div key={i} className={`p-2 max-w-[60%] mb-2 ${message.senderId === userDetails?._id
+                                            <div key={i} className={`p-2 max-w-[60%] mb-2 ${message.senderId === singleUserData?._id
                                                 ? 'bg-[#0077b6] rounded-s-xl rounded-t-xl ml-auto' : 'bg-[#6c757d]  rounded-b-xl rounded-tr-xl'}`}
                                             >
 
