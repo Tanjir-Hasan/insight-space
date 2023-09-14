@@ -46,7 +46,7 @@ console.log(quiz)
 
 
 
-  const url = 'https://insight-space-server.vercel.app/quiz'
+  const url = 'https://insight-space-server.onrender.com/quiz'
   useEffect(() => {
     fetch(url)
       .then(res => res.json())

@@ -12,7 +12,7 @@ const SSLPayment = (formData) => {
 
         event.preventDefault();
 
-        fetch("https://insight-space-server.vercel.app/ssl-payment", {
+        fetch("https://insight-space-server.onrender.com/ssl-payment", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -57,7 +57,7 @@ const Signup = () => {
                 updateUserProfile(name, imgURL)
                   .then(() => {
                     const newUser = { displayName: name, email, photoURL: imgURL, date, role: "regular" }
-                    axios.post('https://insight-space-server.vercel.app/add-user', newUser)
+                    axios.post('https://insight-space-server.onrender.com/add-user', newUser)
                       .then(data => {
                         setBtnLoading(false);
                         reset();
