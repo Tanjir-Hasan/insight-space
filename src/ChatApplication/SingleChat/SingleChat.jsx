@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import useUsers from '../../Hooks/useUsers';
-import useConversations from '../../Hooks/useConversations';
-import useUser from '../../Hooks/useUser';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import useTitle from '../../Hooks/useTitle';
+import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
+// const serverUrl = `http://localhost:5000`;
 const serverUrl = `https://insight-space-server.onrender.com`;
-// const serverUrl = `https://insight-space-server.onrender.com`;
 const socket = io(serverUrl, {
     transports: ['websocket']
 });
@@ -17,15 +17,17 @@ const SingleChat = () => {
 
     useTitle('Message');
 
+    const {user} = useAuth();
+
     const { theme } = useContext(ThemeContext);
 
     const [allUsers] = useUsers();
 
     const [axiosSecure] = useAxiosSecure();
 
-    const [userDetails] = useUser();
+    // const [userDetails] = useUser();
 
-    const [conversationData, refetch] = useConversations();
+    // const [conversationData, refetch] = useConversations();
 
     const [newMessage, setNewMessage] = useState('');
 
@@ -37,13 +39,17 @@ const SingleChat = () => {
 
     const [userStatus, setUserStatus] = useState({});
 
+    const [singleUserData, setSingleUserData] = useState()
+
+    const [conversationData, setConversationData] = useState([]);
+
     const handleSubmit = (e) => {
 
         e.preventDefault();
 
         if (newMessage.trim() === '') return;
 
-        const senderId = userDetails?._id;
+        const senderId = singleUserData?._id;
 
         const postData = {
             conversationId,
@@ -72,21 +78,57 @@ const SingleChat = () => {
 
 
     const addConversation = (senderId, receiverId) => {
-        axiosSecure.post(`/conversation`, { senderId, receiverId })
-            .then((res) => {
-                console.log(res.data)
-                refetch();
-            })
-            .catch(err => console.log(err.message))
+        // axiosSecure.post(`/conversation`, { senderId, receiverId })
+        //     .then((res) => {
+        //         console.log(res.data)
+        //         refetch();
+        //     })
+        //     .catch(err => console.log(err.message))
+        socket.emit("addConversation", { senderId, receiverId });
+        socket.on("conversation", (data) => {
+            if (data.acknowledged === true) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                socket.emit("getConversationData", singleUserData?._id);
+                socket.on("conversationUserData", (data) => {
+                    setConversationData(data);
+                })
+            } else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: 'Already created',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
     };
 
     useEffect(() => {
+        socket.emit("getSingleUser", user?.email);
+        socket.on("userData", (data) => {
+            const userData = JSON.parse(data);
+            setSingleUserData(userData);
+        });
 
-        socket.emit("user-connected", userDetails?._id);
+        socket.emit("user-connected", singleUserData?._id);
+
+        socket.emit("getConversationData", singleUserData?._id);
+        socket.on("conversationUserData", (data) => {
+            setConversationData(data);
+        })
+
         socket.on('user-status', (updatedUserStatus) => {
             setUserStatus(updatedUserStatus);
         });
-    }, []);
+
+    }, [singleUserData?._id, user?.email])
 
     return (
         <div className={`${theme} h-[calc(100vh-96px)]`}>
@@ -205,11 +247,11 @@ const SingleChat = () => {
                     <h1 className='font-[Poppins] text-center text-2xl my-3'>All Users:</h1>
 
                     {
-                        allUsers?.filter((u) => u._id !== userDetails?._id)?.map((user, index) => (
+                        allUsers?.filter((u) => u._id !== singleUserData?._id)?.map((user, index) => (
                             <div
                                 key={index}
                                 className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center mb-4`}
-                                onClick={() => addConversation(userDetails?._id, user?._id)}>
+                                onClick={() => addConversation(singleUserData?._id, user?._id)}>
 
                                 <div className="relative">
                                     <img className="w-10 h-10 rounded-full overflow-hidden mr-2" src={user.photoURL} alt={user.displayName} />
