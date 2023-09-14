@@ -7,7 +7,7 @@ import Education from "./Education";
 import ProfileInfo from "./ProfileInfo";
 import ProfilePicture from "./ProfilePicture";
 import UserConnections from "./UserConnections";
-import ViewMyProfile from "./ViewMyProfile";
+
 
 const LinkedInProfile = () => {
   return (

@@ -1,9 +1,6 @@
 // ProfileInfo.js
 import React from "react";
-import { Link } from "react-router-dom";
 import ActiveLink from "../../../../components/ActiveLink";
-import Button from "../../../../components/Button";
-import Education from "./Education";
 import {
   BsEnvelopeAtFill,
   BsFillXCircleFill,
