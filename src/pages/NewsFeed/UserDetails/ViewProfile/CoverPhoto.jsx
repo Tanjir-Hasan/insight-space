@@ -23,8 +23,7 @@ const CoverPhoto = () => {
       .then(imageResponse => {
         if (imageResponse.success) {
           // image url 
-          const coverPhotoURL = imageResponse.data.display_url;
-          console.log(coverPhotoURL);
+          const coverPhotoURL = imageResponse?.data?.display_url;
           const data = { coverPhotoURL, email: userDetails?.email }
           axiosSecure.patch("/user/coverPhoto", data)
             .then(data => {
@@ -35,7 +34,6 @@ const CoverPhoto = () => {
         }
       })
   }
-
 
 
   return (

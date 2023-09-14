@@ -28,7 +28,6 @@ const QuesAndAns = () => {
     const [hide, setHide] = useState(false);
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
     const [qna, setQna] = useState([]);
-    console.log(qna)
 
 
 
