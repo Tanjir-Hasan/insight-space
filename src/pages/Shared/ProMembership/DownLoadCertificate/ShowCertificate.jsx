@@ -3,7 +3,7 @@ import Certificate from '../Certificate/Certificate';
 import { SlClose } from 'react-icons/sl';
 
 
-const ShowCertificate = ({selectedMockData}) => {
+const ShowCertificate = ({ selectedMockData }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [certificateInfo, setCertificateInfo] = useState([])
 
@@ -27,7 +27,7 @@ const ShowCertificate = ({selectedMockData}) => {
     return (
         <div>
             <div>
-                {selectedMockData.length > 0 && (
+                {selectedMockData?.length > 0 ? (
                     <div className='mt-16 border-2 border-[#3c6e71]'>
                         <h2 className='text-2xl font-bold border-b-2 mb-5 p-3'>Exam Information: {setCertificateInfo?.subject}</h2>
                         <div className="overflow-x-auto">
@@ -90,7 +90,12 @@ const ShowCertificate = ({selectedMockData}) => {
                                                 </div>
                                             </td>
                                             <td onClick={() => handleData(item?._id)} className="px-6 py-4  whitespace-no-wrap text-sm leading-5 text-gray-600">
-                                                <button onClick={openModal} className='font-bold whitespace-nowrap bg-[#3c6e71] text-white px-5 py-2 rounded-lg '>Download Certificate</button>
+
+
+                                                <div className='relative'>
+                                                    <button onClick={openModal} className='text-xl border-2 text-black whitespace-nowrap border-[#3c6e71] hover:text-white font-[Poppins] hover:bg-[#3c6e71] pl-14 pr-3 duration-700 py-2 rounded-lg my-5' >Download Certificate</button>
+                                                    <img onClick={openModal} className='w-12 h-12 rounded-md absolute  top-5' src="https://cdn.dribbble.com/users/151595/screenshots/3517495/icon_downloading.gif" alt="" />
+                                                </div>
                                             </td>
                                         </tr>
                                     ))}
@@ -99,6 +104,16 @@ const ShowCertificate = ({selectedMockData}) => {
                             </table>
                         </div>
                     </div>
+
+                ) : (
+
+                    <div className='mt-20'>
+                        <h2 className='text-2xl md:text-3xl md:pr-20 '>You have selected wrong subject. Bescuse You haven't attended this exam yet, Please select Valid subject which you attend.
+                        <img className='h-72' src="https://i.ibb.co/Jdg5n3c/LTd5ax-LXc-removebg-preview.png" alt="" />
+                        
+                        </h2>
+                    </div>
+
                 )}
 
 

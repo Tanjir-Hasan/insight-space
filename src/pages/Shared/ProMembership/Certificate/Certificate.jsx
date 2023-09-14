@@ -20,14 +20,17 @@ const Certificate = ({certificateInfo, user, subject}) => {
 
     return (
         <div>
-                <button onClick={handlePrint} className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] px-12 duration-700 py-3 rounded-lg my-5' >Download Certificate</button>
+               <div className='relative'>
+               <button onClick={handlePrint} className='text-xl text-black border-2 border-[#3c6e71] hover:text-white font-[Poppins] hover:bg-[#3c6e71]  px-12 duration-700 py-2 rounded-lg my-5' >Download Certificate</button>
+                <img className='w-12 h-12 rounded-md absolute  top-5' src="https://cdn.dribbble.com/users/151595/screenshots/3517495/icon_downloading.gif" alt="" />
+               </div>
 
                 <div ref={componentRef} className=' border-4 p-5 text-black' style={certificatBg} >                
                    <div className='text-center'>
                         <img className='h-16 inline border-r-4 mr-2 border-[#3c6e71]' src="https://i.ibb.co/WFCHpYD/the-int-schl-advisory-board-removebg-preview.png" alt="" />
                         <img className='h-16 inline' src="https://i.ibb.co/bm10NLR/4-1.png" alt="" />
                     </div>
-                  
+                   
                     <div className='mt-10'>
                         <h2 className='md:text-4xl text-2xl font-bold uppercase text-center   font-[Monospace]'>Certificate of Online Examinition</h2>
                     </div>
