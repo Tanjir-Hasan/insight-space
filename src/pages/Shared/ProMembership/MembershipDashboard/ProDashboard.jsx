@@ -12,20 +12,21 @@ const ProDashboard = () => {
 
     useTitle('Quiz Dashboard');
     const { theme } = useContext(ThemeContext);
-
+    
     return (
         <div className={`flex pt-10 md:px-5 px-2 ${theme} `}>
             {/* Navigation Bar */}
-            <div className={`${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} ${theme} transition-transform duration-300 ease-in-out fixed top-0 left-0 w-80 bg-[#F0EFEB] px-6 py-4  min-h-screen`}>
+            <div className={`${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} ${theme} transition-transform duration-300 ease-in-out fixed top-0 left-0 w-80 / bg-[#F0EFEB] px-6 py-4  min-h-screen`}>
                 {/* Navigation Content */}
                 <nav>
                     <ul className="space-y-4 border-b-4 border-[#3c6e71] py-10 mt-12">
-                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-dashboard">DashBoard</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-dashboard">Quiz DashBoard</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/leader-board">Leaderboard</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/pro-memberShip/mock-test">Mock Test</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/pro-memberShip/live-exam">Live Exam</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/model-test">Model Test</ActiveLink></li>
-                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-rules">Rules & Regulations</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/download-certificate">DownLoad Certificate</ActiveLink></li>
+                        <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/pro-memberShip/quiz-rules">Rules & Regulations</ActiveLink></li>                     
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/all-Instructor">Instructors</ActiveLink></li>
                     </ul>
 

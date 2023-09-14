@@ -14,8 +14,9 @@ import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
 
 import useTitle from '../../Hooks/useTitle';
-import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
+
 import LatestBlog from './LatestBlog';
+import useNewsFeedFunctionality from '../../Hooks/useNewsFeedFunctionality';
 
 
 const BlogFeed = () => {

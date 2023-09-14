@@ -11,7 +11,8 @@ import NewsFooter from "./NewsFooter";
 import { useRef } from "react";
 import { SlClose, SlGlobe } from 'react-icons/sl';
 import useMyPayments from "../../../Hooks/useMyPayments";
-import useNewsFeedFunctionality from "../../../Hooks/useNewsfeedFunctionality";
+import useNewsFeedFunctionality from "../../../Hooks/useNewsFeedFunctionality";
+
 
 
 

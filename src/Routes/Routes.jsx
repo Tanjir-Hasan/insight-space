@@ -42,6 +42,7 @@ import UsersPaymentHistory from "../pages/InstructorDashBoard/PaymentHistory/Use
 import AllInstructor from "../pages/InstructorDashBoard/AllInstructor/AllInstructor";
 import MyQuiz from "../pages/InstructorDashBoard/MyQuiz/MyQuiz";
 import AddQuiz from "../pages/InstructorDashBoard/AddQuiz/AddQuiz";
+import DownLoadCertificate from "../pages/Shared/ProMembership/DownLoadCertificate/DownLoadCertificate";
 
 
 const router = createBrowserRouter([
@@ -180,6 +181,10 @@ const router = createBrowserRouter([
           {
             path : "leader-board",
             element : <LeaderBoard></LeaderBoard>
+          },
+          {
+            path : "download-certificate",
+            element : <DownLoadCertificate></DownLoadCertificate>
           }
          
         ]

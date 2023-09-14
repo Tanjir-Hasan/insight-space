@@ -2,8 +2,8 @@ import React, { useRef} from 'react';
 import { useReactToPrint } from 'react-to-print';
 
 
-const Certificate = ({certificateInf, user, subject}) => {
-   console.log(certificateInf)
+const Certificate = ({certificateInfo, user, subject}) => {
+   console.log(certificateInfo)
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -33,20 +33,20 @@ const Certificate = ({certificateInf, user, subject}) => {
                     </div>
                     <div className='text-center font-[Poppins] text-lg mt-3'>
                         <h2 className='py-2 px-8 inline bg-[#3c6e71] box-content rounded-3xl text-white'>The Certificate is granted to</h2>
-                        <h2 className='font-[Cursive] text-2xl mt-3  '>{certificateInf?.userName}</h2>
+                        <h2 className='font-[Cursive] text-2xl mt-3  '>{certificateInfo?.userName}</h2>
                         <p>For completeing the online live examinition of 2023. </p>
                         <img className='mx-auto h-28 right-0' src="https://i.ibb.co/2tNBxhQ/images-1-removebg-preview.png" alt="" />
                     </div>
 
-                    <div className=' font-[Poppins] px-20 mt-8 italic'>
-                        <p className='border-[#3c6e71] border-t border-dashed'>This Certificate of Achievement is awarded to <span className='uppercase font-semibold italic'>{certificateInf?.userName}</span> for their successful completion of the <span className=' font-semibold italic'>{certificateInf?.examName}</span> of <span className=' font-semibold italic'>{certificateInf?.subject}</span> held on <span>{certificateInf?.date}</span>. They have earned <span className=' font-semibold'>{certificateInf?.score}</span> points out of 25 Points , reflecting their dedication to learning and excellence.</p>
-                        <p className='mt-4'> <span className='uppercase font-semibold italic'>Insight spece</span> commends <span>{certificateInf?.examName}</span> for their achievement and looks forward to their continued success.</p>
+                    <div className=' font-[Poppins] px-5 md:px-20 mt-8 italic'>
+                        <p className='border-[#3c6e71] border-t border-dashed'>This Certificate of Achievement is awarded to <span className='uppercase font-semibold italic'>{certificateInfo?.userName}</span> for their successful completion of the <span className=' font-semibold italic'>{certificateInfo?.examName}</span> of <span className=' font-semibold italic'>{certificateInfo?.subject}</span> held on <span>{certificateInfo?.date}</span>. They have earned <span className=' font-semibold'>{certificateInfo?.score}</span> points out of 25 Points , reflecting their dedication to learning and excellence.</p>
+                        <p className='mt-4'> <span className='uppercase font-semibold italic'>Insight spece</span> commends <span>{certificateInfo?.userName}</span> for their achievement and looks forward to their continued success.</p>
                     </div>
 
 
                     <div className='flex justify-between items-end mt-8 '>
                         <div>
-                            <p>{certificateInf?.date}</p>
+                            <p>{certificateInfo?.date}</p>
                             <h2 className='border-t-2 border-[#3c6e71] text-xl font-semibold italic mt-1'>Date Awarded</h2>
                         </div>
                         <div className='text-center'>

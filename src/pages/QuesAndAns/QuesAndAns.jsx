@@ -4,7 +4,7 @@ import useUser from '../../Hooks/useUser';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import usePosts from '../../Hooks/usePosts';
-import useNewsFeedFunctionality from '../../Hooks/useNewsfeedFunctionality';
+
 import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaMinus, FaPlug, FaPlus } from 'react-icons/fa';
 import moment from "moment";
 import useAuth from '../../Hooks/useAuth';
@@ -13,6 +13,7 @@ import { BsSend } from 'react-icons/bs';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import useMyPayments from '../../Hooks/useMyPayments';
 import useTitle from '../../Hooks/useTitle';
+import useNewsFeedFunctionality from '../../Hooks/useNewsFeedFunctionality';
 
 const QuesAndAns = () => {
 

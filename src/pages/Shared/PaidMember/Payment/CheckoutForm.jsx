@@ -122,8 +122,8 @@ const CheckoutForm = ({ getMember, instructorData }) => {
 
   return (
     <>
-      <form className='' onSubmit={handleSubmit}>
-        <CardElement className='mb-5'
+      <form  className='' onSubmit={handleSubmit}>
+        <CardElement  className='mb-5'
           options={{
             style: {
               base: {
