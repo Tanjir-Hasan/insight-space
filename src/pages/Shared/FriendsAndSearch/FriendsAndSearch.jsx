@@ -24,7 +24,7 @@ const FriendsAndSearch = () => {
 
     const [friends] = useMyFriends();
 
-    console.log(friends);
+    // console.log(friends);
 
     const [axiosSecure] = useAxiosSecure();
 

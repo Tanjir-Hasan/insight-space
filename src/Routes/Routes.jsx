@@ -42,6 +42,7 @@ import UsersPaymentHistory from "../pages/InstructorDashBoard/PaymentHistory/Use
 import AllInstructor from "../pages/InstructorDashBoard/AllInstructor/AllInstructor";
 import MyQuiz from "../pages/InstructorDashBoard/MyQuiz/MyQuiz";
 import AddQuiz from "../pages/InstructorDashBoard/AddQuiz/AddQuiz";
+import DownLoadCertificate from "../pages/Shared/ProMembership/DownLoadCertificate/DownLoadCertificate";
 import PremiumRoute from "./PremiumRoute";
 
 
@@ -177,6 +178,14 @@ const router = createBrowserRouter([
           {
             path: "quiz-rules",
             element: <PremiumRoute><QuizRules></QuizRules></PremiumRoute>
+          },
+          {
+            path: "leader-board",
+            element: <LeaderBoard></LeaderBoard>
+          },
+          {
+            path: "download-certificate",
+            element: <DownLoadCertificate></DownLoadCertificate>
           },
           {
             path: "leader-board",

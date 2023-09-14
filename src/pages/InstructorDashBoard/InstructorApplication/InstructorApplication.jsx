@@ -50,7 +50,7 @@ const InstructorApplication = () => {
 
                     <div className="space-y-5 md:px-0 px-6">
 
-                        <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">Apply As Instructor</h1>
+                        <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">Apply as an Instructor</h1>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <label htmlFor="message" className="block font-semibold mb-2">

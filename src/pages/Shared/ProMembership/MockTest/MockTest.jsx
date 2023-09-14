@@ -2,9 +2,10 @@ import React, { useState, useEffect, useContext, } from 'react';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import useQuizResult from '../../../../Hooks/useQuizResult';
 import { AuthContext } from '../../../../providers/AuthProvider';
-import Certificate from '../Certificate/Certificate';
 import useTitle from '../../../../Hooks/useTitle';
 import { ThemeContext } from '../../../../providers/ThemeProvider';
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from 'react-intersection-observer';
 
 
 const MockTest = () => {
@@ -17,13 +18,21 @@ const MockTest = () => {
     const [subject, setSubject] = useState([])
     const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
-    const [quizResult, mockTests, modelTest] = useQuizResult();
-    const [certificateInf , setCertificateInf] = useState([])
-
-    useTitle('Mock Test');
+    const [ref, inView] = useInView();
+    const controls = useAnimation();
     const { theme } = useContext(ThemeContext);
 
-   
+    useTitle('Mock Test');
+
+    useEffect(() => {
+        if (inView) {
+            controls.start('visible');
+        } else {
+            controls.start("hidden");
+        }
+    }, [controls, inView]);
+
+
     const handleOptionSelect = (option, questionIndex) => {
         const updatedAnswers = [...userAnswers];
         updatedAnswers[questionIndex] = option;
@@ -48,8 +57,6 @@ const MockTest = () => {
         return score;
     };
 
-
-
     const handleSubmit = () => {
         setShowResults(true);
         const date = new Date();
@@ -62,18 +69,10 @@ const MockTest = () => {
             subject: subject,
             examName: 'Mock Test'
         }
-        
+
         axiosSecure.post("/mock-test", mockTest)
             .then(data => console.log(data.data))
-
-
-        const infoData = mockTests?.find(test => test.email === user?.email)
-        setCertificateInf(infoData)
-        // console.log(infoData);
-        
-
     };
-
 
 
 
@@ -145,99 +144,144 @@ const MockTest = () => {
 
 
 
+
+
     return (
 
         <div className={`min-h-[70vh] `}>
-            <div className="flex flex-wrap gap-3 md:justify-center  ">
-                <h3 className="font-[Poppins]  bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
-                <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
-                <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
-                <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleChemistry()}>Chemistry</h3>
-                <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBiology()}>Biology</h3>
-                <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handlePhysics()}>Physics</h3>
-                <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleICT()}>ICT</h3>
-                <h3 className="font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 px-3 rounded-md cursor-pointer" onClick={() => handleGeneralKnowledge()}>General Knowledge</h3>
-            </div>
-            <h2 className='text-center  text-2xl font-bold mt-2 border-b-2 '>Select Your Subject for Mock test</h2>
+            <motion.h1
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={{
+                    visible: { opacity: 1, x: 0 },
+                    hidden: { opacity: 0, x: -100 },
+                }}
+                transition={{ duration: 0.9 }}
+
+                className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
+                Select Your subject:
+            </motion.h1>
+
+
+            <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={{
+                    visible: { opacity: 1, x: 0 },
+                    hidden: { opacity: 0, x: -100 },
+                }}
+                transition={{ duration: 0.9 }}>
+
+
+                <div className="flex flex-wrap gap-3 md:justify-center mt-5 ">
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleChemistry()}>Chemistry</h3>
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBiology()}>Biology</h3>
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handlePhysics()}>Physics</h3>
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleICT()}>ICT</h3>
+                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleGeneralKnowledge()}>General Knowledge</h3>
+                </div>
+
+
+            </motion.div>
+
+
+
             <div className=" mx-auto p-10">
                 {countdown > 0 && (
                     <div className=''>
                         <h1 className="text-4xl font-bold text-center text-red-800">Quiz Starting in {countdown} seconds...</h1>
                     </div>
                 )}
-                <div className=''>
-                    {
-                        showResult ?
-                            (
-                                <div>
 
-                                    {countdown === 0 && !showResults && (
-                                        <div>
-                                            <h1 className="text-2xl font-semibold">Mock Test- {subject}</h1>
-                                            <h2>Total Questions {quizData.length}</h2>
-                                            <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
+                <motion.div
+                    ref={ref}
+                    initial="hidden"
+                    animate={controls}
+                    variants={{
+                        visible: { opacity: 1, y: 0 },
+                        hidden: { opacity: 0, y: -100 },
+                    }}
+                    transition={{ duration: 0.9 }}>
 
-                                            <div className='grid lg:grid-cols-2 gap-10'>
-                                                {quizData.map((question, questionIndex) => (
-                                                    <div className='' key={questionIndex}>
-                                                        <h2 className="text-lg font-bold mt-4">{questionIndex + 1}. {question.question}</h2>
-                                                        <ul className="mt-2  space-y-2">
-                                                            {question.options.map((option, optionIndex) => (
-                                                                <li key={optionIndex} className=" ">
-                                                                    <label className=" items-center space-x-2">
-                                                                        <input
-                                                                            type="radio"
-                                                                            name={`question${questionIndex}`}
-                                                                            value={option}
-                                                                            checked={userAnswers[questionIndex] === option}
-                                                                            onChange={() => handleOptionSelect(option, questionIndex)}
-                                                                            className="text-blue-500 focus:ring-blue-300 mx-2 "
-                                                                        />
-                                                                        {option}
-                                                                    </label>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-                                                ))}
+
+                    <div className=''>
+                        {
+                            showResult ?
+                                (
+                                    <div>
+
+                                        {countdown === 0 && !showResults && (
+                                            <div>
+                                                <h1 className="text-2xl font-semibold">Mock Test- {subject}</h1>
+                                                <h2>Total Questions {quizData.length}</h2>
+                                                <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
+
+                                                <div className='grid lg:grid-cols-2 gap-10'>
+                                                    {quizData.map((question, questionIndex) => (
+                                                        <div className='' key={questionIndex}>
+                                                            <h2 className="text-lg font-bold mt-4">{questionIndex + 1}. {question.question}</h2>
+                                                            <ul className="mt-2  space-y-2">
+                                                                {question.options.map((option, optionIndex) => (
+                                                                    <li key={optionIndex} className=" ">
+                                                                        <label className=" items-center space-x-2">
+                                                                            <input
+                                                                                type="radio"
+                                                                                name={`question${questionIndex}`}
+                                                                                value={option}
+                                                                                checked={userAnswers[questionIndex] === option}
+                                                                                onChange={() => handleOptionSelect(option, questionIndex)}
+                                                                                className="text-blue-500 focus:ring-blue-300 mx-2 "
+                                                                            />
+                                                                            {option}
+                                                                        </label>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <div onClick={() => handleSubmit()} className='mt-4 w-full text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] text-center cursor-pointer'>
+                                                    <button  > Submit Mock Test </button>
+                                                </div>
+
                                             </div>
-                                            <div onClick={() => handleSubmit()} className='mt-4 w-full text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] text-center cursor-pointer'>
-                                                <button  > Submit Mock Test </button>
+                                        )}
+                                    </div>)
+                                :
+                                (
+                                    <div>
+                                        {countdown === 0 && !showResults && (
+                                            <div>
+                                                <button ><img className='h-10 w-12 cursor-pointer' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHzZOmexylo5sAAToZvwE9l7GRiz3sNatyJ52vztwOnPX1E45XDbRdV8sH0wrPwO9_B0&usqp=CAU" alt="" /></button>
+                                                <h1 className="text-2xl font-semibold">Mock Test </h1>
+                                                <h2>Total Questions {quizDatas?.length}</h2>
+                                                <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
+                                                <button
+                                                    onClick={() => handleBangla()}
+                                                    className="mt-4 px-10 text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] cursor-pointer">
+                                                    Start mock test
+                                                </button>
                                             </div>
+                                        )}
+                                    </div>
 
-                                        </div>
-                                    )}
-                                </div>)
-                            :
-                            (
-                                <div>
-                                    {countdown === 0 && !showResults && (
-                                        <div>
-                                            <button ><img className='h-10 w-12 cursor-pointer' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHzZOmexylo5sAAToZvwE9l7GRiz3sNatyJ52vztwOnPX1E45XDbRdV8sH0wrPwO9_B0&usqp=CAU" alt="" /></button>
-                                            <h1 className="text-2xl font-semibold">Mock Test </h1>
-                                            <h2>Total Questions {quizDatas?.length}</h2>
-                                            <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
-                                            <button
-                                                onClick={() => handleBangla()}
-                                                className="mt-4 px-10 text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] cursor-pointer">
-                                                Start mock test
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
+                                )
+                        }
+                    </div>
 
-                            )
-                    }
-                </div>
+                </motion.div>
+
 
 
                 {showResults && (
                     <div>
                         <h1 className="text-2xl font-semibold">Quiz Results</h1>
                         <p className='border-b-2 border-[#3c6e71]'>Your Score: {calculateScore()} / {quizData.length}</p>
-
-                        <Certificate certificateInf={certificateInf} user={user} subject={subject}></Certificate>
-
                         <ul className="mt-4 space-y-2 grid ld:grid-cols-2 gap-10 ">
                             {quizData.map((question, index) => (
                                 <li

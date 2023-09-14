@@ -28,7 +28,6 @@ const Signup = () => {
   // create user and user details set on database 
 
   const onSubmit = (data) => {
-
     setErrorMsg("")
     setBtnLoading(true);
 
