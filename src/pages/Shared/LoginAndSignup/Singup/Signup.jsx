@@ -9,6 +9,7 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Lottie from "lottie-react";
 import animation from '../../../../../public/spining.json';
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
+import useTitle from "../../../../Hooks/useTitle";
 
 const Signup = () => {
 
