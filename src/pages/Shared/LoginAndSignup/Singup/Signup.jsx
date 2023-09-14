@@ -9,6 +9,7 @@ import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Lottie from "lottie-react";
 import animation from '../../../../../public/spining.json';
 import ButtonWithLoading from "../../../../components/ButtonWithLoading";
+import useTitle from "../../../../Hooks/useTitle";
 
 const Signup = () => {
 
@@ -56,7 +57,7 @@ const Signup = () => {
                 updateUserProfile(name, imgURL)
                   .then(() => {
                     const newUser = { displayName: name, email, photoURL: imgURL, date, role: "regular" }
-                    axios.post('https://insight-space-server.vercel.app/add-user', newUser)
+                    axios.post('https://insight-space-server.onrender.com/add-user', newUser)
                       .then(data => {
                         setBtnLoading(false);
                         reset();

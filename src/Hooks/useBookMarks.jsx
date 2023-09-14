@@ -11,7 +11,7 @@ const useBookMarks = () => {
     const [axiosSecure] = useAxiosSecure();
     const [bookMarks, setBookMarks] = useState([]);
     const [reload, setReload] = useState(false);
-    const url = `https://insight-space-server.vercel.app/book-marks?email=${user?.email}`
+    const url = `https://insight-space-server.onrender.com/book-marks?email=${user?.email}`
     useEffect(() => {
         axiosSecure.get(url)
             .then(data => {

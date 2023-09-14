@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const usePopularPost = () => {
     const [popularPost, setPopularPost] = useState("")
-    const url = "https://insight-space-server.vercel.app/top-post"
+    const url = "http://localhost:5000/top-post"
     useEffect(() => {
         axios.get(url)
             .then(data => setPopularPost(data.data))
