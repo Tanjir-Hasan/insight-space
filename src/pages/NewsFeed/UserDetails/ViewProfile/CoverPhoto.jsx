@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 
 const CoverPhoto = () => {
   // Replace 'cover-photo-url' with the URL of the cover photo
@@ -6,6 +7,8 @@ const CoverPhoto = () => {
 
   const inputRef = useRef(null);
   const [ image, setImage] = useState("")
+
+  const [axiosSecure] = useAxiosSecure();
 
   const handleImageClick = () =>{
     inputRef.current.click();
@@ -15,6 +18,12 @@ const CoverPhoto = () => {
     const file = event.target.files[0];
     console.log(file)
     setImage(event.target.files[0])
+    axiosSecure.post("/coverphoto")
+            .then(data => {
+                if (data.data) {
+                    alert('Picture is uploaded')
+                }
+            })
   }
 
   return (
