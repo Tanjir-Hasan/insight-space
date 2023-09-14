@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LatestBlog = ({ latest }) => {
-    console.log(latest)
+    // console.log(latest)
     return (
         <div>
             <div className='mb-10'>

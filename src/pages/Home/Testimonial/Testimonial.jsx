@@ -19,7 +19,7 @@ const Testimonial = () => {
     const { data: testimonials = [] } = useQuery({
         queryKey: ['testimonials'],
         queryFn: async () => {
-            const response = await axios.get(`https://insight-space-server.vercel.app/testimonials`)
+            const response = await axios.get(`https://insight-space-server.onrender.com/testimonials`)
             return response.data;
         },
     })

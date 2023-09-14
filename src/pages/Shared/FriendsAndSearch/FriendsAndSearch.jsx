@@ -24,7 +24,7 @@ const FriendsAndSearch = () => {
 
     const [friends] = useMyFriends();
 
-    console.log(friends);
+    // console.log(friends);
 
     const [axiosSecure] = useAxiosSecure();
 
@@ -33,7 +33,7 @@ const FriendsAndSearch = () => {
         if (searchValue.trim() !== '') {
             try {
                 const response = await fetch(
-                    `https://insight-space-server.vercel.app/users?email=${searchValue.trim()}`
+                    `https://insight-space-server.onrender.com/users?email=${searchValue.trim()}`
                 );
 
                 if (response.ok) {

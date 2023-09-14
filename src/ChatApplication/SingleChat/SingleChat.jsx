@@ -8,7 +8,7 @@ import { ThemeContext } from '../../providers/ThemeProvider';
 import useTitle from '../../Hooks/useTitle';
 
 
-const socket = io(`http://localhost:5000`, {
+const socket = io(`https://insight-space-server.onrender.com`, {
     transports: ['websocket']
 });
 

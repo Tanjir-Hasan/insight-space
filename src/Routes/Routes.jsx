@@ -43,6 +43,7 @@ import AllInstructor from "../pages/InstructorDashBoard/AllInstructor/AllInstruc
 import MyQuiz from "../pages/InstructorDashBoard/MyQuiz/MyQuiz";
 import AddQuiz from "../pages/InstructorDashBoard/AddQuiz/AddQuiz";
 import DownLoadCertificate from "../pages/Shared/ProMembership/DownLoadCertificate/DownLoadCertificate";
+import PremiumRoute from "./PremiumRoute";
 
 
 const router = createBrowserRouter([
@@ -120,7 +121,7 @@ const router = createBrowserRouter([
         element: <Quiz></Quiz>
       },
       {
-        path:"instructor-application",
+        path: "instructor-application",
         element: <PrivateRoute><InstructorApplication></InstructorApplication></PrivateRoute>
       },
       {
@@ -132,8 +133,8 @@ const router = createBrowserRouter([
         element: <PrivateRoute><AllInstructor></AllInstructor></PrivateRoute>
       },
       {
-        path:"instructor-payment",
-        element :<PrivateRoute><PaidMembers></PaidMembers></PrivateRoute>
+        path: "instructor-payment",
+        element: <PrivateRoute><PaidMembers></PaidMembers></PrivateRoute>
       },
       {
         path: "payments-history",
@@ -168,25 +169,29 @@ const router = createBrowserRouter([
           },
           {
             path: "live-exam",
-            element: <LiveExam></LiveExam>
+            element: <PremiumRoute><LiveExam></LiveExam></PremiumRoute>
           },
           {
             path: "model-test",
-            element: <ModelTest></ModelTest>
+            element: <PremiumRoute><ModelTest></ModelTest></PremiumRoute>
           },
           {
             path: "quiz-rules",
-            element: <QuizRules></QuizRules>
+            element: <PremiumRoute><QuizRules></QuizRules></PremiumRoute>
           },
           {
-            path : "leader-board",
-            element : <LeaderBoard></LeaderBoard>
+            path: "leader-board",
+            element: <LeaderBoard></LeaderBoard>
           },
           {
-            path : "download-certificate",
-            element : <DownLoadCertificate></DownLoadCertificate>
+            path: "download-certificate",
+            element: <DownLoadCertificate></DownLoadCertificate>
+          },
+          {
+            path: "leader-board",
+            element: <LeaderBoard></LeaderBoard>
           }
-         
+
         ]
       },
       {
@@ -227,16 +232,16 @@ const router = createBrowserRouter([
         element: <InstructorHome></InstructorHome>
       },
       {
-        path : "payment-history",
-        element:<UsersPaymentHistory></UsersPaymentHistory>
+        path: "payment-history",
+        element: <UsersPaymentHistory></UsersPaymentHistory>
       },
       {
-        path:"my-quiz",
-        element:<MyQuiz></MyQuiz>
+        path: "my-quiz",
+        element: <MyQuiz></MyQuiz>
       },
       {
-        path :"add-quiz",
-        element :<AddQuiz></AddQuiz>
+        path: "add-quiz",
+        element: <AddQuiz></AddQuiz>
       }
     ]
   }
