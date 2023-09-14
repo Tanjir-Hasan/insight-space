@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import useUsers from '../../Hooks/useUsers';
 import useConversations from '../../Hooks/useConversations';
@@ -7,8 +7,9 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import useTitle from '../../Hooks/useTitle';
 
-
-const socket = io(`https://insight-space-server.onrender.com`, {
+const serverUrl = `https://insight-space-server.onrender.com`;
+// const serverUrl = `http://localhost:5000`;
+const socket = io(serverUrl, {
     transports: ['websocket']
 });
 
@@ -33,6 +34,8 @@ const SingleChat = () => {
     const [conversationId, setConversationId] = useState('');
 
     const [participant, setParticipant] = useState(null);
+
+    const [userStatus, setUserStatus] = useState({});
 
     const handleSubmit = (e) => {
 
@@ -77,6 +80,14 @@ const SingleChat = () => {
             .catch(err => console.log(err.message))
     };
 
+    useEffect(() => {
+
+        socket.emit("user-connected", userDetails?._id);
+        socket.on('user-status', (updatedUserStatus) => {
+            setUserStatus(updatedUserStatus);
+        });
+    }, []);
+
     return (
         <div className={`${theme} h-[calc(100vh-96px)]`}>
 
@@ -94,12 +105,20 @@ const SingleChat = () => {
                             <div key={index} className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center gap-3 mb-4`}
                                 onClick={() => getConversation(singleUserData?.conversationId, singleUserData?.user._id)}>
 
-                                <div className="w-10 h-10 rounded-full overflow-hidden mr-2">
-                                    <img src={singleUserData?.user.photoURL} alt={singleUserData?.user.displayName} />
+                                <div className='relative'>
+                                    <img className="w-10 h-10 rounded-full overflow-hidden mr-2" src={singleUserData?.user?.photoURL} alt={singleUserData?.user?.displayName} />
+                                    {
+                                        userStatus[singleUserData?.user?._id] === 'online' ? (
+                                            <div className='absolute top-5 right-1 h-3 w-3 rounded-full bg-green-500' title='Online'></div>
+                                        ) : (
+                                            <div className='absolute top-5 right-1 h-4 w-4 rounded-full bg-slate-400 border-4 border-b-gray-100' title='Offline'></div>
+                                        )
+                                    }
+                                    
                                 </div>
 
                                 <div>
-                                    <div className="font-semibold">{singleUserData?.user.displayName}</div>
+                                    <div className="font-semibold">{singleUserData?.user?.displayName}</div>
                                 </div>
 
                             </div>
@@ -192,8 +211,15 @@ const SingleChat = () => {
                                 className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center mb-4`}
                                 onClick={() => addConversation(userDetails?._id, user?._id)}>
 
-                                <div className="w-10 h-10 rounded-full overflow-hidden mr-2">
-                                    <img src={user.photoURL} alt={user.displayName} />
+                                <div className="relative">
+                                    <img className="w-10 h-10 rounded-full overflow-hidden mr-2" src={user.photoURL} alt={user.displayName} />
+                                    {
+                                        userStatus[user._id] === 'online' ? (
+                                            <div className='absolute top-5 right-1 h-3 w-3 rounded-full bg-green-500' title='Online'></div>
+                                        ) : (
+                                            <div className='absolute top-5 right-1 h-4 w-4 rounded-full bg-slate-400 border-4 border-b-gray-100' title='Offline'></div>
+                                        )
+                                    }
                                 </div>
 
                                 <div>
