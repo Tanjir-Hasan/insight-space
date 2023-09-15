@@ -34,7 +34,7 @@ const PremiumRoute = ({ children }) => {
             if (result.isConfirmed) {
                 navigate("/instructor-payment")
             } else if (result.isDenied) {
-                navigate("/mock-test")
+                navigate("/pro-memberShip/mock-test")
             }
         })
     }

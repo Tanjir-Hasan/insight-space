@@ -12,7 +12,7 @@ const SSLPayment = (formData) => {
 
         event.preventDefault();
 
-        fetch("https://insight-space-server.onrender.com/ssl-payment", {
+        fetch(`${import.meta.env.VITE_base_URL}/ssl-payment`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const usePopularPost = () => {
     const [popularPost, setPopularPost] = useState("")
-    const url = "https://insight-space-server.onrender.com/top-post"
+    const url = `${import.meta.env.VITE_base_URL}/top-post`
     useEffect(() => {
         axios.get(url)
             .then(data => setPopularPost(data.data))

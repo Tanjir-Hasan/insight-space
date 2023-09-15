@@ -56,7 +56,7 @@ const Signup = () => {
                 updateUserProfile(name, imgURL)
                   .then(() => {
                     const newUser = { displayName: name, email, photoURL: imgURL, date, role: "regular" }
-                    axios.post('https://insight-space-server.onrender.com/add-user', newUser)
+                    axios.post(`${import.meta.env.VITE_base_URL}/add-user`, newUser)
                       .then(data => {
                         setBtnLoading(false);
                         reset();

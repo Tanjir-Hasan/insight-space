@@ -44,6 +44,7 @@ import MyQuiz from "../pages/InstructorDashBoard/MyQuiz/MyQuiz";
 import AddQuiz from "../pages/InstructorDashBoard/AddQuiz/AddQuiz";
 import DownLoadCertificate from "../pages/Shared/ProMembership/DownLoadCertificate/DownLoadCertificate";
 import PremiumRoute from "./PremiumRoute";
+import InstructorRoute from "./InstructorRoute";
 
 
 const router = createBrowserRouter([
@@ -129,10 +130,6 @@ const router = createBrowserRouter([
         element: <AboutUs></AboutUs>
       },
       {
-        path: "all-Instructor",
-        element: <PrivateRoute><AllInstructor></AllInstructor></PrivateRoute>
-      },
-      {
         path: "instructor-payment",
         element: <PrivateRoute><PaidMembers></PaidMembers></PrivateRoute>
       },
@@ -177,26 +174,26 @@ const router = createBrowserRouter([
           },
           {
             path: "quiz-rules",
-            element: <PremiumRoute><QuizRules></QuizRules></PremiumRoute>
-          },
-          {
-            path: "leader-board",
-            element: <LeaderBoard></LeaderBoard>
+            element: <QuizRules></QuizRules>
           },
           {
             path: "download-certificate",
-            element: <DownLoadCertificate></DownLoadCertificate>
+            element: <PremiumRoute><DownLoadCertificate></DownLoadCertificate></PremiumRoute>
           },
           {
             path: "leader-board",
-            element: <LeaderBoard></LeaderBoard>
-          }
+            element: <PremiumRoute><LeaderBoard></LeaderBoard></PremiumRoute>
+          },
+          {
+            path: "all-Instructors",
+            element: <PrivateRoute><AllInstructor></AllInstructor></PrivateRoute>
+          },
 
         ]
       },
       {
         path: "single-chat",
-        element: <SingleChat></SingleChat>
+        element: <PrivateRoute><SingleChat></SingleChat></PrivateRoute>
       },
     ]
   },
@@ -220,28 +217,27 @@ const router = createBrowserRouter([
         path: "add-quiz",
         element: <AdminRoute><Addquiz></Addquiz></AdminRoute>
       }
-
     ]
   },
   {
     path: "instructor-dashboard",
-    element: <InstructorLayout></InstructorLayout>,
+    element: <InstructorRoute><InstructorLayout></InstructorLayout></InstructorRoute>,
     children: [
       {
         path: "home",
-        element: <InstructorHome></InstructorHome>
+        element: <InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
       },
       {
         path: "payment-history",
-        element: <UsersPaymentHistory></UsersPaymentHistory>
+        element: <InstructorRoute><UsersPaymentHistory></UsersPaymentHistory></InstructorRoute>
       },
       {
         path: "my-quiz",
-        element: <MyQuiz></MyQuiz>
+        element: <InstructorRoute><MyQuiz></MyQuiz></InstructorRoute>
       },
       {
         path: "add-quiz",
-        element: <AddQuiz></AddQuiz>
+        element: <InstructorRoute><AddQuiz></AddQuiz></InstructorRoute>
       }
     ]
   }

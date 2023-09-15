@@ -18,7 +18,7 @@ const SocialLogin = () => {
                 const { displayName, email, photoURL } = loggedUser;
                 const date = new Date();
                 const newUser = { displayName, email, photoURL, date, role: "regular" }
-                axios.post('https://insight-space-server.onrender.com/add-user', newUser)
+                axios.post(`${import.meta.env.VITE_base_URL}/add-user`, newUser)
                     .then(data => { })
                     .catch(err => { })
                 Swal.fire({

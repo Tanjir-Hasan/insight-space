@@ -6,7 +6,7 @@ import useAuth from "./useAuth";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'https://insight-space-server.vercel.app',
+    baseURL: `${import.meta.env.VITE_base_URL}`,
 });
 
 const useAxiosSecure = () => {

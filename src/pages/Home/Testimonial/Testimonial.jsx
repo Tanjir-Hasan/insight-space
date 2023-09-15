@@ -19,7 +19,7 @@ const Testimonial = () => {
     const { data: testimonials = [] } = useQuery({
         queryKey: ['testimonials'],
         queryFn: async () => {
-            const response = await axios.get(`https://insight-space-server.onrender.com/testimonials`)
+            const response = await axios.get(`${import.meta.env.VITE_base_URL}/testimonials`)
             return response.data;
         },
     })

@@ -5,14 +5,17 @@ import ActiveLink from '../../../../components/ActiveLink';
 import QuizDashboard from '../QuizDashboard/QuizDashboard';
 import { ThemeContext } from '../../../../providers/ThemeProvider';
 import useTitle from '../../../../Hooks/useTitle';
+import usePremiumUser from '../../../../Hooks/usePremiumUser';
 
 const ProDashboard = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
     const location = useLocation();
+    const [isPremiumUser] = usePremiumUser();
+    console.log(isPremiumUser);
 
     useTitle('Quiz Dashboard');
     const { theme } = useContext(ThemeContext);
-    
+
     return (
         <div className={`flex pt-10 md:px-5 px-2 ${theme} `}>
             {/* Navigation Bar */}
@@ -21,13 +24,20 @@ const ProDashboard = () => {
                 <nav>
                     <ul className="space-y-4 border-[#3c6e71] py-10 mt-12">
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/pro-memberShip/quiz-dashboard">Quiz DashBoard</ActiveLink></li>
-                        <li className='flex items-center space-x-2'><FaRandom></FaRandom><ActiveLink to="/pro-memberShip/leader-board">Leaderboard</ActiveLink></li>
+
+                        <li className='flex items-center space-x-2'><FaPencilRuler></FaPencilRuler><ActiveLink to="/pro-memberShip/quiz-rules">Rules & Regulations</ActiveLink></li>
+
+                        <li className='flex items-center space-x-2'><FaUserCheck></FaUserCheck><ActiveLink to="/pro-memberShip/all-Instructors">Our Instructors</ActiveLink></li>
+
                         <li className='flex items-center space-x-2'><FaStickyNote></FaStickyNote><ActiveLink to="/pro-memberShip/mock-test">Mock Test</ActiveLink></li>
-                        <li className='flex items-center space-x-2'><FaFileVideo></FaFileVideo><ActiveLink to="/pro-memberShip/live-exam">Live Exam</ActiveLink></li>
+
+                        <li className='flex items-center space-x-2'><FaFileVideo></FaFileVideo><ActiveLink to="/pro-memberShip/live-exam">Live Exam </ActiveLink></li>
+
                         <li className='flex items-center space-x-2'><FaHireAHelper></FaHireAHelper><ActiveLink to="/pro-memberShip/model-test">Model Test</ActiveLink></li>
+
+                        <li className='flex items-center space-x-2'><FaRandom></FaRandom><ActiveLink to="/pro-memberShip/leader-board">Leaderboard</ActiveLink></li>
+
                         <li className='flex items-center space-x-2'><FaEnvelopeOpenText></FaEnvelopeOpenText><ActiveLink to="/pro-memberShip/download-certificate">DownLoad Certificate</ActiveLink></li>
-                        <li className='flex items-center space-x-2'><FaPencilRuler></FaPencilRuler><ActiveLink to="/pro-memberShip/quiz-rules">Rules & Regulations</ActiveLink></li>                     
-                        <li className='flex items-center space-x-2'><FaUserCheck></FaUserCheck><ActiveLink to="/all-Instructor">Instructors</ActiveLink></li>
                     </ul>
 
                 </nav>

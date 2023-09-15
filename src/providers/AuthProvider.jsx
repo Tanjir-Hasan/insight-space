@@ -69,7 +69,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             if (currentUser) {
-                axios.post('https://insight-space-server.onrender.com/jwt', { email: currentUser.email })
+                axios.post(`${import.meta.env.VITE_base_URL}/jwt`, { email: currentUser.email })
                     .then(data => {
                         localStorage.setItem('access-token', data.data.token);
                         setLoading(false);

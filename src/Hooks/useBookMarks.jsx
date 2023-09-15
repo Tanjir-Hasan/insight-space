@@ -11,7 +11,7 @@ const useBookMarks = () => {
     const [axiosSecure] = useAxiosSecure();
     const [bookMarks, setBookMarks] = useState([]);
     const [reload, setReload] = useState(false);
-    const url = `https://insight-space-server.onrender.com/book-marks?email=${user?.email}`
+    const url = `${import.meta.env.VITE_base_URL}/book-marks?email=${user?.email}`
     useEffect(() => {
         axiosSecure.get(url)
             .then(data => {

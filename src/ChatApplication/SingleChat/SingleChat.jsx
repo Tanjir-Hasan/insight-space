@@ -8,7 +8,7 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 
 // const serverUrl = `http://localhost:5000`;
-const serverUrl = `https://insight-space-server.onrender.com`;
+const serverUrl = `${import.meta.env.VITE_base_URL}`;
 const socket = io(serverUrl, {
     transports: ['websocket']
 });
@@ -17,7 +17,7 @@ const SingleChat = () => {
 
     useTitle('Message');
 
-    const {user} = useAuth();
+    const { user } = useAuth();
 
     const { theme } = useContext(ThemeContext);
 
@@ -152,7 +152,7 @@ const SingleChat = () => {
                                             <div className='absolute top-5 right-1 h-4 w-4 rounded-full bg-slate-400 border-4 border-b-gray-100' title='Offline'></div>
                                         )
                                     }
-                                    
+
                                 </div>
 
                                 <div>

@@ -13,7 +13,7 @@ const SearchUser = () => {
         if (searchValue.trim() !== '') {
             try {
                 const response = await fetch(
-                    `https://insight-space-server.onrender.com/users?email=${searchValue.trim()}`
+                    `${import.meta.env.VITE_base_URL}/users?email=${searchValue.trim()}`
                 );
 
                 if (response.ok) {

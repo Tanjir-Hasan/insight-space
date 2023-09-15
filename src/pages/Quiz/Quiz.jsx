@@ -46,7 +46,7 @@ console.log(quiz)
 
 
 
-  const url = 'https://insight-space-server.onrender.com/quiz'
+  const url = `${import.meta.env.VITE_base_URL}/quiz`
   useEffect(() => {
     fetch(url)
       .then(res => res.json())

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchPosts = createAsyncThunk("post/fetchPosts" , async()=>{
-    const res = await axios.get("https://insight-space-server.onrender.com/posts")
+    const res = await axios.get(`${import.meta.env.VITE_base_URL}/posts`)
     return res.data
 })
  
