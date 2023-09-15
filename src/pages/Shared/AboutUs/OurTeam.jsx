@@ -89,7 +89,7 @@ const OurTeam = () => {
 
     return (
 
-        <div className={`${theme === 'dark' ? 'dark' : 'w-11/12 my-14 mx-auto'}`}>
+        <div className={`${theme === 'dark' ? 'dark py-14 ' : 'w-11/12 my-14 mx-auto '}`}>
             <div>
                 <div className='md:w-10/12 w-11/12 pt-5 mx-auto'>
                     <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12 mb-8'>Our Team</h2>

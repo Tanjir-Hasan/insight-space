@@ -45,7 +45,7 @@ const FAQQuestion = () => {
     return (
         <div className={`w-10/12 mx-auto my-32 p-5 rounded-lg font-[Cinzel] ${theme === 'dark' ? 'dark' : ''}`}>
             <div className=' pt-5 mx-auto'>
-                <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12 mb-8'>FAQ Question</h2>
+                <h2 className='md:text-5xl text-4xl font-[Poppins] border-b-2 border-[#3c6e71] lg:w-1/2 w-11/12 mb-8'>FAQ Questions</h2>
             </div>
 
 
