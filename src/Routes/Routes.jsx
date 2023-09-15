@@ -41,7 +41,7 @@ import InstructorApplication from "../pages/InstructorDashBoard/InstructorApplic
 import UsersPaymentHistory from "../pages/InstructorDashBoard/PaymentHistory/UsersPaymentHistory";
 import AllInstructor from "../pages/InstructorDashBoard/AllInstructor/AllInstructor";
 import MyQuiz from "../pages/InstructorDashBoard/MyQuiz/MyQuiz";
-import AddQuiz from "../pages/InstructorDashBoard/AddQuiz/AddQuiz";
+import AddQuiz from "../pages/InstructorDashBoard/AddQuiz/AddInstructorQuiz";
 import DownLoadCertificate from "../pages/Shared/ProMembership/DownLoadCertificate/DownLoadCertificate";
 import PremiumRoute from "./PremiumRoute";
 import InstructorRoute from "./InstructorRoute";

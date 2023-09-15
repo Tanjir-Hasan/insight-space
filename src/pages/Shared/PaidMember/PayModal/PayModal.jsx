@@ -18,9 +18,6 @@ const PayModal = ({ isOpen, onClose, children, getMember , instructorData }) => 
                     <SlClose className="text-2xl hover:text-[#ad2831]" />
                 </button>
                 <div className=" max-h-[80vh] overflow-y-auto mt-6"> {children}
-
-
-
                     <div>
                         <h2 className='border-y-2 text-2xl font-bold bg-slate-100 p-1'>Membership Level</h2>
                         <div className='space-y-3 border-b'>
@@ -36,7 +33,7 @@ const PayModal = ({ isOpen, onClose, children, getMember , instructorData }) => 
                                 <img className='rounded-full h-10 w-10' src={user?.photoURL} alt="" />
                             </div>
 
-                            <form className='space-y-4'>
+                            <div className='space-y-4'>
                                 <div>
                                     <h5>Username</h5>
                                     <input type="text" value={user?.displayName}
@@ -52,16 +49,16 @@ const PayModal = ({ isOpen, onClose, children, getMember , instructorData }) => 
                                     <input type="text" value={user?.email}
                                         className='border-2 p-1 rounded-md w-6/12' />
                                 </div>
-                            </form>
+                            </div>
                         </div>
 
 
                         <div>
                             <h2 className=' border-y-2 text-2xl font-bold bg-slate-100 p-1 mt-8 mb-2'>Choose Your Payment Methood</h2>
-                            <form className='flex items-center gap-2' >
+                            <div className='flex items-center gap-2' >
                                 <input type="radio" name="" value="" id="" />
                                 <p>Check Out with a Credit Card Here</p>
-                            </form>
+                            </div>
                             <div className='flex flex-wrap items-center gap-5 mt-2 px-5'>
                                 <img className='w-20 h-12 rounded-xl' src="https://i.ibb.co/028QMk6/visa-payment-card1873.jpg" alt="" />
                                 <img className='w-20 h-12 rounded-xl' src="https://i.ibb.co/x3nB9YH/Mastercard-Download-PNG.png" alt="" />
