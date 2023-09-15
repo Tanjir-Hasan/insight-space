@@ -131,7 +131,7 @@ const ShowCertificate = ({ selectedMockData }) => {
 
 
                             {/* Add your modal content here */}
-                            <div className=" max-h-[95vh] overflow-y-auto">
+                            <div className=" max-h-[95vh] overflow-y-auto animate-zoom-in">
                                 <Certificate certificateInfo={certificateInfo}></Certificate>
                             </div>
 
