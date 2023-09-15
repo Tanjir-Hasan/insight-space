@@ -3,9 +3,9 @@ import { SlClose } from 'react-icons/sl';
 import Payment from '../Payment/Payment';
 import useAuth from '../../../../Hooks/useAuth';
 
-const PayModal = ({ isOpen, onClose, children, getMember , instructorData }) => {
+const PayModal = ({ isOpen, onClose, children, getMember, instructorData }) => {
     const { user } = useAuth();
-
+    
     return (
         <div
             className={`fixed w-10/12 mx-auto text-black inset-0 z-50 flex items-center justify-center ${isOpen ? 'visible' : 'hidden'
@@ -36,25 +36,20 @@ const PayModal = ({ isOpen, onClose, children, getMember , instructorData }) => 
                             <div className='space-y-4'>
                                 <div>
                                     <h5>Username</h5>
-                                    <input type="text" value={user?.displayName}
-                                        className='border-2 p-1 rounded-md w-6/12' />
-                                </div>
-                                <div>
-                                    <h5>Password</h5>
-                                    <input type="text" placeholder='password'
-                                        className='border-2 p-1 rounded-md w-6/12' />
+                                    <input type="text" defaultValue={user?.displayName}
+                                        className='border-2 p-1 rounded-md w-6/12' readOnly />
                                 </div>
                                 <div>
                                     <h5>Email</h5>
-                                    <input type="text" value={user?.email}
-                                        className='border-2 p-1 rounded-md w-6/12' />
+                                    <input type="text" defaultValue={user?.email}
+                                        className='border-2 p-1 rounded-md w-6/12' readOnly />
                                 </div>
                             </div>
                         </div>
 
 
                         <div>
-                            <h2 className=' border-y-2 text-2xl font-bold bg-slate-100 p-1 mt-8 mb-2'>Choose Your Payment Methood</h2>
+                            <h2 className=' border-y-2 text-2xl font-bold bg-slate-100 p-1 mt-8 mb-2'>Choose Your Payment Method</h2>
                             <div className='flex items-center gap-2' >
                                 <input type="radio" name="" value="" id="" />
                                 <p>Check Out with a Credit Card Here</p>

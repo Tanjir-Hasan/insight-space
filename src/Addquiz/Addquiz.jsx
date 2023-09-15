@@ -10,7 +10,7 @@ import { ThemeContext } from '../providers/ThemeProvider';
 
 const Addquiz = () => {
     const { user, btnLoading } = useAuth()
-    console.log(user);
+    // console.log(user);
     const [axiosSecure] = useAxiosSecure();
 
     const { theme } = useContext(ThemeContext);

@@ -6,11 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import useAuth from '../../../../Hooks/useAuth';
+import useInstructor from '../../../../Hooks/useInstructor';
 
 
 
 const CheckoutForm = ({ getMember, instructorData }) => {
   const { user } = useAuth();
+  const [, , refetch] = useInstructor();
   const stripe = useStripe();
   const elements = useElements();
   const [axiosSecure] = useAxiosSecure();
@@ -110,8 +112,9 @@ const CheckoutForm = ({ getMember, instructorData }) => {
               showConfirmButton: false,
               timer: 1500
             })
+            refetch();
             navigate('/payments-history')
-
+            
           }
         })
 
@@ -122,8 +125,8 @@ const CheckoutForm = ({ getMember, instructorData }) => {
 
   return (
     <>
-      <form  className='' onSubmit={handleSubmit}>
-        <CardElement  className='mb-5'
+      <form className='' onSubmit={handleSubmit}>
+        <CardElement className='mb-5'
           options={{
             style: {
               base: {

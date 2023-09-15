@@ -17,8 +17,6 @@ import useNewsFeedFunctionality from "../../../Hooks/useNewsFeedFunctionality";
 
 
 
-
-
 const DisplayNewsFeed = ({ query }) => {
 
     const [id, setId] = useState(null);

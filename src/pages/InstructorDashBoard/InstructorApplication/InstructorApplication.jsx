@@ -15,7 +15,7 @@ const InstructorApplication = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { user, btnLoading } = useAuth();
     const [instructorData, setInstructorData] = useState({})
-    const getMember = { _id: 2, memberShip: 'Pro', price: 99 };
+    const getMember = { _id: 2, memberShip: 'Instructor', price: 99 };
 
     const openModal = () => {
         setIsModalOpen(true);
