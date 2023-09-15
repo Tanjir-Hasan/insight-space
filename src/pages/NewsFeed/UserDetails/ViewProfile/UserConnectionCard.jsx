@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const UserConnectionCard = ({ friend }) => {
-  const {photoURL, displayName} = friend;
+  const { photoURL, displayName } = friend;
 
   return (
     <>
@@ -14,9 +15,11 @@ const UserConnectionCard = ({ friend }) => {
           />
           <div className="space-y-1">
             <h4 className="font-semibold capitalize">{displayName}</h4>
-            <button className="btn border rounded-md px-2 bg-[#84a98c] text-white">
-              Message
-            </button>
+            <Link to={"/single-chat"}>
+              <button className="btn border rounded-md px-2 bg-[#84a98c] text-white">
+                Message
+              </button>
+            </Link>
           </div>
         </div>
         <hr />
