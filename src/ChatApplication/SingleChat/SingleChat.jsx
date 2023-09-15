@@ -114,7 +114,7 @@ const SingleChat = () => {
                                             <div className='absolute top-5 right-1 h-4 w-4 rounded-full bg-slate-400 border-4 border-b-gray-100' title='Offline'></div>
                                         )
                                     }
-                                    
+
                                 </div>
 
                                 <div>
@@ -193,7 +193,9 @@ const SingleChat = () => {
                                 </form>
                             </div>
 
-                            : <h1 className='flex h-[calc(100vh-40vh)] justify-center items-center font-[Poppins] text-3xl'>Start your conversation.</h1>
+                            : <div className='hidden sm:hidden md:hidden lg:block xl:block'>
+                                <span className='flex h-[calc(100vh-40vh)] justify-center items-center font-[Poppins] text-3xl'>Start your conversation.</span>
+                            </div>
                     }
 
                 </div>
