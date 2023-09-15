@@ -203,7 +203,7 @@ const Navbar = () => {
                 {isModalOpen && (
                     <div className='absolute top-20 right-0 rounded-xl'>
 
-                        <div className={`rounded-xl ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-[#f0efeb]'}`}>
+                        <div className={`rounded-xl animate-zoom-in ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-[#f0efeb]'}`}>
                             <UserDetails userDetails={userDetails}></UserDetails>
                         </div>
 

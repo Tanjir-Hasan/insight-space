@@ -147,7 +147,7 @@ const SingleChat = () => {
                                     <img className="w-10 h-10 rounded-full overflow-hidden mr-2" src={singleUserData?.user?.photoURL} alt={singleUserData?.user?.displayName} />
                                     {
                                         userStatus[singleUserData?.user?._id] === 'online' ? (
-                                            <div className='absolute top-5 right-1 h-3 w-3 rounded-full bg-green-500' title='Online'></div>
+                                            <div className='absolute top-5 right-1 h-3 w-3 rounded-full bg-green-500 border-4 border-b-gray-100' title='Online'></div>
                                         ) : (
                                             <div className='absolute top-5 right-1 h-4 w-4 rounded-full bg-slate-400 border-4 border-b-gray-100' title='Offline'></div>
                                         )

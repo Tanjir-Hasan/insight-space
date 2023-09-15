@@ -219,7 +219,7 @@ const MockTest = () => {
                                 (
                                     <div>
                                         {countdown === 0 && !showResults && (
-                                            <div>
+                                            <div className='animate-zoom-in'>
                                                 <h1 className="text-2xl font-semibold">Mock Test- {subject}</h1>
                                                 <h2>Total Questions {quizData.length}</h2>
                                                 <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
