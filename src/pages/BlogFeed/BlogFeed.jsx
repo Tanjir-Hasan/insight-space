@@ -16,8 +16,10 @@ import { BsSend } from 'react-icons/bs';
 
 import useTitle from '../../Hooks/useTitle';
 
-import LatestBlog from './LatestBlog';
+// import LatestBlog from './LatestBlog';
 import useNewsFeedFunctionality from '../../Hooks/useNewsFeedFunctionality';
+import BlogCard from './BlogCard';
+
 
 
 const BlogFeed = () => {
@@ -264,17 +266,19 @@ const BlogFeed = () => {
                     </motion.div>
                 </div>
 
+            
 
-
-
-                <div className='mt-20'>
-                    <h2 className='text-6xl border-b-2 border-[#335c67] mb-10'>Latest News</h2>
+                <div className='mt-20 pb-20'>
+                    <h2 className='text-6xl border-b-2 border-[#335c67] mb-10'>Latest Blogs</h2>
                     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10'>
                         {
-                            blogs?.map(latest => <LatestBlog key={latest?._id} latest={latest}></LatestBlog>
+                            blogs?.map(latest => <BlogCard key={latest?._id} blogs={blogs} latest={latest}></BlogCard>
                             )}
                     </div>
                 </div>
+
+
+
             </div>
         </div>
     );

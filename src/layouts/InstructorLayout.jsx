@@ -19,8 +19,11 @@ const InstructorLayout = () => {
                 <nav>
                     <ul className="space-y-4 border-b-4 border-[#3c6e71] py-10">
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/instructor-dashboard/home">Instructor Home</ActiveLink></li>
-                        <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/instructor-dashboard/payment-history">Payment History</ActiveLink></li>
+
+                        {/* <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/instructor-dashboard/payment-history">Payment History</ActiveLink></li> */}
+
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/instructor-dashboard/my-quiz">My Quiz</ActiveLink></li>
+
                         <li className='flex items-center space-x-2'><FaEdit></FaEdit><ActiveLink to="/instructor-dashboard/add-quiz">Add Quiz</ActiveLink></li>
                     </ul>
                     <ul className='space-y-4 py-10'>

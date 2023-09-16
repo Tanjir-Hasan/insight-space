@@ -12,7 +12,7 @@ const ThemeButtons = () => {
         toggleTheme('light');
         toast.success('Light Theme Activated', {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -26,7 +26,7 @@ const ThemeButtons = () => {
         toggleTheme('dark');
         toast.success('Dark Theme Activated', {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -41,7 +41,7 @@ const ThemeButtons = () => {
         toggleTheme('night');
         toast.success('Night Theme Activated', {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

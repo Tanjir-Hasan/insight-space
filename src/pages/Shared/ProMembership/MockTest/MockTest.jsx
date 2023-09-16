@@ -139,9 +139,9 @@ const MockTest = () => {
         setQuizData(bangla)
         setSubject('General Knowledge')
         setShowResult(true)
+        setShowResults(true)
+
     }
-
-
 
 
 
@@ -149,45 +149,49 @@ const MockTest = () => {
     return (
 
         <div className={`min-h-[70vh] `}>
-            <motion.h1
-                ref={ref}
-                initial="hidden"
-                animate={controls}
-                variants={{
-                    visible: { opacity: 1, x: 0 },
-                    hidden: { opacity: 0, x: -100 },
-                }}
-                transition={{ duration: 0.9 }}
 
-                className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
-                Select Your subject:
-            </motion.h1>
-
-
-            <motion.div
-                ref={ref}
-                initial="hidden"
-                animate={controls}
-                variants={{
-                    visible: { opacity: 1, x: 0 },
-                    hidden: { opacity: 0, x: -100 },
-                }}
-                transition={{ duration: 0.9 }}>
+            {!showResults ? (
+                <div>
+                    <motion.h1
+                        ref={ref}
+                        initial="hidden"
+                        animate={controls}
+                        variants={{
+                            visible: { opacity: 1, x: 0 },
+                            hidden: { opacity: 0, x: -100 },
+                        }}
+                        transition={{ duration: 0.9 }}
+                        className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
+                        Select Your subject:
+                    </motion.h1>
 
 
-                <div className="flex flex-wrap gap-3 md:justify-center mt-5 ">
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleChemistry()}>Chemistry</h3>
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBiology()}>Biology</h3>
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handlePhysics()}>Physics</h3>
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleICT()}>ICT</h3>
-                    <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleGeneralKnowledge()}>General Knowledge</h3>
+                    <motion.div
+                        ref={ref}
+                        initial="hidden"
+                        animate={controls}
+                        variants={{
+                            visible: { opacity: 1, x: 0 },
+                            hidden: { opacity: 0, x: -100 },
+                        }}
+                        transition={{ duration: 0.9 }}>
+
+                        <div className="flex flex-wrap gap-3 md:justify-center mt-5 ">
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleChemistry()}>Chemistry</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBiology()}>Biology</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handlePhysics()}>Physics</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleICT()}>ICT</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleGeneralKnowledge()}>General Knowledge</h3>
+                        </div>
+                    </motion.div>
+
                 </div>
-
-
-            </motion.div>
+            )
+                : ""
+            }
 
 
 
@@ -214,9 +218,8 @@ const MockTest = () => {
                             showResult ?
                                 (
                                     <div>
-
                                         {countdown === 0 && !showResults && (
-                                            <div>
+                                            <div className='animate-zoom-in'>
                                                 <h1 className="text-2xl font-semibold">Mock Test- {subject}</h1>
                                                 <h2>Total Questions {quizData.length}</h2>
                                                 <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
@@ -281,6 +284,7 @@ const MockTest = () => {
                 {showResults && (
                     <div>
                         <h1 className="text-2xl font-semibold">Quiz Results</h1>
+                        <h2>Subject : {subject}</h2>
                         <p className='border-b-2 border-[#3c6e71]'>Your Score: {calculateScore()} / {quizData.length}</p>
                         <ul className="mt-4 space-y-2 grid ld:grid-cols-2 gap-10 ">
                             {quizData.map((question, index) => (

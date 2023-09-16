@@ -2,19 +2,15 @@ import React, { useContext, useEffect } from 'react';
 import ButtonWithLoading from '../components/ButtonWithLoading';
 import useAuth from '../Hooks/useAuth';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
-
-
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
-import Button from '../components/Button';
-import { Link } from 'react-router-dom';
 import { ThemeContext } from '../providers/ThemeProvider';
 
 
 
 const Addquiz = () => {
     const { user, btnLoading } = useAuth()
-    console.log(user);
+    // console.log(user);
     const [axiosSecure] = useAxiosSecure();
 
     const { theme } = useContext(ThemeContext);

@@ -10,8 +10,11 @@ import UserConnections from "./UserConnections";
 
 
 const LinkedInProfile = () => {
+
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <>
+    <div className={`${theme}`}>
       <div className="flex gap-5">
         <div className="w-full lg:w-10/12">
           <div className="">
@@ -46,7 +49,7 @@ const LinkedInProfile = () => {
           <UserConnections />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

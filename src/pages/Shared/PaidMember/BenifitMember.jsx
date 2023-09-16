@@ -35,13 +35,13 @@ const BenifitMember = () => {
                     }}
                     transition={{ duration: 1.5 }}>
                     <div className={` ${theme === 'dark' ? 'dark hover:text-black' : ''} md:flex items-center gap-5 border mb-5 rounded-md hover:bg-[#d3e4d6] transition duration-1000 ease-in-out `}>
-                        <div className='md:w-[70%] p-5'>
+                        <ul className='md:w-[70%] p-5'>
                             <li>Exclusive articles, advanced tutorials, research papers, and more.</li>
                             <li>Distraction-free browsing and enhanced readability.</li>
                             <li> Downloadable resources, interactive quizzes, and customizable learning path</li>
                             <li>Access to industry experts for personalized advice and unique perspectives</li>
                             <li>Join exclusive forums or groups for networking and shared experiences</li>
-                        </div>
+                        </ul>
                         <div className='md:w-[30%] '>
                             <img className='h-56 mx-auto' src="https://images.prismic.io/swissborg-website/4b8ec6aa-c5fc-49d6-bc25-e95b0f17a10a_Hero%20image-Premium%20page-Premium.png?ixlib=gatsbyFP&auto=compress%2Cformat&fit=max&q=80&rect=0%2C0%2C2200%2C2200&w=2200&h=2200" alt="" />
                         </div>

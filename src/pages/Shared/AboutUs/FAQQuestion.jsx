@@ -94,10 +94,14 @@ const FAQQuestion = () => {
                             visible: { opacity: 1, x: 0 },
                             hidden: { opacity: 0, x: 100 },
                         }}
-                        transition={{ duration: 0.9 }}>
+                        transition={{ duration: 0.9 }}
+                        className="animate-zoom-in">
                         <h2 className='text-3xl mb-10 mt-5 border-b-2'>Here is FAQ Answer:</h2>
-                        <h2 className='font-extrabold text-2xl mb-2'>{singleQus.question ? singleQus.question : "What is porpuse your website?"} </h2>
-                        <p className=''> {singleQus.answer ? singleQus.answer : "The purpose of our website is to provide a dynamic and engaging platform for knowledge sharing and learning. We aim to foster a vibrant community of individuals who are passionate about exchanging insights, expertise, and experiences across a wide range of topics. Our website offers a diverse array of content, including videos, quizzes, blogs, group messaging, and news feeds, all designed to facilitate meaningful interactions and enhance the learning journey. Whether you're seeking to expand your understanding of a subject, connect with like-minded individuals, or contribute your own expertise, our website is a hub where knowledge is both shared and celebrated."} </p>
+                        <div className='animate-zoom-in'>
+                            <h2 className='font-extrabold text-2xl mb-2'>{singleQus.question ? singleQus.question : "What is porpuse your website?"} </h2>
+                            <p className=''> {singleQus.answer ? singleQus.answer : "The purpose of our website is to provide a dynamic and engaging platform for knowledge sharing and learning. We aim to foster a vibrant community of individuals who are passionate about exchanging insights, expertise, and experiences across a wide range of topics. Our website offers a diverse array of content, including videos, quizzes, blogs, group messaging, and news feeds, all designed to facilitate meaningful interactions and enhance the learning journey. Whether you're seeking to expand your understanding of a subject, connect with like-minded individuals, or contribute your own expertise, our website is a hub where knowledge is both shared and celebrated."} </p>
+                        </div>
+
                     </motion.div>
 
 

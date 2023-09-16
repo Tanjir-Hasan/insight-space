@@ -10,12 +10,12 @@ const AllInstructorsCard = ({ instructor }) => {
             <div className="md:flex">
                 <div>
                     <img
-                        className="h-52 w-full md:w-48 rounded-xl"
+                        className="h-full w-full md:w-52 rounded-xl"
                         src={photoURL}
                         alt="instructor image"
                     />
                 </div>
-                <div className="px-8 py-4">
+                <div className="px-6 py-4">
                     <p className="text-2xl font-bold mb-2">{displayName}</p>
                     <p className="text-md font-semibold">Email : {email}</p>
                     <p className="text-md font-semibold">Education : {educationLevel}</p>

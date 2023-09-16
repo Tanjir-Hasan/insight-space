@@ -9,24 +9,22 @@ const SSLPayment = (formData) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-
-        event.preventDefault();
-
-        fetch("https://insight-space-server.onrender.com/ssl-payment", {
+        fetch(`${import.meta.env.VITE_base_URL}/ssl-payment`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ ...data, total_amount: formData.number })
         })
-            .then(res => res.json())
-            .then(result => {
-                window.location.replace(result.url);
-                console.log(result)
-            });
-
-        console.log(data)
+        .then(res => res.json())
+        .then(result => {
+            window.location.replace(result.url);
+            console.log(result)
+        });
+    
+        console.log(data);
     };
+    
 
 
     return (

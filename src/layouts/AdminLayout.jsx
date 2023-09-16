@@ -18,7 +18,9 @@ const AdminLayout = () => {
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/admin-dashboard/adminHome">Admin Home</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaUsers></FaUsers><ActiveLink to="/admin-dashboard/all-users">All Users</ActiveLink></li>
                         <li className='flex items-center space-x-2'><FaThList></FaThList><ActiveLink to="/admin-dashboard/all-posts">All Posts</ActiveLink></li>
-                        <li className='flex items-center space-x-2'><FaEdit></FaEdit><ActiveLink to="/admin-dashboard/add-quiz">Add Quiz</ActiveLink></li>
+                        {/* <li className='flex items-center space-x-2'><FaEdit></FaEdit><ActiveLink to="/admin-dashboard/add-quiz">Add Quiz</ActiveLink></li> */}
+
+                        <li className='flex items-center space-x-2'><FaEdit></FaEdit><ActiveLink to="/admin-dashboard/payment-history">Payment History</ActiveLink></li>
                     </ul>
                     <ul className='space-y-4 py-10'>
                         <li className='flex items-center space-x-2'><FaHome></FaHome><ActiveLink to="/">Home</ActiveLink></li>

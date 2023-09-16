@@ -34,7 +34,7 @@ const TopPostShow = ({ isOpen, onClose, children, topPost }) => {
                         </svg>
                     </button>
                 </div>
-                <div className=" max-h-[90vh] overflow-y-auto  p-4">
+                <div className=" max-h-[90vh] overflow-y-auto animate-zoom-in p-4">
                     {children}
                   <div className='border-2  rounded-lg'>
                   <div className="flex items-center p-3 space-x-2 ">

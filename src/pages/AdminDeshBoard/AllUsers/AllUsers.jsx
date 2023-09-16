@@ -9,7 +9,7 @@ const AllUsers = () => {
     const [axiosSecure] = useAxiosSecure();
     const ref = useRef();
     const [allUsers, setAllUsers] = useState([]);
-    
+
     const handleDeleteUser = id => {
         Swal.fire({
             title: 'Are you sure?',
@@ -85,6 +85,14 @@ const AllUsers = () => {
             const admins = users?.filter(u => u.role === "admin");
             setAllUsers(admins)
         }
+        else if (type === "Instructors") {
+            const instructors = users?.filter(u => u.role === "instructor");
+            setAllUsers(instructors)
+        }
+        else if (type === "Premium Users") {
+            const premiumUsers = users?.filter(u => u.role === "premium");
+            setAllUsers(premiumUsers)
+        }
     }
 
 
@@ -95,6 +103,8 @@ const AllUsers = () => {
                 <select defaultValue="General Users" onClick={handleDisplayUsers} ref={ref} className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300">
                     <option>General Users</option>
                     <option>Admin Panel</option>
+                    <option>Instructors</option>
+                    <option>Premium Users</option>
                 </select>
             </div>
             <div className="hidden lg:block">
@@ -119,7 +129,7 @@ const AllUsers = () => {
                                 <td className={u.role === "admin" ? "py-2 px-4 text-center font-semibold text-red-600" : "py-2 px-4 text-center font-semibold"}>{u.role}</td>
                                 <td className="py-2 px-4 text-center font-semibold">
                                     <div className="space-x-2">
-                                        <button onClick={() => handleUserRole(u)} className="border-b-4 border[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-white transition duration-300 ease-in-out"><span hidden={u.role === "admin"}>Make Admin</span><span hidden={u.role === "regular"}>Make Regular</span></button>
+                                        <button hidden={u.role === "instructor" || u.role === "premium"} onClick={() => handleUserRole(u)} className="border-b-4 border[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-white transition duration-300 ease-in-out"><span hidden={u.role === "admin"}>Make Admin</span><span hidden={u.role === "regular"}>Make Regular</span></button>
                                         <button onClick={() => handleDeleteUser(u._id)} className="border-b-4 border[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-red-600 transition duration-300 ease-in-out">Remove User</button>
                                     </div>
                                 </td>

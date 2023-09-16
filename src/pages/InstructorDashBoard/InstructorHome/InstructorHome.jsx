@@ -47,23 +47,23 @@ const InstructorHome = () => {
                                         <div>
                                             <h4 className="font-bold mb-4 text-gray-500">Key Responsibilities of an Instructor</h4>
                                             
-                                            <p className="mb-2 font-[Cinzel]">
+                                            <div className="mb-2 font-[Cinzel]">
                                                 <p className="font-[Cinzel] ">Quality Teaching:  </p>
                                                 <div className="w-40 h-0.5 bg-gray-500"></div>
-                                                Instructors are responsible  for providing high-quality  instruction <br></br>that engages students.</p>
+                                                Instructors are responsible  for providing high-quality  instruction <br></br>that engages students.</div>
 
-                                            <p className="mb-2 font-[Cinzel] ">
+                                            <div className="mb-2 font-[Cinzel] ">
                                             <p className="font-[Cinzel]">Classroom Environment:</p> 
                                             <div className="w-40 h-0.5 bg-gray-500"></div>
                                             Instructors create a positive and inclusive learning environment.
-                                            </p>
+                                            </div>
 
 
-                                            <p className="mb-2 font-[Cinzel]">
+                                            <div className="mb-2 font-[Cinzel]">
                                             <p className="font-[Cinzel]">Assessment & Support:</p>
                                             <div className="w-40 h-0.5 bg-gray-500"></div>
                                                  They assess student progress, provide feedback, and offer support for improvement.
-                                            </p>
+                                            </div>
                                             
 
                                         </div>

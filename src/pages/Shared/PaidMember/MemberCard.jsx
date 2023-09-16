@@ -124,7 +124,7 @@ const MemberCard = () => {
 
                             <div className='flex items-center gap-1'>
                                 <img className='rounded-full h-10 w-10' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />
-                                <h2 className='uppercase font-semibold text-xl border-b-2'>  Gold MemberShip</h2>
+                                <h2 className='uppercase font-semibold text-xl border-b-2'> Premium MemberShip</h2>
                             </div>
 
                             <div className='flex gap-2 items-center'>
@@ -173,7 +173,7 @@ const MemberCard = () => {
                             </div>
 
                             <p className=' mt-5 mb-2'><span className=' font-extrabold text-4xl'>$49 USD </span><span>/ month (ex. VAT)</span></p>
-                            <div onClick={() => setGetMember({ _id: 1, memberShip: 'Basic', price: 49 })}>
+                            <div onClick={() => setGetMember({ _id: 1, memberShip: 'Premium', price: 49 })}>
                                 <button onClick={openModal} className='text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 py-2 rounded-lg'>Get Gold</button>
                             </div>
 
@@ -195,7 +195,7 @@ const MemberCard = () => {
                                 <img className='absolute h-48 -right-16 -top-4' src="https://media4.giphy.com/media/sGnVQF4n8KJgqFwxND/giphy.gif" alt="" />
                                 <div className='flex items-center gap-1'>
                                     <img className='rounded-s-full w-12 h-10' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />
-                                    <h2 className='uppercase font-semibold text-xl border-b-2'>  Pro MemberShip</h2>
+                                    <h2 className='uppercase font-semibold text-xl border-b-2'>Instructor MemberShip</h2>
                                 </div>
 
                                 <div className='flex gap-2 items-center'>

@@ -103,8 +103,10 @@ const NewsForm = () => {
 
             {/* modal body  */}
 
+            {/* TODO: modal responsive for mobile and tab */}
+
             {isModalOpen && (
-                <div className={`${theme === 'dark' ? 'dark' :
+                <div className={`${theme === 'dark' ? 'dark '  :
                     theme === 'night' ? 'night' :
                         theme === 'light' ? 'bg-[#f0efeb]' : ''} fixed top-1/3 mt-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#3c6e71] sm:w-full lg:w-2/5`}>
                     <button onClick={() => setIsModalOpen(false)} className="px-3 py-1 rounded absolute right-3 top-2">

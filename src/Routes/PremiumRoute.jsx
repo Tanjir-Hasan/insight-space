@@ -19,7 +19,7 @@ const PremiumRoute = ({ children }) => {
 
 
     if (user && isPremiumUser || isInstructor) {
-        return children
+        return children;
     }
 
 
@@ -33,8 +33,8 @@ const PremiumRoute = ({ children }) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 navigate("/instructor-payment")
-            } else if (result.isDenied) {
-                navigate("/mock-test")
+            } else if (result.isDismissed) {
+                navigate("/pro-memberShip/quiz-dashboard")
             }
         })
     }
