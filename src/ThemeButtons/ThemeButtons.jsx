@@ -56,15 +56,15 @@ const ThemeButtons = () => {
 
             <ToastContainer />
 
-            <button onClick={handleLightButtonClick} disabled={theme === 'light'} className={theme === 'light' ? 'disabled-button' : ''}>
+            <button onClick={handleLightButtonClick} disabled={theme === 'light'} className={theme === 'light' ? 'cursor-not-allowed' : ''}>
                 {theme === 'light' ? <BsFillCircleFill className='text-[#3c6e71]' /> : <BsFillCircleFill className='text-white' />}
             </button>
 
-            <button onClick={handleDarkButtonClick} disabled={theme === 'dark'} className={`px-2 ${theme === 'dark' ? 'disabled-button' : ''}`}>
+            <button onClick={handleDarkButtonClick} disabled={theme === 'dark'} className={`px-2 ${theme === 'dark' ? 'cursor-not-allowed' : ''}`}>
                 <BsFillCircleFill className={theme === 'dark' ? 'text-[#48cae4] rounded-full' : theme === 'light' ? 'text-[#001219]' : 'text-[#507dbc]'} />
             </button>
 
-            <button onClick={handleBlueButtonClick} disabled={theme === 'night'} className={theme === 'night' ? 'disabled-button' : ''}>
+            <button onClick={handleBlueButtonClick} disabled={theme === 'night'} className={theme === 'night' ? 'cursor-not-allowed' : ''}>
                 <BsFillCircleFill className={theme === 'night' ? 'text-[#48cae4] rounded-full' : 'text-[#adb5bd]'} />
             </button>
 

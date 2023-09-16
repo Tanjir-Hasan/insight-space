@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import useAuth from "../../../../Hooks/useAuth";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
-import LinkedInProfile from "./LinkedInProfile";
+import SingleUserProfile from "./SingleUserProfile";
 
 const ViewProfile = () => {
   const { info } = useAuth();
@@ -12,7 +12,7 @@ const ViewProfile = () => {
         <div>
           <div className="py-10">
             {/* <ViewMyProfile></ViewMyProfile> */}
-            <LinkedInProfile></LinkedInProfile>
+            <SingleUserProfile></SingleUserProfile>
           </div>
         </div>
       </div>

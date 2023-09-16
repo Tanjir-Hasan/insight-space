@@ -8,6 +8,8 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import Lottie from "lottie-react";
 import messageLoading from "../../../public/message-loading.json";
+import { MdSend } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 // const serverUrl = `http://localhost:5000`;
 const serverUrl = `${import.meta.env.VITE_base_URL}`;
@@ -134,8 +136,8 @@ const SingleChat = () => {
 
     return (
         <div className={`${theme}`}>
-            <>
 
+            <>
                 <div className='hidden sm:hidden md:hidden lg:block xl:block h-[calc(100vh-96px)]'>
 
                     <div className="flex">
@@ -232,16 +234,24 @@ const SingleChat = () => {
 
                                             <button
                                                 type="submit"
-                                                className={`${theme === 'light' ? 'message-btn-light' : 'message-btn-dark-night'}`}
+                                                className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : 'message-btn-dark-night'
+                                                    } ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                disabled={!newMessage.trim()}
                                             >
-                                                Send
+                                                <MdSend className='text-2xl' />
                                             </button>
 
                                         </form>
+
                                     </div>
 
                                     : <div className='hidden sm:hidden md:hidden lg:block xl:block'>
-                                        <span className='flex h-[calc(100vh-40vh)] justify-center items-center font-[Poppins] text-3xl'>Start your conversation.</span>
+                                        <div className='flex h-[calc(100vh-40vh)] justify-center items-center'>
+                                            <div className='flex flex-col items-center justify-center'>
+                                                <h1 className='font-[Poppins] text-4xl'>Start your conversation</h1>
+                                                <Lottie animationData={messageLoading} loop={true} className='' />
+                                            </div>
+                                        </div>
                                     </div>
                             }
 
@@ -251,7 +261,7 @@ const SingleChat = () => {
                             theme === 'night' ? 'night-left' :
                                 theme === 'light' ? 'bg-[#f0efeb]' : ''} w-1/4 p-4 h-screen overflow-y-auto`}>
 
-                            <h1 className='font-[Poppins] text-center text-2xl my-3'>All Users:</h1>
+                            <h1 className='font-[Poppins] text-center text-2xl my-3'>People you may know</h1>
 
                             {
                                 allUsers?.filter((u) => u._id !== singleUserData?._id)?.map((user, index) => (
@@ -287,14 +297,13 @@ const SingleChat = () => {
 
             </>
 
-
             {/* show in mobile and tablet */}
 
             <>
 
                 {/* handle buttons */}
 
-                <div className="w-full lg:hidden md:block">
+                <div className="md:w-8/12 mx-auto w-full lg:hidden md:block">
 
                     <div>
 
@@ -324,6 +333,10 @@ const SingleChat = () => {
                             {/* open form right */}
                         </div>
 
+                    </div>
+
+                    <div className='flex justify-center'>
+                        <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] mt-5 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
                     </div>
 
                 </div>
@@ -430,7 +443,7 @@ const SingleChat = () => {
 
                                 {/* send messages field */}
 
-                                <form className="flex items-center gap-3" onSubmit={handleSubmit}>
+                                <form className="flex items-center gap-3 pb-10" onSubmit={handleSubmit}>
 
                                     <input
                                         type="text"
@@ -441,20 +454,22 @@ const SingleChat = () => {
 
                                     <button
                                         type="submit"
-                                        className={`${theme === 'light' ? 'message-btn-light' : 'message-btn-dark-night'}`}
+                                        className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : 'message-btn-dark-night'
+                                            } ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                        disabled={!newMessage.trim()}
                                     >
-                                        Send
+                                        <MdSend className='text-2xl' />
                                     </button>
 
                                 </form>
-                            </div>
 
+                            </div>
                             :
                             <>
                                 {
                                     isOpenLeft || isOpenRight ? <div className='h-screen'>{null}</div> : (
-                                        <div className='lg:hidden md:block h-screen'>
-                                            <p className='text-center font-[Poppins] text-2xl'>Start your conversation.</p>
+                                        <div className='lg:hidden md:block pt-40 h-screen'>
+                                            <p className='text-center font-[Poppins] md:text-4xl text-2xl'>Start your conversation.</p>
                                             <Lottie animationData={messageLoading} loop={true} className='w-1/2 mx-auto' />
                                         </div>
                                     )
@@ -484,7 +499,7 @@ const SingleChat = () => {
                         {/* Navigation Content */}
                         <div>
 
-                            <h1 className='font-[Poppins] text-center text-2xl my-3'>All Users:</h1>
+                            <h1 className='font-[Poppins] text-center text-2xl my-3'>People you may know</h1>
 
                             {allUsers?.filter((u) => u._id !== singleUserData?._id)?.map((user, index) => (
                                 <div

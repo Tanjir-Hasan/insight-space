@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import usePosts from "../../../../Hooks/usePosts";
 import AboutMe from "./AboutMe";
 import BlogSection from "./BlogSection";
@@ -7,9 +8,10 @@ import Education from "./Education";
 import ProfileInfo from "./ProfileInfo";
 import ProfilePicture from "./ProfilePicture";
 import UserConnections from "./UserConnections";
+import { ThemeContext } from "../../../../providers/ThemeProvider";
 
 
-const LinkedInProfile = () => {
+const SingleUserProfile = () => {
 
   const { theme } = useContext(ThemeContext);
 
@@ -53,4 +55,4 @@ const LinkedInProfile = () => {
   );
 };
 
-export default LinkedInProfile;
+export default SingleUserProfile;

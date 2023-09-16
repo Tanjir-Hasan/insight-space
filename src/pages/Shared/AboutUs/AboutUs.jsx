@@ -13,7 +13,7 @@ import FAQQuestion from './FAQQuestion';
 
 
 const AboutUs = () => {
-
+    
     const { theme } = useContext(ThemeContext);
 
     const controls = useAnimation();
@@ -32,23 +32,23 @@ const AboutUs = () => {
         <div>
             <div className={`${theme}`}>
 
-                <div className="Insight-space justify-center items-center">
+                <div className="Insight-space justify-center items-center text-white">
 
                     <div className='bg-fixed bg-[url("https://images.pexels.com/photos/724994/pexels-photo-724994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")] bg-no-repeat bg-cover'>
                         <div className="lg:flex justify-between rounded-lg">
 
                             <div className="flex items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
 
-                                <div className="space-y-5 md:px-0 px-6 ml-10 hidden sm:hidden md:hidden lg:block xl:block">
+                                <div className="space-y-5 md:px-0 px-6 ">
 
-                                    <div className={`${theme === 'dark' ? ' bg-slate-400 p-5 rounded-lg' : ''}`}>
-                                        <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">About Us</h1>
-                                        <ul className="font-[Cinzel]">
-                                            <li className="list-[upper-roman] list-inside mb-2">Open Exchange of Ideas: Insight Space facilitate the open sharing of information.</li>
-                                            <li className="list-[upper-roman] list-inside mb-2">Continuous Learning: We provide accessible resources for ongoing learning.</li>
-                                            <li className="list-[upper-roman] list-inside mb-2">Community Engagement: Insight Space platforms foster communities <br></br> where users can connect, discuss, and network with peers.</li>
-                                        </ul>
-                                    </div>
+                                  <div className={`${theme === 'dark' ? ' text-black  p-5 rounded-lg' : 'text-black'}`}>
+                                  <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">About Us</h1>
+                                    <ul className="font-[Cinzel] ">
+                                        <li className="list-[upper-roman] list-inside mb-2">Open Exchange of Ideas: Insight Space facilitate the open sharing of information.</li>
+                                        <li className="list-[upper-roman] list-inside mb-2">Continuous Learning: We provide accessible resources for ongoing learning.</li>
+                                        <li className="list-[upper-roman] list-inside mb-2">Community Engagement: Insight Space platforms foster communities <br></br> where users can connect, discuss, and network with peers.</li>
+                                    </ul>
+                                  </div>
 
                                     <div className="md:w-8/12 md:mx-0 w-11/12 mx-auto">
                                         <Link to="/feedback">
@@ -77,7 +77,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className="w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-400  duration-500 rounded-3xl mb-5">
+                                    className="w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-700  duration-500 rounded-3xl mb-5">
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
                                         <div className='flex'>
@@ -103,7 +103,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className=" w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-400 duration-500 rounded-3xl mb-5">
+                                    className=" w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-700 duration-500 rounded-3xl mb-5">
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
                                         <div className='flex'>
@@ -129,7 +129,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className=" w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-400 duration-500 rounded-3xl">
+                                    className=" w-full md:w-5/6 hover:bg-[#3c6e71] bg-slate-700 duration-500 rounded-3xl">
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
                                         <div className='flex'>
@@ -147,38 +147,25 @@ const AboutUs = () => {
 
                             {/* right side card for small device */}
 
-                            <div className="lg:hidden md:block w-11/12 mx-auto py-10 space-y-3 text-black">
+                            <div
 
-                                <div className={`${theme === 'dark' ? '' : ''} bg-[#3c6e71] text-white p-5 rounded-lg`}>
-                                    <h1 className="text-4xl mb-5 mt-10 font-bold font-[Poppins]">About Us</h1>
-                                    <ul className="font-[Cinzel]">
-                                        <li className="list-[upper-roman] list-inside mb-2">Open Exchange of Ideas: Insight Space facilitate the open sharing of information.</li>
-                                        <li className="list-[upper-roman] list-inside mb-2">Continuous Learning: We provide accessible resources for ongoing learning.</li>
-                                        <li className="list-[upper-roman] list-inside mb-2">Community Engagement: Insight Space platforms foster communities <br></br> where users can connect, discuss, and network with peers.</li>
-                                    </ul>
-                                </div>
+                                className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
 
-                                <div className="md:w-8/12 md:mx-0 w-11/12 mx-auto">
-                                    <Link to="/feedback">
-                                        <Button heading="Feedback"></Button>
-                                    </Link>
-                                </div>
-
-                                <div className="bg-[#3c6e71] text-white duration-500 rounded-3xl p-5">
+                                <div className="hover:bg-[#3c6e71] duration-500 bg-slate-700 text-white rounded-3xl p-5">
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon2} alt="" /> */}
                                     </div>
                                     <p className="mt-5 font-[Cinzel] text-justify">Feedback and Continuous Improvement: Users can seek feedback on their work, ideas, or projects, leading to refinement and improvement. Constructive criticism and suggestions can be shared in a supportive environment.</p>
                                 </div>
 
-                                <div className="bg-[#3c6e71] text-white duration-500 rounded-3xl p-5">
+                                <div className="hover:bg-[#3c6e71] duration-500 bg-slate-700 text-white rounded-3xl p-5">
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon3} alt="" /> */}
                                     </div>
                                     <p className="mt-5 font-[Cinzel] text-justify">Preservation of Institutional Knowledge: As employees come and go, organizations risk losing valuable institutional knowledge. Knowledge sharing platforms help preserve this knowledge by capturing it in a format that can be passed on to new employees.</p>
                                 </div>
 
-                                <div className="bg-[#3c6e71] text-white duration-500 rounded-3xl p-5">
+                                <div className="hover:bg-[#3c6e71] duration-500 bg-slate-700 text-white rounded-3xl p-5">
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon1} alt="" /> */}
                                     </div>
