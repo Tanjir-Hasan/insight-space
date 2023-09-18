@@ -106,7 +106,7 @@ const NewsForm = () => {
             {/* TODO: modal responsive for mobile and tab */}
 
             {isModalOpen && (
-                <div className={`${theme === 'dark' ? 'dark '  :
+                <div className={`${theme === 'dark' ? 'dark ' :
                     theme === 'night' ? 'night' :
                         theme === 'light' ? 'bg-[#f0efeb]' : ''} fixed top-1/3 mt-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#3c6e71] sm:w-full lg:w-2/5`}>
                     <button onClick={() => setIsModalOpen(false)} className="px-3 py-1 rounded absolute right-3 top-2">
@@ -116,9 +116,13 @@ const NewsForm = () => {
 
                     <div className="flex my-5 gap-5">
 
-                        <button onClick={() => setIsOpen("questions")} className="text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 px-16 py-2 rounded-lg">Ask a Questions</button>
+                        <button onClick={() => setIsOpen("questions")} className={`w-full duration-700 px-16 py-2 rounded-lg ${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                            theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                                theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''}`}>Ask a Questions</button>
 
-                        <button onClick={() => setIsOpen("blogs")} className="text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] w-full duration-700 px-16 py-2 rounded-lg">Create a Blog</button>
+                        <button onClick={() => setIsOpen("blogs")} className={`w-full duration-700 px-16 py-2 rounded-lg ${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                            theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                                theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''}`}>Create a Blog</button>
 
                     </div>
 
@@ -170,10 +174,17 @@ const NewsForm = () => {
                         <form className="mt-8" onSubmit={handleBlogSubmit}>
                             <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" name="blogText" placeholder="What's on your mind?" required></textarea><br />
                             <div className="mt-4">
+
                                 <input type="file"
                                     id="fileInput"
                                     name="fileInput"
-                                    className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-black file:bg-gradient-to-r file:from-[#3c6e71] file:to-[#335c67] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" />
+                                    className={`text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full
+                                    ${theme === 'light' ? 'file:text-white file:bg-gradient-to-l file:from-[#006466] file:to-[#212f45]' : theme === 'dark' ? 'file:text-white file:bg-gradient-to-tr file:from-[#48cae4] file:to-[#051923]' :
+                                            theme === 'night' ? 'file:text-white file:bg-gradient-to-tr file:from-[#0d1b2a] file:to-[#b79ced]'
+                                                : ''}
+                                    `}
+                                />
+
                             </div>
                             <div className="mt-8">
                                 {/* fix submit button */}

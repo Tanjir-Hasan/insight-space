@@ -32,7 +32,9 @@ const Membership = () => {
 
             <div className="items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
 
-                <h1 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-10`}>
+                {/* TODO: border b is not working, paid member route button is not working*/}
+                
+                <h1 className={`${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#b79ced]' : ''} border-b-2 text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-10`}>
                     Exclusive Membership
                     <br />
                     <span className='text-xl'>- Taking it to the Next Level -</span>
@@ -45,6 +47,8 @@ const Membership = () => {
                         <div className="md:px-0 px-6">
 
                             <p className="my-10 font-sans">Dive into a realm of unparalleled privileges with our Exclusive Membership section. Elevate your experience and gain access to a curated selection of premium content, personalized services, and extraordinary offers</p>
+
+                            {/* TODO: THIS BUTTON IS NOT VISIBLE */}
                             <Link to="/paid-members">
                                 <button className="font-semibold mt-5 bg-white text-[#3c6e71] hover:bg-[#48cae4] hover:text-black px-3 py-2 rounded-sm duration-700">Show All</button>
                             </Link>

@@ -11,11 +11,16 @@ const TopPosts = () => {
     const { theme } = useContext(ThemeContext);
 
     const controls = useAnimation();
+
     const [refs, inView] = useInView();
+
     const [popularPost] = usePopularPost();
+
     const [activeId, setActiveId] = useState(null);
+
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [topPost, setTopPost] = useState([])
+
+    const [topPost, setTopPost] = useState([]);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -41,15 +46,15 @@ const TopPosts = () => {
         const findData = popularPost.find(singleData => singleData._id === _id)
         setTopPost(findData)
         console.log(_id)
-    }
+    };
 
     return (
-        <div className="">
+        <>
 
             {/* top post section start */}
             <div className="lg:w-3/12 md:w-5/12 mb-5 md:mt-20 md:mb-20 p-3 md:fixed top-0 right-0 hidden md:block lg:block xl">
 
-                <h2 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 text-center text-3xl uppercase mb-5 font-bold font-[Poppins] md:py-0 py-8`}>Top Post</h2>
+                <h2 className={`${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#0d1b2a]' : ''} border-b-2 text-center text-3xl uppercase mb-5 font-bold font-[Poppins] md:py-0 py-8`}>Top Post</h2>
 
                 <motion.div
                     ref={refs}
@@ -61,12 +66,12 @@ const TopPosts = () => {
                     }}
                     transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(82vh - 100px)' }}>
 
-                    <div className=''>
+                    <div>
                         {
                             popularPost && popularPost.map(top => <div onClick={openModal} key={top._id}>
 
-                                <div onClick={() => handleTopPost(top._id)} 
-                                className={`flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 p-2 hover:bg-[#3c6e71] duration-700 ${activeId === top._id ? "bg-[#3c6e71]" : ""} ${theme === 'light' ? "hover:text-white" : ""}`}>
+                                <div onClick={() => handleTopPost(top._id)}
+                                    className={`flex gap-2 items-center bg-opacity-40 rounded-md shadow-md mb-5 p-2 duration-700 cursor-pointer ${activeId === top._id ? "bg-[#3c6e71]" : ""} ${theme === 'light' ? 'hover:bg-[#3c6e71] hover:text-white' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
 
                                     {
                                         top?.imgURL &&
@@ -74,36 +79,37 @@ const TopPosts = () => {
                                             <img className='h-full w-full' src={top?.imgURL} alt="" />
                                         </div>
                                     }
+
                                     <div className='w-[80%] p-1'>
+
                                         <h2 className=''>{top.text.substring(0, 50)}... {"  "}
-                                            <span className='text-[#023e8a] hover:font-semibold cursor-pointer'>Read more</span>
+                                            <span className={`cursor-pointer ${theme === 'dark' ? 'text-[#48cae4]' :
+                                                theme === 'night' ? 'text-[#b79ced]' :
+                                                    theme === 'light' ? 'hover:text-[#89c2d9]' : ''}`}>Read more</span>
                                         </h2>
+
                                         <h2 className=' font-semibold'>Author: {top.userName}</h2>
+
                                     </div>
 
                                 </div>
-                            </div>)}
-                    </div>
-                </motion.div>
-            </div>
 
+                            </div>)
+                        }
+
+                    </div>
+
+                </motion.div>
+
+            </div>
 
 
             <div className="min-h-screen flex items-center justify-center">
-                <TopPostShow topPost={topPost} isOpen={isModalOpen} onClose={closeModal}>             
+                <TopPostShow topPost={topPost} isOpen={isModalOpen} onClose={closeModal}>
                 </TopPostShow>
             </div>
 
-
-
-
-
-
-
-
-
-
-        </div>
+        </>
     );
 };
 

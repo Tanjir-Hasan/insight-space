@@ -13,7 +13,7 @@ const ActiveLink = ({ to, children }) => {
     return (
         <NavLink
             to={to}
-            className={theme === 'light' ? (isActive ? 'light-active' : 'default') : (isActive ? 'active' : 'default')}
+            className={theme === 'light' ? (isActive ? 'light-active' : 'default') : theme === 'dark' ? (isActive ? 'dark-active' : 'default') : theme === 'night' ? (isActive ? 'night-active' : 'default') : 'default'}
         >
             {children}
         </NavLink>

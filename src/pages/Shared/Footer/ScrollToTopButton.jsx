@@ -15,7 +15,7 @@ const ScrollToTopButton = () => {
 
   return (
     <button onClick={scrollToTop} className="scroll-to-top-button">
-      <BsArrowUpSquare className={`text-2xl font-bold duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' : theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+      <BsArrowUpSquare className={`text-2xl font-bold duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' : theme === 'night' ? 'hover:text-[#b79ced] text-white' :
           theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`} />
     </button>
   );

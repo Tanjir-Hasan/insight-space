@@ -50,10 +50,7 @@ const SSLPaymentModal = () => {
 
     return (
         <div>
-            <div className={`flex gap-3 cursor-pointer duration-500
-            ${theme === 'dark' ? 'hover:text-[#48cae4]' :
-                        theme === 'night' ? 'hover:text-[#48cae4]' :
-                            theme === 'light' ? 'hover:text-[#3c6e71]' : ''}`}
+            <div className={`flex gap-3 cursor-pointer duration-500 ${theme === 'light' ? 'hover:text-[#3c6e71]' : theme === 'dark' ? 'hover:text-[#48cae4]' : theme === 'night' ? 'hover:text-[#b79ced]' : ''}`}
                 onClick={openModal}>
 
                 <p className='font-[Cinzel] font-bold'>Give</p>

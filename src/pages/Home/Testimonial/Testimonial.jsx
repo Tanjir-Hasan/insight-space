@@ -71,7 +71,7 @@ const Testimonial = () => {
 
                     className='md:w-10/12 w-11/12 mx-auto '>
 
-                    <h1 className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl flex md:flex-row flex-col items-baseline gap-3 font-[Poppins] lg:w-5/12 md:w-9/12 lg:pt-20 pt-10`}>
+                    <h1 className={`${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#b79ced]' : ''} border-b-2 md:text-5xl text-4xl flex md:flex-row flex-col items-baseline gap-3 font-[Poppins] lg:w-5/12 md:w-9/12 lg:pt-20 pt-10`}>
                         <span>Testimonials</span>
                         <span className='text-xl'>- Our user's saying -</span>
                     </h1>

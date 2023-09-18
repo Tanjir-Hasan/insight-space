@@ -13,6 +13,7 @@ const ChoiceUs = () => {
     const { theme } = useContext(ThemeContext);
 
     const controls = useAnimation();
+    
     const [ref, inView] = useInView();
 
     useEffect(() => {
@@ -90,7 +91,8 @@ const ChoiceUs = () => {
                             }}
                             transition={{ duration: 0.9 }}
 
-                            className="md:-left-20 w-full md:w-5/6 hover:bg-[#3c6e71] hover:text-white duration-500 rounded-3xl">
+                            className={`${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''} md:-left-20 w-full md:w-5/6 hover:text-white duration-500 rounded-3xl`}
+                            >
                             <div className="relative h-40 rounded-lg flex px-5 items-center">
                                 <div className="absolute -top-10 left-12">
                                     <img className="h-16" src={icon3}></img>
@@ -130,21 +132,21 @@ const ChoiceUs = () => {
 
                     <div className="w-11/12 mx-auto py-10 space-y-3 lg:hidden md:block">
 
-                        <div className="hover:bg-[#3c6e71] duration-500 rounded-3xl p-5">
+                        <div className={`${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''} duration-500 rounded-3xl p-5`}>
                             <div className="flex justify-center">
                                 <img className=" h-20" src={icon2} alt="" />
                             </div>
                             <p className="mt-5 font-[Cinzel] text-justify">Feedback and Continuous Improvement: Users can seek feedback on their work, ideas, or projects, leading to refinement and improvement. Constructive criticism and suggestions can be shared in a supportive environment.</p>
                         </div>
 
-                        <div className="hover:bg-[#3c6e71] duration-500 rounded-3xl p-5">
+                        <div className={`${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''} duration-500 rounded-3xl p-5`}>
                             <div className="flex justify-center">
                                 <img className=" h-20" src={icon3} alt="" />
                             </div>
                             <p className="mt-5 font-[Cinzel] text-justify">Preservation of Institutional Knowledge: As employees come and go, organizations risk losing valuable institutional knowledge. Knowledge sharing platforms help preserve this knowledge by capturing it in a format that can be passed on to new employees.</p>
                         </div>
 
-                        <div className="hover:bg-[#3c6e71] duration-500 rounded-3xl p-5">
+                        <div className={`${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''} duration-500 rounded-3xl p-5`}>
                             <div className="flex justify-center">
                                 <img className=" h-20" src={icon1} alt="" />
                             </div>

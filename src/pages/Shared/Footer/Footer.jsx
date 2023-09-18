@@ -9,8 +9,8 @@ const Footer = () => {
 
     return (
         <>
-            <div className={`${theme === 'dark' ? 'bg-[#011627]' :
-                theme === 'night' ? 'bg-[#1b263b]' :
+            <div className={`${theme === 'dark' ? 'bg-[#003049]' :
+                theme === 'night' ? 'bg-[#03071e]' :
                     theme === 'light' ? 'bg-[#f0efeb]' : ''} pt-5`}>
 
                 <div className="md:flex justify-between px-10 items-center">
@@ -28,16 +28,16 @@ const Footer = () => {
 
                     <div className="flex flex-col md:flex-row gap-5 items-center font-[Poppins] pl-4 pt-5 md:pl-0 md:pt-0 md:w-1/2 lg:w-1/3">
                         <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
-                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#b79ced] text-white' :
                                     theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`}>Terms & Conditions</Link>
                         <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
-                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#b79ced] text-white' :
                                     theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`}>Privacy Policy</Link>
                         <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
-                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#b79ced] text-white' :
                                     theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`}>Cookie Policy</Link>
                         <Link className={`hover:underline underline-offset-2 duration-700 ${theme === 'dark' ? 'hover:text-[#48cae4] text-white' :
-                                theme === 'night' ? 'hover:text-[#48cae4] text-white' :
+                                theme === 'night' ? 'hover:text-[#b79ced] text-white' :
                                     theme === 'light' ? 'hover:text-[#3c6e71] text-black' : ''}`} to="/about-us">About Us</Link>
                                     
                         <ScrollToTopButton></ScrollToTopButton>

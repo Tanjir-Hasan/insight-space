@@ -1,12 +1,18 @@
-import React from 'react';
-import { BsSend } from 'react-icons/bs';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../providers/ThemeProvider';
 import { ColorRing } from 'react-loader-spinner';
 
 const ButtonWithLoading = ({ loading, children, icon, width }) => {
+
+    const { theme } = useContext(ThemeContext);
+
     return (
         <button
             type="submit"
-            className={`bg-[#3c6e71] hover:bg-[#335c67] text-white py-2 rounded duration-700 flex justify-center items-center gap-3 text-xl font-[Poppins]  md:mx-0 mx-auto ${loading ? "bg-gray-500 hover:bg-gray-500" : "bg-[#3c6e71]"} ${width ? width : "md:w-1/3 w-11/12"}`}
+            className={`${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                    theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''} text-white py-2 rounded duration-700 flex justify-center items-center gap-3 text-xl font-[Poppins]  md:mx-0 mx-auto 
+            ${loading ? "bg-gray-500 hover:bg-gray-500" : ""} ${width ? width : "md:w-1/3 w-11/12"}`}
             disabled={loading}
         >
             {children} {loading ? <>
