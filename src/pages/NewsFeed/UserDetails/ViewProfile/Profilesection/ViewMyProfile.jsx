@@ -120,115 +120,74 @@ const ViewMyProfile = () => {
 
   return (
     <div className="relative rounded-xl shadow-xl">
-      
-      {isEdit ? (
-        <>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="md:flex gap-5 items-center"
-          >
-            <div className="grid items-center gap-5">
-              <img
-                className="w-18 h-18 rounded-full mx-auto"
-                src={photoURL}
-                alt="Photo"
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="md:flex gap-5 items-center"
+      >
+        <div className="grid items-center gap-5">
+          <img
+            className="w-80 h-80 rounded-full mx-auto"
+            src={photoURL}
+            alt="Photo"
+          />
+          {/* photoUrl  */}
+          <div className="mb-1 flex justify-center">
+            <label
+              htmlFor="photo"
+              className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#3c6e71] to-[#335c67] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer">
+              <span className="hover:cursor-pointer">Upload Photo</span>
+              <input
+                type="file"
+                id="image"
+                name="fileInput"
+                {...register("photo")}
+                className="absolute inset-0 opacity-0 hover:cursor-pointer"
               />
-              {/* photoUrl  */}
-              <div className="mb-1 flex justify-center">
-                <label
-                  htmlFor="photo"
-                  className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#3c6e71] to-[#335c67] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer">
-                  <span className="hover:cursor-pointer">Upload Photo</span>
-                  <input
-                    type="file"
-                    id="image"
-                    name="fileInput"
-                    {...register("photo")}
-                    className="absolute inset-0 opacity-0 hover:cursor-pointer"
-                  />
-                </label>
-              </div>
-            </div>
-            <div className="md:text-xl text-base mt-5 w-full md:w-1/2">
-              {/* name */}
-              {/* name */}
-              <div className="mb-1 box-border">
-                <label htmlFor="name" className="block">
-                  Name
-                </label>
-                <input
-                  className="input-field"
-                  type="text"
-                  id="name"
-                  {...register("name")}
-                  placeholder="Your Name"
-                  defaultValue={displayName}
-                />
-              </div>
-
-              {/* email */}
-              {/* email */}
-              <div className="mb-1">
-                <label htmlFor="email" className="block">
-                  Email
-                </label>
-                <input
-                  className="input-field"
-                  type="text"
-                  id="email"
-                  {...register("email")}
-                  placeholder="Enter Your Email"
-                  defaultValue={email}
-                  disabled
-                />
-              </div>
-              <ButtonWithLoading
-                icon={<BsSend />}
-                loading={btnLoading}
-                width={"w-full"}
-              >
-                Update Now!
-              </ButtonWithLoading>
-            </div>
-          </form>
-        </>
-      ) : (
-        <div className="md:flex gap-5 items-center">
-          <div className="grid items-center gap-5">
-            <img
-              className="w-18 h-18 rounded-full mx-auto"
-              src={photoURL}
-              alt=""
-            />
-            {/* Add Outline button component */}
-            <div
-              className="mx-auto w-1/2 md:w-full text-center"
-              onClick={() => setIsEdit(!isEdit)}
-            >
-              <button className="bg-[#3c6e71] text-white px-3 py-2 font-semibold rounded-md">Edit profile</button>
-            </div>
-          </div>
-          <div className="text-base">
-            
-
-            <h2 className="grid mt-4">
-              <span className="text-xl">Name:</span>
-              <span className="font-semibold">{displayName}</span>
-            </h2>
-
-            <h3 className="grid mt-4">
-              <span className="text-xl">Email Address:</span>
-              <span className="font-semibold">{email}</span>
-            </h3>
-            <p className="grid mt-4">
-              <span className="text-xl">Join Date:</span>
-              <span className="font-semibold">
-                {moment(date).format("lll")}
-              </span>
-            </p>
+            </label>
           </div>
         </div>
-      )}
+        <div className="md:text-xl text-base mt-5 w-full md:w-1/2">
+          {/* name */}
+          {/* name */}
+          <div className="mb-1 box-border">
+            <label htmlFor="name" className="block">
+              Name
+            </label>
+            <input
+              className="input-field"
+              type="text"
+              id="name"
+              {...register("name")}
+              placeholder="Your Name"
+              defaultValue={displayName}
+            />
+          </div>
+
+          {/* email */}
+          {/* email */}
+          <div className="mb-1">
+            <label htmlFor="email" className="block">
+              Email
+            </label>
+            <input
+              className="input-field"
+              type="text"
+              id="email"
+              {...register("email")}
+              placeholder="Enter Your Email"
+              defaultValue={email}
+              disabled
+            />
+          </div>
+          <ButtonWithLoading
+            icon={<BsSend />}
+            loading={btnLoading}
+            width={"w-full"}
+          >
+            Update Now!
+          </ButtonWithLoading>
+        </div>
+      </form>
     </div>
   );
 };
