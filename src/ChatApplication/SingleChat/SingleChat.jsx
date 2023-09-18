@@ -10,6 +10,7 @@ import Lottie from "lottie-react";
 import messageLoading from "../../../public/message-loading.json";
 import { MdSend } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import Search from '../../pages/NewsFeed/Search/Search';
 
 // const serverUrl = `http://localhost:5000`;
 const serverUrl = `${import.meta.env.VITE_base_URL}`;
@@ -21,7 +22,7 @@ const SingleChat = () => {
 
     useTitle('Message');
 
-    const { user } = useAuth();
+    const { user, searchText } = useAuth();
 
     const { theme } = useContext(ThemeContext);
 
@@ -270,8 +271,13 @@ const SingleChat = () => {
 
                             <h1 className='font-[Poppins] text-center text-2xl my-3'>People you may know</h1>
 
+                            {/* --------------Search Options ------------*/}
+                            <div className='py-4'>
+                                <Search placeholder={"Search By Name"}></Search>
+                            </div>
+
                             {
-                                allUsers?.filter((u) => u._id !== singleUserData?._id)?.map((user, index) => (
+                                allUsers?.filter((u) => u._id !== singleUserData?._id)?.filter((us)=>us?.displayName.toLowerCase().includes(searchText.toLowerCase())).map((user, index) => (
                                     <div
                                         key={index}
                                         className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center mb-4`}
@@ -304,7 +310,8 @@ const SingleChat = () => {
 
             </>
 
-            {/* show in mobile and tablet */}
+            {/* ------------------------show in mobile and tablet
+            ------------------------------- */}
 
             <>
 
