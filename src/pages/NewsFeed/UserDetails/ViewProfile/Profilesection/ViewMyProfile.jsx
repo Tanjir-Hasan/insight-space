@@ -1,14 +1,16 @@
 import moment from "moment";
-import useUser from "../../../../Hooks/useUser";
-import Button from "../../../../components/Button";
+
+import Button from "../../../../../components/Button";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import ButtonWithLoading from "../../../../components/ButtonWithLoading";
+import ButtonWithLoading from "../../../../../components/ButtonWithLoading";
 import { BsSend } from "react-icons/bs";
-import useAuth from "../../../../Hooks/useAuth";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import useAuth from "../../../../../Hooks/useAuth";
+
 import Swal from "sweetalert2";
 import { FaRegWindowClose } from "react-icons/fa";
+import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
+import useUser from "../../../../../Hooks/useUser";
 
 const ViewMyProfile = () => {
   const [userDetails, refetch] = useUser();
@@ -82,7 +84,7 @@ const ViewMyProfile = () => {
 
       // image hosting function
       formData.append("image", data.photo[0]);
-      const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
+      const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
       const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
       fetch(image_hosting_url, {
         method: "POST",
@@ -118,19 +120,12 @@ const ViewMyProfile = () => {
 
   return (
     <div className="relative rounded-xl shadow-xl">
-      {isEdit && (
-        <button
-          onClick={() => setIsEdit(!isEdit)}
-          className="absolute right-4 top-4"
-        >
-          <FaRegWindowClose className="md:text-2xl text-xl font-bold hover:text-[#3c6e71] duration-700" />
-        </button>
-      )}
+      
       {isEdit ? (
         <>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="md:flex gap-14 items-center"
+            className="md:flex gap-5 items-center"
           >
             <div className="grid items-center gap-5">
               <img
@@ -142,8 +137,7 @@ const ViewMyProfile = () => {
               <div className="mb-1 flex justify-center">
                 <label
                   htmlFor="photo"
-                  className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#3c6e71] to-[#335c67] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer"
-                >
+                  className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#3c6e71] to-[#335c67] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer">
                   <span className="hover:cursor-pointer">Upload Photo</span>
                   <input
                     type="file"
@@ -211,7 +205,7 @@ const ViewMyProfile = () => {
               className="mx-auto w-1/2 md:w-full text-center"
               onClick={() => setIsEdit(!isEdit)}
             >
-              <button className="bg-[#3c6e71] px-5 py-2 font-semibold rounded-md">Edit Profile</button>
+              <button className="bg-[#3c6e71] text-white px-3 py-2 font-semibold rounded-md">Edit profile</button>
             </div>
           </div>
           <div className="text-base">

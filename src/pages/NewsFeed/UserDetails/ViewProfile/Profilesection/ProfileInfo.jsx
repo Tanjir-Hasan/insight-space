@@ -1,31 +1,32 @@
 // ProfileInfo.js
 import React from "react";
-import ActiveLink from "../../../../components/ActiveLink";
+
 import {
   BsEnvelopeAtFill,
   BsFillXCircleFill,
   BsGeoAltFill,
   BsGiftFill,
 } from "react-icons/bs";
-import useUser from "../../../../Hooks/useUser";
+
 import { FaLink, FaUserCircle } from "react-icons/fa";
+import ActiveLink from "../../../../../components/ActiveLink";
+import useUser from "../../../../../Hooks/useUser";
 
 const ProfileInfo = () => {
   const [userDetails] = useUser();
   const { displayName, email } = userDetails;
 
   return (
-    <div className="mb-4">
-      <h2 className="text-2xl font-bold capitalize">{displayName}</h2>
-      <div className="">
-        <p className="capitalize">Full Stack Web Developer</p>
-        <p className="capitalize">Barisal, Bangladesh</p>
+    <div className=" ">
+      <div className="">       
+        <p className="text-xs lg:text-sm">Bachelor's in Computer Science</p>
+        <p className="text-xs lg:text-lg font-semibold">National University Bangladesh | 2016 - 2020</p>
       </div>
-      <div className="mt-3">
+      <div className="mt-1">
         <ActiveLink to={""}>
           {" "}
           <button
-            className="btn px-4 py-1 rounded-full bg-[#344e41] duration-500 text-white font-semibold :hover hover:bg-[#84a98c] "
+            className="btn text-xs px-4 py-1 rounded-full bg-[#344e41] duration-500 text-white font-semibold :hover hover:bg-[#283a2c] "
             onClick={() => window.my_modal_5.showModal()}
           >
             Contact Info
@@ -37,7 +38,7 @@ const ProfileInfo = () => {
 
       <dialog
         id="my_modal_5"
-        className="modal modal-bottom w-1/3 sm:modal-middle rounded-2xl shadow-[0px_0px_500px_600px_#000000a8] "
+        className="modal animate-zoom-in modal-bottom lg:w-4/12 md:w-8/12 w-10/12 sm:modal-middle rounded-2xl shadow-[0px_0px_500px_600px_#000000a8] "
       >
         <div className="modal-box p-5 ">
           <div className="flex justify-between  mb-2">

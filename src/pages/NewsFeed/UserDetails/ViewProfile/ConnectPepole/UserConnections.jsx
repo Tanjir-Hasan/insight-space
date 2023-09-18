@@ -1,19 +1,21 @@
 import React, { useContext } from "react";
-import UserConnectionCard from "./UserConnectionCard";
-import useMyFriends from "../../../../Hooks/useMyFriends";
+
+
 import { Link } from "react-router-dom";
+import useMyFriends from "../../../../../Hooks/useMyFriends";
+import UserConnectionCard from "./UserConnectionCard";
 
 const UserConnections = () => {
   const [friends] = useMyFriends();
 
   return (
     <>
-      <div className="h-full">
-        <h2 className="text-xl font-semibold">Connected People</h2>
-        <p className="text-sm text-gray-400">You can message them</p>
+      <div className="  p-3 rounded-lg shadow-lg ">
+        <h2 className="lg:text-xl text-base font-bold">Connected People</h2>
+        <p className="lg:text-sm text-xs pb-2 border-[#3c6e71] border-b text-gray-400">You can message them</p>
         {friends?.length > 0 ? (
           <>
-            {friends.map((friend) => (
+            {friends?.slice(0, 5).map((friend) => (
               <UserConnectionCard
                 key={friend._id}
                 friend={friend}

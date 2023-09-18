@@ -59,7 +59,7 @@ const UserDetails = ({ userDetails }) => {
     return (
         <div className={`${theme}`}>
 
-            {userDetails && <div className="p-6">
+            {userDetails && <div className="p-2">
 
                 <div className="text-center">
                     <div className="flex justify-center relative my-4">
@@ -101,7 +101,7 @@ const UserDetails = ({ userDetails }) => {
                     <hr className="underline underline-offset-8"></hr>
                 </div>
 
-                <div className="my-4 space-y-2">
+                <div className="my-4 ">
 
                     <Link to="/news-feed"> <button onClick={handleMyPosts} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>My posts </button></Link>
 
