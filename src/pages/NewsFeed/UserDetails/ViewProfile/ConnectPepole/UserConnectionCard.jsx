@@ -7,22 +7,22 @@ const UserConnectionCard = ({ friend }) => {
   return (
     <>
       <div className="">
-        <div className="flex gap-3 items-center py-8">
+        <div className="flex gap-3  items-center py-4">
           <img
-            className="rounded-full w-14 h-14 border-[#ddd] border"
+            className="rounded-full w-10 h-10  border"
             src={photoURL}
             alt={displayName}
           />
           <div className="space-y-1">
-            <h4 className="font-semibold capitalize">{displayName}</h4>
+            <h4 className="font-semibold  text-xs capitalize">{displayName}</h4>
             <Link to={"/single-chat"}>
-              <button className="btn border rounded-md px-2 bg-[#84a98c] text-white">
+              <button className="btn text-xs  border rounded-md px-2 bg-[#185325] text-white">
                 Message
               </button>
             </Link>
           </div>
         </div>
-        <hr />
+        
       </div>
     </>
   );
