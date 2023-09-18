@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 import useBlog from '../../Hooks/useBlog';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
-
 import useTitle from '../../Hooks/useTitle';
 
 // import LatestBlog from './LatestBlog';
@@ -24,7 +23,6 @@ import BlogCard from './BlogCard';
 const BlogFeed = () => {
 
     useTitle('Blog');
-
     const [posts] = usePosts();
     const [show, setShow] = useState(false);
     const [singleData, setSingleData] = useState("");
@@ -48,10 +46,9 @@ const BlogFeed = () => {
             controls.start("hidden");
         }
     }, [controls, inView]);
-
     // console.log(posts)
-
-    const haldleClick = (_id) => {
+    
+    const handleClick = (_id) => {
         const findData = posts.find(post => post._id === _id)
         setSingleData(findData)
         setActiveId(activeId === _id ? null : _id);
@@ -245,7 +242,7 @@ const BlogFeed = () => {
                         {
                             blogs && blogs?.map(p => <div key={p?._id}  >
 
-                                <div onClick={() => haldleClick(p?._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md shadow-[#3c6e71] m-5 hover:bg-[#3c6e71]  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""}`}>
+                                <div onClick={() => handleClick(p?._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md shadow-[#3c6e71] m-5 hover:bg-[#3c6e71]  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""}`}>
                                     <div>
                                         <img className='w-14 h-14 rounded-md' src={p?.imgURL} alt="" />
                                     </div>
@@ -265,7 +262,7 @@ const BlogFeed = () => {
                     </motion.div>
                 </div>
 
-            
+
 
                 <div className='mt-20 pb-20'>
                     <h2 className='text-6xl border-b-2 border-[#335c67] mb-10'>Latest Blogs</h2>

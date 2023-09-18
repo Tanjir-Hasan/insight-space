@@ -7,7 +7,7 @@ const BlogCard = ({ blogs, latest }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [hovered, setHovered] = useState(false);
     const [singleData, setSingleData] = useState([])
-    console.log(singleData)
+    // console.log(singleData)
 
     const handleHover = () => {
         setHovered(true);
