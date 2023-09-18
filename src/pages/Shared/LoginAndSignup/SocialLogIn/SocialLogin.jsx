@@ -65,14 +65,14 @@ const SocialLogin = () => {
                     onClick={handleGoogleSignIn}
                     className="btn"
                 >
-                    <FaGoogle className="text-2xl"></FaGoogle> <span className="text-2xl"> </span>
+                    <img src="https://i.ibb.co/ThJ2CcD/social.png" alt="google-login" className="w-12 hover:animate-spin" />
                 </button>
 
                 <button
                     onClick={handleGithubSignIn}
                     className="btn"
                 >
-                    <FaGithub className="text-2xl"></FaGithub> <span className="text-2xl"> </span>
+                    <img src="https://i.ibb.co/y0pVt4p/github-1.png" alt="github-login" className="w-12 hover:animate-spin" />
                 </button>
             </div>
         </div>

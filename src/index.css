@@ -152,32 +152,32 @@
 
 
 .night-left {
-  @apply bg-gradient-to-l from-[#1b263b] via-[#415a77] to-[#22223b] text-white
+  @apply bg-gradient-to-l from-[#1b263b] to-[#22223b] text-white
 }
 
 
 .night-middle {
-  @apply bg-gradient-to-bl from-[#415a77] via-[#415a77] to-[#22223b] text-white
+  @apply bg-gradient-to-bl from-[#22223b] via-[#415a77] to-[#1b263b] text-white
 }
 
 
 .night-right {
-  @apply bg-gradient-to-r from-[#1b263b] via-[#415a77] to-[#22223b] text-white
+  @apply bg-gradient-to-r to-[#1b263b] from-[#22223b] text-white
 }
 
 
 .message-btn-light {
-  @apply text-white bg-[#3c6e71] hover:bg-[#335c67]
+  @apply text-white bg-[#3c6e71] hover:bg-[#84a98c]
 }
 
 
 .message-btn-dark {
-  @apply text-black bg-[#48cae4] hover:bg-[#48cae4e6]
+  @apply text-white bg-gray-400 hover:bg-[#48cae4]
 }
 
 
 .message-btn-night {
-  @apply text-black bg-[#0d1b2a] hover:bg-[#48cae4e6]
+  @apply text-white bg-[#0d1b2a] hover:bg-[#b79ced]
 }
 
 /* single message */

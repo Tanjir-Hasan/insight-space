@@ -182,7 +182,7 @@ const SingleChat = () => {
                         <div className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#03071e]'} w-2/4 mb-3 p-4`}>
 
                             <div className='flex justify-center'>
-                                <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
+                                <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
                             </div>
 
                             {
@@ -245,7 +245,7 @@ const SingleChat = () => {
                                                 className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : theme === 'dark' ? 'message-btn-dark' : theme === 'night' ? 'message-btn-night' : ''} ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                 disabled={!newMessage.trim()}
                                             >
-                                                <MdSend className='text-2xl' />
+                                                <MdSend className='text-2xl ml-1' />
                                             </button>
 
                                         </form>
@@ -321,7 +321,7 @@ const SingleChat = () => {
                                     setOpenLeft(!isOpenLeft);
                                     setOpenRight(false)
                                 }}
-                                    className="border text-[#0096c7] hover:text-white border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700">
+                                    className={`border-2 border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700 ${theme === 'light' ? "text-[#0096c7] hover:text-white" : "text-white"}`}>
                                     My Conversation
                                 </button>
                             </div>
@@ -333,7 +333,7 @@ const SingleChat = () => {
                                     setOpenRight(!isOpenRight);
                                     setOpenLeft(false)
                                 }}
-                                    className="border text-[#0096c7] hover:text-white border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-12 py-1 rounded-lg hover:rounded-2xl duration-700">
+                                    className={`border-2 border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-12 py-1 rounded-lg hover:rounded-2xl duration-700 ${theme === 'light' ? "text-[#0096c7] hover:text-white" : "text-white"}`}>
                                     See All User
                                 </button>
                             </div>
@@ -343,7 +343,7 @@ const SingleChat = () => {
                     </div>
 
                     <div className='flex justify-center'>
-                        <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] mt-5 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
+                        <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
                     </div>
 
                 </div>
@@ -464,7 +464,7 @@ const SingleChat = () => {
                                         className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : theme === 'dark' ? 'message-btn-dark' : theme === 'night' ? 'message-btn-night' : ''} ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         disabled={!newMessage.trim()}
                                     >
-                                        <MdSend className='text-2xl' />
+                                        <MdSend className='text-2xl ml-1' />
                                     </button>
 
                                 </form>
@@ -492,7 +492,7 @@ const SingleChat = () => {
 
                 {/* open form right */}
 
-                {<div className=' lg:hidden md:block'>
+                {<div className='lg:hidden md:block'>
 
 
                     {/* Navigation Bar */}
