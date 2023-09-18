@@ -65,7 +65,7 @@ const ThemeButtons = () => {
             </button>
 
             <button onClick={handleBlueButtonClick} disabled={theme === 'night'} className={theme === 'night' ? 'cursor-not-allowed' : ''}>
-                <BsFillCircleFill className={theme === 'night' ? 'text-[#48cae4] rounded-full' : 'text-[#adb5bd]'} />
+                <BsFillCircleFill className={theme === 'night' ? 'text-[#b79ced] rounded-full' : 'text-[#a3bcf9]'} />
             </button>
 
         </div>

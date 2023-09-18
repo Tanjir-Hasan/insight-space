@@ -10,11 +10,21 @@
   @apply bg-gradient-to-l from-[#22223b] via-[#4a4e69] to-[#1b263b] text-white
 }
 
-/* 
-000814
-1b1b1e
-*/
 
+/* nav bg for mobile */
+
+
+.dark-nav {
+  @apply bg-gradient-to-tl from-gray-700 to-black text-white
+}
+
+
+.night-nav {
+  @apply bg-gradient-to-bl from-[#1b263b] to-[#22223b] text-white
+}
+
+
+/* nav bg for mobile */
 
 .dark-active {
   @apply text-[#48cae4] underline underline-offset-8;
