@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { BiMenuAltRight, BiMenu } from 'react-icons/bi';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
 import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
@@ -24,6 +24,8 @@ const Navbar = () => {
     const { theme } = useContext(ThemeContext);
 
     const navigate = useNavigate();
+
+    const location = useLocation();
 
     const [isAdmin] = useAdmin();
 
@@ -54,6 +56,10 @@ const Navbar = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isModalOpen]);
+
+    useEffect(() => {
+        setIsOpen(false); // Close the menu when location changes
+    }, [location]);
 
     const handleClickOutside = (event) => {
         const modal = document.querySelector('.modal');
@@ -155,14 +161,14 @@ const Navbar = () => {
 
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
-                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]' } h-8 w-6 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : theme === 'dark' ? 'text-[#48cae4]' : theme === 'night' ? 'text-[#b79ced]' : ''} h-8 w-6 cursor-pointer text-[#3c6e71]`} />
                             ) : (
-                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]' } h-8 w-6 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : theme === 'dark' ? 'text-[#48cae4]' : theme === 'night' ? 'text-[#b79ced]' : ''} h-8 w-6 cursor-pointer text-[#3c6e71]`} />
                             )}
                         </span>
 
                         {isOpen &&
-                            <div className={`flex flex-col gap-3 absolute top-16 right-0 px-8 duration-1000 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                            <div className={`flex flex-col gap-3 absolute top-20 right-0 px-8 py-2 rounded-bl-lg duration-1000 ${theme === 'dark' ? 'dark-nav' : theme === 'night' ? 'night-nav' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                                 <ActiveLink to="/">Home</ActiveLink>
 
