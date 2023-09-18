@@ -9,12 +9,19 @@ import useTitle from '../../../../Hooks/useTitle';
 
 
 const DownLoadCertificate = () => {
+
     const [quizResult, mockTest, modelTest] = useQuizResult();
+
     const [selectedSubjectMock, setSelectedSubjectMock] = useState('');
+
     const [selectedSubjectModel, setSelectedSubjectModel] = useState('');
+
     const [selectedMockData, setSelectedMockData] = useState([]); // State to store the filtered mock test data
+
     const { theme } = useContext(ThemeContext);
+
     const [ref, inView] = useInView();
+
     const controls = useAnimation();
 
     useTitle('Download Certificate');
@@ -65,7 +72,7 @@ const DownLoadCertificate = () => {
                     }}
                     transition={{ duration: 0.9 }}
 
-                    className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
+                    className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Cinzel] lg:w-1/2 w-11/12`}>
                     Download Certificate
                 </motion.h1>
                 <div className=''>
@@ -81,7 +88,7 @@ const DownLoadCertificate = () => {
                         }}
                         transition={{ duration: 2.0 }}>
                         <div className='grid md:grid-cols-2 lg:grid-cols-3 mt-5 gap-10'>
-                            <div className='border p-5 rounded-md bg-slate-600'>
+                            <div className='font-[Cinzel] border p-5 rounded-md bg-slate-600'>
                                 <h2 className='text-xl font-bold text-white mb-5'>Exam Name: Mock Test</h2>
                                 <select className='text-xl text-black font-semibold p-2 border-2' onClick={() => selectMock()} value={selectedSubjectMock} onChange={handleOptionChangeMock}>
                                     <option value="">Select...</option>
@@ -111,11 +118,11 @@ const DownLoadCertificate = () => {
                         </select>
                     </div> */}
 
-                            <div className='border p-5 rounded-md bg-slate-600'>
+                            <div className='font-[Cinzel] border p-5 rounded-md bg-slate-600'>
                                 <h2 className='text-xl font-bold text-white mb-5'>Exam Name: Model Test</h2>
                                 <select className='text-xl text-black font-semibold p-2 border-2' onClick={() => selectModel()} value={selectedSubjectModel} onChange={handleOptionChangeModel}>
                                     <option value="">Select...</option>
-                                    <option className='' value="বাংলা">বাংলা</option>
+                                    <option value="বাংলা">বাংলা</option>
                                     <option value="English">English</option>
                                     <option value="Higher Mathematics">Higher Mathematics</option>
                                     <option value="Chemistry">Chemistry</option>

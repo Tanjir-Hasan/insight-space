@@ -7,12 +7,16 @@ import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 
 const LeaderBoard = () => {
-    const [quizResult, mockTest, modelTest] = useQuizResult();
-    useTitle('Quiz Leaderboard');
-    const { theme } = useContext(ThemeContext);
-    const [ref, inView] = useInView();
-    const controls = useAnimation();
 
+    const [quizResult, mockTest, modelTest] = useQuizResult();
+
+    useTitle('Quiz Leader-Board');
+
+    const { theme } = useContext(ThemeContext);
+
+    const [ref, inView] = useInView();
+
+    const controls = useAnimation();
 
     useEffect(() => {
         if (inView) {
@@ -35,8 +39,8 @@ const LeaderBoard = () => {
                 }}
                 transition={{ duration: 0.9 }}
 
-                className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
-                Leader Board:
+                className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Cinzel] lg:w-1/2 w-11/12`}>
+                Leader Board
             </motion.h1>
 
 
@@ -52,7 +56,7 @@ const LeaderBoard = () => {
                 {/* chart start 2 */}
 
                 <div className='mt-6 p-5 border-2 rounded-md border-[#3c6e71]'>
-                    <h2 className='text-2xl font-bold border-b-2 mb-5'>Top 10 result history: </h2>
+                    <h2 className='text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Top 10 result history: </h2>
                     <ResponsiveContainer width='90%' height={300} className="mx-auto " >
                         <BarChart
                             height={300}
@@ -74,21 +78,21 @@ const LeaderBoard = () => {
 
                 {/* start table */}
                 <div className='mt-16 border-2 border-[#3c6e71]'>
-                    <h2 className='text-2xl font-bold border-b-2 mb-5'>Top 10 result history: </h2>
+                    <h2 className='text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Top 10 result history: </h2>
                     <div className="overflow-x-auto">
                         <table className="min-w-full">
                             <thead className='bg-sky-800  md:text-xl py-5 text-white '>
                                 <tr className=''>
-                                    <th className="px-6 py-3  text-left  font-medium tuppercase tracking-wider">
+                                    <th className="px-6 py-3 font-[Cinzel] text-left font-medium uppercase tracking-wider">
                                         No
                                     </th>
-                                    <th className="px-6 text-left   font-medium uppercase tracking-wider">
+                                    <th className="px-6 text-left font-[Cinzel] font-medium uppercase tracking-wider">
                                         Name & Email
                                     </th>
-                                    <th className="px-6 text-left  font-medium  uppercase tracking-wider">
+                                    <th className="px-6 text-left font-[Cinzel] font-medium uppercase tracking-wider">
                                         score & Subject
                                     </th>
-                                    <th className="px-6 text-left   font-medium  uppercase tracking-wider">
+                                    <th className="px-6 text-left font-[Cinzel] font-medium uppercase tracking-wider">
                                         Exam & Date
                                     </th>
 
@@ -131,7 +135,7 @@ const LeaderBoard = () => {
                                         </td>
                                         <td className="px-6 py-4  whitespace-no-wrap text-sm leading-5 text-gray-600">
                                             <div className='font-bold whitespace-nowrap'>
-                                                <p>Exam : {item?.examName}</p>
+                                                <p>Exam: {item?.examName}</p>
                                             </div>
                                             <div className='whitespace-nowrap'>
                                                 {item?.date}

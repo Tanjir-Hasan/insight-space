@@ -206,7 +206,7 @@ const FriendsAndSearch = () => {
                         ) : receivedRequests?.length > 0 ? (
                             <ul>
                                 {receivedRequests?.map(request => (
-                                    <li className='space-x-5 lg:flex justify-between gap-5 items-center' key={request._id}>
+                                    <li className='space-x-5 lg:flex justify-between gap-5 items-center mb-3' key={request._id}>
 
                                         <p className='text-lg font-serif'>{request.sender}</p>
 

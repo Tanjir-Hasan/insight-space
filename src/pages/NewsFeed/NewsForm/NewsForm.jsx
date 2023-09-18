@@ -103,6 +103,8 @@ const NewsForm = () => {
 
             {/* modal body  */}
 
+            {/* TODO: modal responsive for mobile and tab */}
+
             {isModalOpen && (
                 <div className={`${theme === 'dark' ? 'dark '  :
                     theme === 'night' ? 'night' :

@@ -1,9 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import Welcome from "../pages/Shared/Welcome/Welcome";
 import MessagesIcon from "../pages/Home/MessagesIcon/MessagesIcon";
+import SingleChat from "../ChatApplication/SingleChat/SingleChat";
 
 const Main = () => {
+
+    const navigate = useLocation();
 
     return (
         <>
@@ -15,7 +18,8 @@ const Main = () => {
                     <Welcome></Welcome>
                 </div>
 
-                <MessagesIcon />
+                {(location.pathname !== "/single-chat" && location.pathname !== "/group-conversations") && <MessagesIcon />}
+
             </>
         </>
     );

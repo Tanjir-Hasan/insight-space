@@ -6,6 +6,7 @@ import { query, collection, orderBy, onSnapshot } from 'firebase/firestore';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import useTitle from '../../Hooks/useTitle';
+import { Link } from 'react-router-dom';
 
 
 const Chat = () => {
@@ -33,6 +34,10 @@ const Chat = () => {
 
   return (
     <div className={`${theme === 'dark' ? 'dark' : ''} py-8`}>
+
+      <div className='flex justify-center'>
+        <Link to="/single-chat" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>My Messages</Link>
+      </div>
 
       <div className="mt-10 w-8/12 mx-auto">
 

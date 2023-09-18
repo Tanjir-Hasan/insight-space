@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import usePosts from "../../../../Hooks/usePosts";
 import AboutMe from "./AboutMe";
 import BlogSection from "./BlogSection";
@@ -7,11 +8,15 @@ import Education from "./Education";
 import ProfileInfo from "./ProfileInfo";
 import ProfilePicture from "./ProfilePicture";
 import UserConnections from "./UserConnections";
+import { ThemeContext } from "../../../../providers/ThemeProvider";
 
 
-const LinkedInProfile = () => {
+const SingleUserProfile = () => {
+
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <>
+    <div className={`${theme}`}>
       <div className="flex gap-5">
         <div className="w-full lg:w-10/12">
           <div className="">
@@ -46,8 +51,8 @@ const LinkedInProfile = () => {
           <UserConnections />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default LinkedInProfile;
+export default SingleUserProfile;

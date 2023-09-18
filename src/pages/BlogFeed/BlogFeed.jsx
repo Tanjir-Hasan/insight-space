@@ -5,7 +5,8 @@ import { useInView } from 'react-intersection-observer';
 import useUser from '../../Hooks/useUser';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaThList } from 'react-icons/fa';
+import { FaArrowRight, FaBookmark, FaComment, FaHistory, FaThList } from 'react-icons/fa';
+import { AiFillHeart } from 'react-icons/ai';
 import moment from "moment";
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
@@ -188,9 +189,9 @@ const BlogFeed = () => {
 
                                     <div className="w-full flex space-x-8">
 
-                                        <button onClick={() => handleReact(singleData?._id, userDetails.email)} className="flex items-center"><FaHeart className={singleData?.react?.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {singleData?.react?.length}</button>
+                                        <button onClick={() => handleReact(singleData?._id, userDetails.email)} className="flex items-center"><AiFillHeart className={singleData?.react?.includes(userDetails.email) ? "text-2xl text-red-600 me-2" : "text-2xl me-2"}></AiFillHeart> {singleData?.react?.length}</button>
 
-                                        <button onClick={() => setHide(singleData?._id)} className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {singleData?.comment?.length}</button>
+                                        <button onClick={() => setHide(singleData?._id)} className="flex items-center"><FaComment className="text-xl me-2"></FaComment> {singleData?.comment?.length}</button>
 
                                     </div>
 

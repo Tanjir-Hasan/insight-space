@@ -115,7 +115,7 @@ const Navbar = () => {
 
                 <div className='hidden sm:hidden md:hidden lg:block xl:block'>
 
-                    <div className={`flex gap-5 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                    <div className={`flex gap-5 ${theme === 'dark' ? 'bg-transparent text-white' : theme === 'night' ? 'bg-transparent text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                         <ActiveLink to="/">Home</ActiveLink>
 
@@ -155,14 +155,14 @@ const Navbar = () => {
 
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
-                                <BiMenuAltRight className='h-8 w-6 cursor-pointer text-[#3c6e71]' />
+                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]' } h-8 w-6 cursor-pointer text-[#3c6e71]`} />
                             ) : (
-                                <BiMenu className='h-8 w-6 cursor-pointer text-[#3c6e71]' />
+                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]' } h-8 w-6 cursor-pointer text-[#3c6e71]`} />
                             )}
                         </span>
 
                         {isOpen &&
-                            <div className={`flex flex-col gap-3 absolute top-16 right-0 px-5 duration-1000 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                            <div className={`flex flex-col gap-3 absolute top-16 right-0 px-8 duration-1000 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
                                 <ActiveLink to="/">Home</ActiveLink>
 
@@ -219,4 +219,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

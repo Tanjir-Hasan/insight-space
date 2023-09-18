@@ -35,6 +35,10 @@
   @apply w-full text-black border-b-2 border-[#84a98c] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#344e41] focus:bg-[#f8f9fa];
 }
 
+.input-field {
+  @apply w-full text-black border-b-2 border-[#84a98c] rounded-md px-2 py-1 box-border mb-2 focus:outline-none focus:border-[#344e41] focus:bg-[#f8f9fa];
+}
+
 
 /* carousel */
 
@@ -158,12 +162,12 @@
 
 
 .message-btn-light {
-  @apply text-xl text-white font-[Poppins] bg-[#3c6e71] hover:bg-[#335c67] px-6 duration-700 py-2 rounded-lg
+  @apply text-white bg-[#3c6e71] hover:bg-[#335c67]
 }
 
 
 .message-btn-dark-night {
-  @apply text-xl text-black font-[Poppins] bg-[#48cae4] hover:bg-[#48cae4e6] px-6 duration-700 py-2 rounded-lg
+  @apply text-black bg-[#48cae4] hover:bg-[#48cae4e6]
 }
 
 /* single message */

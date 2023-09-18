@@ -17,7 +17,7 @@ const ProDashboard = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div className={`flex pt-10 md:px-5 px-2 ${theme} `}>
+        <div className={`flex pt-10 md:px-5 px-2 ${theme}`}>
             {/* Navigation Bar */}
             <div className={`${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} ${theme} transition-transform duration-300 ease-in-out fixed top-0 left-0 w-80 / bg-[#F0EFEB] px-6 py-4  min-h-screen`}>
                 {/* Navigation Content */}
