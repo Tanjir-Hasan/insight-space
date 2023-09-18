@@ -254,11 +254,7 @@ const BlogFeed = () => {
                         {
                             blogs && blogs?.map(p => <div key={p?._id}  >
 
-<<<<<<< HEAD
-                                <div onClick={() => handleClick(p?._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md shadow-[#3c6e71] m-5 hover:bg-[#3c6e71]  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""}`}>
-=======
                                 <div onClick={() => haldleClick(p?._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md m-5 duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""} ${theme === 'light' ? 'hover:bg-[#3c6e71] hover:text-white' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
->>>>>>> e251e640fee5b6935bdc98767d8e9a2edd8b1f29
                                     <div>
                                         <img className='w-14 h-14 rounded-md' src={p?.imgURL} alt="" />
                                     </div>
@@ -281,11 +277,6 @@ const BlogFeed = () => {
 
                 </div>
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> e251e640fee5b6935bdc98767d8e9a2edd8b1f29
                 <div className='mt-20 pb-20'>
 
                     <h2 className='text-6xl border-b-2 border-[#335c67] mb-10'>Latest Blogs</h2>

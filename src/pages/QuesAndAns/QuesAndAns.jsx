@@ -40,23 +40,10 @@ const QuesAndAns = () => {
 
     const [qna, setQna] = useState([]);
 
-<<<<<<< HEAD
     useEffect(() => {
         const findQNA = posts?.filter(p => p.category !== "Blog")
         setQna(findQNA)
     }, [posts]);
-=======
-
-    useEffect(() => {
-        // Fetch quiz data from the API when the component mounts
-        axiosSecure.get("/posts")
-            .then(data => {
-                const findQNA = data?.data.filter(QNAS => QNAS.category !== "Blog")
-                setQna(findQNA)
-            })
-            .catch((error) => console.error("Error fetching quiz data:", error));
-    }, []);
->>>>>>> e251e640fee5b6935bdc98767d8e9a2edd8b1f29
 
     const onSubmit = data => {
         if (!data.text) {
