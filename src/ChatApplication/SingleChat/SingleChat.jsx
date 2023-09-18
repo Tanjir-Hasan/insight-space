@@ -132,13 +132,16 @@ const SingleChat = () => {
             setUserStatus(updatedUserStatus);
         });
 
-    }, [singleUserData?._id, user?.email])
+    }, [singleUserData?._id, user?.email]);
+
+
+    // TODO: SEND BUTTON AND SCROLL Y PROBLEM  
 
     return (
         <div className={`${theme}`}>
 
             <>
-                <div className='hidden sm:hidden md:hidden lg:block xl:block h-[calc(100vh-96px)]'>
+                <div className='hidden sm:hidden md:hidden lg:block xl:block h-[calc(100vh-130px)]'>
 
                     <div className="flex">
 
@@ -176,7 +179,12 @@ const SingleChat = () => {
 
                         </div>
 
-                        <div className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#03071e]'} w-2/4 my-3 p-4`}>
+                        <div className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#03071e]'} w-2/4 mb-3 p-4`}>
+
+                            <div className='flex justify-center'>
+                                <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
+                            </div>
+
                             {
                                 participant ?
                                     <div className='flex justify-between flex-col gap-3'>
@@ -197,7 +205,7 @@ const SingleChat = () => {
 
                                         <div className={`${theme === 'dark' ? 'bg-gray-900' :
                                             theme === 'night' ? 'night-middle' :
-                                                theme === 'light' ? 'bg-[#e0e1dd] text-white' : ''} h-[calc(100vh-33vh)] p-4 rounded-lg shadow-md overflow-y-auto`}
+                                                theme === 'light' ? 'bg-[#e0e1dd] text-white' : ''} h-[calc(100vh-35vh)] p-4 rounded-lg shadow-md overflow-y-auto`}
 
                                         >
 
@@ -234,8 +242,7 @@ const SingleChat = () => {
 
                                             <button
                                                 type="submit"
-                                                className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : 'message-btn-dark-night'
-                                                    } ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : theme === 'dark' ? 'message-btn-dark' : theme === 'night' ? 'message-btn-night' : ''} ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                 disabled={!newMessage.trim()}
                                             >
                                                 <MdSend className='text-2xl' />
@@ -454,8 +461,7 @@ const SingleChat = () => {
 
                                     <button
                                         type="submit"
-                                        className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : 'message-btn-dark-night'
-                                            } ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                        className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : theme === 'dark' ? 'message-btn-dark' : theme === 'night' ? 'message-btn-night' : ''} ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         disabled={!newMessage.trim()}
                                     >
                                         <MdSend className='text-2xl' />

@@ -4,8 +4,8 @@ import useUser from '../../Hooks/useUser';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import usePosts from '../../Hooks/usePosts';
-
-import { FaArrowRight, FaBookmark, FaComment, FaHeart, FaHistory, FaMinus, FaPlug, FaPlus } from 'react-icons/fa';
+import { FaArrowRight, FaBookmark, FaComment, FaHistory } from 'react-icons/fa';
+import { AiFillHeart } from 'react-icons/ai';
 import moment from "moment";
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
@@ -17,22 +17,46 @@ import useNewsFeedFunctionality from '../../Hooks/useNewsFeedFunctionality';
 
 const QuesAndAns = () => {
     useTitle('Q&A');
+
     const { theme } = useContext(ThemeContext);
+
     const ref = useRef();
+
     const [userDetails] = useUser();
-    const { user, btnLoading, setBtnLoading } = useAuth()
+
+    const { user, btnLoading, setBtnLoading } = useAuth();
+
     const [axiosSecure] = useAxiosSecure();
+
     const [posts, refetch] = usePosts();
+
     const { register, handleSubmit, reset } = useForm();
+
     const [, bages] = useMyPayments();
+
     const [hide, setHide] = useState(false);
+
     const [handleReact, handleBookMark, handleAddComment] = useNewsFeedFunctionality();
+
     const [qna, setQna] = useState([]);
 
+<<<<<<< HEAD
     useEffect(() => {
         const findQNA = posts?.filter(p => p.category !== "Blog")
         setQna(findQNA)
     }, [posts]);
+=======
+
+    useEffect(() => {
+        // Fetch quiz data from the API when the component mounts
+        axiosSecure.get("/posts")
+            .then(data => {
+                const findQNA = data?.data.filter(QNAS => QNAS.category !== "Blog")
+                setQna(findQNA)
+            })
+            .catch((error) => console.error("Error fetching quiz data:", error));
+    }, []);
+>>>>>>> e251e640fee5b6935bdc98767d8e9a2edd8b1f29
 
     const onSubmit = data => {
         if (!data.text) {
@@ -71,8 +95,6 @@ const QuesAndAns = () => {
                 });
         }
     };
-
-
 
     return (
         <div className={`${theme} pt-4 pb-8`}>
@@ -162,7 +184,7 @@ const QuesAndAns = () => {
                             </div>
                             <div className="w-full flex items-center py-6 px-8">
                                 <div className="w-full flex space-x-8">
-                                    <button onClick={() => handleReact(p._id, userDetails.email)} className="flex items-center"><FaHeart className={p.react.includes(userDetails.email) ? "text-3xl text-red-600 me-2" : "text-3xl me-2"}></FaHeart> {p.react.length}</button>
+                                    <button onClick={() => handleReact(p._id, userDetails.email)} className="flex items-center"><AiFillHeart className={p.react.includes(userDetails.email) ? "text-2xl text-[#e5383b] me-2" : "text-2xl me-2"}></AiFillHeart> {p.react.length}</button>
                                     <button onClick={() => setHide(p._id)} className="flex items-center"><FaComment className="text-2xl me-2"></FaComment> {p.comment.length}</button>
                                 </div>
                                 <div>

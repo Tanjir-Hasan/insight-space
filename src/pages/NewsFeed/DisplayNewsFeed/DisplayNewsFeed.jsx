@@ -167,11 +167,15 @@ const DisplayNewsFeed = ({ query }) => {
                                     <span hidden={id !== p._id}>{p.text}</span>
 
                                     <span hidden={id === p._id} onClick={() => setId(p._id)}
-                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
+                                        className={`${theme === 'dark' ? 'text-[#48cae4]' :
+                                        theme === 'night' ? 'text-[#b79ced]' :
+                                            theme === 'light' ? 'text-[#3c6e71]' : ''} font-extrabold hover:underline hover:underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
                                     >See More</span>
 
                                     <span hidden={id !== p._id} onClick={() => setId(0)}
-                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}>See Less</span>
+                                        className={`${theme === 'dark' ? 'text-[#48cae4]' :
+                                        theme === 'night' ? 'text-[#b79ced]' :
+                                            theme === 'light' ? 'text-[#3c6e71]' : ''} font-extrabold hover:underline hover:underline-offset-4 ms-2 text-sm cursor-pointer`}>See Less</span>
 
                                 </span>
 
