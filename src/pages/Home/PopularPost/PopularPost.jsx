@@ -60,7 +60,7 @@ const PopularPost = () => {
                                     <h2 className='font-[Cinzel]'>{topPost.text.substring(0, 70)}... {"  "}
                                         <span className={`${theme === 'dark' ? 'text-[#48cae4]' :
                                             theme === 'night' ? 'text-[#b79ced]' :
-                                                theme === 'light' ? 'text-[#3c6e71]' : ''} hover:font-semibold cursor-pointer`}
+                                                theme === 'light' ? 'text-[#00a6fb]' : ''} hover:font-semibold cursor-pointer`}
                                         ><Link to="/news-feed">Read more</Link></span>
                                     </h2>
 

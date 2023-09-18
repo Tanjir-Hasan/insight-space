@@ -69,7 +69,7 @@ const FAQ = () => {
 
                         {
                             question.map(p => <div key={p.id}>
-                                <div onClick={() => haldleClick(p.id)} className={` flex gap-2 mt-2 items-center justify-between mb-3 px-2 py-3  bg-opacity-40 rounded-md shadow-sm   hover:bg-[#3c6e71]  duration-700  ${activeId === p.id ? 'bg-[#5c9568]' : 'bg-gray-200'} ${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
+                                <div onClick={() => haldleClick(p.id)} className={` flex gap-2 mt-2 items-center justify-between mb-3 px-2 py-3  bg-opacity-40 rounded-md shadow-sm duration-700  ${activeId === p.id ? 'bg-[#5c9568]' : 'bg-gray-200'} ${theme === 'light' ? 'hover:bg-[#3c6e71] hover:text-white' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
                                     <h2 className='font-extrabold text-xl'>{p.question}</h2>
 
                                     <div className='px-5'>

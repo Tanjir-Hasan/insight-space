@@ -64,7 +64,7 @@ const AboutUs = () => {
 
                             {/* right side card for large device*/}
 
-                            <div className="relative w-10/12  hidden sm:block py-24">
+                            <div className="relative w-10/12 hidden sm:hidden md:hidden lg:block xl:block py-24">
 
                                 {/* <!-- banner top card --> */}
 
@@ -78,7 +78,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className={`w-full md:w-5/6 bg-slate-700  duration-500 rounded-3xl mb-5 ${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#48cae4]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
+                                    className={`w-full md:w-5/6 bg-slate-700  duration-500 rounded-3xl mb-5 ${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
                                         <div className='flex gap-3'>
@@ -109,7 +109,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className={`w-full md:w-5/6 bg-slate-700  duration-500 rounded-3xl mb-5 ${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#48cae4]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
+                                    className={`w-full md:w-5/6 bg-slate-700  duration-500 rounded-3xl mb-5 ${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
 
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
@@ -143,7 +143,7 @@ const AboutUs = () => {
                                     }}
                                     transition={{ duration: 0.9 }}
 
-                                    className={`w-full md:w-5/6 bg-slate-700  duration-500 rounded-3xl mb-5 ${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#48cae4]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
+                                    className={`w-full md:w-5/6 bg-slate-700  duration-500 rounded-3xl mb-5 ${theme === 'light' ? 'hover:bg-[#3c6e71]' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
 
                                     <div className="relative h-40 rounded-lg flex px-5 items-center">
 
@@ -171,7 +171,7 @@ const AboutUs = () => {
 
                             <div className="lg:hidden sm:block w-11/12 mx-auto py-10 space-y-3">
 
-                                <div className={`rounded-xl p-5 ${theme === 'light' ? 'bg-[#3c6e71] opacity-70' : theme === 'dark' ? 'bg-[#48cae4]  opacity-70' : theme === 'night' ? 'bg-[#0d1b2a]  opacity-70' : ''}`}>
+                                <div className={`rounded-xl p-5 ${theme === 'light' ? 'bg-[#3c6e71] opacity-70' : theme === 'dark' ? 'bg-[#051923]  opacity-70' : theme === 'night' ? 'bg-[#0d1b2a]  opacity-70' : ''}`}>
 
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon2} alt="" /> */}
@@ -180,14 +180,14 @@ const AboutUs = () => {
 
                                 </div>
 
-                                <div className={`rounded-xl p-5 ${theme === 'light' ? 'bg-[#3c6e71] opacity-70' : theme === 'dark' ? 'bg-[#48cae4] opacity-70' : theme === 'night' ? 'bg-[#0d1b2a]  opacity-70' : ''}`}>
+                                <div className={`rounded-xl p-5 ${theme === 'light' ? 'bg-[#3c6e71] opacity-70' : theme === 'dark' ? 'bg-[#051923] opacity-70' : theme === 'night' ? 'bg-[#0d1b2a]  opacity-70' : ''}`}>
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon3} alt="" /> */}
                                     </div>
                                     <p className="mt-5 font-[Cinzel] text-justify">Preservation of Institutional Knowledge: As employees come and go, organizations risk losing valuable institutional knowledge. Knowledge sharing platforms help preserve this knowledge by capturing it in a format that can be passed on to new employees.</p>
                                 </div>
 
-                                <div className={`rounded-xl p-5 ${theme === 'light' ? 'bg-[#3c6e71] opacity-70' : theme === 'dark' ? 'bg-[#48cae4] opacity-70' : theme === 'night' ? 'bg-[#0d1b2a]  opacity-70' : ''}`}>
+                                <div className={`rounded-xl p-5 ${theme === 'light' ? 'bg-[#3c6e71] opacity-70' : theme === 'dark' ? 'bg-[#051923] opacity-70' : theme === 'night' ? 'bg-[#0d1b2a]  opacity-70' : ''}`}>
 
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon1} alt="" /> */}
