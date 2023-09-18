@@ -11,7 +11,6 @@ import useTitle from "../../../Hooks/useTitle";
 const NewsFeed = () => {
 
     useTitle('News Feed');
-
     const { info, searchText } = useAuth();
 
     const { theme } = useContext(ThemeContext);
@@ -34,7 +33,7 @@ const NewsFeed = () => {
 
 
                         {/* middle section */}
-                        <div className="w-6/12 mx-auto p-2 lg:p-0">
+                        <div className="sm:w-full lg:w-6/12 mx-auto p-2 lg:p-0">
 
                             <NewsForm></NewsForm>
 
@@ -62,22 +61,13 @@ const NewsFeed = () => {
 
 
                 {/* for medium device & small device */}
-
                 <div className="lg:hidden md:block">
-
-                    <div className="md:w-7/12 w-full">
-                        <NewsForm></NewsForm>
-                        <Categories></Categories>
-                    </div>
-
-
                     <div className="md:flex gap-2">
-
-                        <div className="md:w-7/12 w-full">
+                        <div className=" w-full md:w-7/12">
+                            <NewsForm></NewsForm>
+                            <Categories></Categories>
                             <DisplayNewsFeed query={searchText}></DisplayNewsFeed>
                         </div>
-
-
                         <div className="w-3/12 sm:hidden md:block">
                             <TopPosts></TopPosts>
                         </div>

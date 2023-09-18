@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
 import useBlog from '../../Hooks/useBlog';
 import ButtonWithLoading from '../../components/ButtonWithLoading';
 import { BsSend } from 'react-icons/bs';
-
 import useTitle from '../../Hooks/useTitle';
 
 // import LatestBlog from './LatestBlog';
@@ -25,7 +24,6 @@ import BlogCard from './BlogCard';
 const BlogFeed = () => {
 
     useTitle('Blog');
-
     const [posts] = usePosts();
     const [show, setShow] = useState(false);
     const [singleData, setSingleData] = useState("");
@@ -49,10 +47,9 @@ const BlogFeed = () => {
             controls.start("hidden");
         }
     }, [controls, inView]);
-
     // console.log(posts)
-
-    const haldleClick = (_id) => {
+    
+    const handleClick = (_id) => {
         const findData = posts.find(post => post._id === _id)
         setSingleData(findData)
         setActiveId(activeId === _id ? null : _id);
