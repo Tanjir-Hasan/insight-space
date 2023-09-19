@@ -37,7 +37,7 @@ const ThemeButtons = () => {
         
     };
 
-    const handleBlueButtonClick = () => {
+    const handleNightButtonClick = () => {
         toggleTheme('night');
         toast.success('Night Theme Activated', {
             position: "bottom-right",
@@ -64,7 +64,7 @@ const ThemeButtons = () => {
                 <BsFillCircleFill className={theme === 'dark' ? 'text-[#48cae4] rounded-full' : theme === 'light' ? 'text-[#001219]' : 'text-[#507dbc]'} />
             </button>
 
-            <button onClick={handleBlueButtonClick} disabled={theme === 'night'} className={theme === 'night' ? 'cursor-not-allowed' : ''}>
+            <button onClick={handleNightButtonClick} disabled={theme === 'night'} className={theme === 'night' ? 'cursor-not-allowed' : ''}>
                 <BsFillCircleFill className={theme === 'night' ? 'text-[#b79ced] rounded-full' : 'text-[#a3bcf9]'} />
             </button>
 
