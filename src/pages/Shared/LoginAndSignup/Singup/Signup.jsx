@@ -98,7 +98,9 @@ const Signup = () => {
 
         <div className="lg:w-7/12 w-11/12 mx-auto">
 
-          <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#335c67] rounded-md md:p-12 p-6">
+          <div className={`w-full md:w-3/4 mx-auto shadow-lg rounded-md md:p-12 p-6 ${theme === 'dark' ? 'shadow-[#48cae4]' :
+            theme === 'night' ? 'shadow-[#b79ced]' :
+              theme === 'light' ? 'shadow-[#3c6e71]' : ''}`}>
             {/* signup form  */}
             {/* signup form  */}
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -157,7 +159,11 @@ const Signup = () => {
                   id="image"
                   name="fileInput"
                   {...register("photo")}
-                  className="text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold file:text-white file:bg-gradient-to-r file:from-[#3c6e71] file:to-[#335c67] hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full" required />
+                  className={`text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full
+                  ${theme === 'light' ? 'file:text-white file:bg-gradient-to-l file:from-[#006466] file:to-[#212f45]' : theme === 'dark' ? 'file:text-white file:bg-gradient-to-tr file:from-[#48cae4] file:to-[#051923]' :
+                      theme === 'night' ? 'file:text-white file:bg-gradient-to-tr file:from-[#0d1b2a] file:to-[#b79ced]'
+                        : ''}
+                  `} required />
               </div>
 
               {/* <input {...register("exampleRequired", { required: true })} /> */}
@@ -171,7 +177,7 @@ const Signup = () => {
               </div>
 
               <div className="text-center mt-4">
-                <span>Already have an account? <Link to="/login"><span className={`hover:underline duration-1000 font-[Cinzel] ${theme === 'light' ? "text-[#3c6e71] hover:text-[#335c67]" : "text-[#48cae4]"}`}>Login</span></Link></span>
+                <span>Already have an account? <Link to="/login"><span className={`hover:underline duration-1000 font-[Cinzel] font-extrabold ${theme === 'light' ? "text-[#335c67]" : theme === "dark" ? "text-[#48cae4]" : theme === "night" ? "text-[#b79ced]" : ""}`}>Login</span></Link></span>
               </div>
 
             </form>

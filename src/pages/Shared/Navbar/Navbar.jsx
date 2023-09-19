@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { BiMenuAltRight, BiMenu } from 'react-icons/bi';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import ActiveLink from '../../../components/ActiveLink';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
 import UserDetails from '../../NewsFeed/UserDetails/UserDetails';
@@ -24,6 +24,8 @@ const Navbar = () => {
     const { theme } = useContext(ThemeContext);
 
     const navigate = useNavigate();
+
+    const location = useLocation();
 
     const [isAdmin] = useAdmin();
 
@@ -54,6 +56,10 @@ const Navbar = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isModalOpen]);
+
+    useEffect(() => {
+        setIsOpen(false); // Close the menu when location changes
+    }, [location]);
 
     const handleClickOutside = (event) => {
         const modal = document.querySelector('.modal');

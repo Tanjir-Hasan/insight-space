@@ -11,7 +11,7 @@ const ProDashboard = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
     const location = useLocation();
     const [isPremiumUser] = usePremiumUser();
-    console.log(isPremiumUser);
+    // console.log(isPremiumUser);
 
     useTitle('Quiz Dashboard');
     const { theme } = useContext(ThemeContext);

@@ -104,7 +104,7 @@ const DisplayNewsFeed = ({ query }) => {
                             <div className="flex justify-between">
 
                                 <div className="flex gap-2 space-x-2 mb-4">
-                                    <div className="relative">
+                                    <div className="">
                                         <img src={p.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                                         <div className='absolute -bottom-1 -right-2'>
                                             {

@@ -75,7 +75,9 @@ const Login = () => {
 
                 <div className="lg:w-7/12 w-11/12 mx-auto">
 
-                    <div className="w-full md:w-3/4 mx-auto shadow-lg shadow-[#335c67] rounded-md md:p-12 p-6">
+                    <div className={`w-full md:w-3/4 mx-auto shadow-lg rounded-md md:p-12 p-6 ${theme === 'dark' ? 'shadow-[#48cae4]' :
+                        theme === 'night' ? 'shadow-[#b79ced]' :
+                            theme === 'light' ? 'shadow-[#3c6e71]' : ''}`}>
                         {/* signup form  */}
                         <form onSubmit={handleSubmit(onSubmit)}>
                             {/* name */}
@@ -120,7 +122,7 @@ const Login = () => {
                             {errorMsg && <p className="text-red-600 font-semibold">{errorMsg}</p>}
 
                             {/* Password reset button */}
-                            <Link to={"/resetPassword"} className={`hover:underline duration-1000 font-[Cinzel] ${theme === 'light' ? "text-[#3c6e71] hover:text-[#335c67]" : "text-[#48cae4]"}`}>Reset Password</Link>
+                            <Link to={"/resetPassword"} className={`hover:underline duration-1000 font-[Cinzel] font-extrabold ${theme === 'light' ? "text-[#335c67]" : theme === "dark" ? "text-[#48cae4]" : theme === "night" ? "text-[#b79ced]" : ""}`}>Reset Password</Link>
 
                             {/* submit button */}
                             <div className="mt-4 flex justify-center">
@@ -129,7 +131,7 @@ const Login = () => {
 
                             <div className="text-center font-[Cinzel] mt-4">
                                 <span>New to InSight Space! <Link to="/sign-up">
-                                    <span className={`hover:underline duration-1000 ${theme === 'light' ? "text-[#3c6e71] hover:text-[#335c67]" : "text-[#48cae4]"}`}>Register Now!
+                                    <span className={`hover:underline duration-1000 font-extrabold ${theme === 'light' ? "text-[#335c67]" : theme === "dark" ? "text-[#48cae4]" : theme === "night" ? "text-[#b79ced]" : ""}`}>Register Now!
                                     </span></Link>
                                 </span>
                             </div>

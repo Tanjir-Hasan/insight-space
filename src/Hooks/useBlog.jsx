@@ -1,17 +1,14 @@
-import useAxiosSecure from "./useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+import usePosts from "./usePosts";
+import { useState } from "react";
 
 const useBlog = () => {
-    const [axiosSecure] = useAxiosSecure();
-    const url = "/posts";
-    const { data: blogs, refetch } = useQuery({
-        queryKey: ['blogs'],
-        queryFn: () => axiosSecure.get(url)
-            .then(data => {
-                const findData = data?.data.filter(blog => blog.category === 'Blog')
-                return findData;
-            })
-    })
+    const [posts, refetch] = usePosts();
+    const [blogs, setBlogs] = useState([]);
+    useEffect(() => {
+        const findData = posts?.filter(blog => blog.category === 'Blog');
+        setBlogs(findData);
+    }, [posts])
     return [blogs, refetch]
 };
 

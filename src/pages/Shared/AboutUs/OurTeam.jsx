@@ -120,13 +120,13 @@ const OurTeam = () => {
                         <p className='font-[Cinzel] text-xl'>tanjirhasan096@gmail.com</p>
 
                         <div className='flex justify-end gap-3 mt-2'>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
+                            <Link to="https://www.facebook.com/tanjir.hasan.58" className='hover:animate-pulse' target='_blank'>
                                 <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[0]} alt="" />
                             </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
+                            <Link to="https://www.linkedin.com/in/tanjir-hasan-74208a260/" className='hover:animate-pulse' target='_blank'>
                                 <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[1]} alt="" />
                             </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
+                            <Link to="https://github.com/Tanjir-Hasan" className='hover:animate-pulse' target='_blank'>
                                 <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[2]} alt="" />
                             </Link>
                             <a href="https://drive.google.com/file/d/1qLtzx_zgse9c2m8G-kbwI81eCSFXT4Hr/view?usp=drive_link" target='_blank'>

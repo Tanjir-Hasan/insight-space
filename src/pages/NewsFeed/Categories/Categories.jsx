@@ -39,7 +39,7 @@ const Categories = () => {
 
             <div className="lg:w-3/12 lg:fixed mb-5 left-0 px-5 hidden sm:hidden md:hidden lg:block xl:block">
 
-                <Search></Search>
+                <Search placeholder={"Search By Post"}></Search>
                 <p className="text-xl font-semibold font-[Poppins]">Select Your Favourite Categories</p>
 
                 <div className="flex flex-wrap lg:block">

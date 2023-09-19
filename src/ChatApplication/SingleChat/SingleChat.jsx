@@ -10,6 +10,7 @@ import Lottie from "lottie-react";
 import messageLoading from "../../../public/message-loading.json";
 import { MdSend } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import Search from '../../pages/NewsFeed/Search/Search';
 
 // const serverUrl = `http://localhost:5000`;
 const serverUrl = `${import.meta.env.VITE_base_URL}`;
@@ -21,7 +22,7 @@ const SingleChat = () => {
 
     useTitle('Message');
 
-    const { user } = useAuth();
+    const { user, searchText } = useAuth();
 
     const { theme } = useContext(ThemeContext);
 
@@ -182,7 +183,7 @@ const SingleChat = () => {
                         <div className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#03071e]'} w-2/4 mb-3 p-4`}>
 
                             <div className='flex justify-center'>
-                                <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
+                                <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
                             </div>
 
                             {
@@ -245,7 +246,7 @@ const SingleChat = () => {
                                                 className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : theme === 'dark' ? 'message-btn-dark' : theme === 'night' ? 'message-btn-night' : ''} ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                 disabled={!newMessage.trim()}
                                             >
-                                                <MdSend className='text-2xl' />
+                                                <MdSend className='text-2xl ml-1' />
                                             </button>
 
                                         </form>
@@ -270,8 +271,13 @@ const SingleChat = () => {
 
                             <h1 className='font-[Poppins] text-center text-2xl my-3'>People you may know</h1>
 
+                            {/* --------------Search Options ------------*/}
+                            <div className='py-4'>
+                                <Search placeholder={"Search By Name"}></Search>
+                            </div>
+
                             {
-                                allUsers?.filter((u) => u._id !== singleUserData?._id)?.map((user, index) => (
+                                allUsers?.filter((u) => u._id !== singleUserData?._id)?.filter((us)=>us?.displayName.toLowerCase().includes(searchText.toLowerCase())).map((user, index) => (
                                     <div
                                         key={index}
                                         className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center mb-4`}
@@ -304,7 +310,8 @@ const SingleChat = () => {
 
             </>
 
-            {/* show in mobile and tablet */}
+            {/* ------------------------show in mobile and tablet
+            ------------------------------- */}
 
             <>
 
@@ -321,7 +328,7 @@ const SingleChat = () => {
                                     setOpenLeft(!isOpenLeft);
                                     setOpenRight(false)
                                 }}
-                                    className="border text-[#0096c7] hover:text-white border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700">
+                                    className={`border-2 border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700 ${theme === 'light' ? "text-[#0096c7] hover:text-white" : "text-white"}`}>
                                     My Conversation
                                 </button>
                             </div>
@@ -333,7 +340,7 @@ const SingleChat = () => {
                                     setOpenRight(!isOpenRight);
                                     setOpenLeft(false)
                                 }}
-                                    className="border text-[#0096c7] hover:text-white border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-12 py-1 rounded-lg hover:rounded-2xl duration-700">
+                                    className={`border-2 border-[#0096c7] hover:border font-[Cinzel] hover:bg-[#0096c7] px-12 py-1 rounded-lg hover:rounded-2xl duration-700 ${theme === 'light' ? "text-[#0096c7] hover:text-white" : "text-white"}`}>
                                     See All User
                                 </button>
                             </div>
@@ -343,7 +350,7 @@ const SingleChat = () => {
                     </div>
 
                     <div className='flex justify-center'>
-                        <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] mt-5 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
+                        <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
                     </div>
 
                 </div>
@@ -464,7 +471,7 @@ const SingleChat = () => {
                                         className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : theme === 'dark' ? 'message-btn-dark' : theme === 'night' ? 'message-btn-night' : ''} ${!newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         disabled={!newMessage.trim()}
                                     >
-                                        <MdSend className='text-2xl' />
+                                        <MdSend className='text-2xl ml-1' />
                                     </button>
 
                                 </form>
@@ -492,7 +499,7 @@ const SingleChat = () => {
 
                 {/* open form right */}
 
-                {<div className=' lg:hidden md:block'>
+                {<div className='lg:hidden md:block'>
 
 
                     {/* Navigation Bar */}
