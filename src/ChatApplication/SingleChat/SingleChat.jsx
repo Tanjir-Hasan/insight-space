@@ -324,8 +324,7 @@ const SingleChat = () => {
 
             </>
 
-            {/* ------------------------show in mobile and tablet
-            ------------------------------- */}
+            {/* ------------------------show in mobile and tablet------------------------------- */}
 
             <>
 
@@ -365,6 +364,11 @@ const SingleChat = () => {
 
                     <div className='flex justify-center'>
                         <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
+                    </div>
+
+                    {/* --------------Search Options ------------*/}
+                    <div className='py-1 w-9/12 mx-auto'>
+                        <Search placeholder={"Search By Name"}></Search>
                     </div>
 
                 </div>

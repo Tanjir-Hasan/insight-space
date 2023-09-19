@@ -33,10 +33,10 @@ const Chat = () => {
 
 
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''} py-8`}>
+    <div className={`${theme} py-8`}>
 
       <div className='flex justify-center'>
-        <Link to="/single-chat" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>My Messages</Link>
+        <Link to="/single-chat" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>My Messages</Link>
       </div>
 
       <div className="mt-10 w-full px-2 mx-auto">
