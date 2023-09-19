@@ -45,7 +45,7 @@ const FAQ = () => {
     }
 
     return (
-        <div className={`w-10/12 mx-auto lg:my-28 my-16 rounded-lg font-[Cinzel] ${theme === 'dark' ? 'dark' : ''}`}>
+        <div className={`w-10/12 mx-auto lg:my-28 my-16 rounded-lg  ${theme === 'dark' ? 'dark' : ''}`}>
 
             <div className=' pt-5 mx-auto'>
                 <h2 className={`md:text-5xl text-4xl font-[Poppins] border-b-2 lg:w-1/5 w-11/12 mb-8 ${theme === 'dark' ? 'border-[#48cae4]' :
@@ -70,7 +70,7 @@ const FAQ = () => {
                         {
                             question.map(p => <div key={p.id}>
                                 <div onClick={() => haldleClick(p.id)} className={` flex gap-2 mt-2 items-center justify-between mb-3 px-2 py-3  bg-opacity-40 rounded-md shadow-sm duration-700  ${activeId === p.id ? 'bg-[#5c9568]' : 'bg-gray-200'} ${theme === 'light' ? 'hover:bg-[#3c6e71] hover:text-white' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
-                                    <h2 className='font-extrabold text-xl'>{p.question}</h2>
+                                    <h2 className=' md:text-xl'>{p?.question}</h2>
 
                                     <div className='px-5'>
 
@@ -106,10 +106,8 @@ const FAQ = () => {
                         className="animate-zoom-in">
 
                         <div className='animate-zoom-in'>
-
-                            <h2 className='font-extrabold text-2xl mb-2'>{singleQus.question ? singleQus.question : "What is porpuse your website?"} </h2>
-                            <p className=''> {singleQus.answer ? singleQus.answer : "The purpose of our website is to provide a dynamic and engaging platform for knowledge sharing and learning. We aim to foster a vibrant community of individuals who are passionate about exchanging insights, expertise, and experiences across a wide range of topics. Our website offers a diverse array of content, including videos, quizzes, blogs, group messaging, and news feeds, all designed to facilitate meaningful interactions and enhance the learning journey. Whether you're seeking to expand your understanding of a subject, connect with like-minded individuals, or contribute your own expertise, our website is a hub where knowledge is both shared and celebrated."} </p>
-
+                            <h2 className=' text-2xl mb-2'>{singleQus?.question ? singleQus?.question : "What is porpuse your website?"} </h2>
+                            <p className='text-sm md:text-base'> {singleQus?.answer ? singleQus?.answer : "The purpose of our website is to provide a dynamic and engaging platform for knowledge sharing and learning. We aim to foster a vibrant community of individuals who are passionate about exchanging insights, expertise, and experiences across a wide range of topics. Our website offers a diverse array of content, including videos, quizzes, blogs, group messaging, and news feeds, all designed to facilitate meaningful interactions and enhance the learning journey. Whether you're seeking to expand your understanding of a subject, connect with like-minded individuals, or contribute your own expertise, our website is a hub where knowledge is both shared and celebrated."} </p>
                         </div>
 
                     </motion.div>

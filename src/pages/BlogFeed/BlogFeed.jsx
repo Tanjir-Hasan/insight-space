@@ -101,7 +101,7 @@ const BlogFeed = () => {
     return (
         <div className={`${theme}`}>
 
-            <div className='w-10/12 mx-auto font-[Poppins]'>
+            <div className='w-10/12 mx-auto'>
 
                 <form onSubmit={handleBlogSubmit}>
 
@@ -144,7 +144,7 @@ const BlogFeed = () => {
 
                     <div className={`${theme === 'dark' ? 'bg-[#011627] text-white' :
                         theme === 'night' ? 'bg-[#343a40] text-white' :
-                            theme === 'light' ? 'bg-[#f0efeb]' : ''} md:w-8/12 rounded-lg  `}>
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''} md:w-8/12  rounded-lg  `}>
 
                         <motion.div
                             ref={refs}
@@ -163,16 +163,16 @@ const BlogFeed = () => {
                                     <div className="flex space-x-2 mb-4">
                                         <img src={singleData?.userPhoto ? singleData?.userPhoto : "https://i.ibb.co/tbpwNBs/shamim-removebg-preview.png"} alt="user photo" className="w-12 h-12 rounded-full" />
                                         <div>
-                                            <p className="text-lg font-semibold pt-1">{singleData?.userName ? singleData.userName : "MD Shamim Miah"}</p>
-                                            <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(singleData.date).startOf('hour').fromNow()}</h6>
+                                            <p className="text-lg font-semibold pt-1">{singleData?.userName ? singleData?.userName : "MD Shamim Miah"}</p>
+                                            <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(singleData?.date).startOf('hour').fromNow()}</h6>
                                         </div>
                                     </div>
 
-                                    <p>{singleData.text ?
+                                    <p>{singleData?.text ?
                                         show === true ?
                                             <>
                                                 <p>
-                                                    {singleData.text}
+                                                    {singleData?.text}
                                                 </p>
                                                 <span className='font-semibold text-[#3c6e71] cursor-pointer' onClick={() => setShow(!show)}>Read Less</span>
                                             </>
@@ -190,7 +190,7 @@ const BlogFeed = () => {
 
                                 <div>
                                     {
-                                        <img src={singleData?.imgURL ? singleData.imgURL : "https://i.ibb.co/J5cXvT4/want44772-1-Ib-Ur41479200085-1.jpg"} className="w-full  md:h-[400px]" alt="image" />
+                                        <img  src={singleData?.imgURL ? singleData?.imgURL : "https://i.ibb.co/J5cXvT4/want44772-1-Ib-Ur41479200085-1.jpg"} className="w-full  md:h-[400px] h-52" alt="image" />
                                     }
                                 </div>
 
@@ -198,7 +198,7 @@ const BlogFeed = () => {
 
                                     <div className="w-full flex space-x-8">
 
-                                        <button onClick={() => handleReact(singleData?._id, userDetails.email)} className="flex items-center"><AiFillHeart className={singleData?.react?.includes(userDetails.email) ? "text-2xl text-red-600 me-2" : "text-2xl me-2"}></AiFillHeart> {singleData?.react?.length}</button>
+                                        <button onClick={() => handleReact(singleData?._id, userDetails?.email)} className="flex items-center"><AiFillHeart className={singleData?.react?.includes(userDetails?.email) ? "text-2xl text-red-600 me-2" : "text-2xl me-2"}></AiFillHeart> {singleData?.react?.length}</button>
 
                                         <button onClick={() => setHide(singleData?._id)} className="flex items-center"><FaComment className="text-xl me-2"></FaComment> {singleData?.comment?.length}</button>
 
@@ -213,7 +213,7 @@ const BlogFeed = () => {
                                 {/* comment body  */}
 
                                 {
-                                    hide === singleData._id && <div>
+                                    hide === singleData?._id && <div>
                                         <div className="flex items-center space-x-2 px-4 py-6 border border-spacing-2">
                                             <img src={userDetails?.photoURL} alt="user photo" className="w-12 h-12 rounded-full" />
                                             <textarea ref={ref} name="" id="" cols="2" rows="1" className="w-full px-4 py-2 border border-spacing-4 rounded-3xl" placeholder="add your answer"></textarea>
@@ -251,7 +251,7 @@ const BlogFeed = () => {
                             visible: { opacity: 1, x: 0 },
                             hidden: { opacity: 0, x: 100 },
                         }}
-                        transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(100vh - 100px)' }}>
+                        transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(80vh - 100px)' }}>
                         <h2 className=" text-center text-4xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#3c6e71] md:py-0 py-8">Top Blogs </h2>
 
                         {

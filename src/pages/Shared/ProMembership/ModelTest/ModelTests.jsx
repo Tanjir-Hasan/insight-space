@@ -21,18 +21,18 @@ function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
     useEffect(() => {
         // Fetch quiz data from the API when the component mounts
         axiosSecure.get("/quiz")
-            .then(data => setModelTestData(data.data))
+            .then(data => setModelTestData(data?.data))
             .catch((error) => console.error("Error fetching quiz data:", error));
     }, []);
     const filteredQuestions = modelTestData.filter(
-        (question) => question.subject === selectedSubject
+        (question) => question?.subject === selectedSubject
     );
 
 
 
     const handleStartQuiz = () => {
         setQuestions(filteredQuestions);
-        setUserAnswers(Array(filteredQuestions.length).fill(''));
+        setUserAnswers(Array(filteredQuestions?.length).fill(''));
         setShowQuestions(true);
     };
 
@@ -52,14 +52,14 @@ function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
     return (
         <div className='p-3'>
             <div>
-                <button ><img className='h-10 w-12 cursor-pointer' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHzZOmexylo5sAAToZvwE9l7GRiz3sNatyJ52vztwOnPX1E45XDbRdV8sH0wrPwO9_B0&usqp=CAU" alt="" /></button>
-                <h1 className="text-2xl font-semibold">Model Test - {selectedSubject}</h1>
-                <h2>Total Questions {filteredQuestions.length}</h2>
-                <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
+                
+                <h1 className="md:text-2xl font-semibold">Model Test - {selectedSubject}</h1>
+                <h2 className='text-xs md:text-base'>Total Questions {filteredQuestions?.length}</h2>
+                <h2 className='border-b-2 border-[#3c6e71] text-xs md:text-base'>Per Question 1 Point</h2>
                 {!showQuestions && (
                     <button
                         onClick={handleStartQuiz}
-                        className="mt-4 px-10 text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] cursor-pointer">
+                        className="mt-4 md:px-10 text-xs md:text-base text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] cursor-pointer">
                         Start Model test
                     </button>
                 )}
@@ -68,18 +68,18 @@ function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
                 <div className=''>
                     {questions.map((question, questionIndex) => (
                         <div key={questionIndex}>
-                            <h2 className="text-lg mt-8 font-semibold">{questionIndex + 1}. {question.question}</h2>
-                            <ul className="mt-1 space-y-2">
-                                {question.options.map((option, optionIndex) => (
-                                    <li key={optionIndex} className="">
-                                        <label className="flex gap-2 items-center space-x-2">
+                            <h2 className="md:text-lg text-sm mt-8 font-semibold">{questionIndex + 1}. {question?.question}</h2>
+                            <ul className="mt-1 text-xs space-y-2">
+                                {question?.options.map((option, optionIndex) => (
+                                    <li key={optionIndex} className="text-xs">
+                                        <label className="flex text-xs gap-2 items-center space-x-2">
                                             <input
                                                 type="radio"
                                                 name={`question${questionIndex}`}
                                                 value={option}
                                                 checked={userAnswers[questionIndex] === option}
                                                 onChange={() => handleOptionSelect(option, questionIndex)}
-                                                className="text-blue-500 focus:ring-blue-300"
+                                                className="text-blue-500 focus:ring-blue-300 "
                                             />
                                             {option}
                                         </label>
@@ -90,7 +90,7 @@ function ModelTests({ selectedSubject, onSubmit, setUserAnswerss }) {
                     ))}
                     <button
                        onClick={() => handleSubmit()}
-                        className="mt-4 p-2 rounded w-full bg-[#3c6e71] hover:bg-[#335c67] text-white cursor-pointer"
+                        className="mt-4 p-2 text-xs md:text-base rounded w-full bg-[#3c6e71] hover:bg-[#335c67] text-white cursor-pointer"
                     >
                         Submit Model Test
                     </button>

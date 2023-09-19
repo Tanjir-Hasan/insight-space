@@ -49,11 +49,11 @@ const BlogCard = ({ blogs, latest }) => {
                     onMouseLeave={handleMouseLeave}
                 >
                     {/* Card Image */}
-                    <div className="w-full h-3/5">
+                    <div className="w-full md:h-3/5">
                         <img
                             src={latest?.imgURL}
                             alt="Card Image"
-                            className="h-96 w-full rounded-md object-cover transition-transform duration-500 transform hover:scale-105"
+                            className="md:h-96 h-56 w-full rounded-md object-cover transition-transform duration-500 transform hover:scale-105"
                         />
                     </div>
 
@@ -61,7 +61,7 @@ const BlogCard = ({ blogs, latest }) => {
                     {/* Card Title */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-r from-white to-gray-300 text-gray-800 transition-transform duration-500 ">
 
-                        <h2 className='font-[Cinzel] text-3xl'>{latest?.text.substring(0, 70)}... {"  "}
+                        <h2 className='font-[Cinzel] text-xl md:text-3xl'>{latest?.text.substring(0, 70)}... {"  "}
                             <span className={`cursor-pointer ${theme === 'dark' ? 'text-[#48cae4]' :
                                                 theme === 'night' ? 'text-[#b79ced]' :
                                                     theme === 'light' ? 'text-[#3c6e71]' : ''}`}>Read more</span>
@@ -85,7 +85,7 @@ const BlogCard = ({ blogs, latest }) => {
                                 </div>
                             </div>
 
-                            <h2 className='font-[Cinzel] text-2xl'>{latest?.text.substring(0, 70)}... {"  "}
+                            <h2 className='font-[Cinzel] md:text-2xl text-xl'>{latest?.text.substring(0, 70)}... {"  "}
                                 <span className='text-[#bbd2ef] hover:font-semibold cursor-pointer'>Read more</span>
                             </h2>
 
@@ -108,10 +108,9 @@ const BlogCard = ({ blogs, latest }) => {
             {/* modal start */}
 
             {isModalOpen && (
-                <div className="fixed inset-0 flex w-8/12 mx-auto items-center justify-center z-50">
+                <div className="fixed animate-zoom-in inset-0 flex md:w-8/12 w-10/12 mx-auto items-center justify-center z-50">
 
                     <div className="fixed inset-0  bg-black opacity-50"></div>
-
                     <div className="bg-white relative p-4 shadow-lg rounded-lg z-50 zoom-in-out-modal">
 
                         <button onClick={closeModal}>
@@ -124,28 +123,20 @@ const BlogCard = ({ blogs, latest }) => {
                         <div className="max-h-[95vh] overflow-y-auto text-black animate-zoom-in">
 
                             <div className=' mx-auto'>
-
                                 <div className="flex space-x-2 mb-4">
-
                                     <img src={singleData?.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
-
                                     <div>
-
                                         <p className="text-lg font-semibold pt-1">{singleData?.userName}</p>
                                         <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(singleData?.date).startOf('hour').fromNow()}</h6>
-
-                                    </div>
-
+                                   </div>
                                 </div>
 
                                 <p>
                                     {singleData?.text}
                                 </p>
-
                                 <img className='w-full' src={singleData?.imgURL} alt="" />
 
                             </div>
-
                         </div>
 
                     </div>

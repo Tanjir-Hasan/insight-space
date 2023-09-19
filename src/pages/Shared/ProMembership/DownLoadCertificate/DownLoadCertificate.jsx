@@ -72,7 +72,7 @@ const DownLoadCertificate = () => {
                     }}
                     transition={{ duration: 0.9 }}
 
-                    className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Cinzel] lg:w-1/2 w-11/12`}>
+                    className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl font-[Cinzel] lg:w-1/2 w-11/12`}>
                     Download Certificate
                 </motion.h1>
                 <div className=''>
@@ -87,10 +87,10 @@ const DownLoadCertificate = () => {
                             hidden: { opacity: 0, y: 100 },
                         }}
                         transition={{ duration: 2.0 }}>
-                        <div className='grid md:grid-cols-2 lg:grid-cols-3 mt-5 gap-10'>
-                            <div className='font-[Cinzel] border p-5 rounded-md bg-slate-600'>
-                                <h2 className='text-xl font-bold text-white mb-5'>Exam Name: Mock Test</h2>
-                                <select className='text-xl text-black font-semibold p-2 border-2' onClick={() => selectMock()} value={selectedSubjectMock} onChange={handleOptionChangeMock}>
+                        <div className='grid md:grid-cols-2 lg:grid-cols-3 mt-5 gap-5 md:gap-10'>
+                            <div className='font-[Cinzel] border p-2 md:p-5 rounded-md bg-slate-600'>
+                                <h2 className='md:text-xl  text-white mb-5'>Exam Name: Mock Test</h2>
+                                <select className='md:text-xl text-sm text-black font-semibold p-2 border-2' onClick={() => selectMock()} value={selectedSubjectMock} onChange={handleOptionChangeMock}>
                                     <option value="">Select...</option>
                                     <option className='' value="বাংলা">বাংলা</option>
                                     <option value="English">English</option>
@@ -118,9 +118,9 @@ const DownLoadCertificate = () => {
                         </select>
                     </div> */}
 
-                            <div className='font-[Cinzel] border p-5 rounded-md bg-slate-600'>
-                                <h2 className='text-xl font-bold text-white mb-5'>Exam Name: Model Test</h2>
-                                <select className='text-xl text-black font-semibold p-2 border-2' onClick={() => selectModel()} value={selectedSubjectModel} onChange={handleOptionChangeModel}>
+                            <div className='font-[Cinzel] border md:p-5 p-2 rounded-md bg-slate-600'>
+                                <h2 className='md:text-xl text-sm  text-white mb-5'>Exam Name: Model Test</h2>
+                                <select className='md:text-xl text-sm text-black font-semibold p-2 border-2' onClick={() => selectModel()} value={selectedSubjectModel} onChange={handleOptionChangeModel}>
                                     <option value="">Select...</option>
                                     <option value="বাংলা">বাংলা</option>
                                     <option value="English">English</option>

@@ -5,6 +5,7 @@ import useTitle from '../../../../Hooks/useTitle';
 import { ThemeContext } from '../../../../providers/ThemeProvider';
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
+import moment from 'moment';
 
 const LeaderBoard = () => {
 
@@ -39,7 +40,7 @@ const LeaderBoard = () => {
                 }}
                 transition={{ duration: 0.9 }}
 
-                className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Cinzel] lg:w-1/2 w-11/12`}>
+                className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-xl font-[Cinzel] lg:w-1/2 w-11/12`}>
                 Leader Board
             </motion.h1>
 
@@ -55,8 +56,8 @@ const LeaderBoard = () => {
                 transition={{ duration: 2.0 }}>
                 {/* chart start 2 */}
 
-                <div className='mt-6 p-5 border-2 rounded-md border-[#3c6e71]'>
-                    <h2 className='text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Top 10 result history: </h2>
+                <div className='mt-6  lg:p-5 border-2 rounded-md border-[#3c6e71]'>
+                    <h2 className='md:text-2xl px-1 font-[Poppins] font-bold border-b-2 mb-5'>Top 10 result history: </h2>
                     <ResponsiveContainer width='90%' height={300} className="mx-auto " >
                         <BarChart
                             height={300}
@@ -74,12 +75,13 @@ const LeaderBoard = () => {
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
+                
 
 
                 {/* start table */}
                 <div className='mt-16 border-2 border-[#3c6e71]'>
-                    <h2 className='text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Top 10 result history: </h2>
-                    <div className="overflow-x-auto">
+                    <h2 className='md:text-2xl px-1 font-[Poppins] font-bold border-b-2 mb-5'>Top 10 exam history: </h2>
+                    <div className="overflow-x-auto w-96 md:w-full">
                         <table className="min-w-full">
                             <thead className='bg-sky-800  md:text-xl py-5 text-white '>
                                 <tr className=''>
@@ -138,7 +140,7 @@ const LeaderBoard = () => {
                                                 <p>Exam: {item?.examName}</p>
                                             </div>
                                             <div className='whitespace-nowrap'>
-                                                {item?.date}
+                                            {moment(item?.date).format("lll")}
                                             </div>
                                         </td>
                                     </tr>

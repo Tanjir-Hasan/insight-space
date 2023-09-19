@@ -137,32 +137,32 @@ const PaymentHistory = () => {
 
                     <div>
                       <div className='font-bold '>
-                        {item.UserName}
+                        {item?.UserName}
 
                       </div>
                       <div>
-                        {item.email}
+                        {item?.email}
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                     <div className='font-bold'>
-                      $ {item.price}
+                      $ {item?.price}
                     </div>
                     <div>
-                      {item.transactionId}
+                      {item?.transactionId}
                     </div>
                   </td>
                   <td className="px-6 py-4  whitespace-no-wrap text-sm leading-5 text-gray-600">
                     <div className='font-bold whitespace-nowrap'>
-                      {item.memberShip} Membership
+                      {item?.memberShip} Membership
                     </div>
                     <div className='whitespace-nowrap'>
-                      {item.date}
+                      {item?.date}
                     </div>
                   </td>
                   <td className="px-6 py-4  whitespace-no-wrap text-sm leading-5 text-gray-600">
-                    <div onClick={()=> handleDeletePayments(item._id)}>
+                    <div onClick={()=> handleDeletePayments(item?._id)}>
                       <img className='h-8 w-8 rounded-full' src="https://e7.pngegg.com/pngimages/228/54/png-clipart-logo-trademark-brand-delete-button-miscellaneous-text-thumbnail.png" alt="" />
                     </div>
                   </td>

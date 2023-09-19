@@ -29,7 +29,7 @@ function SubjectSelection({ subjects, onSelectSubject }) {
         }}
         transition={{ duration: 0.9 }}
 
-        className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
+        className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl  font-[Poppins] lg:w-1/2 w-11/12`}>
         Select Your subject:
       </motion.h1>
 
@@ -48,7 +48,7 @@ function SubjectSelection({ subjects, onSelectSubject }) {
         {subjects.map((subject, index) => (
           <li
             key={index}
-            className="cursor-pointer text-white text-4xl text-center items-center font-bold hover:underline border-2 py-20 bg-[#2d3e3f]  rounded-md "
+            className="cursor-pointer text-white nd:text-4xl text-xs text-center items-center font-bold hover:underline border-2 md:py-20 py-8 bg-[#2d3e3f]  rounded-md "
             onClick={() => onSelectSubject(subject)}
           >
             {subject}

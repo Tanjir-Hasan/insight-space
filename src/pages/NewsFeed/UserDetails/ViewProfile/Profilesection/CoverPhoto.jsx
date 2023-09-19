@@ -37,6 +37,7 @@ const CoverPhoto = () => {
         }
       })
   }
+  
 
 
   return (

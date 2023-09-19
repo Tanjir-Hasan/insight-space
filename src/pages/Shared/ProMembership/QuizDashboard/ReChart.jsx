@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 import { BarChart, ResponsiveContainer, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList, } from 'recharts';
 import useQuizResult from '../../../../Hooks/useQuizResult';
@@ -43,9 +44,9 @@ const ReChart = () => {
             {/* chart start 2 */}
 
          
-                <div className='mt-6 p-5 border-2 rounded-md border-[#3c6e71]'>
-                    <h2 className='text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Your Mock test result history: </h2>
-                    <ResponsiveContainer width='98%' height={300} className="mx-auto " >
+                <div className='mt-6 md:p-5  border-2 rounded-md border-[#3c6e71]'>
+                    <h2 className='text-sm p-1 md:text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Your Mock test result history: </h2>
+                    <ResponsiveContainer  width='99%' height={300} className="mx-auto " >
                         <BarChart
                             height={300}
                             data={mockTest}>
@@ -56,7 +57,7 @@ const ReChart = () => {
                             <Tooltip />
                             <Legend />
                             <Bar dataKey="score" fill="DarkBlue" />
-                            <Bar dataKey="date" fill="Brown" />
+                            <Bar dataKey= "date" fill="Brown" />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
@@ -70,17 +71,17 @@ const ReChart = () => {
 
             {/* chaet start 2 */}
            
-                <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
-                    <h2 className='text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Your live exam result history: </h2>
-                    <ResponsiveContainer width="98%" height={300} className="mx-auto" >
+                <div className='mt-12  md:p-5 border-2 rounded-md border-[#3c6e71]'>
+                    <h2 className='text-sm p-1 md:text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Your live exam result history: </h2>
+                    <ResponsiveContainer width="99%" height={300} className="mx-auto" >
                         <BarChart
-                            width={500}
+                           
                             height={300}
                             data={quizResult}
                             margin={{
-                                top: 20,
-                                right: 30,
-                                left: 20,
+                                top: 5,
+                                right: 5,
+                                left: 5,
                                 bottom: 5,
                             }}>
 
@@ -102,8 +103,8 @@ const ReChart = () => {
 
             {/* chart start 3 */}
            
-                <div className='mt-12 p-5 border-2 rounded-md border-[#3c6e71]'>
-                    <h2 className='text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Your Model test result history: </h2>
+                <div className='mt-12 md:p-5 border-2 rounded-md border-[#3c6e71]'>
+                    <h2 className='text-sm p-1 md:text-2xl font-[Poppins] font-bold border-b-2 mb-5'>Your Model test result history: </h2>
                     <ResponsiveContainer width="98%" height={300} className="mx-auto" >
                         <BarChart
                             height={300}

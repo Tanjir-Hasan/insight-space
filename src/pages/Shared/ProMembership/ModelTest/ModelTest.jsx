@@ -78,21 +78,21 @@ const ModelTest = () => {
         )}
 
         {showResults && (
-          <div className='p-3'>
-            <h1 className="text-2xl font-semibold">Quiz Results</h1>
-            <p className='border-b-2 border-[#3c6e71]'>Your Score: {calculateScore()} / {userAnswerss.length}</p>
+          <div className='md:p-3 p-1'>
+            <h1 className="md:text-2xl font-semibold">Quiz Results</h1>
+            <p className='border-b-2 text-sm md:text-base border-[#3c6e71]'>Your Score: {calculateScore()} / {userAnswerss?.length}</p>
             <ul className="mt-4 space-y-2 grid lg:grid-cols-2 gap-10 ">
-              {userAnswerss.map((question, index) => (
+              {userAnswerss?.map((question, index) => (
                 <li
                   key={index}
-                  className={`p-2 ${userAnswers[index] === question.correctAnswer
+                  className={`p-2 ${userAnswers[index] === question?.correctAnswer
                     ? 'text-green-500'
                     : 'text-red-500'
                     }`}
                 >
-                  <p className='text-xl  font-semibold'>{index + 1}. {question.question}</p>
-                  <p>Your Answer: {userAnswers[index]}</p>
-                  <p>Correct Answer: {question.correctAnswer}</p>
+                  <p className='md:text-xl text-sm  font-semibold'>{index + 1}. {question?.question}</p>
+                  <p className='text-xs md:text-sm'>Your Answer: {userAnswers[index]}</p>
+                  <p className='text-xs md:text-sm'>Correct Answer: {question?.correctAnswer}</p>
                 </li>
               ))}
             </ul>

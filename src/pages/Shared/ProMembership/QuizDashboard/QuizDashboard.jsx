@@ -47,11 +47,11 @@ const QuizDashboard = () => {
                         </div>
                     </div>
                     <div className='h-40 bg-slate-600 rounded-md'>
-                        <h2 className='text-2xl p-4 font-[Poppins]'>Total Exam attended</h2>
+                        <h2 className='text-md md:text-2xl p-2 font-[Poppins]'>Total Exam attended</h2>
                         <div className='px-3'>
-                            <p>Mock test: {mockTest.length}</p>
-                            <p>Live exam: {quizResult.length}</p>
-                            <p>Model test: {modelTest.length}</p>
+                            <p className='text-sm md:text-base'>Mock test: {mockTest.length}</p>
+                            <p className='text-sm md:text-base'>Live exam: {quizResult.length}</p>
+                            <p className='text-sm md:text-base'>Model test: {modelTest.length}</p>
                         </div>
                     </div>
                     <div className='h-40 bg-slate-600 rounded-md'>

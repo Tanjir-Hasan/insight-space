@@ -161,7 +161,7 @@ const MockTest = () => {
                             hidden: { opacity: 0, x: -100 },
                         }}
                         transition={{ duration: 0.9 }}
-                        className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-4xl font-[Poppins] lg:w-1/2 w-11/12`}>
+                        className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#48cae4]'} border-b-2 md:text-5xl text-md font-[Poppins] lg:w-1/2 w-11/12`}>
                         Select Your subject:
                     </motion.h1>
 
@@ -176,15 +176,15 @@ const MockTest = () => {
                         }}
                         transition={{ duration: 0.9 }}>
 
-                        <div className="flex flex-wrap gap-3 md:justify-center mt-5 ">
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleChemistry()}>Chemistry</h3>
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleBiology()}>Biology</h3>
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handlePhysics()}>Physics</h3>
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleICT()}>ICT</h3>
-                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  py-2 px-3 rounded-md cursor-pointer" onClick={() => handleGeneralKnowledge()}>General Knowledge</h3>
+                        <div className="flex flex-wrap gap-2  md:justify-center mt-5 ">
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-sm md:text-base rounded-md cursor-pointer" onClick={() => handleBangla()}>Bangla</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-sm md:text-base rounded-md cursor-pointer" onClick={() => handleEnglish()}>English</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-xs md:text-base rounded-md cursor-pointer" onClick={() => handleHigherMathematics()}>Higher Mathematics</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-xs md:text-base rounded-md cursor-pointer" onClick={() => handleChemistry()}>Chemistry</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-xs md:text-base rounded-md cursor-pointer" onClick={() => handleBiology()}>Biology</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-xs md:text-base rounded-md cursor-pointer" onClick={() => handlePhysics()}>Physics</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-xs md:text-base rounded-md cursor-pointer" onClick={() => handleICT()}>ICT</h3>
+                            <h3 className="font-[Poppins] border border-[#3c6e71] hover:bg-[#335c67] hover:text-white  md:py-2 md:px-3 px-2 py-1 text-xs md:text-base rounded-md cursor-pointer" onClick={() => handleGeneralKnowledge()}>General Knowledge</h3>
                         </div>
                     </motion.div>
 
@@ -195,10 +195,10 @@ const MockTest = () => {
 
 
 
-            <div className=" mx-auto p-10">
+            <div className=" mx-auto p-2 md:p-10">
                 {countdown > 0 && (
                     <div className=''>
-                        <h1 className="text-4xl font-bold text-center text-red-800">Quiz Starting in {countdown} seconds...</h1>
+                        <h1 className="md:text-4xl text-base font-bold text-center text-red-800">Quiz Starting in {countdown} seconds...</h1>
                     </div>
                 )}
 
@@ -219,17 +219,17 @@ const MockTest = () => {
                                 (
                                     <div>
                                         {countdown === 0 && !showResults && (
-                                            <div className='animate-zoom-in'>
-                                                <h1 className="text-2xl font-semibold">Mock Test- {subject}</h1>
-                                                <h2>Total Questions {quizData.length}</h2>
-                                                <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
+                                            <div className='animate-zoom-in mt-8'>
+                                                <h1 className="md:text-2xl font-semibold">Mock Test- {subject}</h1>
+                                                <h2 className='text-sm md:text-base'>Total Questions {quizData?.length}</h2>
+                                                <h2 className='border-b-2 text-sm md:text-base border-[#3c6e71]'>Per Question 1 Point</h2>
 
                                                 <div className='grid lg:grid-cols-2 gap-10'>
                                                     {quizData.map((question, questionIndex) => (
                                                         <div className='' key={questionIndex}>
-                                                            <h2 className="text-lg font-bold mt-4">{questionIndex + 1}. {question.question}</h2>
-                                                            <ul className="mt-2  space-y-2">
-                                                                {question.options.map((option, optionIndex) => (
+                                                            <h2 className="md:text-lg text-sm font-bold mt-4">{questionIndex + 1}. {question?.question}</h2>
+                                                            <ul className="mt-2 text-xs md:text-md space-y-2">
+                                                                {question?.options?.map((option, optionIndex) => (
                                                                     <li key={optionIndex} className=" ">
                                                                         <label className=" items-center space-x-2">
                                                                             <input
@@ -248,7 +248,7 @@ const MockTest = () => {
                                                         </div>
                                                     ))}
                                                 </div>
-                                                <div onClick={() => handleSubmit()} className='mt-4 w-full text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] text-center cursor-pointer'>
+                                                <div onClick={() => handleSubmit()} className='mt-4 w-full text-white text-sm md:text-base p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] text-center cursor-pointer'>
                                                     <button  > Submit Mock Test </button>
                                                 </div>
 
@@ -259,14 +259,14 @@ const MockTest = () => {
                                 (
                                     <div>
                                         {countdown === 0 && !showResults && (
-                                            <div>
-                                                <button ><img className='h-10 w-12 cursor-pointer' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHzZOmexylo5sAAToZvwE9l7GRiz3sNatyJ52vztwOnPX1E45XDbRdV8sH0wrPwO9_B0&usqp=CAU" alt="" /></button>
-                                                <h1 className="text-2xl font-semibold">Mock Test </h1>
-                                                <h2>Total Questions {quizDatas?.length}</h2>
-                                                <h2 className='border-b-2 border-[#3c6e71]'>Per Question 1 Point</h2>
+                                            <div className='mt-10'>
+                                                {/* <button ><img className='mdh-10 w-12 cursor-pointer' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHzZOmexylo5sAAToZvwE9l7GRiz3sNatyJ52vztwOnPX1E45XDbRdV8sH0wrPwO9_B0&usqp=CAU" alt="" /></button> */}
+                                                <h1 className="md:text-2xl font-semibold">Mock Test </h1>
+                                                <h2 className='md:text-base text-sm'>Total Questions {quizDatas?.length}</h2>
+                                                <h2 className='border-b-2 md:text-base text-sm border-[#3c6e71]'>Per Question 1 Point</h2>
                                                 <button
                                                     onClick={() => handleBangla()}
-                                                    className="mt-4 px-10 text-white p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] cursor-pointer">
+                                                    className="mt-4 md:px-10 text-white px-2 py-1 md:p-2 rounded bg-[#3c6e71] hover:bg-[#335c67] cursor-pointer">
                                                     Start mock test
                                                 </button>
                                             </div>
@@ -283,21 +283,21 @@ const MockTest = () => {
 
                 {showResults && (
                     <div>
-                        <h1 className="text-2xl font-semibold">Quiz Results</h1>
-                        <h2>Subject : {subject}</h2>
-                        <p className='border-b-2 border-[#3c6e71]'>Your Score: {calculateScore()} / {quizData.length}</p>
+                        <h1 className="md:text-2xl font-semibold">Quiz Results</h1>
+                        <h2 className="md:text-2xl text-sm font-semibold">Subject : {subject}</h2>
+                        <p className='border-b-2 text-sm md:text-base border-[#3c6e71]'>Your Score: {calculateScore()} / {quizData?.length}</p>
                         <ul className="mt-4 space-y-2 grid ld:grid-cols-2 gap-10 ">
-                            {quizData.map((question, index) => (
+                            {quizData?.map((question, index) => (
                                 <li
                                     key={index}
-                                    className={`p-2 ${userAnswers[index] === question.correctAnswer
+                                    className={`p-2 ${userAnswers[index] === question?.correctAnswer
                                         ? 'text-green-500'
                                         : 'text-red-500'
                                         }`}
                                 >
-                                    <p className='text-xl font-semibold'>{index + 1}. {question.question}</p>
-                                    <p>Your Answer: {userAnswers[index]}</p>
-                                    <p>Correct Answer: {question.correctAnswer}</p>
+                                    <p className='lg:text-xl text-sm font-semibold'>{index + 1}. {question?.question}</p>
+                                    <p className='text-xs md:text-sm'>Your Answer: {userAnswers[index]}</p>
+                                    <p className='text-xs md:text-sm'>Correct Answer: {question?.correctAnswer}</p>
                                 </li>
                             ))}
                         </ul>

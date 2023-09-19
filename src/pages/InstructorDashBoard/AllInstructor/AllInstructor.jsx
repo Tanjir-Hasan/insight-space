@@ -17,7 +17,7 @@ const AllInstructor = () => {
     return (
         <div>
             {/* display all instructors  */}
-            <div className="p-8 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="md:p-8 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {
                     instructors && instructors?.map(i => <AllInstructorsCard key={i._id} instructor={i.instructorData}></AllInstructorsCard>)
                 }

@@ -207,11 +207,11 @@
 
 /* Apply zoom-in animation when the modal content appears */
 .animate-zoom-in {
-  animation: zoom-in 0.9s ease-out;
+  animation: zoom-in 0.8s ease-out;
 }
 
 /* Apply zoom-out animation when the modal content disappears */
 .zoom-in-out-modal[data-enter] .animate-zoom-in,
 .zoom-in-out-modal[data-leave] .animate-zoom-out {
-  animation: zoom-out 0.9s ease-out;
+  animation: zoom-out 0.8s ease-out;
 }

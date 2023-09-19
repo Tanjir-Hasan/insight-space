@@ -63,6 +63,10 @@ const Navbar = () => {
         }
     };
 
+    const handleAbout = () => {
+        setIsOpen(false)
+    }
+
 
     const handleLogOut = () => {
         Swal.fire({
@@ -151,43 +155,54 @@ const Navbar = () => {
 
                     {/* show on small device */}
 
-                    <div className='lg:hidden md:block'>
+                    <div className='lg:hidden md:block ml-4'>
 
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
-                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]' } h-8 w-6 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]'} h-8 w-6  absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
                             ) : (
-                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]' } h-8 w-6 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]'} h-8 w-6 absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
                             )}
                         </span>
 
                         {isOpen &&
-                            <div className={`flex flex-col gap-3 absolute top-16 right-0 px-8 duration-1000 ${theme === 'dark' ? 'bg-[#011627] text-white' : theme === 'night' ? 'bg-[#0d1b2a] text-white' : theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                            <div  className=" animate-zoom-in mt-16  ">
+                                <div className={` flex flex-col rounded-md gap-2 absolute right-0  px-8  ${theme === 'dark' ? 'bg-[#011627] text-white border-2 border-black' : theme === 'night' ? 'bg-[#0d1b2a] text-white border-2 border-black' : theme === 'light' ? 'bg-[#f0efeb] border-2 border-[#c6d6e4]' : ''}`}>
 
-                                <ActiveLink to="/">Home</ActiveLink>
+                                    <div onClick={() => handleAbout()}>
+                                        <ActiveLink to="/">Home</ActiveLink>
+                                    </div>
+                                    <div onClick={() => handleAbout()}>
+                                        {!isAdmin && <ActiveLink to="/news-feed">News Feed</ActiveLink>}
+                                    </div>
+                                    <div onClick={() => handleAbout()}>
+                                        {!isAdmin && <ActiveLink to="/connections">Connections</ActiveLink>}
+                                    </div>
+                                    <div onClick={() => handleAbout()}>
+                                        {!isAdmin && <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
+                                    </div>
+                                    <div onClick={() => handleAbout()}>
+                                        {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
+                                    </div>
+                                    <div onClick={() => handleAbout()}>
+                                        {!isAdmin && <ActiveLink to="/pro-memberShip">Quiz</ActiveLink>}
+                                    </div>
+                                    <div onClick={() => handleAbout()}>
+                                        {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
+                                    </div>
+                                    <div onClick={() => handleAbout()}>
+                                        <ActiveLink to="/about-us">About</ActiveLink>
+                                    </div>
 
-                                {!isAdmin && <ActiveLink to="/news-feed">News Feed</ActiveLink>}
+                                    <div className='bg-[#3c6e71] text-white pl-3 mb-3 rounded-md'>
+                                        {
+                                            user ?
+                                                <button onClick={handleLogOut}>Logout</button>
+                                                : <ActiveLink to="/login">Login</ActiveLink>
+                                        }
+                                    </div>
 
-                                {!isAdmin && <ActiveLink to="/connections">Connections</ActiveLink>}
-
-                                {!isAdmin && <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
-
-                                {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
-
-                                {!isAdmin && <ActiveLink to="/quiz">Quiz</ActiveLink>}
-
-                                {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
-
-                                {isInstructor && <ActiveLink to="/instructor-dashboard">Dashboard</ActiveLink>}
-
-                                <ActiveLink to="/about-us">About</ActiveLink>
-
-                                {
-                                    user ?
-                                        <button onClick={handleLogOut}>Logout</button>
-                                        : <ActiveLink to="/login">Login</ActiveLink>
-                                }
-
+                                </div>
                             </div>
                         }
 
@@ -199,11 +214,12 @@ const Navbar = () => {
 
             {/* modal start  */}
 
+            
             <div className='modal'>
                 {isModalOpen && (
-                    <div className='absolute top-20 right-0 rounded-xl'>
+                    <div className='absolute  top-20 right-0 rounded-xl'>
 
-                        <div className={`rounded-xl animate-zoom-in ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-[#f0efeb]'}`}>
+                        <div className={`rounded-xl  ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-[#f0efeb]'}`}>
                             <UserDetails userDetails={userDetails}></UserDetails>
                         </div>
 
@@ -211,6 +227,7 @@ const Navbar = () => {
 
                 )}
             </div>
+          
 
             {/* modal end  */}
 

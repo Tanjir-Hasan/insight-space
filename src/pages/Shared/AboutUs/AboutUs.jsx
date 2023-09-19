@@ -176,7 +176,7 @@ const AboutUs = () => {
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon2} alt="" /> */}
                                     </div>
-                                    <p className="mt-5 font-[Cinzel] text-justify">Feedback and Continuous Improvement: Users can seek feedback on their work, ideas, or projects, leading to refinement and improvement. Constructive criticism and suggestions can be shared in a supportive environment.</p>
+                                    <p className="mt-5 text-sm md:text-base font-[Cinzel] text-justify">Feedback and Continuous Improvement: Users can seek feedback on their work, ideas, or projects, leading to refinement and improvement. Constructive criticism and suggestions can be shared in a supportive environment.</p>
 
                                 </div>
 
@@ -184,7 +184,7 @@ const AboutUs = () => {
                                     <div className="flex justify-center">
                                         {/* <img className=" h-20" src={icon3} alt="" /> */}
                                     </div>
-                                    <p className="mt-5 font-[Cinzel] text-justify">Preservation of Institutional Knowledge: As employees come and go, organizations risk losing valuable institutional knowledge. Knowledge sharing platforms help preserve this knowledge by capturing it in a format that can be passed on to new employees.</p>
+                                    <p className="mt-5 text-sm md:text-base font-[Cinzel] text-justify">Preservation of Institutional Knowledge: As employees come and go, organizations risk losing valuable institutional knowledge. Knowledge sharing platforms help preserve this knowledge by capturing it in a format that can be passed on to new employees.</p>
                                 </div>
 
                                 <div className={`rounded-xl p-5 ${theme === 'light' ? 'bg-[#3c6e71] opacity-70' : theme === 'dark' ? 'bg-[#051923] opacity-70' : theme === 'night' ? 'bg-[#0d1b2a]  opacity-70' : ''}`}>
@@ -193,7 +193,7 @@ const AboutUs = () => {
                                         {/* <img className=" h-20" src={icon1} alt="" /> */}
                                     </div>
 
-                                    <p className="mt-5 font-[Cinzel] text-justify">Accessibility and Convenience: Knowledge sharing platforms provide a central repository where information, expertise, and resources are accessible at any time and from anywhere. This convenience is especially valuable for remote teams, global collaborations, or individuals seeking information on the go.</p>
+                                    <p className="mt-5 font-[Cinzel] text-justify text-sm md:text-base">Accessibility and Convenience: Knowledge sharing platforms provide a central repository where information, expertise, and resources are accessible at any time and from anywhere. This convenience is especially valuable for remote teams, global collaborations, or individuals seeking information on the go.</p>
 
                                 </div>
 
