@@ -39,9 +39,9 @@ const Chat = () => {
         <Link to="/single-chat" className='text-black hover:text-white font-[Cinzel] bg-[#ade8f4] hover:bg-[#0096c7] px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>My Messages</Link>
       </div>
 
-      <div className="mt-10 w-8/12 mx-auto">
+      <div className="mt-10 w-full px-2 mx-auto">
 
-        <div className='grid mb-5'>
+        <ScrollToBottom className='mb-5 h-[calc(100vh-35vh)]'>
 
           {
             messages &&
@@ -50,7 +50,7 @@ const Chat = () => {
             ))
           }
 
-        </div>
+        </ScrollToBottom>
 
         <SendMessage scroll={scroll} />
 

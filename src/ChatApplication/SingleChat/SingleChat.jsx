@@ -11,6 +11,7 @@ import messageLoading from "../../../public/message-loading.json";
 import { MdSend } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Search from '../../pages/NewsFeed/Search/Search';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 // const serverUrl = `http://localhost:5000`;
 const serverUrl = `${import.meta.env.VITE_base_URL}`;
@@ -83,12 +84,7 @@ const SingleChat = () => {
 
 
     const addConversation = (senderId, receiverId) => {
-        // axiosSecure.post(`/conversation`, { senderId, receiverId })
-        //     .then((res) => {
-        //         console.log(res.data)
-        //         refetch();
-        //     })
-        //     .catch(err => console.log(err.message))
+
         socket.emit("addConversation", { senderId, receiverId });
         socket.on("conversation", (data) => {
             if (data.acknowledged === true) {
@@ -114,6 +110,24 @@ const SingleChat = () => {
             }
         })
     };
+
+    // const handleDeleteMsg = (msgId) => {
+    //     socket.emit('deleteMessage', msgId);
+    //     socket.on('msgDeleteSuccess', (data) => {
+    //         if (data.acknowledged === true) {
+    //             toast.success('Deleted Successfully!', {
+    //                 position: "bottom-center",
+    //                 autoClose: 2000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: false,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "light",
+    //             });
+    //         }
+    //     })
+    // }
 
     useEffect(() => {
         socket.emit("getSingleUser", user?.email);
@@ -204,16 +218,16 @@ const SingleChat = () => {
 
                                         {/* all messages */}
 
-                                        <div className={`${theme === 'dark' ? 'bg-gray-900' :
+                                        <ScrollToBottom className={`${theme === 'dark' ? 'bg-gray-900' :
                                             theme === 'night' ? 'night-middle' :
-                                                theme === 'light' ? 'bg-[#e0e1dd] text-white' : ''} h-[calc(100vh-35vh)] p-4 rounded-lg shadow-md overflow-y-auto`}
+                                                theme === 'light' ? 'bg-[#e0e1dd] text-white' : ''} h-[calc(100vh-35vh)] p-4 rounded-lg shadow-md`}
 
                                         >
 
                                             {
                                                 messages.length > 0 ? messages?.map((message, i) =>
 
-                                                    <div key={i} className={`p-2 max-w-[60%] mb-2 ${message.senderId === singleUserData?._id
+                                                    <div key={i} className={`p-2 md:w-[60%] mb-2 ${message.senderId === singleUserData?._id
                                                         ? 'bg-[#0077b6] rounded-s-xl rounded-t-xl ml-auto' : 'bg-[#6c757d]  rounded-b-xl rounded-tr-xl'}`}
                                                     >
 
@@ -228,7 +242,7 @@ const SingleChat = () => {
                                                     </div>
                                             }
 
-                                        </div>
+                                        </ScrollToBottom>
 
                                         {/* send messages field */}
 
@@ -277,7 +291,7 @@ const SingleChat = () => {
                             </div>
 
                             {
-                                allUsers?.filter((u) => u._id !== singleUserData?._id)?.filter((us)=>us?.displayName.toLowerCase().includes(searchText.toLowerCase())).map((user, index) => (
+                                allUsers?.filter((u) => u._id !== singleUserData?._id)?.filter((us) => us?.displayName.toLowerCase().includes(searchText.toLowerCase())).map((user, index) => (
                                     <div
                                         key={index}
                                         className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center mb-4`}
