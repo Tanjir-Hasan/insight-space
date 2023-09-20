@@ -57,19 +57,20 @@ const AddInstructorQuiz = () => {
 
     return (
         <div className={`${theme}`}>
-            <div className='p-10'>
+
+            <div className='p-10 h-screen'>
                 <h2 className='text-center font-semibold font-[Poppins] text-5xl '>Add Quiz</h2>
                 <p className=' text-center mt-4 mb-4 font-[Poppins]'>Test Your Advertising Knowledge: Add Quiz Challenge</p>
                 <div className="h-46 rounded-lg border-2 backdrop-blur-sm p-4 drop-shadow-lg">
 
                     <form onSubmit={handleQuiz}>
 
-                        <label htmlFor="message" className="block font-semibold mb-2 pl-2 pb-4">Question</label>
+                        <label htmlFor="message" className="block font-semibold mb-2 pl-2 pb-4 ml-4">Question</label>
                         <input type="text" name="question" placeholder='Write Question' className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none text-black' ></input>
 
-                        <label htmlFor="message" className="block mt-4 mb-2 pl-2 font-semibold">Options</label>
+                        <label htmlFor="message" className="block mt-4 mb-2 ml-4 pl-2 font-semibold">Options</label>
 
-                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 p-5 md:p-5'>
+                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 p-5 md:p-5'>
 
                             <input type="text" name="option1" placeholder='option1' className='lg:w-96 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
 
@@ -81,7 +82,7 @@ const AddInstructorQuiz = () => {
 
                         </div>
 
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 md:p-5 mb-2 mt-4 md:ml-0 ml-4'>
+                        <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 md:p-5 mb-2 mt-4 md:ml-0 ml-4'>
                             <div>
                                 <label htmlFor="message" className="block font-semibold">Correct Answer</label>
                                 <input type="text" name="correctAnswer" placeholder='Correct Answer' className='lg:w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
@@ -102,6 +103,7 @@ const AddInstructorQuiz = () => {
                 </div>
 
             </div>
+
         </div>
     );
 };

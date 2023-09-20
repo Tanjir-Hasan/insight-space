@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../../../Hooks/useAuth';
+import { ThemeContext } from '../../../../../providers/ThemeProvider';
 
 const SSLPayment = (formData) => {
+
+    const { theme } = useContext(ThemeContext);
 
     const { user } = useAuth();
 
@@ -16,15 +19,14 @@ const SSLPayment = (formData) => {
             },
             body: JSON.stringify({ ...data, total_amount: formData.number })
         })
-        .then(res => res.json())
-        .then(result => {
-            window.location.replace(result.url);
-            console.log(result)
-        });
-    
+            .then(res => res.json())
+            .then(result => {
+                window.location.replace(result.url);
+                console.log(result)
+            });
+
         console.log(data);
     };
-    
 
 
     return (
@@ -49,9 +51,10 @@ const SSLPayment = (formData) => {
 
             </div>
 
-
             <button type='submit'
-                className='text-xl font-[Cinzel] text-white mr-5 rounded-lg border-0 text-md font-semibold bg-gradient-to-r from-[#3c6e71] to-[#335c67] hover:cursor-pointer hover:opacity-90 duration-500 py-2 w-full'
+                className={`${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                    theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                        theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''} text-center text-xl font-[Poppins] w-full transition-all duration-1000 py-2 rounded-lg`}
             >Send Support</button>
 
         </form>

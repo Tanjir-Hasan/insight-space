@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom';
 import Search from '../../pages/NewsFeed/Search/Search';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
-// const serverUrl = `http://localhost:5000`;
 const serverUrl = `${import.meta.env.VITE_base_URL}`;
 const socket = io(serverUrl, {
     transports: ['websocket']
