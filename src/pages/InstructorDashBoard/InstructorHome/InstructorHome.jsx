@@ -26,25 +26,25 @@ const InstructorHome = () => {
 
     return (
         <div
-            className="gap-4 bg-[#E8ECF1] lg:w-full rounded-lg text-gray-500  px-16 pb-20"
+            className=" bg-[#E8ECF1] lg:w-full rounded-lg text-gray-500 pb-10"
         >
-            <div className=" items-center justify-center  md:w-10/12 w-screen mx-auto drop-shadow-lg  ">
+            <div className="items-center justify-center  md:w-10/12 w-screen mx-auto drop-shadow-lg ">
 
                 <div className="">
                     <div className="flex items-center justify-center md:w-10/12 w-11/12 mx-auto drop-shadow-lg">
 
-                        <div className="space-y-2 md:px-0 px-5 pt-10">
+                        <div className="space-y-2 md:px-0 px-5 pt-10 ">
 
                             <p className="uppercase font-bold text-3xl text-white-500 text-center"> {userDetails?.displayName}</p>
                             <h2 className="text-xl text-center font-semibold px-4">Welcome to Your Dashboard</h2>
 
-                            <div className='  relative'>
+                            <div className='bg-white mt-8  rounded-lg  border-2 backdrop-blur-sm bg-white/90  h-50  text-black  gap-2'>
 
-                                <div className="">
-                                    <div
-                                        className="bg-white mt-8  rounded-lg  border-2 backdrop-blur-sm bg-white/90 p-4 relative  h-70  text-black flex px-5 items-center gap-2">
-                                        
-                                        <div>
+                                
+                                    
+                                <div className="md:flex justify-between md:gap-10 lg:gap-16 py-20 px-10">
+                                    
+                                        <div className="description ">
                                             <h4 className="font-bold mb-4 text-gray-500">Key Responsibilities of an Instructor</h4>
                                             
                                             <div className="mb-2 font-[Cinzel]">
@@ -67,9 +67,9 @@ const InstructorHome = () => {
                                             
 
                                         </div>
-                                        <div className="">
-                                            <div>
-                                                <img src={userDetails?.photoURL} alt="user photo" className="w-48 h-46" />
+                                        <div className="Image">
+                                            <div className="w-full  p-6 flex justify-center items-center bg-fixed bg-[#e5e5e5]/30 rounded-md mb-5 md:mb-0">
+                                                <img src={userDetails?.photoURL} alt="user photo" className="w-46 h-36"/>
                                             </div>
                                             <div>
                                                 <h4 className="font-bold">{userDetails?.displayName}</h4>
@@ -77,8 +77,9 @@ const InstructorHome = () => {
                                                 <small>Instructor</small>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
+                                    
+                                
 
                             </div>
 
@@ -88,7 +89,7 @@ const InstructorHome = () => {
                                 >   <div>
                                     <h2 className='text-center font-semibold text-white mb-4'>Subject and Plan</h2>
                                     
-                                    <div className="justify-center items-center p-12">
+                                    <div className="w-full  p-6 flex justify-center items-center bg-fixed bg-[#e5e5e5]/30 rounded-md mb-5 md:mb-0">
                                         <img src={subject} className="w-24 h-24 "></img>
                                     </div>
                                     </div>
@@ -97,16 +98,16 @@ const InstructorHome = () => {
 
                                 <div className="bg-[#87C0CD] h-46 rounded-lg  border-2 backdrop-blur-sm  p-4"
                                 >
-                                    <h2 className='text-center font-semibold text-white'>Questions</h2>
-                                    <div className="justify-center items-center p-12">
+                                    <h2 className='text-center font-semibold text-white mb-4'>Questions</h2>
+                                    <div className="w-full  p-6 flex justify-center items-center bg-fixed bg-[#e5e5e5]/30 rounded-md mb-5 md:mb-0">
                                         <img src={questions} className="w-24 h-24"></img>
                                     </div>
                                 </div>
 
                                 <div className="bg-[#71C9CE] h-46 rounded-lg border-2 backdrop-blur-sm  p-4"
                                 >
-                                    <h2 className='text-center font-semibold text-white'>Classes and Exams</h2>
-                                    <div className="justify-center items-center p-12">
+                                    <h2 className='text-center font-semibold text-white mb-4'>Classes and Exams</h2>
+                                    <div className="w-full  p-6 flex justify-center items-center bg-fixed bg-[#e5e5e5]/30 rounded-md mb-5 md:mb-0">
                                         <img src={exam} className="w-24 h-24"></img>
                                     </div>
                                 </div>
@@ -139,3 +140,8 @@ const InstructorHome = () => {
 };
 
 export default InstructorHome;
+
+
+
+
+// bg-white mt-8  rounded-lg  border-2 backdrop-blur-sm bg-white/90 p-4 relative  h-70  text-black  px-5 items-center gap-2
