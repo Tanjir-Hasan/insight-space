@@ -97,6 +97,10 @@ const NewsForm = () => {
             })
     };
 
+    const stopPropagation = (e) => {
+        e.stopPropagation();
+    };
+
     const closeModal = () => {
         setIsModalOpen(false);
     };
@@ -110,26 +114,14 @@ const NewsForm = () => {
     useEffect(() => {
         if (isModalOpen) {
             window.addEventListener('keydown', handleEscapeKey);
-
-            document.addEventListener('mousedown', handleClickOutside);
         } else {
             window.removeEventListener('keydown', handleEscapeKey);
-            document.removeEventListener('mousedown', handleClickOutside);
         }
 
         return () => {
             window.removeEventListener('keydown', handleEscapeKey);
-            document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isModalOpen]);
-
-    const handleClickOutside = (event) => {
-        const modal = document.querySelector('.modal');
-
-        if (modal && !modal.contains(event.target)) {
-            closeModal();
-        }
-    };
 
     return (
         <div hidden={bookMarks.length > 0} className={`${theme === 'dark' ? 'dark' :
@@ -151,7 +143,7 @@ const NewsForm = () => {
             {isModalOpen && (
                 <div className={`${theme === 'dark' ? 'dark ' :
                     theme === 'night' ? 'night' :
-                        theme === 'light' ? 'bg-[#f0efeb]' : ''} fixed top-1/3 mt-20 md:mt-8 lg:mt-20 left-1/2 md:left-[30%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#3c6e71] w-[95%] md:w-[54%] lg:w-2/5`}>
+                        theme === 'light' ? 'bg-[#f0efeb]' : ''} fixed top-1/3 mt-20 md:mt-8 lg:mt-20 left-1/2 md:left-[30%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-lg border-2 border-[#3c6e71] w-[95%] md:w-[54%] lg:w-2/5`} onClick={handleEscapeKey}>
                     <button onClick={() => setIsModalOpen(false)} className="px-3 py-1 rounded absolute right-3 top-2">
                         <SlClose className="text-2xl hover:text-[#ad2831]" />
                     </button>
@@ -159,13 +151,18 @@ const NewsForm = () => {
 
                     <div className="md:flex my-5 gap-5">
 
-                        <button onClick={() => setIsOpen("questions")} className={`w-full duration-700 lg:px-16 px-8 lg:py-2 py-1 rounded-lg ${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
-                            theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
-                                theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''}`}>Ask a Questions</button>
+                        <button
+                            onClick={() => setIsOpen("questions")}
+                            onMouseDown={stopPropagation}
+                            className={`w-full duration-700 lg:px-16 px-8 lg:py-2 py-1 rounded-lg ${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                                theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                                    theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''}`}>Ask a Questions</button>
 
-                        <button onClick={() => setIsOpen("blogs")} className={`w-full duration-700 md:mt-0 mt-2 lg:px-16 px-8 lg:py-2 py-1 rounded-lg ${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
-                            theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
-                                theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''}`}>Create a Blog</button>
+                        <button onClick={() => setIsOpen("blogs")}
+                            onMouseDown={stopPropagation}
+                            className={`w-full duration-700 md:mt-0 mt-2 lg:px-16 px-8 lg:py-2 py-1 rounded-lg ${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                                theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                                    theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''}`}>Create a Blog</button>
 
                     </div>
 
@@ -187,55 +184,67 @@ const NewsForm = () => {
                         </div>
                     </div>
                     {/* questions form start */}
-                    {isOpen == "questions" ? <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
-                        <div className="my-2 w-1/2 font-[Poppins]">
-                            <p className="text-md font-semibold mb-2">Select Category: </p>
-                            <select required {...register("category")} className="text-black w-full border rounded-md">
-                                <option>News & Updates</option>
-                                <option>Creative Arts</option>
-                                <option>Lifestyle & Hobbies</option>
-                                <option>Wellness & Self-Care</option>
-                                <option>Technology & Innovation</option>
-                                <option>Entertainment Buzz</option>
-                                <option>Science & Exploration</option>
-                                <option>Travel & Adventure</option>
-                                <option>Food & Cuisine</option>
-                                <option>Personal Stories</option>
-                                <option>Fashion & Style</option>
-                                <option>Sports & Fitness</option>
-                                <option>Parenting & Family</option>
-                                <option>Education & Learning</option>
-                            </select>
-                        </div>
-                        <textarea rows="4" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?" required></textarea><br />
-                        <div className="mt-8">
-                            {/* fix submit button */}
-                            <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Post</ButtonWithLoading>
-                        </div>
-                    </form> :
-                        // blog  form start
-                        <form className="mt-8" onSubmit={handleBlogSubmit}>
-                            <textarea rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2" name="blogText" placeholder="What's on your mind?" required></textarea><br />
-                            <div className="mt-4">
+                    {
+                        isOpen == "questions" ?
+                            <form onSubmit={handleSubmit(onSubmit)} className="mt-8" onClick={(e) => e.stopPropagation()}>
 
-                                <input type="file"
-                                    id="fileInput"
-                                    name="fileInput"
-                                    className={`text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full
+                                <div className="my-2 w-1/2 font-[Poppins]">
+
+                                    <p className="text-md font-semibold mb-2">Select Category: </p>
+
+                                    <select required {...register("category")} className="text-black w-full border rounded-md">
+                                        <option>News & Updates</option>
+                                        <option>Creative Arts</option>
+                                        <option>Lifestyle & Hobbies</option>
+                                        <option>Wellness & Self-Care</option>
+                                        <option>Technology & Innovation</option>
+                                        <option>Entertainment Buzz</option>
+                                        <option>Science & Exploration</option>
+                                        <option>Travel & Adventure</option>
+                                        <option>Food & Cuisine</option>
+                                        <option>Personal Stories</option>
+                                        <option>Fashion & Style</option>
+                                        <option>Sports & Fitness</option>
+                                        <option>Parenting & Family</option>
+                                        <option>Education & Learning</option>
+                                    </select>
+
+                                </div>
+
+                                <textarea
+                                    onClick={stopPropagation} rows="4" {...register("text")} type="text" id="" className="text-black w-full border border-spacing-2 rounded-xl px-2 py-2" placeholder="What's on your mind?" required></textarea><br />
+                                <div className="mt-8">
+                                    {/* fix submit button */}
+                                    <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Post</ButtonWithLoading>
+                                </div>
+
+                            </form>
+                            :
+                            // blog  form start
+                            <form className="mt-8" onSubmit={handleBlogSubmit}>
+
+                                <textarea onClick={stopPropagation} rows="4" type="text" id="" className="w-full border border-spacing-2 rounded-xl px-2 py-2 text-black" name="blogText" placeholder="What's on your mind?" required></textarea><br />
+
+                                <div className="mt-4">
+
+                                    <input type="file"
+                                        id="fileInput"
+                                        name="fileInput"
+                                        className={`text-sm text-grey-500 file:mr-5 file:py-3 file:px-10 file:rounded-lg file:border-0 file:text-md file:font-semibold hover:file:cursor-pointer hover:file:opacity-90 duration-500 py-5 w-full
                                     ${theme === 'light' ? 'file:text-white file:bg-gradient-to-l file:from-[#006466] file:to-[#212f45]' : theme === 'dark' ? 'file:text-white file:bg-gradient-to-tr file:from-[#48cae4] file:to-[#051923]' :
-                                            theme === 'night' ? 'file:text-white file:bg-gradient-to-tr file:from-[#0d1b2a] file:to-[#b79ced]'
-                                                : ''}
+                                                theme === 'night' ? 'file:text-white file:bg-gradient-to-tr file:from-[#0d1b2a] file:to-[#b79ced]'
+                                                    : ''}
                                     `}
-                                />
+                                    />
 
-                            </div>
+                                </div>
 
-                            <div className="mt-8">
-                                {/* fix submit button */}
-                                <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Post Blog</ButtonWithLoading>
-                            </div>
+                                <div className="mt-8">
+                                    {/* fix submit button */}
+                                    <ButtonWithLoading width={"w-full"} loading={btnLoading} icon={<BsSend />}>Post Blog</ButtonWithLoading>
+                                </div>
 
-                        </form>}
+                            </form>}
                     {/* blog from end */}
                 </div>
             )}
