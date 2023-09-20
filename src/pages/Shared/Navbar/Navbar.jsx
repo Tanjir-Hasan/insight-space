@@ -165,9 +165,9 @@ const Navbar = () => {
 
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
-                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]'} h-8 w-6  absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : theme === 'dark' ? 'text-[#48cae4]' : theme === 'night' ? 'text-[#b79ced]' : ''} h-8 w-6  absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
                             ) : (
-                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]'} h-8 w-6 absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : theme === 'dark' ? 'text-[#48cae4]' : theme === 'night' ? 'text-[#b79ced]' : ''} h-8 w-6 absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
                             )}
                         </span>
 
@@ -200,7 +200,7 @@ const Navbar = () => {
                                         <ActiveLink to="/about-us">About</ActiveLink>
                                     </div>
 
-                                    <div className='bg-[#3c6e71] text-white pl-3 mb-3 rounded-md'>
+                                    <div className='pl-3 mb-3 rounded-md'>
                                         {
                                             user ?
                                                 <button onClick={handleLogOut}>Logout</button>
@@ -209,6 +209,7 @@ const Navbar = () => {
                                     </div>
 
                                 </div>
+
                             </div>
                         }
 
@@ -219,7 +220,6 @@ const Navbar = () => {
             </div>
 
             {/* modal start  */}
-
             
             <div className='modal'>
                 {isModalOpen && (
