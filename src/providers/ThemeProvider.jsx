@@ -5,15 +5,6 @@ export const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
-    /*
-    const [theme, setTheme] = useState(getInitialTheme);
-
-    function getInitialTheme() {
-        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
-    }
-    */ 
-
     const toggleTheme = (newTheme) => {
         setTheme(newTheme);
     };
