@@ -3,10 +3,17 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import ButtonWithLoading from "../../../components/ButtonWithLoading";
 import useInstructorQuiz from "../../../Hooks/useInstructorQuiz";
+import { useContext } from "react";
+import { ThemeContext } from "../../../providers/ThemeProvider";
 
 const AddInstructorQuiz = () => {
+
+    const { theme } = useContext(ThemeContext);
+
     const [axiosSecure] = useAxiosSecure();
+
     const { user } = useAuth();
+
     const [instructorQuiz, refetch] = useInstructorQuiz();
 
     const handleQuiz = (e) => {
@@ -49,42 +56,51 @@ const AddInstructorQuiz = () => {
 
 
     return (
-        <div className='p-10'>
-            <h2 className='text-black text-center font-semibold font-[Poppins] text-5xl '>Add Quiz</h2>
-            <p className='text-black text-center mt-4 mb-4 font-[Poppins]'>Test Your Advertising Knowledge: Ad Quiz Challenge</p>
-            <div className="bg-white h-46 rounded-lg border-2 backdrop-blur-sm bg-white/30 p-4 drop-shadow-lg">
+        <div className={`${theme}`}>
+            <div className='p-10'>
+                <h2 className='text-center font-semibold font-[Poppins] text-5xl '>Add Quiz</h2>
+                <p className=' text-center mt-4 mb-4 font-[Poppins]'>Test Your Advertising Knowledge: Add Quiz Challenge</p>
+                <div className="h-46 rounded-lg border-2 backdrop-blur-sm p-4 drop-shadow-lg">
 
-                <form onSubmit={handleQuiz}>
+                    <form onSubmit={handleQuiz}>
 
-                    <label htmlFor="message" className="block font-semibold mb-2 pl-2 pb-4">Question</label>
-                    <input type="text" name="question" placeholder='Write Question' className='w-full  px-4 py-2 border border-gray-300 rounded focus:outline-none text-black' ></input>
+                        <label htmlFor="message" className="block font-semibold mb-2 pl-2 pb-4">Question</label>
+                        <input type="text" name="question" placeholder='Write Question' className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none text-black' ></input>
 
-                    <label htmlFor="message" className="block font- mt-4 mb-2 pl-2 font-semibold">Options</label>
-                    <div className='grid lg:grid-cols-2 gap-10 mt-5  p-5 md:p-5'>
-                        <input type="text" name="option1" placeholder='option1' className='w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+                        <label htmlFor="message" className="block mt-4 mb-2 pl-2 font-semibold">Options</label>
 
-                        <input type="text" name="option2" placeholder='option2' className='w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 p-5 md:p-5'>
 
-                        <input type="text" name="option3" placeholder='option3' className='w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+                            <input type="text" name="option1" placeholder='option1' className='lg:w-96 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
 
-                        <input type="text" name="option4" placeholder='option4' className='w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+                            <input type="text" name="option2" placeholder='option2' className='lg:w-96 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
 
-                    </div>
-                    <div className=' grid lg:grid-cols-2 gap-10 mt-5  p-10 md:p-5'>
-                        <div>
-                            <label htmlFor="message" className="block font- mt-4 mb-2 font-semibold">Correct Answer</label>
-                            <input type="text" name="correctAnswer" placeholder='Correct Answer' className='w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+                            <input type="text" name="option3" placeholder='option3' className='lg:w-96 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+
+                            <input type="text" name="option4" placeholder='option4' className='lg:w-96 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+
                         </div>
-                        <div>
-                            <label htmlFor="message" className="block font- mt-4 mb-2 font-semibold">Category Name</label>
-                            <input type="text" name="categoryName" placeholder='Category Name' className='w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 md:p-5 mb-2 mt-4 md:ml-0 ml-4'>
+                            <div>
+                                <label htmlFor="message" className="block font-semibold">Correct Answer</label>
+                                <input type="text" name="correctAnswer" placeholder='Correct Answer' className='lg:w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+                            </div>
+                            <div>
+                                <label htmlFor="message" className="block font-semibold">Category Name</label>
+                                <input type="text" name="categoryName" placeholder='Category Name' className='lg:w-96 mt-5 text-black px-4 py-2 border border-gray-300 rounded focus:outline-none ' ></input>
+                            </div>
                         </div>
-                    </div>
-                    <div className=" md:w-38 md:mx-0  mx-auto mt-10 mb-10">
-                        {/* fix submit button */}
-                        <ButtonWithLoading width={"w-full"}>Upload Quiz</ButtonWithLoading>
-                    </div>
-                </form>
+
+                        <div className="md:w-38 md:mx-0 mx-auto mt-10 mb-10">
+                            {/* fix submit button */}
+                            <ButtonWithLoading width={"w-full"}>Upload Quiz</ButtonWithLoading>
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
         </div>
     );
