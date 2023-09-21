@@ -53,8 +53,9 @@ const NewsFooter = ({ p, hide, setHide }) => {
           </button>
         </div>
 
-        <SSLPaymentModal></SSLPaymentModal>
-      </div>
+                <SSLPaymentModal></SSLPaymentModal>
+
+            </div>
 
       {/* comment body  */}
       {hide === p._id && (

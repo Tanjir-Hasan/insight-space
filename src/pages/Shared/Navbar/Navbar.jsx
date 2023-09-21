@@ -134,11 +134,11 @@ const Navbar = () => {
                         {!isAdmin && <ActiveLink to="/connections">Connections</ActiveLink>}
 
                         {!isAdmin && <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
+                        {!isAdmin && <ActiveLink to="/pro-memberShip">Quiz</ActiveLink>}
 
                         {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
 
-                        {!isAdmin && <ActiveLink to="/pro-memberShip">Quiz</ActiveLink>}
-
+                       
                         {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
 
                         {isInstructor && <ActiveLink to="/instructor-dashboard">Dashboard</ActiveLink>}
@@ -161,19 +161,20 @@ const Navbar = () => {
 
                     {/* show on small device */}
 
-                    <div className='lg:hidden md:block ml-4'>
+                    <div className='lg:hidden md:block ml-6'>
 
                         <span className='duration-1000' onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? (
-                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : theme === 'dark' ? 'text-[#48cae4]' : theme === 'night' ? 'text-[#b79ced]' : ''} h-8 w-6  absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenuAltRight className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]'} h-8 w-6  absolute bottom-6 right-2 cursor-pointer text-[#3c6e71]`} />
                             ) : (
-                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : theme === 'dark' ? 'text-[#48cae4]' : theme === 'night' ? 'text-[#b79ced]' : ''} h-8 w-6 absolute bottom-6 right-0 cursor-pointer text-[#3c6e71]`} />
+                                <BiMenu className={`${theme === 'light' ? 'text-[#3c6e71]' : 'text-[#48cae4]'} h-8 w-6 absolute bottom-6 right-2 cursor-pointer text-[#3c6e71]`} />
                             )}
                         </span>
 
                         {isOpen &&
-                            <div  className=" animate-zoom-in mt-16  ">
-                                <div className={` flex flex-col rounded-md gap-2 absolute right-0  px-8  ${theme === 'dark' ? 'bg-[#011627] text-white border-2 border-black' : theme === 'night' ? 'bg-[#0d1b2a] text-white border-2 border-black' : theme === 'light' ? 'bg-[#f0efeb] border-2 border-[#c6d6e4]' : ''}`}>
+                            
+                            <div className="animate-zoom-in mt-16">
+                                <div className={` pt-2 flex flex-col rounded-md gap-2 absolute right-0 px-8  ${theme === 'dark' ? 'bg-[#011627] text-white border-2 border-black' : theme === 'night' ? 'bg-[#0d1b2a] text-white border-2 border-black' : theme === 'light' ? 'bg-[#f0efeb] border-2 border-[#c6d6e4]' : ''}`}>
 
                                     <div onClick={() => handleAbout()}>
                                         <ActiveLink to="/">Home</ActiveLink>
@@ -188,11 +189,12 @@ const Navbar = () => {
                                         {!isAdmin && <ActiveLink to="/ques-ans">Q&A</ActiveLink>}
                                     </div>
                                     <div onClick={() => handleAbout()}>
-                                        {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
-                                    </div>
-                                    <div onClick={() => handleAbout()}>
                                         {!isAdmin && <ActiveLink to="/pro-memberShip">Quiz</ActiveLink>}
                                     </div>
+                                    <div onClick={() => handleAbout()}>
+                                        {!isAdmin && <ActiveLink to="/blog-feed">Blog</ActiveLink>}
+                                    </div>
+                                   
                                     <div onClick={() => handleAbout()}>
                                         {isAdmin && <ActiveLink to="/admin-dashboard">Dashboard</ActiveLink>}
                                     </div>
@@ -200,7 +202,7 @@ const Navbar = () => {
                                         <ActiveLink to="/about-us">About</ActiveLink>
                                     </div>
 
-                                    <div className='pl-3 mb-3 rounded-md'>
+                                    <div className='bg-[#3c6e71] text-white hover:bg-[#0f3739] pl-3 mb-3 py-1 rounded-md'>
                                         {
                                             user ?
                                                 <button onClick={handleLogOut}>Logout</button>
@@ -220,12 +222,14 @@ const Navbar = () => {
             </div>
 
             {/* modal start  */}
-            
+
             <div className='modal'>
                 {isModalOpen && (
-                    <div className='absolute  top-20 right-0 rounded-xl'>
+                    <div className='absolute top-20 right-0 rounded-xl w-3/12'>
 
-                        <div className={`rounded-xl  ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-[#f0efeb]'}`}>
+                        <div className={`rounded-xl ${theme === 'dark' ? 'bg-[#003049]' :
+                            theme === 'night' ? 'bg-[#03071e]' :
+                                theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
                             <UserDetails userDetails={userDetails}></UserDetails>
                         </div>
 
@@ -233,7 +237,6 @@ const Navbar = () => {
 
                 )}
             </div>
-          
 
             {/* modal end  */}
 

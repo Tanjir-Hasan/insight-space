@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import useMyPayments from "../../../Hooks/useMyPayments";
 
-const UserDetails = ({ userDetails }) => {
+const UserDetails = ({ userDetails, setIsModalOpen,  }) => {
 
     const { theme } = useContext(ThemeContext);
 
@@ -55,8 +55,14 @@ const UserDetails = ({ userDetails }) => {
         dispatch(setMyPosts([]));
     }
 
+    const handleClose = ()=>{
+        setIsModalOpen(false) 
+    }
+
     return (
-        <div className={`${theme}`}>
+        <div className={`${theme === 'dark' ? 'bg-[#003049] text-white' :
+            theme === 'night' ? 'bg-[#03071e] text-white' :
+                theme === 'light' ? 'bg-[#f0efeb] text-black' : ''} rounded-bl-2xl px-2`}>
 
             {userDetails && <div className="p-2">
 
@@ -90,27 +96,26 @@ const UserDetails = ({ userDetails }) => {
                                 : " "
                     }
                     <h2 className="text-lg font-semibold">User ID : {userDetails?._id}</h2>
-                    <div className="flex justify-center my-4">
+                    <div onClick={()=> handleClose()} className="flex justify-center my-4">
                         <Link to="/view-Profile">
                             {/* Add Outline button component */}
                             {/* <OutlineButton>View Profile</OutlineButton> */}
-                            <button className={`${theme === "light" ? "outline-btn-light" : "outline-btn-dark-night"}`}>View Profile</button>
+                            <button className={`${theme === "light" ? "outline-btn-light" : theme === "dark" ? "outline-btn-dark" : theme === "night" ? "outline-btn-night" : ""}`}>View Profile</button>
                         </Link>
                     </div>
-                    <hr className="underline underline-offset-8"></hr>
                 </div>
 
                 <div className="my-4 ">
 
-                    <Link to="/news-feed"> <button onClick={handleMyPosts} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>My posts </button></Link>
+                    <Link to="/news-feed"> <button onClick={handleMyPosts} className={`${theme === "light" ? "secondary-button-light" : theme === "dark" ? "secondary-button-dark" : theme === "night" ? "secondary-button-night" : ""}`}>My posts </button></Link>
 
-                    <Link to="/news-feed"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> Book Marks </button></Link>
+                    <Link to="/news-feed"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : theme === "dark" ? "secondary-button-dark" : theme === "night" ? "secondary-button-night" : ""}`}> Book Marks </button></Link>
 
-                    <Link to="/payments-history"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
+                    <Link to="/payments-history"><button className={`${theme === "light" ? "secondary-button-light" : theme === "dark" ? "secondary-button-dark" : theme === "night" ? "secondary-button-night" : ""}`}> My Payments </button></Link>
 
-                    <Link to="/instructor-payment"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Premium service </button></Link>
+                    <Link to="/instructor-payment"><button className={`${theme === "light" ? "secondary-button-light" : theme === "dark" ? "secondary-button-dark" : theme === "night" ? "secondary-button-night" : ""}`}>Premium service </button></Link>
 
-                    <button onClick={handleLogOut} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Log out</button>
+                    <button onClick={handleLogOut} className={`${theme === "light" ? "secondary-button-light" : theme === "dark" ? "secondary-button-dark" : theme === "night" ? "secondary-button-night" : ""}`}>Log out</button>
 
                 </div>
 
