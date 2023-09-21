@@ -453,36 +453,36 @@ const OurTeam = () => {
                         style={customClipPathStyle}>
                         <img className=' h-36 w-36' src={teamData.kakan.memberImg} alt="" />
                     </div>
-
+                    
                     <div className=''>
 
                         <h3 style={{ fontFamily: "'Dancing Script', cursive" }} className='text-2xl'>{teamData.kakan.teamName}</h3>
 
-                        <p className='font-[Cinzel] text-xl'>@gmail.com</p>
+                        <p className='font-[Cinzel] text-xl'>kakondebnath96@gmail.com</p>
 
                         <div className='flex  gap-3 mt-1'>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="#" target='_blank'>
+                                    <a href="https://www.facebook.com/kalloldebnath.kakon" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://www.linkedin.com/in/kakanchandra96" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
                                         <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://github.com/KakonDebnath" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://kakanchandra.netlify.app" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
