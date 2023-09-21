@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import useMyPayments from "../../../Hooks/useMyPayments";
 
-const UserDetails = ({ userDetails }) => {
+const UserDetails = ({ userDetails, setIsModalOpen,  }) => {
 
     const { theme } = useContext(ThemeContext);
 
@@ -55,6 +55,10 @@ const UserDetails = ({ userDetails }) => {
         dispatch(setMyPosts([]));
     }
 
+    const handleClose = ()=>{
+        setIsModalOpen(false) 
+    }
+
     return (
         <div className={`${theme === 'dark' ? 'bg-[#003049] text-white' :
             theme === 'night' ? 'bg-[#03071e] text-white' :
@@ -92,14 +96,13 @@ const UserDetails = ({ userDetails }) => {
                                 : " "
                     }
                     <h2 className="text-lg font-semibold">User ID : {userDetails?._id}</h2>
-                    <div className="flex justify-center my-4">
+                    <div onClick={()=> handleClose()} className="flex justify-center my-4">
                         <Link to="/view-Profile">
                             {/* Add Outline button component */}
                             {/* <OutlineButton>View Profile</OutlineButton> */}
                             <button className={`${theme === "light" ? "outline-btn-light" : theme === "dark" ? "outline-btn-dark" : theme === "night" ? "outline-btn-night" : ""}`}>View Profile</button>
                         </Link>
                     </div>
-                    <hr className="underline underline-offset-8"></hr>
                 </div>
 
                 <div className="my-4 ">
