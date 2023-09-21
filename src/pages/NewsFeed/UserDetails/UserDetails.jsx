@@ -15,12 +15,17 @@ const UserDetails = ({ userDetails, setIsModalOpen,  }) => {
     const { theme } = useContext(ThemeContext);
 
     const [bookmarks] = useBookMarks();
+
     const [myPost] = useMyPost();
+
     const navigate = useNavigate();
+
     const { logOut } = useAuth();
+
     const dispatch = useDispatch();
 
     const [myPayments, bages] = useMyPayments();
+
     const handleLogOut = () => {
         Swal.fire({
             title: 'Are you sure?',
@@ -44,20 +49,21 @@ const UserDetails = ({ userDetails, setIsModalOpen,  }) => {
                     .catch(error => { })
             }
         })
-    }
+    };
 
     const handleMyPosts = () => {
         dispatch(setMyPosts(myPost));
         dispatch(setBookMarks([]));
-    }
+    };
+
     const handleBookmarks = () => {
         dispatch(setBookMarks(bookmarks));
         dispatch(setMyPosts([]));
-    }
+    };
 
     const handleClose = ()=>{
         setIsModalOpen(false) 
-    }
+    };
 
     return (
         <div className={`${theme === 'dark' ? 'bg-[#003049] text-white' :

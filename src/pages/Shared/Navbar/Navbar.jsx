@@ -58,7 +58,8 @@ const Navbar = () => {
     }, [isModalOpen]);
 
     useEffect(() => {
-        setIsOpen(false); // Close the menu when location changes
+        setIsOpen(false); 
+        setIsModalOpen(false); 
     }, [location]);
 
     const handleClickOutside = (event) => {

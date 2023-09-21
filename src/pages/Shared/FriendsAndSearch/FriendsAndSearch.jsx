@@ -171,7 +171,7 @@ const FriendsAndSearch = () => {
 
                 <div className='lg:flex gap-10'>
 
-                    <div className={`lg:w-1/3 flex flex-col rounded-lg p-5 lg:mb-0 mb-3 ${theme === 'dark' ? 'dark' :
+                    {/* <div className={`lg:w-1/3 flex flex-col rounded-lg p-5 lg:mb-0 mb-3 ${theme === 'dark' ? 'dark' :
                         theme === 'night' ? 'night' :
                             theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
@@ -187,9 +187,9 @@ const FriendsAndSearch = () => {
                             <FaUserFriends className='text-xl' />
                         </div>
 
-                    </div>
+                    </div> */}
 
-                    <div className={`lg:w-2/3 flex flex-col rounded-lg p-5 ${theme === 'dark' ? 'dark' :
+                    <div className={`w-1/2 mx-auto flex flex-col rounded-lg p-5 ${theme === 'dark' ? 'dark' :
                         theme === 'night' ? 'night' :
                             theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
 
