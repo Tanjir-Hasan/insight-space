@@ -137,11 +137,11 @@ const BlogFeed = () => {
 
                 </form>
 
-                <div className='md:flex gap-20 py-8'>
+                <div className='md:flex lg:gap-20 gap-4  py-8'>
 
                     <div className={`${theme === 'dark' ? 'bg-[#011627] text-white' :
                         theme === 'night' ? 'bg-[#343a40] text-white' :
-                            theme === 'light' ? 'bg-[#f0efeb]' : ''} md:w-8/12  rounded-lg  `}>
+                            theme === 'light' ? 'bg-[#f0efeb]' : ''} md:w-8/12  rounded-lg animate-zoom-in  `}>
 
                         <motion.div
                             ref={refs}
@@ -153,7 +153,7 @@ const BlogFeed = () => {
                             }}
                             transition={{ duration: 0.9 }}>
 
-                            <div className={`border ${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#0d1b2a]' : ''} rounded-lg`}>
+                            <div className={`border ${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#0d1b2a]' : ''}  rounded-lg`}>
 
                                 <div className="p-4">
 
@@ -176,7 +176,7 @@ const BlogFeed = () => {
                                             :
                                             <>
                                                 <p className='text-slate-500'>
-                                                    {singleData.text.substring(0, 250)} ......
+                                                    {singleData?.text.substring(0, 250)} ......
                                                 </p>
                                                 <span className='font-semibold text-[#3c6e71] cursor-pointer' onClick={() => setShow(!show)}>Read More</span>
                                             </>
@@ -248,20 +248,20 @@ const BlogFeed = () => {
                             visible: { opacity: 1, x: 0 },
                             hidden: { opacity: 0, x: 100 },
                         }}
-                        transition={{ duration: 0.9 }} className="mx-auto overflow-y-auto" style={{ maxHeight: 'calc(80vh - 100px)' }}>
+                        transition={{ duration: 0.9 }} className="mx-auto mt-10 md:mt-0 overflow-y-auto md:w-5/12 lg:w-4/12" style={{ maxHeight: 'calc(80vh - 100px)' }}>
                         <h2 className=" text-center text-4xl uppercase mb-2 font-bold  font-[Poppins] border-b-2 border-[#3c6e71] md:py-0 py-8">Top Blogs </h2>
 
                         {
                             blogs && blogs?.map(p => <div key={p?._id}  >
 
-                                <div onClick={() => haldleClick(p?._id)} className={`flex items-center gap-5 mb-7 px-5 py-8 bg-opacity-40 rounded-md shadow-md m-5 duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""} ${theme === 'light' ? 'hover:bg-[#3c6e71] hover:text-white' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
-                                    <div>
-                                        <img className='w-14 h-14 rounded-md' src={p?.imgURL} alt="" />
+                                <div onClick={() => handleClick(p?._id)} className={`flex md:block lg:flex  items-center gap-5 mb-7 px-5 py-7 bg-opacity-40 rounded-md shadow-md mr-2  duration-500 cursor-pointer ${activeId === p._id ? 'bg-[#3b6e46]' : ""} ${theme === 'light' ? 'hover:bg-[#3c6e71] hover:text-white' : theme === 'dark' ? 'hover:bg-[#051923]' : theme === 'night' ? 'hover:bg-[#0d1b2a]' : ''}`}>
+                                    <div className=''>
+                                        <img className='w-14 lg:w-14 mx-auto md:w-full h-14 rounded-md' src={p?.imgURL} alt="" />
                                     </div>
                                     <div>
                                         <h2 className='font-[Cinzel] font-semibold'>Posted by: {p?.userName}</h2>
-                                        <h2 className='font-[Cinzel]'>{p?.text.substring(0, 70)}... {"  "}
-                                            <span className={`cursor-pointer ${theme === 'dark' ? 'text-[#48cae4]' :
+                                        <h2 className='font-[Cinzel] text-xs lg:text-sm'>{p?.text.substring(0, 70)}... {"  "}
+                                            <span className={`cursor-pointer md:text-xs lg:text-sm ${theme === 'dark' ? 'text-[#48cae4]' :
                                                 theme === 'night' ? 'text-[#b79ced]' :
                                                     theme === 'light' ? 'hover:text-[#89c2d9]' : ''}`}>Read more</span>
                                         </h2>

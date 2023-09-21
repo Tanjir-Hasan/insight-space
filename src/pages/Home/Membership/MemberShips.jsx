@@ -59,9 +59,9 @@ const MemberShips = () => {
                     <div className="md:px-0 px-6">
 
                         <p className="my-8 font-sans">Dive into a realm of unparalleled privileges with our Exclusive Membership section. Elevate your experience and gain access to a curated selection of premium content, personalized services, and extraordinary offers</p>
-                        {/* <Link to="/paid-members">
+                        <Link to="/instructor-payment">
                             <button className="font-semibold mt-5 bg-white text-[#3c6e71] hover:bg-[#48cae4] hover:text-black px-3 py-2 rounded-sm duration-700">Show All</button>
-                        </Link> */}
+                        </Link>
 
                     </div>
 

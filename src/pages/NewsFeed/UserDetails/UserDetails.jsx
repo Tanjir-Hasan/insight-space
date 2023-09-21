@@ -11,7 +11,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../providers/ThemeProvider";
 import useMyPayments from "../../../Hooks/useMyPayments";
 
-const UserDetails = ({ userDetails }) => {
+const UserDetails = ({ userDetails, setIsModalOpen,  }) => {
 
     const { theme } = useContext(ThemeContext);
 
@@ -56,6 +56,10 @@ const UserDetails = ({ userDetails }) => {
         dispatch(setMyPosts([]));
     }
 
+    const handleClose = ()=>{
+        setIsModalOpen(false) 
+    }
+
     return (
         <div className={`${theme}`}>
 
@@ -91,7 +95,7 @@ const UserDetails = ({ userDetails }) => {
                                 : " "
                     }
                     <h2 className="text-lg font-semibold">User ID : {userDetails?._id}</h2>
-                    <div className="flex justify-center my-4">
+                    <div onClick={()=> handleClose()} className="flex justify-center my-4">
                         <Link to="/view-Profile">
                             {/* Add Outline button component */}
                             {/* <OutlineButton>View Profile</OutlineButton> */}
@@ -103,15 +107,15 @@ const UserDetails = ({ userDetails }) => {
 
                 <div className="my-4 ">
 
-                    <Link to="/news-feed"> <button onClick={handleMyPosts} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>My posts </button></Link>
+                    <Link onClick={()=> handleClose()} to="/news-feed"> <button onClick={handleMyPosts} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>My posts </button></Link>
 
-                    <Link to="/news-feed"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> Book Marks </button></Link>
+                    <Link onClick={()=> handleClose()} to="/news-feed"><button onClick={handleBookmarks} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> Book Marks </button></Link>
 
-                    <Link to="/payments-history"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
+                    <Link onClick={()=> handleClose()} to="/payments-history"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}> My Payments </button></Link>
 
-                    <Link to="/instructor-payment"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Premium service </button></Link>
+                    <Link onClick={()=> handleClose()} to="/instructor-payment"><button className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Premium service </button></Link>
 
-                    <button onClick={handleLogOut} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Log out</button>
+                    <button  onClick={handleLogOut} className={`${theme === "light" ? "secondary-button-light" : "secondary-button-dark-night"}`}>Log out</button>
 
                 </div>
 
