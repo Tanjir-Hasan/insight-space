@@ -8,7 +8,7 @@ const teamData =
 {
     "id": 1,
 
-    "SocialImg": ["https://i.ibb.co/V29S5cW/facebook.png", "https://i.ibb.co/LpRZf4m/linkedin.png", "https://i.ibb.co/2PM8zNv/github.png", "https://i.ibb.co/LJJRCWX/cv.png"],
+    "SocialImg": ["https://png.pngtree.com/png-clipart/20180515/ourmid/pngtree-facebook-logo-facebook-icon-png-image_3566127.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png?20140125013055", "https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png", "https://w7.pngwing.com/pngs/267/531/png-transparent-portfolio-briefcase-showcase-business-adobe-portfolio-adobe-family-software-icon-thumbnail.png"],
 
     "tanjir":
     {
@@ -83,6 +83,9 @@ const OurTeam = () => {
                     theme === 'light' ? 'border-[#3c6e71]' : ''}`}>Our Team</h2>
             </div>
 
+
+
+
             <div className="md:flex gap-20 items-center mt-20">
 
                 {/* 1st team member information */}
@@ -120,18 +123,36 @@ const OurTeam = () => {
                         <p className='font-[Cinzel] text-xl'>tanjirhasan096@gmail.com</p>
 
                         <div className='flex justify-end gap-3 mt-2'>
-                            <Link to="https://www.facebook.com/tanjir.hasan.58" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[0]} alt="" />
-                            </Link>
-                            <Link to="https://www.linkedin.com/in/tanjir-hasan-74208a260/" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[1]} alt="" />
-                            </Link>
-                            <Link to="https://github.com/Tanjir-Hasan" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[2]} alt="" />
-                            </Link>
-                            <a href="https://drive.google.com/file/d/1qLtzx_zgse9c2m8G-kbwI81eCSFXT4Hr/view?usp=drive_link" target='_blank'>
-                                <img className='w-8 h-8 rounded-full hover:animate-pulse' src={teamData.SocialImg[3]} alt="" />
-                            </a>
+                            <div className='.buttonBody'>
+                                <div className="icons">
+                                    <a href="https://www.facebook.com/tanjir.hasan.58" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Facebook </div>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/tanjir-hasan-74208a260" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Linkedin </div>
+                                    </a>
+                                    <a href="https://github.com/Tanjir-Hasan" target='_blank'>
+                                        <div className="layer">
+                                            <span></span><span></span> <span></span><span></span>
+                                            <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Github </div>
+                                    </a>
+                                    <a href="https://tanjir-hasan.netlify.app/" target='_blank'>
+                                        <div className="layer"><span></span><span></span> <span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Portfolio</div>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -174,28 +195,46 @@ const OurTeam = () => {
 
                     <div className="bg-slate-300 h-32 w-32 border-2 border-zinc-900 p-2"
                         style={customClipPathStyle} >
-                        <img className=' h-32 w-32' src={teamData.shamim.memberImg} alt="" />
+                        <img className=' h-32 w-32' src={teamData?.shamim.memberImg} alt="" />
                     </div>
 
                     <div className=''>
 
-                        <h3 style={{ fontFamily: "'Dancing Script', cursive" }} className='text-2xl'>{teamData.shamim.teamName}</h3>
+                        <h3 style={{ fontFamily: "'Dancing Script', cursive" }} className='text-2xl'>{teamData?.shamim.teamName}</h3>
 
-                        <p className='font-[Cinzel] text-xl'>@gmail.com</p>
+                        <p className='font-[Cinzel] text-xl'>shamimmiah2525@gmail.com</p>
 
                         <div className='flex  gap-3 mt-1 '>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[0]} alt="" />
-                            </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[1]} alt="" />
-                            </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[2]} alt="" />
-                            </Link>
-                            <a href="" target='_blank'>
-                                <img className='w-8 h-8 rounded-full hover:animate-pulse' src={teamData.SocialImg[3]} alt="" />
-                            </a>
+                            <div className='.buttonBody'>
+                                <div className="icons">
+                                    <a href="https://www.facebook.com/mdshamimmiah77990" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Facebook </div>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/md-shamim-miah-9b6677278" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Linkedin </div>
+                                    </a>
+                                    <a href="https://github.com/Shamim-dm" target='_blank'>
+                                        <div className="layer">
+                                            <span></span><span></span> <span></span><span></span>
+                                            <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Github </div>
+                                    </a>
+                                    <a href="https://shamim-portfolio-1.netlify.app" target='_blank'>
+                                        <div className="layer"><span></span><span></span> <span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Portfolio</div>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -268,18 +307,35 @@ const OurTeam = () => {
                         </svg>
 
                         <div className='flex justify-end gap-3 mt-1 '>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[0]} alt="" />
-                            </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[1]} alt="" />
-                            </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[2]} alt="" />
-                            </Link>
-                            <a href="" target='_blank'>
-                                <img className='w-8 h-8 rounded-full hover:animate-pulse' src={teamData.SocialImg[3]} alt="" />
-                            </a>
+                            <div className='.buttonBody'>
+                                <div className="icons">
+                                    <a href="#" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Facebook </div>
+                                    </a>
+                                    <a href="#" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Linkedin </div>
+                                    </a>
+                                    <a href="#" target='_blank'>
+                                        <div className="layer">
+                                            <span></span><span></span> <span></span><span></span>
+                                            <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Github </div>
+                                    </a>
+                                    <a href="#" target='_blank'>
+                                        <div className="layer"><span></span><span></span> <span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Portfolio</div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                     </motion.div>
@@ -325,18 +381,35 @@ const OurTeam = () => {
                         <p className='font-[Cinzel] text-xl'>@gmail.com</p>
 
                         <div className='flex justify-end gap-3 mt-1'>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[0]} alt="" />
-                            </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[1]} alt="" />
-                            </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[2]} alt="" />
-                            </Link>
-                            <a href="" target='_blank'>
-                                <img className='w-8 h-8 rounded-full hover:animate-pulse' src={teamData.SocialImg[3]} alt="" />
-                            </a>
+                            <div className='.buttonBody'>
+                                <div className="icons">
+                                    <a href="#" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Facebook </div>
+                                    </a>
+                                    <a href="#" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Linkedin </div>
+                                    </a>
+                                    <a href="#" target='_blank'>
+                                        <div className="layer">
+                                            <span></span><span></span> <span></span><span></span>
+                                            <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Github </div>
+                                    </a>
+                                    <a href="#" target='_blank'>
+                                        <div className="layer"><span></span><span></span> <span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Portfolio</div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -380,26 +453,43 @@ const OurTeam = () => {
                         style={customClipPathStyle}>
                         <img className=' h-36 w-36' src={teamData.kakan.memberImg} alt="" />
                     </div>
-
+                    
                     <div className=''>
 
                         <h3 style={{ fontFamily: "'Dancing Script', cursive" }} className='text-2xl'>{teamData.kakan.teamName}</h3>
 
-                        <p className='font-[Cinzel] text-xl'>@gmail.com</p>
+                        <p className='font-[Cinzel] text-xl'>kakondebnath96@gmail.com</p>
 
                         <div className='flex  gap-3 mt-1'>
-                            <Link to="https://www.facebook.com/kalloldebnath.kakon" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[0]} alt="" />
-                            </Link>
-                            <Link to="https://www.linkedin.com/in/kakanchandra96" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[1]} alt="" />
-                            </Link>
-                            <Link to="https://github.com/KakonDebnath" className='hover:animate-pulse' target='_blank'>
-                                <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[2]} alt="" />
-                            </Link>
-                            <a href="https://kakanchandra.netlify.app" target='_blank'>
-                                <img className='w-8 h-8 rounded-full hover:animate-pulse' src={teamData.SocialImg[3]} alt="" />
-                            </a>
+                            <div className='.buttonBody'>
+                                <div className="icons">
+                                    <a href="https://www.facebook.com/kalloldebnath.kakon" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Facebook </div>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/kakanchandra96" target='_blank'>
+                                        <div className="layer"><span></span><span></span><span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Linkedin </div>
+                                    </a>
+                                    <a href="https://github.com/KakonDebnath" target='_blank'>
+                                        <div className="layer">
+                                            <span></span><span></span> <span></span><span></span>
+                                            <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Github </div>
+                                    </a>
+                                    <a href="https://kakanchandra.netlify.app" target='_blank'>
+                                        <div className="layer"><span></span><span></span> <span></span><span></span>
+                                            <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
+                                        </div>
+                                        <div className="text">Portfolio</div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                     </div>

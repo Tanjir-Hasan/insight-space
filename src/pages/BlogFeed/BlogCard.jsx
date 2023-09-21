@@ -53,7 +53,7 @@ const BlogCard = ({ blogs, latest }) => {
                         <img
                             src={latest?.imgURL}
                             alt="Card Image"
-                            className="md:h-96 h-56 w-full rounded-md object-cover transition-transform duration-500 transform hover:scale-105"
+                            className="lg:h-96 h-56 w-full rounded-md object-cover transition-transform duration-500 transform hover:scale-105"
                         />
                     </div>
 
@@ -61,8 +61,8 @@ const BlogCard = ({ blogs, latest }) => {
                     {/* Card Title */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-r from-white to-gray-300 text-gray-800 transition-transform duration-500 ">
 
-                        <h2 className='font-[Cinzel] text-xl md:text-3xl'>{latest?.text.substring(0, 70)}... {"  "}
-                            <span className={`cursor-pointer ${theme === 'dark' ? 'text-[#48cae4]' :
+                        <h2 className='font-[Cinzel] text-xl lg:text-3xl'>{latest?.text.substring(0, 70)}... {"  "}
+                            <span className={`cursor-pointer  ${theme === 'dark' ? 'text-[#48cae4]' :
                                                 theme === 'night' ? 'text-[#b79ced]' :
                                                     theme === 'light' ? 'text-[#3c6e71]' : ''}`}>Read more</span>
                         </h2>
@@ -77,7 +77,7 @@ const BlogCard = ({ blogs, latest }) => {
 
                         <main>
 
-                            <div className="flex space-x-2 mb-6">
+                            <div className="flex space-x-2 lg:mb-6 mb-3">
                                 <img src={singleData?.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                                 <div>
                                     <p className="text-lg font-semibold pt-1">{singleData?.userName}</p>
@@ -85,11 +85,11 @@ const BlogCard = ({ blogs, latest }) => {
                                 </div>
                             </div>
 
-                            <h2 className='font-[Cinzel] md:text-2xl text-xl'>{latest?.text.substring(0, 70)}... {"  "}
+                            <h2 className='font-[Cinzel] lg:text-2xl '>{latest?.text.substring(0, 70)}... {"  "}
                                 <span className='text-[#bbd2ef] hover:font-semibold cursor-pointer'>Read more</span>
                             </h2>
 
-                            <div className="w-full flex mt-5 space-x-8">
+                            <div className="w-full flex mt-3 lg:mt-5 space-x-8">
 
                                 <button className="flex items-center gap-1"><FaHeart className='text-red-500'></FaHeart> {singleData?.react?.length}</button>
 

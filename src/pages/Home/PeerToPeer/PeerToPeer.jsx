@@ -44,7 +44,7 @@ const PeerToPeer = () => {
                         <p className='text-3xl font-[Poppins] font-semibold text-white pt-10'>Discuss with your peer</p>
                         <p className='text-xl font-[Cinzel] pt-10 text-white text-justify'>Welcome to our Peer-to-Peer Learning Hub, where knowledge flows freely between like-minded individuals.In this dynamic corner of our platform.</p>
                         <div className="mt-10 md:w-8/12 md:mx-0 w-full item-center text-center">
-                            <Link to="/group-conversations">
+                            <Link to="/single-chat">
                                 <Button heading="Send Message"></Button>
                             </Link>
                         </div>

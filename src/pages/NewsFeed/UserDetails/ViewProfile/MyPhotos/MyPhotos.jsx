@@ -12,7 +12,6 @@ const MyPhotos = () => {
     const handlePhoto = (_id) => {
         const findData = myPost?.find(photo => photo?._id === _id)
         setPhotos(findData)
-
     }
     const openModal = () => {
         setIsModalOpen(true);
@@ -32,17 +31,26 @@ const MyPhotos = () => {
         <div className=''>
             <p className="text-xl border-b pb-2 border-[#3c6e71] font-bold">
                 Total Photos <span className='bg-[#344e41] text-white rounded-full p-1 px-3'>{myPost?.length}</span>
-               
             </p>
-            <div className="flex mt-5 gap-5 ">
-                {myPost?.map((image, index) => (
-                    <div key={image?._id}>
-                        <div onClick={openModal}>
-                            <img onClick={() => handlePhoto(image?._id)} className='h-40 w-60' src={image?.imgURL} alt="" />
-                        </div>
+
+            {
+                myPost?.length > 0 ?
+                    <div className="flex mt-5 gap-5 ">
+                        {myPost?.map((image, index) => (
+                            <div key={image?._id}>
+                                <div onClick={openModal}>
+                                    <img onClick={() => handlePhoto(image?._id)} className='h-40 w-60' src={image?.imgURL} alt="" />
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                    :
+                    (
+                        <h2 className='lg:text-3xl text-xl  font-semibold text-center mt-20'>You haven't uploaded any photo yet!</h2>
+                    )
+            }
+
+
 
 
 

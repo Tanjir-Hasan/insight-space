@@ -17,9 +17,9 @@ const MessagesIcon = () => {
                 isOpen && (
                     <div className="flex flex-col gap-3 rounded fixed bottom-16 right-10 p-2">
 
-                        <Link to='/group-conversations' className="bg-[#0d1b2a] font-[Cinzel] rounded-lg py-1 px-5 text-white hover:text-[#90e0ef] duration-700">Group Chat</Link>
+                        {/* <Link to='/group-conversations' className="bg-[#0d1b2a] font-[Cinzel] rounded-lg py-1 px-5 text-white hover:text-[#90e0ef] duration-700">Group Chat</Link> */}
 
-                        <Link to='/single-chat' className="bg-[#0d1b2a] font-[Cinzel] rounded-lg py-1 px-5 text-white hover:text-[#90e0ef] duration-700">Single Chat</Link>
+                        <Link to='/single-chat' className="bg-[#0d1b2a] font-[Cinzel] rounded-lg py-1 px-5 text-white hover:text-[#90e0ef] duration-700">Messages</Link>
 
                     </div>
                 )

@@ -127,18 +127,27 @@
 }
 
 
-.secondary-button-dark-night {
+.secondary-button-dark {
   @apply w-full mb-2 border-b-2 border-[#48cae4] border-solid text-[#48cae4] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#48cae4] hover:text-black;
+}
+
+.secondary-button-night {
+  @apply w-full mb-2 border-b-2 border-[#b79ced] border-solid text-[#b79ced] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#b79ced] hover:text-black;
 }
 
 
 .outline-btn-light {
-  @apply border border-[#3c6e71] text-[#3c6e71] rounded-lg px-4 py-2 hover:bg-[#3c6e71] hover:text-black transition duration-300 ease-in-out
+  @apply border border-[#3c6e71] text-[#3c6e71] hover:text-white rounded-lg px-4 py-2 hover:bg-[#3c6e71] transition duration-300 ease-in-out
 }
 
 
-.outline-btn-dark-night {
+.outline-btn-dark {
   @apply border border-[#48cae4] text-[#48cae4] rounded-lg px-4 py-2 hover:bg-[#48cae4] hover:text-black transition duration-300 ease-in-out
+}
+
+
+.outline-btn-night {
+  @apply border border-[#b79ced] text-[#b79ced] rounded-lg px-4 py-2 hover:bg-[#b79ced] hover:text-black transition duration-300 ease-in-out
 }
 
 
@@ -224,4 +233,120 @@
 .zoom-in-out-modal[data-enter] .animate-zoom-in,
 .zoom-in-out-modal[data-leave] .animate-zoom-out {
   animation: zoom-out 0.8s ease-out;
+}
+
+
+
+
+
+.buttonBody{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: #000;
+}
+.icons{
+  display: inline-flex;
+}
+.icons a{
+  margin: 0 7px;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  position: relative;
+}
+.icons a .layer{
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+.icons a:hover .layer{
+  transform: rotate(-35deg) skew(20deg);
+}
+.icons a .layer span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.icons a .layer span.fab{
+  font-size: 30px;
+  line-height: 55px;
+  text-align: center;
+}
+.icons a:hover .layer span:nth-child(1){
+  opacity: 0.2;
+}
+.icons a:hover .layer span:nth-child(2){
+  opacity: 0.4;
+  transform: translate(5px, -5px);
+}
+.icons a:hover .layer span:nth-child(3){
+  opacity: 0.6;
+  transform: translate(10px, -10px);
+}
+.icons a:hover .layer span:nth-child(4){
+  opacity: 0.8;
+  transform: translate(15px, -15px);
+}
+.icons a:hover .layer span:nth-child(5){
+  opacity: 1;
+  transform: translate(20px, -20px);
+}
+.icons a:nth-child(1) .layer span,
+.icons a:nth-child(1) .text{
+  color: #4267B2;
+  border-color: #4267B2;
+}
+.icons a:nth-child(2) .layer span,
+.icons a:nth-child(2) .text{
+  color: #1DA1F2;
+  border-color: #1DA1F2;
+}
+.icons a:nth-child(3) .layer span,
+.icons a:nth-child(3) .text{
+  color: #E1306C;
+  border-color: #E1306C;
+}
+.icons a:nth-child(4) .layer span,
+.icons a:nth-child(4) .text{
+  color: #2867B2;
+  border-color: #2867B2;
+}
+.icons a:nth-child(5) .layer span,
+.icons a:nth-child(5) .text{
+  color: #ff0000;
+  border-color: #ff0000;
+}
+.icons a:hover:nth-child(1) .layer span{
+  box-shadow: -1px 1px 3px #4267B2;
+}
+.icons a:hover:nth-child(2) .layer span{
+  box-shadow: -1px 1px 3px #1DA1F2;
+}
+.icons a:hover:nth-child(3) .layer span{
+  box-shadow: -1px 1px 3px #E1306C;
+}
+.icons a:hover:nth-child(4) .layer span{
+  box-shadow: -1px 1px 3px #2867B2;
+}
+.icons a:hover:nth-child(5) .layer span{
+  box-shadow: -1px 1px 3px #ff0000;
+}
+.icons a .text{
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  opacity: 0;
+  font-weight: 500;
+  transform: translateX(-50%);
+  transition: bottom 0.3s ease, opacity 0.3s ease;
+}
+.icons a:hover .text{
+  bottom: -35px;
+  opacity: 1;
 }

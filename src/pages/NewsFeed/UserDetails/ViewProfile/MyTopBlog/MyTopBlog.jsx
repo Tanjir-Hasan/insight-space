@@ -10,7 +10,7 @@ const MyTopBlog = () => {
     const [singleData, setSingleData] = useState([])
 
     
-    const handleDateils = (_id) => {
+    const handleDetails = (_id) => {
         const findData = blogs?.find(signleDatas => signleDatas?._id === _id)
         setSingleData(findData)
     }
@@ -31,9 +31,9 @@ const MyTopBlog = () => {
             </p>
             <div>
                 {
-                    blogs && blogs?.slice(0, 3).map(blog => <div onClick={openModal} key={blog?._id}>
+                    blogs && blogs?.slice(0, 8)?.map(blog => <div onClick={openModal} key={blog?._id}>
 
-                        <div onClick={() => handleDateils(blog?._id)} className='lg:flex  gap-5 mt-2 items-center   p-1 rounded-lg shadow-lg '>
+                        <div onClick={() => handleDetails(blog?._id)} className='lg:flex  gap-5 mt-2 items-center   p-1 rounded-lg shadow-lg '>
                             <div className='lg:w-3/12'>
                                 <img className='w-full h-14 lg:h-full' src={blog?.imgURL} alt="" />
                             </div>
