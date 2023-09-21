@@ -69,8 +69,8 @@ const ViewMyProfile = () => {
             photoURL: updatedImgUrl,
             email: email,
             lastUpdate: date,
-            address,
-            title,
+            address: address || userDetails?.address,
+            title: title || userDetails?.title,
           };
           updateProfile(update_profile_data);
         })
