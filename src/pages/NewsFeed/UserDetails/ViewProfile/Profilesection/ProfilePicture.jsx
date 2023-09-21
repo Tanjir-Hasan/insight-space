@@ -23,7 +23,7 @@ const ProfilePicture = () => {
     <div className="mb-2 relative ">
       <div className='flex gap-5'>
         <div>
-          <img src={userDetails?.photoURL} alt="Profile" className="w-28 h-28 lg:w-52 lg:h-52 -mt-14 lg:-mt-24 rounded-full border-[#ddd] border" />
+          <img src={userDetails?.photoURL} alt="Profile" className="w-28 h-28 lg:w-52 lg:h-52 -mt-24 lg:-mt-36 rounded-full border-[#ddd] border" />
 
           <button onClick={openModal} className="bg-[#3c6e71] mt-3 lg:ml-10 px-6 py-2 font-semibold rounded-md">Edit Profile</button>
           <div className="absolute -bottom-1 -right-2">
@@ -42,10 +42,10 @@ const ProfilePicture = () => {
           </div>
         </div>
 
-        <div>
+        <div className=''>
           <h2 className="lg:text-3xl font-bold capitalize">{userDetails?.displayName}</h2>
-          <p className="capitalize text-md">{userDetails?.title}</p>
-          <p className="capitalize text-md">{userDetails?.address}</p>
+          <p className="capitalize text-xs md:text-sm ">{userDetails?.title}</p>
+          <p className="capitalize text-xs md:text-sm">{userDetails?.address}</p>
         </div>
       </div>
 

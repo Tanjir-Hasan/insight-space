@@ -45,13 +45,22 @@ const CoverPhoto = () => {
 
   return (
     <div className="relative">
-      {userDetails?.coverPhotoURL && (
+      {userDetails?.coverPhotoURL ? (
         <img
           src={userDetails?.coverPhotoURL}
           alt="Cover"
-          className="w-full md:h-48  object-cover"
+          className="w-full h-40 lg:h-72 md:h-52  object-cover"
         />
-      )}
+      )
+      :
+      (
+        <div>
+          <img src="https://i.stack.imgur.com/SvWWN.png" alt=""
+          className="w-full h-40 lg:h-72 md:h-52  object-cover"
+          />
+        </div>
+      )
+    }
       <div className="flex justify-end">
         <label
           htmlFor="photo"

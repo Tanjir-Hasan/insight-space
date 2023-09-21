@@ -40,22 +40,23 @@ const MyPosts = ({ query }) => {
     const [myPost] = useMyPost();
     const bookMarks = useSelector(state => state?.bookMarks)
     const myPosts = useSelector(state => state?.myPosts)
-
    
 
 
-   
+
+
+
     useEffect(() => {
-         if (bookMarks.length > 0) {
+        if (bookMarks?.length > 0) {
             setAllPosts(bookMarks)
         }
-        else if (myPosts.length > 0) {
+        else if (myPosts?.length > 0) {
             setAllPosts(myPosts)
         }
         else {
             setAllPosts(posts)
         }
-    }, [ posts, myPosts, bookMarks]);
+    }, [posts, myPosts, bookMarks]);
 
 
     const setIsOpenPostActions = (id) => {
@@ -87,102 +88,113 @@ const MyPosts = ({ query }) => {
 
     return (
         <div className="min-h-screen animate-zoom-in">
+
+
             {
-                myPost && myPost?.map(p =>
-                    <div
-                        key={p?._id}
-                        className={`mb-3 ${theme} rounded-lg border border-[#3c6e71]`}>
+               myPost?.length > 0 ? (
+                    <div>{
+                       myPost?.map(p =>
+                            <div
+                                key={p?._id}
+                                className={`mb-3 ${theme} rounded-lg border border-[#3c6e71]`}>
 
-                        <div className="p-4">
+                                <div className="p-4">
 
-                            <div className="flex justify-between">
+                                    <div className="flex justify-between">
 
-                                <div className="flex gap-2 space-x-2 mb-4">
-                                    <div className="relative">
-                                        <img src={p?.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
-                                        <div className='absolute -bottom-1 -right-2'>
-                                            {
-                                                bages?.email === p.userEmail && bages.memberShip === "Basic" ?
-                                                    (<img className='w-7 h-7 rounded-full' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />)
-                                                    :
-                                                    bages?.email === p.userEmail && bages.memberShip === "Pro" ?
-                                                        (<img className='w-7 h-6 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />)
-                                                    : ""
-                                            }
+                                        <div className="flex gap-2 space-x-2 mb-4">
+                                            <div className="relative">
+                                                <img src={p?.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
+                                                <div className='absolute -bottom-1 -right-2'>
+                                                    {
+                                                        bages?.email === p.userEmail && bages.memberShip === "Basic" ?
+                                                            (<img className='w-7 h-7 rounded-full' src="https://i.ibb.co/r0BMFDp/verified-green-512.webp" alt="" />)
+                                                            :
+                                                            bages?.email === p.userEmail && bages.memberShip === "Pro" ?
+                                                                (<img className='w-7 h-6 rounded-full' src="https://i.ibb.co/3dzNwLw/download-1-removebg-preview.png" alt="" />)
+                                                                : ""
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p className="text-lg font-semibold pt-1">{p?.userName}</p>
+                                                <div className="flex space-x-2">
+                                                    <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
+                                                    <button>{p.status === "Public" && <SlGlobe title={p.status}></SlGlobe>}{p.status === "Friends" && <FaUserFriends title={p.status}></FaUserFriends>}{p.status === "Only me" && <FaLock title={p.status}></FaLock>}</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <p className="text-lg font-semibold pt-1">{p?.userName}</p>
-                                        <div className="flex space-x-2">
-                                            <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
-                                            <button>{p.status === "Public" && <SlGlobe title={p.status}></SlGlobe>}{p.status === "Friends" && <FaUserFriends title={p.status}></FaUserFriends>}{p.status === "Only me" && <FaLock title={p.status}></FaLock>}</button>
+
+                                        {/* posts action  */}
+
+                                        <div className="px-2 flex items-baseline">
+
+                                            {isOpen === p?._id &&
+
+                                                <div className="relative">
+                                                    <ul className="p-4 space-y-2 w-72 bg-[#F0EFEB] text-black rounded-lg absolute top-0 right-0 animate-zoom-in">
+
+                                                        <li><button hidden={bookMarks.length === allPosts.length || p?.userEmail === userDetails?.email} className="posts-action-btn" onClick={() => handleBookMark(p?._id, userDetails?.email)} >Bookmark</button></li>
+
+                                                        <li><button hidden={bookMarks?.length === allPosts?.length || p.userEmail === userDetails?.email} className="posts-action-btn" onClick={() => handleCopyClick(p._id)} >Copy Link</button></li>
+
+                                                        <li><button hidden={p?.userEmail !== userDetails?.email} className="posts-action-btn" onClick={() => handleDeletePost(p)}>Delete</button></li>
+
+                                                        <li><button hidden={p.userEmail !== userDetails?.email} onClick={() => EditPostModalOpen(p)} className="posts-action-btn">Edit Posts</button></li>
+
+                                                        <li> {bookMarks?.length === allPosts?.length && <button className="posts-action-btn" onClick={() => handleDeletePost(p)}>Delete Bookmark</button>}</li>
+                                                    </ul>
+
+                                                </div>}
+
+                                            {/* hidden={posts.length === allPosts.length} */}
+
+                                            <button className="hover:scale-125 duration-500" onClick={() => setIsOpenPostActions(p?._id)}><FaEllipsisH></FaEllipsisH></button>
+
                                         </div>
+
                                     </div>
+
+                                    {/* see more btn  */}
+
+                                    <div className="mt-2">
+
+                                        <span className="text-sm lg:text-base" hidden={id === p?._id}>{p.text?.slice(0, 300)}</span>
+
+                                        <span hidden={p?.text?.length < 300}>
+
+                                            <span className="text-sm md:text-base " hidden={id !== p._id}>{p.text}</span>
+
+                                            <span hidden={id === p?._id} onClick={() => setId(p._id)}
+                                                className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
+                                            >See More</span>
+
+                                            <span hidden={id !== p?._id} onClick={() => setId(0)}
+                                                className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}>See Less</span>
+
+                                        </span>
+
+                                    </div>
+
                                 </div>
 
-                                {/* posts action  */}
-
-                                <div className="px-2 flex items-baseline">
-
-                                    {isOpen === p?._id &&
-
-                                        <div className="relative">
-                                            <ul className="p-4 space-y-2 w-72 bg-[#F0EFEB] text-black rounded-lg absolute top-0 right-0 animate-zoom-in">
-
-                                                <li><button hidden={bookMarks.length === allPosts.length || p?.userEmail === userDetails?.email} className="posts-action-btn" onClick={() => handleBookMark(p?._id, userDetails?.email)} >Bookmark</button></li>
-
-                                                <li><button hidden={bookMarks?.length === allPosts?.length || p.userEmail === userDetails?.email} className="posts-action-btn" onClick={() => handleCopyClick(p._id)} >Copy Link</button></li>
-
-                                                <li><button hidden={p?.userEmail !== userDetails?.email} className="posts-action-btn" onClick={() => handleDeletePost(p)}>Delete</button></li>
-
-                                                <li><button hidden={p.userEmail !== userDetails?.email} onClick={() => EditPostModalOpen(p)} className="posts-action-btn">Edit Posts</button></li>
-
-                                                <li> {bookMarks?.length === allPosts?.length && <button className="posts-action-btn" onClick={() => handleDeletePost(p)}>Delete Bookmark</button>}</li>
-                                            </ul>
-
-                                        </div>}
-
-                                    {/* hidden={posts.length === allPosts.length} */}
-
-                                    <button className="hover:scale-125 duration-500" onClick={() => setIsOpenPostActions(p?._id)}><FaEllipsisH></FaEllipsisH></button>
-
+                                <div>
+                                    {
+                                        p?.imgURL && <img src={p?.imgURL} className="w-full max-h-[600px]" alt="blog image" />
+                                    }
                                 </div>
 
-                            </div>
+                                <NewsFooter p={p} hide={hide} setHide={setHide}></NewsFooter>
 
-                            {/* see more btn  */}
-
-                            <div className="mt-2">
-
-                                <span className="text-sm lg:text-base" hidden={id === p?._id}>{p.text?.slice(0, 300)}</span>
-
-                                <span hidden={p?.text?.length < 300}>
-
-                                    <span className="text-sm md:text-base " hidden={id !== p._id}>{p.text}</span>
-
-                                    <span hidden={id === p._id} onClick={() => setId(p._id)}
-                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}
-                                    >See More</span>
-
-                                    <span hidden={id !== p._id} onClick={() => setId(0)}
-                                        className={`${theme === 'light' ? "text-[#3c6e71]" : "text-[#48cae4]"} underline underline-offset-4 ms-2 text-sm text-[#3c6e71] cursor-pointer`}>See Less</span>
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            {
-                                p.imgURL && <img src={p.imgURL} className="w-full max-h-[600px]" alt="blog image" />
-                            }
-                        </div>
-
-                        <NewsFooter p={p} hide={hide} setHide={setHide}></NewsFooter>
-
-                    </div>)
+                            </div>)
+                    }</div>
+                )
+                    :
+                    (
+                        <h2 className='lg:text-3xl text-xl  font-semibold text-center mt-20'>You haven't any post yet!</h2>
+                       )
             }
+
 
             {/* modal for update post  */}
 
@@ -225,7 +237,7 @@ const MyPosts = ({ query }) => {
                                     editPost.imgURL && <img src={editPost.imgURL} className="w-full max-h-[300px] rounded-lg" alt="blog image" />
                                 }
                             </div>
-                   
+
                             <div className="w-full flex space-x-8 p-6">
 
                                 <button className="flex items-center"><AiFillHeart className={editPost.react.includes(userDetails.email) ? "text-2xl text-red-600 me-2" : "text-2xl me-2"}></AiFillHeart> {editPost.react.length}</button>
