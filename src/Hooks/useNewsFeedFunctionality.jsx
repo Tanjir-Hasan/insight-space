@@ -13,8 +13,7 @@ const useNewsFeedFunctionality = () => {
   const handleReact = (id, email) => {
     const addReact = { id, email };
     if (user) {
-      axiosSecure
-        .patch("/reacts", addReact)
+      axiosSecure.patch("/reacts", addReact)
         .then((data) => {
           if (data) {
             refetch();
@@ -26,8 +25,7 @@ const useNewsFeedFunctionality = () => {
   // for add bookmarks
   const handleBookMark = (id, email) => {
     const addBookMark = { postId: id, email };
-    axiosSecure
-      .post("/book-marks", addBookMark)
+    axiosSecure.post("/book-marks", addBookMark)
       .then((data) => {
         if (data) {
           refetch();
@@ -45,8 +43,7 @@ const useNewsFeedFunctionality = () => {
   const handleUpdatePost = (t, id, setIsOpenModal, isOpenModal) => {
     const text = t.current.value;
     const data = { text, id };
-    axiosSecure
-      .patch("/update-post", data)
+    axiosSecure.patch("/update-post", data)
       .then((data) => {
         if (data.data.modifiedCount > 0) {
           refetch();
@@ -67,11 +64,17 @@ const useNewsFeedFunctionality = () => {
       photoURL: user.photoURL,
     };
     if (comment.length > 0) {
-      axiosSecure
-        .patch("/comment", newComment)
+      axiosSecure.patch("/comment", newComment)
         .then((data) => {
           if (data) {
             refetch();
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Your comment has been Uploaded",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
         })
         .catch((err) => console.log(err.message));
@@ -88,8 +91,7 @@ const useNewsFeedFunctionality = () => {
   ) => {
     const updateComment = text.current.value;
     const updateData = { postId, updateComment, commentId };
-    axiosSecure
-      .patch("/updateComment", updateData)
+    axiosSecure.patch("/updateComment", updateData)
       .then((data) => {
         if (data.data.modifiedCount > 0) {
           setCommentAction(null);
@@ -112,8 +114,7 @@ const useNewsFeedFunctionality = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure
-          .patch("/deleteComment", data)
+        axiosSecure.patch("/deleteComment", data)
           .then((data) => {
             refetch();
             if (data) {
@@ -131,16 +132,14 @@ const useNewsFeedFunctionality = () => {
 
   const handleDeletePost = (post) => {
     if (user?.email === post.userEmail) {
-      axiosSecure
-        .delete(`/deletePost/${post._id}`)
+      axiosSecure.delete(`/deletePost/${post._id}`)
         .then((data) => {
           refetch();
           Swal.fire("Deleted!", "Your Post has been deleted.", "success");
         })
         .catch((err) => console.log(err.message));
     } else {
-      axiosSecure
-        .delete(`/deleteBookMark/${post._id}`)
+      axiosSecure.delete(`/deleteBookMark/${post._id}`)
         .then((data) => {
           if (data.data.deletedCount > 0) {
             setReload(!reload);
@@ -150,15 +149,7 @@ const useNewsFeedFunctionality = () => {
         .catch((err) => console.log(err.message));
     }
   };
-  return [
-    handleReact,
-    handleBookMark,
-    handleAddComment,
-    handleUpdateComment,
-    handleDelete,
-    handleDeletePost,
-    handleUpdatePost,
-  ];
+  return [handleReact, handleBookMark, handleAddComment, handleUpdateComment, handleDelete, handleDeletePost, handleUpdatePost];
 };
 
 export default useNewsFeedFunctionality;

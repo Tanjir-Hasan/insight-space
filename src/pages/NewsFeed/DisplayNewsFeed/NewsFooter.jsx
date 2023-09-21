@@ -46,14 +46,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
   const updateRef = useRef();
 
-  const [
-    handleReact,
-    ,
-    handleAddComment,
-    handleUpdateComment,
-    handleDelete,
-    ,
-  ] = useNewsFeedFunctionality();
+  const [handleReact, , handleAddComment, handleUpdateComment, handleDelete] = useNewsFeedFunctionality();
 
   return (
     <div>
@@ -108,15 +101,14 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
             <button
               onClick={() => handleAddComment(p, userDetails, ref)}
-              className={`duration-700 p-2 rounded-full ${
-                theme === "light"
-                  ? "message-btn-light"
-                  : theme === "dark"
+              className={`duration-700 p-2 rounded-full ${theme === "light"
+                ? "message-btn-light"
+                : theme === "dark"
                   ? "message-btn-dark"
                   : theme === "night"
-                  ? "message-btn-night"
-                  : ""
-              }`}
+                    ? "message-btn-night"
+                    : ""
+                }`}
             >
               <MdSend className="text-2xl" />
             </button>
