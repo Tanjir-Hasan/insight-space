@@ -45,7 +45,7 @@ const ProfilePicture = () => {
         <div>
           <h2 className="lg:text-3xl font-bold capitalize">{userDetails?.displayName}</h2>
           <p className="capitalize text-md">{userDetails?.title}</p>
-          <p className="capitalize text-md">{userDetails.address}</p>
+          <p className="capitalize text-md">{userDetails?.address}</p>
         </div>
       </div>
 
