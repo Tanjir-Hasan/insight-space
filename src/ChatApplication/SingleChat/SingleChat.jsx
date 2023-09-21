@@ -12,8 +12,8 @@ import { MdSend } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Search from '../../pages/NewsFeed/Search/Search';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import moment from 'moment';
 
-// const serverUrl = `http://localhost:5000`;
 const serverUrl = `${import.meta.env.VITE_base_URL}`;
 const socket = io(serverUrl, {
     transports: ['websocket']
@@ -52,6 +52,7 @@ const SingleChat = () => {
     const handleSubmit = (e) => {
 
         e.preventDefault();
+        const date = new Date();
 
         if (newMessage.trim() === '') return;
 
@@ -60,7 +61,9 @@ const SingleChat = () => {
         const postData = {
             conversationId,
             senderId,
-            message: newMessage
+            message: newMessage,
+            date,
+            
         }
 
         socket.emit('chatMessage', postData);
@@ -231,8 +234,9 @@ const SingleChat = () => {
                                                         ? 'bg-[#0077b6] rounded-s-xl rounded-t-xl ml-auto' : 'bg-[#6c757d]  rounded-b-xl rounded-tr-xl'}`}
                                                     >
 
-                                                        <div className='flex'>
+                                                        <div className='flex justify-between items-center'>
                                                             <span>{message?.message}</span>
+                                                            <span>{message?.date && moment(message?.date).format('DD-MM-YYYY')}</span>
                                                         </div>
 
                                                     </div>)

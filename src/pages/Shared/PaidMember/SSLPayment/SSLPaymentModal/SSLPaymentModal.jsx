@@ -27,26 +27,14 @@ const SSLPaymentModal = () => {
     useEffect(() => {
         if (isModalOpen) {
             window.addEventListener('keydown', handleEscapeKey);
-
-            document.addEventListener('mousedown', handleClickOutside);
         } else {
             window.removeEventListener('keydown', handleEscapeKey);
-            document.removeEventListener('mousedown', handleClickOutside);
         }
 
         return () => {
             window.removeEventListener('keydown', handleEscapeKey);
-            document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isModalOpen]);
-
-    const handleClickOutside = (event) => {
-        const modal = document.querySelector('.modal');
-
-        if (modal && !modal.contains(event.target)) {
-            closeModal();
-        }
-    };
 
     return (
         <div>
@@ -68,7 +56,9 @@ const SSLPaymentModal = () => {
                                 theme === 'light' ? 'bg-[#f0efeb]' : ''} absolute -top-56 lg:right-24 -right-2 lg:w-[500px] w-[320px] mx-auto rounded-lg p-2`}>
 
                             <div className='flex justify-end'>
-                                <button onClick={closeModal} className='text-sm font-[Cinzel] text-white rounded-lg border-0 text-md font-semibold bg-gradient-to-r from-[#3c6e71] to-[#335c67] hover:cursor-pointer hover:opacity-90 duration-500 py-2 px-2'>Close</button>
+                                <button onClick={closeModal} className={`${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                                    theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                                        theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''} text-center text-xl font-[Poppins] w-3/12 transition-all duration-1000 py-1 rounded-lg`}>Close</button>
                             </div>
 
                             <SSLPayment></SSLPayment>

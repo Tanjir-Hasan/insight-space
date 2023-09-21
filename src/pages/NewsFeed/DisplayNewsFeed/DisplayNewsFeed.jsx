@@ -205,7 +205,7 @@ const DisplayNewsFeed = ({ query }) => {
                     <div className="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
 
                         {/* Add your modal content here */}
-                        <div className="p-4">
+                        <div className="p-4 text-black">
 
                             <div className="flex justify-between">
 
