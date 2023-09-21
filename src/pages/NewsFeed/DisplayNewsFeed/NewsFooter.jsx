@@ -13,7 +13,19 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
   const [userDetails] = useUser();
 
+  const [allComments, setAllComments] = useState(p?.comment?.slice(0, 3));
   const [isAction, setIsAction] = useState(null);
+
+  // display comment function
+  const handleShowAllComments = (id) => {
+    if (id === p._id) {
+      setAllComments(p.comment);
+    }
+
+    if (id === p._id && allComments?.length > 3) {
+      setAllComments(p?.comment?.slice(0, 3));
+    }
+  };
 
   const [commentAction, setCommentAction] = useState(null);
 
@@ -49,13 +61,13 @@ const NewsFooter = ({ p, hide, setHide }) => {
           </button>
 
           <button onClick={() => setHide(p._id)} className="flex items-center">
-            <FaComment className="text-2xl me-2"></FaComment> {p?.comment?.length}
+            <FaComment className="text-2xl me-2"></FaComment>{" "}
+            {p?.comment?.length}
           </button>
         </div>
 
-                <SSLPaymentModal></SSLPaymentModal>
-
-            </div>
+        <SSLPaymentModal></SSLPaymentModal>
+      </div>
 
       {/* comment body  */}
       {hide === p._id && (
@@ -94,10 +106,19 @@ const NewsFooter = ({ p, hide, setHide }) => {
             </button>
           </div>
 
+          {/* category comments  */}
+          <select
+            className="mt-1 mx-4 block w-1/6 pl-3 pr-6 py-2 text-base
+           border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 
+           sm:text-sm rounded-md"
+            onChange={() => handleShowAllComments(p._id)}
+          >
+            <option>Recent Comments</option>
+            <option>All Comments</option>
+          </select>
           {/* comment section start */}
-
           <div>
-            {p?.comment?.map((c, i) => (
+            {allComments?.map((c, i) => (
               <div className="pt-2 pb-8 px-4" key={i}>
                 <div className="flex justify-between">
                   <div className="flex space-x-2">
