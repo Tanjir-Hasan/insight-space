@@ -1,7 +1,7 @@
 import { FaComment, FaEllipsisV } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 import useUser from "../../../Hooks/useUser";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import SSLPaymentModal from "../../Shared/PaidMember/SSLPayment/SSLPaymentModal/SSLPaymentModal";
 import useNewsFeedFunctionality from "../../../Hooks/useNewsFeedFunctionality";
@@ -13,8 +13,12 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
   const [userDetails] = useUser();
 
-  const [allComments, setAllComments] = useState(p?.comment?.slice(0, 3));
+  const [allComments, setAllComments] = useState([]);
   const [isAction, setIsAction] = useState(null);
+
+  useEffect(() => {
+    setAllComments(p?.comment?.slice(0, 3));
+  }, [p]);
 
   // display comment function
   const handleShowAllComments = (id) => {
@@ -24,6 +28,15 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
     if (id === p._id && allComments?.length > 3) {
       setAllComments(p?.comment?.slice(0, 3));
+    }
+  };
+
+  const handleNewsModal = (id) => {
+    if (id) {
+      setHide(id);
+    }
+    if (id === hide) {
+      setHide(null);
     }
   };
 
@@ -60,7 +73,10 @@ const NewsFooter = ({ p, hide, setHide }) => {
             {p?.react?.length}
           </button>
 
-          <button onClick={() => setHide(p._id)} className="flex items-center">
+          <button
+            onClick={() => handleNewsModal(p?._id)}
+            className="flex items-center"
+          >
             <FaComment className="text-2xl me-2"></FaComment>{" "}
             {p?.comment?.length}
           </button>
@@ -85,7 +101,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
               id=""
               cols="2"
               rows="1"
-              className="w-full px-4 py-2 border border-spacing-4 rounded-3xl"
+              className="w-full text-black px-4 py-2 border border-spacing-4 rounded-3xl"
               placeholder="add your answer"
               required
             ></textarea>
@@ -107,15 +123,17 @@ const NewsFooter = ({ p, hide, setHide }) => {
           </div>
 
           {/* category comments  */}
-          <select
-            className="mt-1 mx-4 block w-1/6 pl-3 pr-6 py-2 text-base
+          {allComments?.length > 0 && (
+            <select
+              className="mt-1 mx-1 block w-1/6 pl-3 pr-6 py-2 text-base
            border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 
            sm:text-sm rounded-md"
-            onChange={() => handleShowAllComments(p._id)}
-          >
-            <option>Recent Comments</option>
-            <option>All Comments</option>
-          </select>
+              onChange={() => handleShowAllComments(p._id)}
+            >
+              <option>Top Comments</option>
+              <option>All Comments</option>
+            </select>
+          )}
           {/* comment section start */}
           <div>
             {allComments?.map((c, i) => (
