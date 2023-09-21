@@ -3,23 +3,35 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
 import useUser from "../../../../../Hooks/useUser";
 import { FaEdit } from "react-icons/fa";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../../providers/ThemeProvider";
 
 const CoverPhoto = () => {
+
+  const { theme } = useContext(ThemeContext);
+
   const [userDetails, refetch] = useUser();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const [axiosSecure] = useAxiosSecure();
+
   const [hidden, setHidden] = useState(false);
 
   const onSubmit = (data) => {
+
     const formData = new FormData();
 
     formData.append("image", data.coverPhoto[0]);
+
     const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
+
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+
     fetch(image_hosting_url, {
       method: "POST",
       body: formData,
@@ -62,15 +74,20 @@ const CoverPhoto = () => {
       )
     }
       <div className="flex justify-end">
+
         <label
           htmlFor="photo"
-          className="relative inline-flex items-center px-4 py-2 text-[#3c6e71] rounded-md font-semibold hover:opacity-90 hover:cursor-pointer"
+          className={`relative inline-flex items-center px-4 py-2 rounded-md font-semibold hover:opacity-90 hover:cursor-pointer ${theme === 'dark' ? 'text-[#48cae4]' :
+            theme === 'night' ? 'text-[#b79ced]' :
+              theme === 'light' ? 'text-[#3c6e71]' : ''}`}
         >
+
           <span className="hover:cursor-pointer">
             {!hidden && (
-              <FaEdit className="text-3xl" title="change cover photo"></FaEdit>
+              <FaEdit className="text-2xl" title="change cover photo"></FaEdit>
             )}
           </span>
+
           <input
             type="file"
             name="fileInput"
@@ -79,16 +96,20 @@ const CoverPhoto = () => {
             className="absolute inset-0 opacity-0 hover:cursor-pointer"
           />
         </label>
-        {hidden && (
-          <button
-            className="my-4 mx-8 bg-white border border-gray-300 text-[#3c6e71] hover:bg-[#3c6e71] 
+
+        {
+          hidden && (
+            <button
+              className="my-4 mx-8 bg-white border border-gray-300 text-[#3c6e71] hover:bg-[#3c6e71] 
         hover:text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Upload
-          </button>
-        )}
+              onClick={handleSubmit(onSubmit)}
+            >
+              Upload
+            </button>
+          )
+        }
       </div>
+
     </div>
   );
 };

@@ -127,8 +127,12 @@
 }
 
 
-.secondary-button-dark-night {
+.secondary-button-dark {
   @apply w-full mb-2 border-b-2 border-[#48cae4] border-solid text-[#48cae4] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#48cae4] hover:text-black;
+}
+
+.secondary-button-night {
+  @apply w-full mb-2 border-b-2 border-[#b79ced] border-solid text-[#b79ced] rounded py-2 px-4 transition duration-300 ease-in-out hover:bg-[#b79ced] hover:text-black;
 }
 
 
@@ -137,8 +141,13 @@
 }
 
 
-.outline-btn-dark-night {
+.outline-btn-dark {
   @apply border border-[#48cae4] text-[#48cae4] rounded-lg px-4 py-2 hover:bg-[#48cae4] hover:text-black transition duration-300 ease-in-out
+}
+
+
+.outline-btn-night {
+  @apply border border-[#b79ced] text-[#b79ced] rounded-lg px-4 py-2 hover:bg-[#b79ced] hover:text-black transition duration-300 ease-in-out
 }
 
 

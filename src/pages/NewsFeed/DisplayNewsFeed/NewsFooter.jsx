@@ -37,7 +37,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
                 </div>
 
-                <SSLPaymentModal></SSLPaymentModal>
+                {/* <SSLPaymentModal></SSLPaymentModal> */}
 
             </div>
 

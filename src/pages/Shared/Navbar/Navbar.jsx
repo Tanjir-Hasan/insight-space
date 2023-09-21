@@ -172,8 +172,9 @@ const Navbar = () => {
                         </span>
 
                         {isOpen &&
-                            <div  className=" animate-zoom-in mt-16  ">
-                                <div className={` pt-2 flex flex-col rounded-md gap-2 absolute right-0  px-8  ${theme === 'dark' ? 'bg-[#011627] text-white border-2 border-black' : theme === 'night' ? 'bg-[#0d1b2a] text-white border-2 border-black' : theme === 'light' ? 'bg-[#f0efeb] border-2 border-[#c6d6e4]' : ''}`}>
+                            
+                            <div className="animate-zoom-in mt-16">
+                                <div className={` pt-2 flex flex-col rounded-md gap-2 absolute right-0 px-8  ${theme === 'dark' ? 'bg-[#011627] text-white border-2 border-black' : theme === 'night' ? 'bg-[#0d1b2a] text-white border-2 border-black' : theme === 'light' ? 'bg-[#f0efeb] border-2 border-[#c6d6e4]' : ''}`}>
 
                                     <div onClick={() => handleAbout()}>
                                         <ActiveLink to="/">Home</ActiveLink>
@@ -221,20 +222,21 @@ const Navbar = () => {
             </div>
 
             {/* modal start  */}
-            
+
             <div className='modal'>
                 {isModalOpen && (
-                    <div className='absolute  top-20 right-0 rounded-xl'>
+                    <div className='absolute top-20 right-0 rounded-xl w-3/12'>
 
-                        <div className={`rounded-xl  ${theme === 'dark' ? 'bg-black border border-dark' : 'bg-[#f0efeb]'}`}>
-                            <UserDetails setIsModalOpen={setIsModalOpen} handleAbout={handleAbout} userDetails={userDetails}></UserDetails>
+                        <div className={`rounded-xl ${theme === 'dark' ? 'bg-[#003049]' :
+                            theme === 'night' ? 'bg-[#03071e]' :
+                                theme === 'light' ? 'bg-[#f0efeb]' : ''}`}>
+                            <UserDetails userDetails={userDetails}></UserDetails>
                         </div>
 
                     </div>
 
                 )}
             </div>
-          
 
             {/* modal end  */}
 

@@ -2,16 +2,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AiFillHeart } from 'react-icons/ai';
 import { FaComment, FaEllipsisH, FaHistory, FaLock, FaUserFriends } from 'react-icons/fa';
-
 import moment from "moment";
-
-
 import { useSelector } from "react-redux";
-
 import { useRef } from "react";
 import { SlClose, SlGlobe } from 'react-icons/sl';
-
-
 import useUser from "../../../../../Hooks/useUser";
 import useNewsFeedFunctionality from "../../../../../Hooks/useNewsFeedFunctionality";
 import useMyPayments from "../../../../../Hooks/useMyPayments";
@@ -21,22 +15,32 @@ import usePosts from "../../../../../Hooks/usePosts";
 import useMyPost from "../../../../../Hooks/useMyPost";
 
 
-
-
-
 const MyPosts = ({ query }) => {
+
     const [id, setId] = useState(null);
+
     const [isOpen, setIsOpen] = useState(null);
+
     const [allPosts, setAllPosts] = useState([]);
+
     const [hide, setHide] = useState(false);
+
     const [isOpenModal, setIsOpenModal] = useState(false);
+
     const [editPost, setEditPost] = useState({});
+
     const ref = useRef();
+
     const { theme } = useContext(ThemeContext);
+
     const [userDetails] = useUser();
+
     const [posts] = usePosts();
+
     const [myPayments, bages] = useMyPayments();
+
     const [, handleBookMark, , , , handleDeletePost, handleUpdatePost] = useNewsFeedFunctionality();
+
     const [myPost] = useMyPost();
     const bookMarks = useSelector(state => state?.bookMarks)
     const myPosts = useSelector(state => state?.myPosts)
