@@ -12,7 +12,6 @@ const MyPhotos = () => {
     const handlePhoto = (_id) => {
         const findData = myPost?.find(photo => photo?._id === _id)
         setPhotos(findData)
-
     }
     const openModal = () => {
         setIsModalOpen(true);
@@ -32,7 +31,6 @@ const MyPhotos = () => {
         <div className=''>
             <p className="text-xl border-b pb-2 border-[#3c6e71] font-bold">
                 Total Photos <span className='bg-[#344e41] text-white rounded-full p-1 px-3'>{myPost?.length}</span>
-               
             </p>
             <div className="flex mt-5 gap-5 ">
                 {myPost?.map((image, index) => (

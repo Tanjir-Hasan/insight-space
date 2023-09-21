@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../../providers/ThemeProvider';
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
+import Button from '../../../components/Button';
 
 const MemberShips = () => {
     const [hovered, setHovered] = useState(false);
@@ -48,7 +49,8 @@ const MemberShips = () => {
     return (
         <div className={` ${theme} pb-28`}>
             <div className="md:w-10/12 w-11/12 mx-auto ">
-                <h1 className="border-b-2 text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-10">
+
+                <h1 className={`border-b-2 ${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#b79ced]' : ''} text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-10`}>
                     Exclusive Membership
                     <br />
                     <span className='text-xl'>- Taking it to the Next Level -</span>
@@ -102,7 +104,7 @@ const MemberShips = () => {
                             {/* Additional Card Contents (Hidden by Default) */}
                             <div
                                 className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-r  bg-white transition-transform duration-1000 ${hovered
-                                    ? 'translate-y-0 overflow-scroll  h-3/4'
+                                    ? 'translate-y-0 overflow-scroll h-3/4 overflow-x-hidden'
                                     : 'translate-y-full  from-white to-gray-300 text-gray-800 h-3/4 '
                                     }`} >
 
@@ -193,9 +195,9 @@ const MemberShips = () => {
                             </div>
                             {/* Additional Card Contents (Hidden by Default) */}
                             <div
-                                className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-r  bg-white transition-transform duration-1000 ${hovereds
-                                    ? 'translate-y-0 overflow-scroll  h-3/4'
-                                    : 'translate-y-full  from-white to-gray-300 text-gray-800 h-3/4 '
+                                className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-r bg-white transition-transform duration-1000 ${hovereds
+                                    ? 'translate-y-0 overflow-scroll h-3/4 overflow-x-hidden'
+                                    : 'translate-y-full  from-white to-gray-300 text-gray-800 h-3/4'
                                     }`} >
 
                                 <main>
@@ -286,7 +288,7 @@ const MemberShips = () => {
                             {/* Additional Card Contents (Hidden by Default) */}
                             <div
                                 className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-r  bg-white transition-transform duration-1000 ${hoveredss
-                                    ? 'translate-y-0 overflow-scroll  h-3/4'
+                                    ? 'translate-y-0 overflow-scroll h-3/4 overflow-x-hidden'
                                     : 'translate-y-full  from-white to-gray-300 text-gray-800 h-3/4  '
                                     }`} >
 
@@ -341,10 +343,10 @@ const MemberShips = () => {
                         </div>
                     </motion.div>
 
-
-
                 </div>
+
             </div>
+
         </div>
 
     );

@@ -34,7 +34,7 @@ const Membership = () => {
 
                 {/* TODO: border b is not working, paid member route button is not working*/}
                 
-                <h1 className={`${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#b79ced]' : ''} border-b-2 text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-10`}>
+                <h1 className={`border-b-2 ${theme === 'light' ? 'border-[#3c6e71]' : theme === 'dark' ? 'border-[#48cae4]' : theme === 'night' ? 'border-[#b79ced]' : ''} text-center md:text-5xl text-4xl font-[Poppins] lg:w-1/2 mx-auto lg:pt-10`}>
                     Exclusive Membership
                     <br />
                     <span className='text-xl'>- Taking it to the Next Level -</span>

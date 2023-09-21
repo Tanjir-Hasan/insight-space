@@ -43,14 +43,11 @@ const ProfilePicture = () => {
         </div>
 
         <div>
-          <h2 className="lg:text-2xl font-bold capitalize">{userDetails?.displayName}</h2>
-          <p className="capitalize text-xs">Full Stack Web Developer</p>
-          <p className="capitalize text-xs">Barisal, Bangladesh</p>
-
+          <h2 className="lg:text-3xl font-bold capitalize">{userDetails?.displayName}</h2>
+          <p className="capitalize text-md">{userDetails?.title}</p>
+          <p className="capitalize text-md">{userDetails?.address}</p>
         </div>
       </div>
-
-
 
       {/* modal start */}
       {isModalOpen && (

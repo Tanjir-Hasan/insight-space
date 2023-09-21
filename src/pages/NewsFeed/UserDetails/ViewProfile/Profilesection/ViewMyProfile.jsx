@@ -6,9 +6,8 @@ import { useForm } from "react-hook-form";
 import ButtonWithLoading from "../../../../../components/ButtonWithLoading";
 import { BsSend } from "react-icons/bs";
 import useAuth from "../../../../../Hooks/useAuth";
-
 import Swal from "sweetalert2";
-import { FaRegWindowClose } from "react-icons/fa";
+
 import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
 import useUser from "../../../../../Hooks/useUser";
 
@@ -59,9 +58,9 @@ const ViewMyProfile = () => {
     let updatedImgUrl = "";
     if (!data.photo[0]) {
       updatedImgUrl = photoURL;
-      console.log(updatedImgUrl);
+      // console.log(updatedImgUrl);
       //  update function
-      const { name } = data;
+      const { name, address, title } = data;
       const date = new Date();
       updateUserProfile(name, updatedImgUrl)
         .then(() => {
@@ -70,6 +69,8 @@ const ViewMyProfile = () => {
             photoURL: updatedImgUrl,
             email: email,
             lastUpdate: date,
+            address,
+            title,
           };
           updateProfile(update_profile_data);
         })
@@ -106,6 +107,8 @@ const ViewMyProfile = () => {
                   photoURL: updatedImgUrl,
                   email: email,
                   lastUpdate: date,
+                  title: userDetails?.title,
+                  address: userDetails.address,
                 };
                 updateProfile(update_profile_data);
               })
@@ -134,7 +137,8 @@ const ViewMyProfile = () => {
           <div className="mb-1 flex justify-center">
             <label
               htmlFor="photo"
-              className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#3c6e71] to-[#335c67] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer">
+              className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#3c6e71] to-[#335c67] rounded-md font-semibold text-white hover:opacity-90 hover:cursor-pointer"
+            >
               <span className="hover:cursor-pointer">Upload Photo</span>
               <input
                 type="file"
@@ -171,12 +175,38 @@ const ViewMyProfile = () => {
             </label>
             <input
               className="input-field"
-              type="text"
+              type="email"
               id="email"
               {...register("email")}
               placeholder="Enter Your Email"
               defaultValue={email}
               disabled
+            />
+          </div>
+          {/* title  */}
+          <div className="mb-1">
+            <label htmlFor="title" className="block">
+              Title
+            </label>
+            <input
+              className="input-field"
+              type="text"
+              {...register("title")}
+              placeholder="Your Title"
+              defaultValue={userDetails?.title}
+            />
+          </div>
+          {/* address  */}
+          <div className="mb-1">
+            <label htmlFor="address" className="block">
+              Address
+            </label>
+            <input
+              className="input-field"
+              type="text"
+              {...register("address")}
+              placeholder="Address"
+              defaultValue={userDetails?.address}
             />
           </div>
           <ButtonWithLoading

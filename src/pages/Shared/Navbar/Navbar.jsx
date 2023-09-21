@@ -210,6 +210,7 @@ const Navbar = () => {
                                     </div>
 
                                 </div>
+
                             </div>
                         }
 
@@ -220,7 +221,6 @@ const Navbar = () => {
             </div>
 
             {/* modal start  */}
-
             
             <div className='modal'>
                 {isModalOpen && (

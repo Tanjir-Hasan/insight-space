@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import useInstructor from "../Hooks/useInstructor";
 import Loading from "../components/Loading";

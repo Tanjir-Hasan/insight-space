@@ -21,7 +21,7 @@ const PaymentList = () => {
             <div className=' '>
             
                 <h2 className='md:text-5xl text-4xl text-center '>Accepted Payments</h2>
-                <p className={`${theme === 'dark' ? 'dark text-white' : ''}  border-b-2 border-[#3c6e71] text-center mb-8 pb-2 text-[#036919]`}>"We offer a range of payment methods, including credit/debit cards, PayPal, bank transfers, and more, to cater to your preferences."</p>
+                <p className={`${theme === 'light' ? 'border-[#3c6e71] text-black' : theme === 'dark' ? 'border-[#48cae4] text-white' : theme === 'night' ? 'border-[#b79ced] text-white' : ''} border-b-2 text-center mb-8 pb-2`}>"We offer a range of payment methods, including credit/debit cards, PayPal, bank transfers, and more, to cater to your preferences."</p>
             </div>
 
 
