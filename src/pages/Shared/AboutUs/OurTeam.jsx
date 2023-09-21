@@ -388,16 +388,16 @@ const OurTeam = () => {
                         <p className='font-[Cinzel] text-xl'>@gmail.com</p>
 
                         <div className='flex  gap-3 mt-1'>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
+                            <Link to="https://www.facebook.com/kalloldebnath.kakon" className='hover:animate-pulse' target='_blank'>
                                 <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[0]} alt="" />
                             </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
+                            <Link to="https://www.linkedin.com/in/kakanchandra96" className='hover:animate-pulse' target='_blank'>
                                 <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[1]} alt="" />
                             </Link>
-                            <Link to="" className='hover:animate-pulse' target='_blank'>
+                            <Link to="https://github.com/KakonDebnath" className='hover:animate-pulse' target='_blank'>
                                 <img className='w-8 h-8 rounded-full' src={teamData.SocialImg[2]} alt="" />
                             </Link>
-                            <a href="" target='_blank'>
+                            <a href="https://kakanchandra.netlify.app" target='_blank'>
                                 <img className='w-8 h-8 rounded-full hover:animate-pulse' src={teamData.SocialImg[3]} alt="" />
                             </a>
                         </div>
