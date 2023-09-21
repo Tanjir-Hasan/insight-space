@@ -45,7 +45,6 @@ import PremiumRoute from "./PremiumRoute";
 import InstructorRoute from "./InstructorRoute";
 import AllPaymentHistory from "../pages/AdminDeshBoard/AllPaymentHistory/AllPaymentHistory";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -116,127 +115,205 @@ const router = createBrowserRouter([
         path: "group-conversations",
         element: <Chat></Chat>,
       },
-    
+
       {
         path: "instructor-application",
-        element: <PrivateRoute><InstructorApplication></InstructorApplication></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <InstructorApplication></InstructorApplication>
+          </PrivateRoute>
+        ),
       },
       {
         path: "about-us",
-        element: <AboutUs></AboutUs>
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "instructor-payment",
-        element: <PrivateRoute><PaidMembers></PaidMembers></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <PaidMembers></PaidMembers>
+          </PrivateRoute>
+        ),
       },
       {
         path: "payments-history",
-        element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <PaymentHistory></PaymentHistory>
+          </PrivateRoute>
+        ),
       },
       {
         path: "connections",
-        element: <PrivateRoute><FriendsAndSearch></FriendsAndSearch></PrivateRoute>
-      }
-      ,
+        element: (
+          <PrivateRoute>
+            <FriendsAndSearch></FriendsAndSearch>
+          </PrivateRoute>
+        ),
+      },
       //ssl payment
       {
         path: "/payment/success/:transaction_Id",
-        element: <SSLPaymentSuccess></SSLPaymentSuccess>
+        element: <SSLPaymentSuccess></SSLPaymentSuccess>,
       },
       {
         path: "/payment/fail/:transaction_Id",
-        element: <SSLPaymentFail></SSLPaymentFail>
+        element: <SSLPaymentFail></SSLPaymentFail>,
       },
       //ssl payment
       {
-        path: 'pro-memberShip',
+        path: "pro-memberShip",
         element: <ProDashboard></ProDashboard>,
         children: [
           {
             path: "quiz-dashboard",
-            element: <QuizDashboard></QuizDashboard>
+            element: <QuizDashboard></QuizDashboard>,
           },
           {
             path: "mock-test",
-            element: <MockTest></MockTest>
+            element: <MockTest></MockTest>,
           },
           {
             path: "live-exam",
-            element: <PremiumRoute><LiveExam></LiveExam></PremiumRoute>
+            element: (
+              <PremiumRoute>
+                <LiveExam></LiveExam>
+              </PremiumRoute>
+            ),
           },
           {
             path: "model-test",
-            element: <PremiumRoute><ModelTest></ModelTest></PremiumRoute>
+            element: (
+              <PremiumRoute>
+                <ModelTest></ModelTest>
+              </PremiumRoute>
+            ),
           },
           {
             path: "quiz-rules",
-            element: <QuizRules></QuizRules>
+            element: <QuizRules></QuizRules>,
           },
           {
             path: "download-certificate",
-            element: <PremiumRoute><DownLoadCertificate></DownLoadCertificate></PremiumRoute>
+            element: (
+              <PremiumRoute>
+                <DownLoadCertificate></DownLoadCertificate>
+              </PremiumRoute>
+            ),
           },
           {
             path: "leader-board",
-            element: <PremiumRoute><LeaderBoard></LeaderBoard></PremiumRoute>
+            element: (
+              <PremiumRoute>
+                <LeaderBoard></LeaderBoard>
+              </PremiumRoute>
+            ),
           },
           {
             path: "all-Instructors",
-            element: <PrivateRoute><AllInstructor></AllInstructor></PrivateRoute>
+            element: (
+              <PrivateRoute>
+                <AllInstructor></AllInstructor>
+              </PrivateRoute>
+            ),
           },
-
-        ]
+        ],
       },
       {
         path: "single-chat",
-        element: <PrivateRoute><SingleChat></SingleChat></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <SingleChat></SingleChat>
+          </PrivateRoute>
+        ),
       },
-    ]
+    ],
   },
   {
     path: "admin-dashboard",
-    element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
+    element: (
+      <AdminRoute>
+        <AdminLayout></AdminLayout>
+      </AdminRoute>
+    ),
     children: [
       {
         path: "adminHome",
-        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
       },
       {
-        path: 'all-users',
-        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        path: "all-users",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "all-posts",
-        element: <AdminRoute><AllPosts></AllPosts></AdminRoute>
+        element: (
+          <AdminRoute>
+            <AllPosts></AllPosts>
+          </AdminRoute>
+        ),
       },
       {
         path: "add-quiz",
-        element: <AdminRoute><Addquiz></Addquiz></AdminRoute>
+        element: (
+          <AdminRoute>
+            <Addquiz></Addquiz>
+          </AdminRoute>
+        ),
       },
       {
         path: "payment-history",
-        element: <AdminRoute><AllPaymentHistory></AllPaymentHistory></AdminRoute>
-      }
-    ]
+        element: (
+          <AdminRoute>
+            <AllPaymentHistory></AllPaymentHistory>
+          </AdminRoute>
+        ),
+      },
+    ],
   },
   {
     path: "instructor-dashboard",
-    element: <InstructorRoute><InstructorLayout></InstructorLayout></InstructorRoute>,
+    element: (
+      <InstructorRoute>
+        <InstructorLayout></InstructorLayout>
+      </InstructorRoute>
+    ),
     children: [
       {
         path: "home",
-        element: <InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
+        element: (
+          <InstructorRoute>
+            <InstructorHome></InstructorHome>
+          </InstructorRoute>
+        ),
       },
       {
         path: "my-quiz",
-        element: <InstructorRoute><MyQuiz></MyQuiz></InstructorRoute>
+        element: (
+          <InstructorRoute>
+            <MyQuiz></MyQuiz>
+          </InstructorRoute>
+        ),
       },
       {
         path: "add-quiz",
-        element: <InstructorRoute><AddQuiz></AddQuiz></InstructorRoute>
-      }
-    ]
-  }
+        element: (
+          <InstructorRoute>
+            <AddQuiz></AddQuiz>
+          </InstructorRoute>
+        ),
+      },
+    ],
+  },
 ]);
 
 export default router;
