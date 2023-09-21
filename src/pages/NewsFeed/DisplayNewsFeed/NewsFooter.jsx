@@ -12,6 +12,8 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
     const { theme } = useContext(ThemeContext);
 
+    const [open, setOpen] = useState(false);
+
     const [userDetails] = useUser();
 
     const [isAction, setIsAction] = useState(null);
@@ -49,7 +51,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
                         <img src={userDetails.photoURL} alt="user photo" className="w-12 h-12 rounded-full" />
 
-                        <textarea ref={ref} name="" id="" cols="2" rows="1" className="w-full px-4 py-2 border border-spacing-4 rounded-3xl" placeholder="add your answer" required ></textarea>
+                        <textarea ref={ref} name="" id="" cols="2" rows="1" className="text-black w-full px-4 py-2 border border-spacing-4 rounded-3xl" placeholder="add your answer" required ></textarea>
 
                         <button onClick={() => handleAddComment(p, userDetails, ref)} className={`duration-700 p-2 rounded-full ${theme === 'light' ? 'message-btn-light' : theme === 'dark' ? 'message-btn-dark' : theme === 'night' ? 'message-btn-night' : ''}`}>
                             <MdSend className='text-2xl' />
