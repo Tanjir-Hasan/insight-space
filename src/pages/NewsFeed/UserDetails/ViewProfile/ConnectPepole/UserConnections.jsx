@@ -15,7 +15,7 @@ const UserConnections = () => {
         <p className="lg:text-sm text-xs pb-2 border-[#3c6e71] border-b text-gray-400">You can message them</p>
         {friends?.length > 0 ? (
           <>
-            {friends?.slice(0, 5).map((friend) => (
+            {friends?.slice(0, 3)?.map((friend) => (
               <UserConnectionCard
                 key={friend._id}
                 friend={friend}

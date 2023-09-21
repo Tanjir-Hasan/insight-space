@@ -10,6 +10,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import MyTopBlog from "./MyTopBlog/MyTopBlog";
 import CoverPhoto from "./Profilesection/CoverPhoto";
 import ProfilePicture from "./Profilesection/ProfilePicture";
+import { Link } from "react-router-dom";
 
 const LinkedInProfile = () => {
   const { theme } = useContext(ThemeContext);
@@ -56,7 +57,7 @@ const LinkedInProfile = () => {
     <>
       <div className="flex justify-between  gap-5">
         <div className=" w-[95%] md:w-8/12 border rounded-lg md:h-[1350px] mx-auto lg:h-[1250px] md:overflow-y-auto ">
-          <div className=" rounded-lg mb-16 ">
+          <div className=" rounded-lg mb-4">
             <div className="">
               <CoverPhoto />
             </div>
@@ -74,7 +75,7 @@ const LinkedInProfile = () => {
                     onClick={() => handlePost()}
                     className="text-sm lg:text-base "
                   >
-                    Posts
+                    My All Posts
                   </button>
                   <button
                     onClick={() => handlePhoto()}
@@ -99,13 +100,13 @@ const LinkedInProfile = () => {
           <div className={`${theme === "dark" ? "dark" : ""} w-12/12`}>
             {!displayPost && (
               <div>
-                <NewsForm></NewsForm>
+                {/* <NewsForm></NewsForm> */}
                 <MyPosts></MyPosts>
               </div>
             )}
             {post && (
               <div>
-                <NewsForm></NewsForm>
+                {/* <NewsForm></NewsForm> */}
                 <MyPosts></MyPosts>
               </div>
             )}
@@ -128,12 +129,12 @@ const LinkedInProfile = () => {
             </div>
             <div className="  mt-5 p-3 rounded-lg shadow-lg ">
               <MyTopBlog></MyTopBlog>
-              <button
-                onClick={() => handleFriends()}
-                className="border border-[#344e41] hover:bg-[#344e41] hover:text-white duration-500 rounded px-3 py-1 font-semibold text-xs mt-2"
-              >
-                See More...
-              </button>
+              <Link to="/blog-feed">
+                {" "}
+                <button className="border border-[#344e41] hover:bg-[#344e41] hover:text-white duration-500 rounded px-3 py-1 font-semibold text-xs mt-2">
+                  See More...
+                </button>
+              </Link>
             </div>
           </div>
         </div>
