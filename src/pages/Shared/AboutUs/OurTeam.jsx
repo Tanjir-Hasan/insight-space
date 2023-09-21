@@ -125,30 +125,30 @@ const OurTeam = () => {
                         <div className='flex justify-end gap-3 mt-2'>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="https://www.facebook.com/tanjir.hasan.58">
+                                    <a href="https://www.facebook.com/tanjir.hasan.58" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/tanjir-hasan-74208a260">
+                                    <a href="https://www.linkedin.com/in/tanjir-hasan-74208a260" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
-                                        <div className="text">Linkdin </div>
+                                        <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="https://github.com/Tanjir-Hasan">
+                                    <a href="https://github.com/Tanjir-Hasan" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="https://drive.google.com/file/d/1qLtzx_zgse9c2m8G-kbwI81eCSFXT4Hr/view?usp=drive_link">
+                                    <a href="https://tanjir-hasan.netlify.app/" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
-                                        <div className="text">Protfolio</div>
+                                        <div className="text">Portfolio</div>
                                     </a>
                                 </div>
                             </div>
@@ -207,30 +207,30 @@ const OurTeam = () => {
                         <div className='flex  gap-3 mt-1 '>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="https://www.facebook.com/mdshamimmiah77990">
+                                    <a href="https://www.facebook.com/mdshamimmiah77990" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/md-shamim-miah-9b6677278">
+                                    <a href="https://www.linkedin.com/in/md-shamim-miah-9b6677278" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
-                                        <div className="text">Linkdin </div>
+                                        <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="https://github.com/Shamim-dm">
+                                    <a href="https://github.com/Shamim-dm" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="https://shamim-portfolio-1.netlify.app">
+                                    <a href="https://shamim-portfolio-1.netlify.app" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
-                                        <div className="text">Protfolio</div>
+                                        <div className="text">Portfolio</div>
                                     </a>
                                 </div>
                             </div>
@@ -309,30 +309,30 @@ const OurTeam = () => {
                         <div className='flex justify-end gap-3 mt-1 '>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
-                                        <div className="text">Linkdin </div>
+                                        <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
-                                        <div className="text">Protfolio</div>
+                                        <div className="text">Portfolio</div>
                                     </a>
                                 </div>
                             </div>
@@ -383,30 +383,30 @@ const OurTeam = () => {
                         <div className='flex justify-end gap-3 mt-1'>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
-                                        <div className="text">Linkdin </div>
+                                        <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
-                                        <div className="text">Protfolio</div>
+                                        <div className="text">Portfolio</div>
                                     </a>
                                 </div>
                             </div>
@@ -463,30 +463,30 @@ const OurTeam = () => {
                         <div className='flex  gap-3 mt-1'>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
-                                        <div className="text">Linkdin </div>
+                                        <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
-                                        <div className="text">Protfolio</div>
+                                        <div className="text">Portfolio</div>
                                     </a>
                                 </div>
                             </div>
