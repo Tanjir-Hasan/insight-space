@@ -2,16 +2,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AiFillHeart } from 'react-icons/ai';
 import { FaComment, FaEllipsisH, FaHistory, FaLock, FaUserFriends } from 'react-icons/fa';
-
 import moment from "moment";
-
-
 import { useSelector } from "react-redux";
-
 import { useRef } from "react";
 import { SlClose, SlGlobe } from 'react-icons/sl';
-
-
 import useUser from "../../../../../Hooks/useUser";
 import useNewsFeedFunctionality from "../../../../../Hooks/useNewsFeedFunctionality";
 import useMyPayments from "../../../../../Hooks/useMyPayments";
@@ -21,30 +15,38 @@ import usePosts from "../../../../../Hooks/usePosts";
 import useMyPost from "../../../../../Hooks/useMyPost";
 
 
-
-
-
 const MyPosts = ({ query }) => {
+
     const [id, setId] = useState(null);
+
     const [isOpen, setIsOpen] = useState(null);
+
     const [allPosts, setAllPosts] = useState([]);
+
     const [hide, setHide] = useState(false);
+
     const [isOpenModal, setIsOpenModal] = useState(false);
+
     const [editPost, setEditPost] = useState({});
+
     const ref = useRef();
+
     const { theme } = useContext(ThemeContext);
+
     const [userDetails] = useUser();
+
     const [posts] = usePosts();
+
     const [myPayments, bages] = useMyPayments();
+
     const [, handleBookMark, , , , handleDeletePost, handleUpdatePost] = useNewsFeedFunctionality();
+
     const [myPost] = useMyPost();
-    const bookMarks = useSelector(state => state?.bookMarks)
-    const myPosts = useSelector(state => state?.myPosts)
 
-   
+    const bookMarks = useSelector(state => state?.bookMarks);
 
+    const myPosts = useSelector(state => state?.myPosts);
 
-   
     useEffect(() => {
          if (bookMarks.length > 0) {
             setAllPosts(bookMarks)
@@ -98,7 +100,9 @@ const MyPosts = ({ query }) => {
                             <div className="flex justify-between">
 
                                 <div className="flex gap-2 space-x-2 mb-4">
+
                                     <div className="relative">
+
                                         <img src={p?.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                                         <div className='absolute -bottom-1 -right-2'>
                                             {
@@ -110,14 +114,19 @@ const MyPosts = ({ query }) => {
                                                     : ""
                                             }
                                         </div>
+
                                     </div>
+
                                     <div>
+
                                         <p className="text-lg font-semibold pt-1">{p?.userName}</p>
                                         <div className="flex space-x-2">
                                             <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(p.date).startOf('hour').fromNow()}</h6>
                                             <button>{p.status === "Public" && <SlGlobe title={p.status}></SlGlobe>}{p.status === "Friends" && <FaUserFriends title={p.status}></FaUserFriends>}{p.status === "Only me" && <FaLock title={p.status}></FaLock>}</button>
                                         </div>
+
                                     </div>
+
                                 </div>
 
                                 {/* posts action  */}

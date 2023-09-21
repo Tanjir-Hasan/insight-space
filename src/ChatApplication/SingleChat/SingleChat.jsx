@@ -172,7 +172,7 @@ const SingleChat = () => {
                             {
                                 conversationData?.map((singleUserData, index) => (
 
-                                    <div key={index} className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center gap-3 mb-4`}
+                                    <div key={index} className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : theme === 'dark' ? 'hover:text-[#48cae4]' : theme === 'night' ? 'hover:text-[#b79ced]' : ''} duration-700 cursor-pointer flex items-center gap-3 mb-4`}
                                         onClick={() => getConversation(singleUserData?.conversationId, singleUserData?.user._id)}>
 
                                         <div className='relative'>
@@ -199,9 +199,9 @@ const SingleChat = () => {
 
                         <div className={`${theme === 'light' ? 'border-[#3c6e71]' : 'border-[#03071e]'} w-2/4 mb-3 p-4`}>
 
-                            <div className='flex justify-center'>
+                            {/* <div className='flex justify-center'>
                                 <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
-                            </div>
+                            </div> */}
 
                             {
                                 participant ?
@@ -298,7 +298,7 @@ const SingleChat = () => {
                                 allUsers?.filter((u) => u._id !== singleUserData?._id)?.filter((us) => us?.displayName.toLowerCase().includes(searchText.toLowerCase())).map((user, index) => (
                                     <div
                                         key={index}
-                                        className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center mb-4`}
+                                        className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : theme === 'dark' ? 'hover:text-[#48cae4]' : theme === 'night' ? 'hover:text-[#b79ced]' : ''} duration-700 cursor-pointer flex items-center mb-4`}
                                         onClick={() => addConversation(singleUserData?._id, user?._id)}>
 
                                         <div className="relative">
@@ -366,9 +366,9 @@ const SingleChat = () => {
 
                     </div>
 
-                    <div className='flex justify-center'>
+                    {/* <div className='flex justify-center'>
                         <Link to="/group-conversations" className='text-black hover:text-white font-[Cinzel] from-[#0096c7] via-[#00b4d8] to-[#ade8f4] bg-gradient-to-tl my-2 px-8 py-1 rounded-lg hover:rounded-2xl duration-700'>Group Conversation</Link>
-                    </div>
+                    </div> */}
 
                     {/* --------------Search Options ------------*/}
                     <div className='py-1 w-9/12 mx-auto'>
@@ -399,7 +399,7 @@ const SingleChat = () => {
                             {
                                 conversationData?.map((singleUserData, index) => (
 
-                                    <div key={index} className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center gap-3 mb-4`}
+                                    <div key={index} className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : theme === 'dark' ? 'hover:text-[#48cae4]' : theme === 'night' ? 'hover:text-[#b79ced]' : ''} duration-700 cursor-pointer flex items-center gap-3 mb-4`}
                                         onClick={() => getConversation(singleUserData?.conversationId, singleUserData?.user._id)}>
 
                                         <div className='relative'>
@@ -539,7 +539,7 @@ const SingleChat = () => {
                             {allUsers?.filter((u) => u._id !== singleUserData?._id)?.map((user, index) => (
                                 <div
                                     key={index}
-                                    className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : 'hover:text-[#48cae4]'} duration-700 cursor-pointer flex items-center mb-4`}
+                                    className={`${theme === 'light' ? 'hover:text-[#3c6e71]' : theme === 'dark' ? 'hover:text-[#48cae4]' : theme === 'night' ? 'hover:text-[#b79ced]' : ''} duration-700 cursor-pointer flex items-center mb-4`}
                                     onClick={() => addConversation(singleUserData?._id, user?._id)}>
 
                                     <div className="relative">
