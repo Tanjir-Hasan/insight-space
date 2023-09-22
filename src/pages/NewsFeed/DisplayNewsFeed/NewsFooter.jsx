@@ -53,7 +53,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
       <div className="flex items-center space-x-8 p-6">
         <div className="w-full flex items-center gap-5">
           <button
-            onClick={() => handleReact(p._id, userDetails?.email)}
+            onClick={() => handleReact(p?._id, userDetails?.email)}
             className="flex items-center"
           >
             <AiFillHeart
@@ -79,7 +79,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
       </div>
 
       {/* comment body  */}
-      {hide === p._id && (
+      {hide === p?._id && (
         <div>
           <div className="flex items-center space-x-2 px-4 py-6 border border-spacing-2 rounded-lg">
             <img
@@ -120,7 +120,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
               className="mt-1 mx-1 block w-1/6 pl-3 pr-6 py-2 text-base
            border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 
            sm:text-sm rounded-md"
-              onChange={() => handleShowAllComments(p._id)}
+              onChange={() => handleShowAllComments(p?._id)}
             >
               <option>Top Comments</option>
               <option>All Comments</option>
@@ -144,7 +144,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
 
                       <p hidden={commentAction === c.commentId}>{c.comment}</p>
 
-                      {commentAction === c.commentId && (
+                      {commentAction === c?.commentId && (
                         <div>
                           <textarea
                             ref={updateRef}
@@ -160,7 +160,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
                             className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full"
                             onClick={() =>
                               handleUpdateComment(
-                                p._id,
+                                p?._id,
                                 c.commentId,
                                 updateRef,
                                 setIsAction,
