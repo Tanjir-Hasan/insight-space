@@ -77,13 +77,13 @@ const BlogCard = ({ blogs, latest }) => {
 
                         <main>
 
-                            <div className="flex space-x-2 lg:mb-6 mb-3">
+                            {/* <div className="flex space-x-2 lg:mb-6 mb-3">
                                 <img src={singleData?.userPhoto} alt="user photo" className="w-12 h-12 rounded-full" />
                                 <div>
                                     <p className="text-lg font-semibold pt-1">{singleData?.userName}</p>
                                     <h6 className="flex items-center text-xs"><FaHistory className="me-2"></FaHistory>{moment(singleData?.date).startOf('hour').fromNow()}</h6>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <h2 className='font-[Cinzel] lg:text-2xl '>{latest?.text.substring(0, 70)}... {"  "}
                                 <span className='text-[#bbd2ef] hover:font-semibold cursor-pointer'>Read more</span>

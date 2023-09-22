@@ -4,15 +4,19 @@ import useMyPost from '../../../../../Hooks/useMyPost';
 
 
 const MyPhotos = () => {
+
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     const [myPost] = useMyPost();
-    const [photos, setPhotos] = useState([])
+
+    const [photos, setPhotos] = useState([]);
     // console.log(myPost)
 
     const handlePhoto = (_id) => {
         const findData = myPost?.find(photo => photo?._id === _id)
         setPhotos(findData)
-    }
+    };
+
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -20,26 +24,28 @@ const MyPhotos = () => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
     const handleDownloadClick = () => {
         // Trigger the download using downloadjs
         download(photos?.imgURL, 'image.jpg');
     };
 
-
-
     return (
-        <div className=''>
+        <div className='px-4 h-screen'>
             <p className="text-xl border-b pb-2 border-[#3c6e71] font-bold">
-                Total Photos <span className='bg-[#344e41] text-white rounded-full p-1 px-3'>{myPost?.length}</span>
+                My Photos
+                {/* <span className='bg-[#344e41] text-white rounded-full p-1 px-3'>{myPost?.length}</span> */}
             </p>
 
             {
                 myPost?.length > 0 ?
-                    <div className="flex mt-5 gap-5 ">
+                    <div className="lg:flex lg:flex-wrap md:grid md:grid-cols-2 mt-5 gap-5">
                         {myPost?.map((image, index) => (
                             <div key={image?._id}>
                                 <div onClick={openModal}>
-                                    <img onClick={() => handlePhoto(image?._id)} className='h-40 w-60' src={image?.imgURL} alt="" />
+                                    {
+                                        image?.imgURL && <img onClick={() => handlePhoto(image?._id)} className='lg:h-40 lg:w-60 w-full h-52  md:mb-0 mb-5' src={image?.imgURL} alt="" />
+                                    }
                                 </div>
                             </div>
                         ))}
@@ -49,10 +55,6 @@ const MyPhotos = () => {
                         <h2 className='lg:text-3xl text-xl  font-semibold text-center mt-20'>You haven't uploaded any photo yet!</h2>
                     )
             }
-
-
-
-
 
 
             {/* modal start */}

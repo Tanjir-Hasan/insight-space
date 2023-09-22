@@ -62,7 +62,9 @@ const MemberShips = () => {
 
                         <p className="my-8 font-sans">Dive into a realm of unparalleled privileges with our Exclusive Membership section. Elevate your experience and gain access to a curated selection of premium content, personalized services, and extraordinary offers</p>
                         <Link to="/instructor-payment">
-                            <button className="font-semibold mt-5 bg-white text-[#3c6e71] hover:bg-[#48cae4] hover:text-black px-3 py-2 rounded-sm duration-700">Show All</button>
+                            <button className={`${theme === 'light' ? 'text-white bg-gradient-to-l from-[#006466] to-[#212f45] hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45]' :
+                            theme === 'dark' ? 'text-white bg-gradient-to-r from-[#48cae4] to-[#051923] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4]' :
+                                theme === 'night' ? 'text-white bg-gradient-to-r from-[#0d1b2a] to-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced]' : ''} font-semibold mt-5 px-3 py-2 rounded-sm duration-700 md:w-1/5 w-1/2`}>Show All</button>
                         </Link>
 
                     </div>

@@ -75,7 +75,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
           </button>
         </div>
 
-        <SSLPaymentModal></SSLPaymentModal>
+        {/* <SSLPaymentModal></SSLPaymentModal> */}
       </div>
 
       {/* comment body  */}
@@ -117,7 +117,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
           {/* category comments  */}
           {allComments?.length > 0 && (
             <select
-              className="mt-1 mx-1 block w-1/6 pl-3 pr-6 py-2 text-base
+              className="text-black mt-1 mx-1 block w-1/6 pl-2 py-2 text-base
            border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 
            sm:text-sm rounded-md"
               onChange={() => handleShowAllComments(p._id)}

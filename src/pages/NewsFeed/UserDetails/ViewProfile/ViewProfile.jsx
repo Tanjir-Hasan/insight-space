@@ -11,7 +11,7 @@ const ViewProfile = () => {
 
   return (
     <div className={`${theme}`}>
-      <div className="w-11/12  mx-auto">
+      <div className="w-11/12 mx-auto">
         <div className="py-5">
           <LinkedInProfile></LinkedInProfile>
         </div>

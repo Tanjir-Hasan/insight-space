@@ -83,10 +83,7 @@ const OurTeam = () => {
                     theme === 'light' ? 'border-[#3c6e71]' : ''}`}>Our Team</h2>
             </div>
 
-
-
-
-            <div className="md:flex gap-20 items-center mt-20">
+            <div className="md:flex gap-20 items-center mt-20 lg:px-0 px-2">
 
                 {/* 1st team member information */}
 
@@ -247,8 +244,9 @@ const OurTeam = () => {
 
             {/* 3 number member information */}
 
-            <div className='mx-auto my-5 md:mx-0 '>
-                <div className='flex gap-5 items-center justify-center'>
+            <div className='mx-auto my-5 md:mx-0'>
+                <div className='lg:flex gap-5 items-center justify-center'>
+
                     <motion.div
                         ref={ref}
                         initial="hidden"
@@ -258,11 +256,11 @@ const OurTeam = () => {
                             hidden: { opacity: 0, x: -100 },
                         }}
                         transition={{ duration: 1.5 }}
-                        className="relative text-right" >
+                        className="relative lg:text-right text-center" >
 
                         <h2 style={{ fontFamily: "'Dancing Script', cursive" }} className='text-2xl'>{teamData.sumaiya.teamName}</h2>
 
-                        <p className='font-[Cinzel] text-xl'>@gmail.com</p>
+                        <p className='font-[Cinzel] text-xl'>sumaiyasrn6@gmail.com</p>
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`w-6 h-6 -right-6 absolute top-3 ${theme === 'dark' ? 'text-[#48cae4]' :
                             theme === 'night' ? 'text-[#b79ced]' :
@@ -282,7 +280,7 @@ const OurTeam = () => {
                         }}
                         transition={{ duration: 1.5 }}>
 
-                        <div className=" bg-slate-500 h-32 w-32 border-2"
+                        <div className=" bg-slate-500 h-32 w-32 border-2 lg:mx-0 mx-auto"
                             style={customClipPathStyle}>
                             <img className='h-30 w-36' src={teamData.sumaiya.memberImg} alt="" />
                         </div>
@@ -298,7 +296,7 @@ const OurTeam = () => {
                             hidden: { opacity: 0, x: 100 },
                         }}
                         transition={{ duration: 1.5 }}
-                        className="relative" >
+                        className="relative " >
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`w-6 h-6 absolute -left-6 bottom-3 ${theme === 'dark' ? 'text-[#48cae4]' :
                             theme === 'night' ? 'text-[#b79ced]' :
@@ -306,29 +304,29 @@ const OurTeam = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                         </svg>
 
-                        <div className='flex justify-end gap-3 mt-1 '>
+                        <div className='flex lg:justify-end justify-center gap-3 mt-1 '>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="#" target='_blank'>
+                                    <a href="https://www.facebook.com/profile.php?id=100077130393018&mibextid=ZbWKwL" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://www.linkedin.com/in/sumaiya-akhter-enuka-11b877271/" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
                                         <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://github.com/SumaiyaAK" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://rich-play.surge.sh/" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
@@ -346,7 +344,7 @@ const OurTeam = () => {
 
             {/* 4st team member information */}
 
-            <div className="md:flex gap-20 mx-auto  ">
+            <div className="md:flex gap-20 mx-auto lg:px-0 px-2">
 
                 <motion.div
                     ref={ref}
@@ -378,31 +376,31 @@ const OurTeam = () => {
 
                         <h3 style={{ fontFamily: "'Dancing Script', cursive" }} className='text-2xl'>{teamData.jahirul.teamName}</h3>
 
-                        <p className='font-[Cinzel] text-xl'>@gmail.com</p>
+                        <p className='font-[Cinzel] text-xl'>jahirulislam41185@gmail.com</p>
 
                         <div className='flex justify-end gap-3 mt-1'>
                             <div className='.buttonBody'>
                                 <div className="icons">
-                                    <a href="#" target='_blank'>
+                                    <a href="https://www.facebook.com/ujahir.islam" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md ' src={teamData?.SocialImg[0]} alt="" /></span>
                                         </div>
                                         <div className="text">Facebook </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://www.linkedin.com/in/jahirul-islam-b4223b267" target='_blank'>
                                         <div className="layer"><span></span><span></span><span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[1]} alt="" /></span>
                                         </div>
                                         <div className="text">Linkedin </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://github.com/jahirul94" target='_blank'>
                                         <div className="layer">
                                             <span></span><span></span> <span></span><span></span>
                                             <span > <img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[2]} alt="" /></span>
                                         </div>
                                         <div className="text">Github </div>
                                     </a>
-                                    <a href="#" target='_blank'>
+                                    <a href="https://jahirulislam.web.app/" target='_blank'>
                                         <div className="layer"><span></span><span></span> <span></span><span></span>
                                             <span ><img className='w-8 h-8 rounded-md' src={teamData?.SocialImg[3]} alt="" /></span>
                                         </div>
@@ -453,7 +451,7 @@ const OurTeam = () => {
                         style={customClipPathStyle}>
                         <img className=' h-36 w-36' src={teamData.kakan.memberImg} alt="" />
                     </div>
-                    
+
                     <div className=''>
 
                         <h3 style={{ fontFamily: "'Dancing Script', cursive" }} className='text-2xl'>{teamData.kakan.teamName}</h3>

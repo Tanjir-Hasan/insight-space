@@ -235,8 +235,8 @@ const SingleChat = () => {
                                                     >
 
                                                         <div className='flex justify-between items-center'>
-                                                            <span>{message?.message}</span>
-                                                            <span>{message?.date && moment(message?.date).format('DD-MM-YYYY')}</span>
+                                                            <span className='text-sm'>{message?.message}</span>
+                                                            <span className='text-xs'>{message?.date && moment(message?.date).format('DD-MM-YYYY')}</span>
                                                         </div>
 
                                                     </div>)
