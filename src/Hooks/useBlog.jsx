@@ -1,16 +1,18 @@
 import { useEffect } from "react";
-import usePosts from "./usePosts";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "../StateManagment/Posts/postSlice";
 import { useState } from "react";
 
 const useBlog = () => {
-  const [posts, refetch] = usePosts();
   const [reloadBlog, setReloadBlog] = useState(false);
-  const [blogs, setBlogs] = useState([]);
+  const { isLoading, posts, error } = useSelector(state => state.posts);
+  const blogs = posts?.filter(blg => blg.category === "Blog");
+  const dispatch = useDispatch();
   useEffect(() => {
-    const findData = posts?.filter((blog) => blog.category === "Blog");
-    setBlogs(findData);
-  }, [posts, reloadBlog]);
-  return [blogs, refetch, reloadBlog, setReloadBlog];
+    dispatch(fetchPosts())
+  }, [reloadBlog])
+  return [blogs, reloadBlog, setReloadBlog]
 };
-
 export default useBlog;
+// 
+

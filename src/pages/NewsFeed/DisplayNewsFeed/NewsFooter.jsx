@@ -75,7 +75,7 @@ const NewsFooter = ({ p, hide, setHide }) => {
           </button>
         </div>
 
-        <SSLPaymentModal></SSLPaymentModal>
+        {/* <SSLPaymentModal></SSLPaymentModal> */}
       </div>
 
       {/* comment body  */}
