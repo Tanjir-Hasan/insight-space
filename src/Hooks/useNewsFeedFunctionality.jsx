@@ -3,12 +3,15 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "./useAxiosSecure";
 import useBookMarks from "./useBookMarks";
 import useAuth from "./useAuth";
+import useBlog from "./useBlog";
 
 const useNewsFeedFunctionality = () => {
   const [axiosSecure] = useAxiosSecure();
   const [, refetch] = usePosts();
   const { user } = useAuth();
-  const [bookmarks, reload, setReload] = useBookMarks();
+  const [, reload, setReload] = useBookMarks();
+  const [, reloadBlog, setReloadBlog] = useBlog();
+
   //   for react react
   const handleReact = (id, email) => {
     const addReact = { id, email };
@@ -17,6 +20,7 @@ const useNewsFeedFunctionality = () => {
         .then((data) => {
           if (data) {
             refetch();
+            setReloadBlog(!reloadBlog)
           }
         })
         .catch((err) => console.log(err.message));
@@ -29,6 +33,7 @@ const useNewsFeedFunctionality = () => {
       .then((data) => {
         if (data) {
           refetch();
+          setReloadBlog(!reloadBlog)
           Swal.fire(
             "Success!",
             "This Question save on your collections.",
@@ -48,6 +53,7 @@ const useNewsFeedFunctionality = () => {
         if (data.data.modifiedCount > 0) {
           refetch();
           setIsOpenModal(!isOpenModal);
+          setReloadBlog(!reloadBlog);
         }
       })
       .catch((err) => console.log(err.message));
@@ -68,6 +74,7 @@ const useNewsFeedFunctionality = () => {
         .then((data) => {
           if (data) {
             refetch();
+            setReloadBlog(!reloadBlog);
             Swal.fire({
               position: "center",
               icon: "success",
@@ -97,6 +104,7 @@ const useNewsFeedFunctionality = () => {
           setCommentAction(null);
           setIsAction(null);
           refetch();
+          setReloadBlog(!reloadBlog);
         }
       })
       .catch((err) => console.log(err));
@@ -117,6 +125,7 @@ const useNewsFeedFunctionality = () => {
         axiosSecure.patch("/deleteComment", data)
           .then((data) => {
             refetch();
+            setReloadBlog(!reloadBlog);
             if (data) {
               Swal.fire(
                 "Deleted!",
@@ -135,6 +144,7 @@ const useNewsFeedFunctionality = () => {
       axiosSecure.delete(`/deletePost/${post._id}`)
         .then((data) => {
           refetch();
+          setReloadBlog(!reloadBlog);
           Swal.fire("Deleted!", "Your Post has been deleted.", "success");
         })
         .catch((err) => console.log(err.message));
@@ -143,6 +153,7 @@ const useNewsFeedFunctionality = () => {
         .then((data) => {
           if (data.data.deletedCount > 0) {
             setReload(!reload);
+            setReloadBlog(!reloadBlog);
             Swal.fire("Deleted!", "Your Bookmark has been deleted.", "success");
           }
         })
