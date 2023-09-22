@@ -222,7 +222,14 @@ const BlogFeed = () => {
                         <>
                           <p>{singleData?.text}</p>
                           <span
-                            className="font-semibold text-[#3c6e71] cursor-pointer"
+                            className={`${theme === "dark"
+                              ? "text-[#48cae4]"
+                              : theme === "night"
+                                ? "text-[#b79ced]"
+                                : theme === "light"
+                                  ? "text-[#3c6e71]"
+                                  : ""
+                              } font-semibold cursor-pointer`}
                             onClick={() => setShow(!show)}
                           >
                             Read Less
@@ -230,11 +237,18 @@ const BlogFeed = () => {
                         </>
                       ) : (
                         <>
-                          <p className="text-slate-500">
+                          <p className="text-slate-100">
                             {singleData.text.substring(0, 250)} ......
                           </p>
                           <span
-                            className="font-semibold text-[#3c6e71] cursor-pointer"
+                            className={`${theme === "dark"
+                              ? "text-[#48cae4]"
+                              : theme === "night"
+                                ? "text-[#b79ced]"
+                                : theme === "light"
+                                  ? "text-[#3c6e71]"
+                                  : ""
+                              } font-semibold cursor-pointer`}
                             onClick={() => setShow(!show)}
                           >
                             Read More

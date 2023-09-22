@@ -191,17 +191,31 @@ const NewsFooter = ({ p, hide, setHide }) => {
                     </button>
 
                     {isAction === c.commentId && (
-                      <div>
+                      <div className="flex flex-col justify-end">
                         {/* edit btn  */}
                         <button
-                          className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full mb-2"
+                          className={`${theme === "dark"
+                            ? "text-[#48cae4] font-semibold border-[#48cae4] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4] hover:text-white"
+                            : theme === "night"
+                              ? "text-[#b79ced] font-semibold border-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced] hover:text-white"
+                              : theme === "light"
+                                ? "text-black font-semibold hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45] hover:text-white border-[#3c6e71]"
+                                : ""
+                            } border-2 px-10 py-1 rounded-xl transition duration-700 mb-2`}
                           onClick={() => setCommentAction(c.commentId)}
                         >
                           Edit
                         </button>
                         {/* delete btn  */}
                         <button
-                          className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300 w-full"
+                          className={`${theme === "dark"
+                          ? "text-[#48cae4] font-semibold border-[#48cae4] hover:bg-gradient-to-r hover:from-[#051923] hover:to-[#48cae4] hover:text-white"
+                          : theme === "night"
+                            ? "text-[#b79ced] font-semibold border-[#b79ced] hover:bg-gradient-to-l hover:from-[#0d1b2a] hover:to-[#b79ced] hover:text-white"
+                            : theme === "light"
+                              ? "text-black font-semibold hover:bg-gradient-to-r hover:from-[#006466] hover:to-[#212f45] hover:text-white border-[#3c6e71]"
+                              : ""
+                          } border-2 px-10 py-1 rounded-xl transition duration-700 mb-2`}
                           onClick={() => handleDelete(p._id, c.commentId)}
                         >
                           Delete
